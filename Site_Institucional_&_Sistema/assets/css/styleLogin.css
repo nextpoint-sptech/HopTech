@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+body{
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+.container_areas_login{
+    display: flex;
+}
+
+.area_hop_tech_login{
+    width: 40%;
+    height: 100vh;
+    background-color: #9DC08B;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.logoProjetoAreaLogin{
+    width: 90%;
+}
+
+.area_hop_tech_login .footerLogin{
+    width: 90%;
+    color: #40513B;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+footer{
+    bottom: 0;
+    position: absolute;
+    margin-bottom: 30px;
+}
+
+.area_login{
+    width: 60%;
+    height: 100vh;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #40513B;
+}
+
+.divLogoEmpresaAreaLogin{
+    width: 80%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.logoEmpresaAreaLogin{
+    width: 150px;
+}
+
+.logoEmpresaAreaLogin:hover{
+    width: 200px;
+}
+
+.divLogin{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: -100px;
+}
+
+.formLogin{
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+}
+
+.formLogin .iptLogin{
+    width: 100%;
+    height: 35px;
+    border: none;
+    border-radius: 25px;
+    background-color: #e4e4e3;
+    padding-left: 15px;
+    font-size: 18px;
+}
+
+.formLogin .iptLogin:hover{
+    border-color: #40513B;
+}
+
+.formLogin .btnEntrarLogin{
+    width: 50%;
+    height: 35px;
+    border: none;
+    border-radius: 25px;
+    text-transform: uppercase;
+    color: #ffffff;
+    font-weight: bold;
+    background-color: #40513B;
+    margin-top: 20px;
+    align-self: center;
+}
+
+.formLogin .btnEntrarLogin:hover{
+    border-color: #40513B;
+    background-color: #9DC08B;
+}
+
+.linksLogin{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.linksLogin .a{
+    color: #40513B;
+    font-size: 15px;
+}
+
+.linksLogin .a:hover{
+    color: #9DC08B;
+}
