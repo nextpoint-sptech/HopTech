@@ -18,7 +18,7 @@ create table empresa_cliente(
 
 create table telefone_empresa(
 	idTelefone int primary key auto_increment,
-    telefone varchar(15),
+    telefone varchar(15) not null,
     fkEmpresa int, foreign key (fkEmpresa) references empresa_cliente(idEmpresa)
 );
 
