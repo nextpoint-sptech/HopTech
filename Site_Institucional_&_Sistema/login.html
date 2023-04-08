@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,7 +8,6 @@
     <link rel="shortcut icon" href="./assets/images/flaticon-NEXTpoint.png" type="image/x-icon">
     <link rel="stylesheet" href="./assets/css/styleLogin.css">
 </head>
-
 <body>
     <div class="container_areas_login">
         <div class="area_hop_tech_login">
@@ -24,20 +22,37 @@
             </div>
             <div class="divLogin">
                 <h1>Login</h1>
-                <form class="formLogin" action="" method="post">
+                <form class="formLogin" id="formLogin" action="#" method="post">
                     <label>Usuário*</label>
-                    <input class="iptLogin" type="text" id="ipt_usuario">
+                    <input class="iptLogin" type="text" id="ipt_usuario" required>
                     <label>Senha*</label>
-                    <input class="iptLogin" type="password" id="ipt_senha">
+                    <input class="iptLogin" type="password" id="ipt_senha" required>
                     <div class="linksLogin">
                         <a class="a" href="#">Ainda não possui cadastro? Acesse aqui.</a>
                         <a class="a" href="#">Esqueci minha senha</a>
                     </div>
-                    <input class="btnEntrarLogin" type="submit" value="Entrar">
+                    <input class="btnEntrarLogin" type="submit" value="Entrar" onclick="fazerLogin()">
                 </form>
             </div>
         </div>
     </div>
 </body>
-
 </html>
+<script>
+    function fazerLogin(){
+        var usuario = ipt_usuario.value;
+        var senha = ipt_senha.value;
+
+        if(usuario == "hoppers" && senha == "123"){
+            window.location.href = "https://github.com/nextpointbr/HopTech/tree/main/Banco_de_Dados";
+            console.log('123')
+        }else if(usuario == "AdiminEmpresaCliente" && senha == "1234"){
+            window.location.href = "./area-restrita/dashboard.html";
+        }else{
+            formLogin.style.color = "red";
+            if(usuario != "" && senha != ""){
+                alert("Usuário ou Senha incorretos! Tente Novamente.");
+            }
+        }
+    }
+</script>
