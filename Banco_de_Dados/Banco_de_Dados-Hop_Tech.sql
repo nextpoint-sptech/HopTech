@@ -1,5 +1,4 @@
 create database hop_tech;
-
 use hop_tech;
 
 create table empresa_cliente(
@@ -7,8 +6,6 @@ create table empresa_cliente(
     nomeEmpresa varchar(50) not null,
     cnpj char(18) not null,
     emailEmpresa varchar(100) not null,
-    tel1Empresa varchar(20) not null,
-    tel2Empresa varchar(20),
     estadoEmpresa varchar(50) not null,
     cidadeEmpresa varchar(50) not null,
     cepEmpresa char(9) not null,
@@ -16,9 +13,21 @@ create table empresa_cliente(
     ruaEmpresa varchar(50) not null,
     numeroEmpresa int not null,
     complementoEmpresa varchar(100),
-    responsavelEmpresa varchar(50) not null,
-    usuarioEmpresa varchar(45) not null,
-    senhaEmpresa varchar(45) not null
+    responsavelEmpresa varchar(50) not null
+);
+
+create table telefone_empresa(
+	idTelefone int primary key auto_increment,
+    telefone varchar(15),
+    fkEmpresa int, foreign key (fkEmpresa) references empresa_cliente(idEmpresa)
+);
+
+create table usuario(
+	idUsuario int primary key auto_increment,
+    tipoUsuario int, constraint chkTpUsuario check (tipoUsuario in (0, 1)),
+    usuario varchar(45) not null,
+    senha varchar(45) not null,
+    fkEmpresa int, foreign key(fkEmpresa) references empresa_cliente(idEmpresa)
 );
 
 create table lupulo(
@@ -43,7 +52,8 @@ create table sensor(
 	idSensor int primary key auto_increment,
     tipoSensor varchar(45) not null, constraint chkTpSensor check (tipoSensor in('Luminosidade')),
     statusSensor varchar(45) not null, constraint chkStatusSensor check (statusSensor in('Ativo', 'Inativo', 'Em manutenção')),
-    fkPlantacao int not null, foreign key (fkPlantacao) references plantacao(idPlantacao)
+    fkPlantacao int not null, foreign key (fkPlantacao) references plantacao(idPlantacao),
+    regiaoSensor varchar(45), constraint chkRegiaoSensor check (regiaoSensor in ('Norte', 'Nordeste', 'Centro-Oeste', 'Suldeste', 'Sul'))
 );
 
 create table capturaLuminosidade(
