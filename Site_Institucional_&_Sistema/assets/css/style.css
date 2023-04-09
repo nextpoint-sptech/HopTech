@@ -248,6 +248,74 @@ h3{
     background-color: #9a4df9;
 }
 
+#contato{
+    height: 100vh;
+    background-color: #2d2727;
+}
+
+#contato h1{
+    width: 85%;
+    margin: auto;
+}
+
+#contato div{
+    margin-top: 20px;
+}
+
+.form_contato{
+    display: flex;
+    flex-direction: column;
+}
+
+.form_contato .ipt_contato{
+    height: 35px;
+    border: none;
+    border-radius: 25px;
+    background-color: #E4E4E3;
+    padding-left: 15px;
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.form_contato .ipt_msg_contato{
+    border: none;
+    border-radius: 25px;
+    background-color: #E4E4E3;
+    padding: 15px;
+    font-size: 18px;
+}
+
+.form_contato .btn_enviar_mensagem{
+    width: 50%;
+    height: 40px;
+    border: none;
+    border-radius: 20px;
+    background-color: #8f43ee;
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-top: 20px;
+}
+
+.form_contato .btn_enviar_mensagem:hover{
+    height: 42px;
+    background-color: #9a4df9;
+}
+
+.containerSection .div_info_contato{
+    border-left: solid 2px #8f43ee;
+    margin-top: 0;
+    padding-left: 3%;
+}
+
+.containerSection .div_info_contato .icon_rede_social:hover{
+    width: 34px;
+}
+
+h2{
+    color: #8f43ee;
+}
 
 #footer{
     height: 45vh;
@@ -290,7 +358,7 @@ h4{
     margin-bottom: 10px;
 }
 
-.containerFooter .div_menu_contato .contatoFooter .icon_contato{
+.icon_contato{
     margin-right: 10px;
 }
 
