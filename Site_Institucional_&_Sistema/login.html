@@ -31,7 +31,7 @@
                         <a class="a" href="#">Ainda não possui cadastro? Acesse aqui.</a>
                         <a class="a" href="#">Esqueci minha senha</a>
                     </div>
-                    <input class="btnEntrarLogin" type="submit" value="Entrar" onclick="fazerLogin()">
+                    <input class="btnEntrarLogin" type="submit" value="Entrar" onclick="fazerLogin(); return false">
                 </form>
             </div>
         </div>
@@ -44,13 +44,13 @@
         var senha = ipt_senha.value;
 
         if(usuario == "hoppers" && senha == "123"){
-            window.location.href = "https://github.com/nextpointbr/HopTech/tree/main/Banco_de_Dados";
+            window.parent.location.href ="./area-restrita/dashboard.html";
         }else if(usuario == "AdiminEmpresaCliente" && senha == "1234"){
-            window.location.href = "./area-restrita/dashboard.html";
+            window.parent.location.href ="./area-restrita/dashboard.html";
         }else{
             formLogin.style.color = "red";
             if(usuario != "" && senha != ""){
-                alert("Usuário ou Senha incorretos! Tente Novamente.");
+                alert("Usuário e/ou Senha incorretos! Tente Novamente.");
             }
         }
     }
