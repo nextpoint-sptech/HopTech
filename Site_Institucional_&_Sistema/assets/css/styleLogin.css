@@ -56,8 +56,8 @@ footer{
     width: 150px;
 }
 
-.logoEmpresaAreaLogin:hover{
-    width: 200px;
+.area_login .divLogoEmpresaAreaLogin .logoEmpresaAreaLogin:hover{
+    cursor: pointer;
 }
 
 .divLogin{
@@ -67,7 +67,7 @@ footer{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: -100px;
+    padding-top: -100px;
 }
 
 .formLogin{

@@ -7,6 +7,7 @@ body{
     font-family: 'Poppins', sans-serif;
     background-color: #2d2727;
     color: #ffffff;
+    overflow-x: hidden;
 }
 
 #inicio{
@@ -20,6 +21,7 @@ body{
 }
 
 .header{
+    width: 100%;
     padding-top: 10px;
     padding-bottom: 10px;
     background-color:  rgba(0,0,0, 0.2);
