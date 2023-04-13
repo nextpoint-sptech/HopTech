@@ -323,8 +323,13 @@ h3{
     padding-left: 3%;
 }
 
+.containerSection .div_info_contato .icon_rede_social{
+    margin-right: 10px;
+}
+
 .containerSection .div_info_contato .icon_rede_social:hover{
     width: 34px;
+    cursor: pointer;
 }
 
 h2{
