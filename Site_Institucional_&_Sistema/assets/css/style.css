@@ -25,6 +25,13 @@ body{
     padding-top: 10px;
     padding-bottom: 10px;
     background-color:  rgba(0,0,0, 0.2);
+    position: fixed;
+    transition: 0.5s ease-in-out;
+}
+
+.header.ativa {
+    background-color: #2e2929;
+    box-shadow: 2px 3px #212121;
 }
 
 .header .container{
@@ -44,6 +51,10 @@ body{
     align-items: center;
     justify-content: space-between;
     list-style: none;
+}
+
+.navbar.ativa {
+    color:#ffffff;
 }
 
 .navbar a{

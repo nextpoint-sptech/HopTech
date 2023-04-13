@@ -10,12 +10,12 @@
 </head>
 <body>
     <section id="inicio">
-        <div class="header">
+        <div class="header" id="header">
             <div class="container">
                 <div class="logoEmpresa">
                     <img src="./assets/images/NEXTpoint-logo.png" width="150px" alt="Logo da empresa NextPoint">
                 </div>
-                <ul class="navbar">
+                <ul class="navbar" id="navbar">
                     <li class="agora"><a href="#inicio">Inicio</a></li>
                     <li><a href="#quemSomos">Quem somos?</a></li>
                     <li><a href="#equipe">Equipe</a></li>
@@ -208,15 +208,4 @@
     </footer>
 </body>
 </html>
-<script>
-    function enviarMensagem(){
-        var nomeEmpresa = ipt_nome_empresa.value;
-        var telefoneEmpresa = ipt_telefone_empresa.value;
-        var emailEmpresa = ipt_email_empresa.value;
-        var mensagem = ipt_mensagem_empresa.value;
-
-        if(nomeEmpresa != "" && telefoneEmpresa != "" && emailEmpresa != "" && mensagem != ""){
-            alert("Mensagem enviada com sucesso! Logo entraremos em contato :)");
-        }
-    }
-</script>
+<script src="./js/index.js"></script>
