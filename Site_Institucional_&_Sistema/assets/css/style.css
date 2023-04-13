@@ -240,6 +240,7 @@ h3{
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 20px;
 }
 
 .btn_conhecer_hoptech{
