@@ -27,9 +27,20 @@
     <div class="div_conteiner_conteudo">
         <div class="div_menu_top">
             <div><!--  --></div>
-            <h3 class="titleDashboard">Gerenciamento - LupAgro</h3>
-            <button class="btnSair">Sair</button>
+            <h3 class="titleDashboardCliente">Gerenciamento - LupAgro</h3>
+            <button class="btnSair" onclick="sair(); return false">Sair</button>
+        </div>
+        <div class="conteiner_dashboard">
+            <div class="titleDashboard">
+                <h1>Dashboard</h1>
+                <span id="data">28/04/2004</span>
+            </div>
+            <div class="conteudo_graficos_dashboard">
+                <div class="conteiner_graficos"></div>
+                <div class="div_alertas"></div>
+            </div>
         </div>
     </div>
 </body>
 </html>
+<script src="../assets/js/dashboard.js"></script>

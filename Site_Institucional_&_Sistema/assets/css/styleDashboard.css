@@ -10,9 +10,9 @@ body{
     margin: 0;
     padding: 0;
     font-family: 'Poppins', sans-serif;
-    background-color: #ffffff;
+    background-color: #CCE6BF;
     color: #4C683F;
-    overflow-x: hidden;
+    overflow: hidden;
 }
 
 #dashboard{
@@ -93,7 +93,7 @@ body{
     width: 55%;
 }
 
-.div_menu_top .titleDashboard{
+.div_menu_top .titleDashboardCliente{
     font-size: 20px;
     font-weight: 500;
     margin-left: 2%;
@@ -115,4 +115,41 @@ body{
     height: 53%;
     background-color: #506945;
     cursor: pointer;
+}
+
+.conteiner_dashboard{
+    width: 96%;
+    height: 91vh;
+    margin: auto;
+}
+
+.titleDashboard{
+    display: flex;
+    justify-content: space-between;
+}
+
+h1{
+    font-size: 30px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.titleDashboard #data{
+    font-size: 28px;
+    margin-top: 10px;
+}
+
+.conteudo_graficos_dashboard{
+    height: 87%;
+    display: flex;
+}
+
+.conteiner_graficos{
+    border: solid blue;
+    width: 75%;
+}
+
+.div_alertas{
+    border: solid red;
+    width: 25%;
 }
