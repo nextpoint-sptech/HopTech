@@ -148,7 +148,7 @@ h1{
 .conteiner_graficos{
     border-right: solid #9DC08B;
     width: 72%;
-    padding-right: 1%;
+    padding-right: 1.5%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -168,6 +168,9 @@ h1{
     width: 30%;
     background-color: #ffffff;
     border-radius: 20px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
 }
 
 .div_grafico1{
@@ -235,4 +238,27 @@ p{
     text-align: center;
     font-size: 30px;
     color: #9DC08B;
+}
+
+.box_indicador h5{
+    font-size: 15px;
+    color: rgba(76, 104, 63, 0.6);
+    margin: 0;
+    margin-bottom: 5px;
+}
+
+.box_indicador .valorIndicador{
+    font-size: 26px;
+    font-weight: bold;
+}
+
+.txt_indicador1{
+    margin-right: auto;
+    margin-left: 5%;
+}
+
+.icon_indicadores{
+    width: 70px;
+    height: 50px;
+    margin-left: 15px;
 }
