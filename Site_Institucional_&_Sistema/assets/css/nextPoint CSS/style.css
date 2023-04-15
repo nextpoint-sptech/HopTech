@@ -116,13 +116,13 @@ body{
     margin-top: -100px;
 }
 
-.txtInicio h3{
-    color: #ffffff;
-}
-
 h1{
     color: #8f43ee;
     font-size: 35px;
+}
+
+h3{
+    font-size: 18px;
 }
 
 #quemSomos{

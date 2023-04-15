@@ -1,0 +1,136 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+:root{
+    --color1: #40513B;
+    --color2: #609966;
+    --color3: #9DC08B;
+    --color4: #CFB997;
+    --color5: #FAD6A5;
+}
+
+::-webkit-scrollbar-track {
+    background-color: rgba(255, 255, 255, .5);
+    backdrop-filter: blur(15px);
+  }
+::-webkit-scrollbar {
+    width: 1vw;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--color4);
+    border-radius: 2px solid black;
+    border-radius: 500px;
+    transition: .5s;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: var(--color5);
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto';
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body{
+    margin-top: 15vh;
+    background: var(--color2);
+}
+
+header{
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 15vh;
+    background: #22222236;
+    backdrop-filter: blur(15px);
+}
+
+header nav{
+    width: 90%;
+    height: 80%;
+    display: flex;
+    align-items: center;
+}
+
+header nav .imgBox{
+    display: flex;
+    height: 100%;
+}
+
+header nav .imgBox:hover{
+    animation: logoJumping .5s ease-out infinite alternate-reverse;
+}
+
+header nav .menuBox .menuList li a:hover{
+    padding: 1em 2em;
+    transition: .2s;
+    background: var(--color3);
+    border-radius: 500px;
+}
+
+@keyframes logoJumping{
+    from{
+        transform: translateY(10%);
+    }to{
+        transform: translateY(-10%);
+    }
+}
+
+header nav .menuBox .menuList *{
+    color: #fff;
+    text-decoration: none;
+}
+
+header nav{
+    justify-content: space-evenly;
+}
+
+header nav .menuBox{
+    padding: 2px;
+    width: 80%;
+    height: 80%;
+    display: flex;
+    align-items: center;
+}
+
+
+.menuList{
+    width: 100%;
+    height: 70%;
+    display: flex;
+    list-style: none;
+}
+
+.menuList .menuTopics{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 15%;
+}
+
+.menuList .menuButton{
+    display: flex;
+    justify-content: center;
+    width: 40%;
+}
+
+.menuList .menuButton button{
+    height: 100%;
+    width: 80%;
+    border-radius: 500px;
+    cursor: pointer;
+    border: none;
+    background: var(--color1);
+    font-size: 1em;
+}

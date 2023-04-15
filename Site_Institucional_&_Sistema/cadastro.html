@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+    <link rel="stylesheet" href="assets/css/cadastro CSS/cadastro.css">
+</head>
+<body>
+    <!--Containers são os elementos que armazenam as 'boxes' que são basicamente o que completam os containers-->
+    <section class="containerCadastro">
+        <div class="firstContainer">
+            <div class="titleBox">
+                <h1>Contato</h1>
+            </div>
+            <form action="" class="credentialsContainer">
+                <!--Nome Empresa-->
+                <div class="inputsRow">
+                    <div class="inputBox uniqueRow">
+                        <label for="nomeEmpresa">Nome da Empresa</label>
+                        <input id="nomeEmpresa">
+                    </div>
+                </div>
+                <!--Telefone && CNPJ-->
+                <div class="inputsRow">
+                    <div class="inputBox">
+                        <label for="telefoneEmpresa">Telefone</label>
+                        <input maxlength="13" id="telefoneEmpresa">
+                    </div>
+                    <div class="inputBox">
+                        <label for="documentoCNPJ">CNPJ</label>
+                        <input maxlength="18" id="documentoCNPJ">
+                    </div>
+                </div>
+                <!--Email-->
+                <div class="inputsRow">
+                    <div class="inputBox uniqueRow">
+                        <label for="emailEmpresa">Email</label>
+                        <input id="emailEmpresa">
+                    </div>
+                </div>
+                <!--Confirmaçao Email-->
+                <div class="inputsRow">
+                    <div class="inputBox uniqueRow">
+                        <label for="emailConfirmacao">Confirme o email</label>
+                        <input id="emailConfirmacao">
+                    </div>
+                </div>
+                <!--CEP && Estado-->
+                <div class="inputsRow">
+                    <div class="inputBox">
+                        <label for="cepEmpresa">CEP</label>
+                        <input maxlength="9" id="cepEmpresa">
+                    </div>
+                    <div class="inputBox">
+                        <label for="estadoEmpresa">Estado</label>
+                        <input id="estadoEmpresa">
+                    </div>
+                </div>
+                <!--Cidade && Bairro-->
+                <div class="inputsRow">
+                    <div class="inputBox">
+                        <label for="cidadeEmpresa">Cidade</label>
+                        <input id="cidadeEmpresa">
+                    </div>
+                    <div class="inputBox">
+                        <label for="bairroEmpresa">Bairro</label>
+                        <input id="bairroEmpresa">
+                    </div>
+                </div>
+                <!--Rua && Complemento-->
+                <div class="inputsRow">
+                    <div class="inputBox">
+                        <label for="ruaEmpresa">Rua</label>
+                        <input id="ruaEmpresa">
+                    </div>
+                    <div class="inputBox">
+                        <label for="complementoEmpresa">Complemento</label>
+                        <input id="complementoEmpresa">
+                    </div>
+                </div>
+            </form>
+
+            <div class="buttonBox">
+                <button onclick="verifyCredentials()">Cadastre-se</button>
+            </div>
+        </div>
+        <div class="secondContainer">
+            <a href="index.html"><img id="nextpoint" src="assets/images/logosProjeto/NEXTPOINT.png" alt=""></a>
+            <div class="imgBox">
+                <img src="assets/images/logosProjeto/HopTech-dark.png" alt="">
+            </div>
+        </div>
+    </section>
+</body>
+</html>
+<script src="assets/js/credenciais.js"></script>

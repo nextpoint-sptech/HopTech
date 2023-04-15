@@ -17,3 +17,7 @@ function enviarMensagem(){
                 alert("Mensagem enviada com sucesso! Logo entraremos em contato :)");
         }
 }
+
+function goHopTech(){
+        window.location.href = 'siteHopTech.html'
+}

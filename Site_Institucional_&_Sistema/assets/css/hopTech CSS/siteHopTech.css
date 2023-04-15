@@ -1,0 +1,229 @@
+.darkSection{
+    background-color: var(--color1);
+}
+
+.reverse main{
+    flex-direction: row-reverse; /* inverte a ordem*/
+}
+
+.darkSection main h1{
+    color: var(--color2);
+}
+
+.lightSection main h1{
+    color: var(--color1);
+}
+
+
+.sections{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 85vh; /* isso faz com que as seções aumentem caso o texto exceda a altura e não fique transbordando pra fora da página*/
+}
+
+.sections main{
+    display: flex;
+    justify-content: center;
+    width: 90%;
+    height: 80%;
+    color: #fff;
+}
+
+.sections main .firstContainer {
+    position: relative;
+    font-size: 1.5em;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 3em;
+}
+.sections main .secondContainer{
+    position: relative;
+    font-size: 1.5em;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 3em;
+}
+
+.sections main .secondContainer img{
+    width: 100%;
+}
+
+.section main .firstContainer p{
+    text-align: justify;
+}
+
+.sections main .firstContainer .buttonBox{
+    padding: 1em;
+}
+
+.sections main .firstContainer .buttonBox button{
+    font-size: 1em;
+    border-radius: 500px;
+    padding: 1em 7em;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background: var(--color1);
+    color: #fff;
+}
+
+
+.sections main .firstContainer .titleBox{
+    padding: .5em 0;
+}
+
+.sections main .firstContainer .inputBox .inputs{
+    display: flex;
+    padding: .5em 0;
+    flex-direction: column;
+}
+
+.sections main .firstContainer .inputBox .inputs input{
+    width: 80%;
+    padding: 1em;
+    border-radius: 500px;
+    border: none;
+    outline: none;
+}
+
+.sections main .secondContainer .topics{
+    display: flex;
+    flex-direction: column;
+}
+
+.sections main .secondContainer .topics * {
+    padding: 10px;
+}
+
+.sections main .secondContainer .topics .socialMedia{
+    display: flex;
+}
+.sections main .secondContainer .topics .socialMedia img:hover{
+    animation: logoJumping .5s alternate-reverse infinite;
+}
+
+button:hover{
+    transition: .5s;
+    filter: contrast(150%);
+}
+#simulacao main{
+    flex-direction: column-reverse; 
+    align-items: center;
+}
+
+#simulacao main .firstContainer{
+    width: 100%;
+    align-items: center;
+}
+
+#simulacao main .firstContainer .textBox{
+    width: 70%;
+    text-align: center;
+}
+
+#simulacao main .imgBox{
+    width: 80%;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+#simulacao main .imgBox::before{ 
+    content: ' ';
+    width: 100%;
+    border-bottom: 5px solid white;
+}   
+#simulacao main .imgBox::after{ 
+    content: ' ';
+    width: 100%;
+    border-bottom: 5px solid white;
+}
+#simulacao main .buttonBox{
+    position: relative;
+}
+#simulacao main .buttonBox::after{
+    position: absolute;
+    bottom: -10%;
+    right: 0;
+    width: 100%;
+    content: '';
+    border-bottom: 5px solid white;
+}
+
+
+#feedbacks main{
+    display: flex;
+    flex-direction: column;
+}
+
+#feedbacks main .firstContainer{
+    width: 100%;
+    border-bottom: 5px solid white;
+}
+
+#feedbacks main .secondContainer{
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+#feedbacks main .secondContainer .carrossel{
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+}
+
+#feedbacks main .secondContainer .carrossel .cards{
+    position: relative;
+    padding: 1em;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    min-height: 350px;
+    max-height: 600px;
+    height: 100%;
+    background: var(--color2);
+    border-radius: 5%;
+}
+#feedbacks main .secondContainer .carrossel .cards .imgBox{
+    bottom: 3vw;
+    position: relative;
+    height: 20%;
+}
+
+#feedbacks main .secondContainer .carrossel .cards .imgBox img{
+    top: 2.5vw;
+    height: 5vw;
+    width: 5vw;
+    border-radius: 50%;
+}
+
+#feedbacks main .secondContainer .carrossel .cards .textBox{
+    position: relative;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}   
+#feedbacks main .secondContainer .carrossel .cards .textBox .empresa{
+    display: flex;
+    flex-direction: column;
+}
+
+#feedbacks main .secondContainer .carrossel .cards .textBox .representante{
+    color: var(--color1);
+    font-weight: 900;
+}
+
+#nextpoint{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 25%;
+}
+
