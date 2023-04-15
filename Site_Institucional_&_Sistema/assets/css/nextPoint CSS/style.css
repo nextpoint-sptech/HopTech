@@ -13,7 +13,7 @@ body{
 #inicio{
     height: 100vh;
     position: relative;
-    background-image: url(../images/backgroundInicio.png);
+    background-image: url(imgs/backgroundInicio.png);
     background-repeat: no-repeat;
     background-size: 100% 100%;
     display: flex;
@@ -122,7 +122,7 @@ h3{
 
 #quemSomos{
     height: 100vh;
-    background-image: url(../images/backgroundQuemSomos.png);
+    background-image: url(imgs/backgroundQuemSomos.png);
     background-size: 100% 100%;
     background-repeat: no-repeat;
 }
@@ -164,7 +164,7 @@ p{
 
 #equipe{
     height: 130vh;
-    background-image: url(../images/backgroundEquipe.png);
+    background-image: url(imgs/backgroundEquipe.png);
     background-size: 100% 100%;
     background-repeat: no-repeat;
 }
@@ -250,6 +250,7 @@ h3{
     border-radius: 50px;
     color: #ffffff;
     font-weight: bold;
+    cursor: pointer;
 }
 
 .icon_btn_conhecer_hoptech{
@@ -318,9 +319,15 @@ h3{
 }
 
 .containerSection .div_info_contato{
+    display: flex;
+    justify-content: center;
     border-left: solid 2px #8f43ee;
     margin-top: 0;
     padding-left: 3%;
+}
+
+.containerSection .div_info_contato img{
+    width: 70%;
 }
 
 .containerSection .div_info_contato .icon_rede_social{
@@ -337,10 +344,8 @@ h2{
 }
 
 #footer{
-    height: 45vh;
+    padding: 3%;
     background-color: #413543;
-    bottom: 0;
-    position: relative;
 }
 
 .containerFooter{
