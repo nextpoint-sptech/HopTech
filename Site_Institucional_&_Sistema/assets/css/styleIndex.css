@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
+html {
+    scroll-padding-top: 12.5vh;
+    scroll-behavior: smooth;
+}
+
 body{
     width: 100vw;
     margin: 0;
