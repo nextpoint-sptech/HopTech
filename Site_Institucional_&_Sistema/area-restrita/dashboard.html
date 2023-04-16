@@ -7,6 +7,7 @@
     <title>Dashboard | HopTech</title>
     <link rel="shortcut icon" href="../assets/images/logosProjeto/HopTech-dark.png" type="image/x-icon">
     <link rel="stylesheet" href="../assets/css/styleDashboard.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body id="dashboard">
     <div class="div_menu_lateral">
@@ -33,7 +34,7 @@
         <div class="conteiner_dashboard">
             <div class="titleDashboard">
                 <h1>Dashboard</h1>
-                <span id="data">28/04/2004</span>
+                <span id="data">28/04/2023</span>
             </div>
             <div class="conteudo_graficos_dashboard">
                 <div class="conteiner_graficos">
@@ -63,7 +64,9 @@
                             </div>
                         </div>
                     </div>
-                    <div class="div_grafico1"></div>
+                    <div class="div_grafico1">
+                        <canvas id="myChart" style="position: relative; height: 90%; width:100%;"></canvas>
+                    </div>
                     <div class="conteiner_div_grafico_1_e_2">
                         <div class="div_grafico2"></div>
                         <div class="div_grafico3"></div>
