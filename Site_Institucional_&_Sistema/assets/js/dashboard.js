@@ -3,6 +3,7 @@ function sair(){
 }
 
 const ctx = document.getElementById('myChart');
+const ctx2 = document.getElementById('myChart2');
 
 new Chart(ctx, {
   type: 'line',
@@ -36,3 +37,43 @@ new Chart(ctx, {
     }
   }
 });
+
+new Chart(ctx2, {
+    type: 'line',
+    data: {
+      labels: ['Norte', 'Nordeste', 'Centro-Oeste', 'Sudeste', 'Sul'],
+      datasets: [{
+        label: 'Média obtida',
+        data: [874, 400, 567, 349, 672],
+        borderWidth: 1,
+        backgroundColor: '#9DC08B',
+        borderColor: '#9DC08B',
+      },
+      {
+        label: 'Média mínima esperada',
+        data: [500, 500, 500, 500, 500],
+        borderWidth: 1,
+        backgroundColor: '#9EE678',
+        borderColor: '#9EE678',
+      }]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      },
+      plugins:{
+          legend: {
+              display: false
+          },
+          title: {
+              display: true,
+              text: 'Média de luminosidade do dia por região',
+              font:{
+                  size: 15
+              }
+          }
+      }
+    }
+  });
