@@ -1,0 +1,253 @@
+import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+html {
+    scroll-padding-top: 12.5vh;
+    scroll-behavior: smooth;
+}
+
+body{
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: #CCE6BF;
+    color: #4C683F;
+    overflow: hidden;
+}
+
+#dashboard{
+    height: 100vh;
+    display: flex;
+    justify-content: space-between;
+}
+
+.div_menu_lateral{
+    width: 15vw;
+    background-color: #9DC08B;
+}
+
+.div_conteiner_conteudo{
+    width: 84.7vw;
+}
+
+.div_menu_top{
+    height: 9vh;
+    background-color: #9DC08B;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 2%;
+}
+
+.logo_hoptech{
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.div_menu_lateral button{
+    width: 100%;
+    height: 7vh;
+    background-color: #D7FFC2;
+    border: none;
+    margin-bottom: 2px;
+    display: flex;
+    align-items: center;
+    padding-left: 10%;
+    font-size: 20px;
+    cursor: pointer;
+    color: #4C683F;
+}
+
+.icons_menu{
+    margin-right: 15px;
+}
+
+.div_menu_lateral button:hover{
+    height: 8vh;
+    font-weight: bold;
+}
+
+.div_menu_lateral .pageAtual{
+    height: 8vh;
+    font-size: 19px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.div_menu_lateral .pageAtual:hover{
+    font-size: 20px;
+}
+
+.div_menu_lateral footer{
+    width: 15vw;
+    bottom: 0;
+    position: absolute;
+    margin-bottom: 30px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.div_menu_lateral footer .logo_empresa{
+    width: 55%;
+}
+
+.div_menu_top .titleDashboardCliente{
+    font-size: 20px;
+    font-weight: 500;
+    margin-left: 2%;
+}
+
+.div_menu_top .btnSair{
+    width: 7vw;
+    height: 50%;
+    border: none;
+    border-radius: 25px;
+    background-color: #4C683F;
+    color: #ffffff;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.div_menu_top .btnSair:hover{
+    width: 7.2vw;
+    height: 53%;
+    background-color: #506945;
+    cursor: pointer;
+}
+
+.conteiner_dashboard{
+    width: 96%;
+    height: 91vh;
+    margin: auto;
+}
+
+.titleDashboard{
+    display: flex;
+    justify-content: space-between;
+}
+
+h1{
+    font-size: 30px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.titleDashboard #data{
+    font-size: 28px;
+    margin-top: 10px;
+}
+
+.conteudo_graficos_dashboard{
+    height: 87%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.conteiner_graficos{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.div_indicadores{
+    height: 20%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.div_indicadores .box_indicador{
+    width: 32%;
+    background-color: #ffffff;
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+
+.conteiner_div_grafico_1_e_2{
+    height: 75%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.div_grafico{
+    width: 66%;
+    background-color: #ffffff;
+    border-radius: 20px;
+}
+
+.div_tabela_clientes{
+    width: 32%;
+    background-color: #ffffff;
+    border-radius: 20px;
+}
+
+.box_indicador h5{
+    font-size: 18px;
+    color: rgba(76, 104, 63, 0.6);
+    margin: 0;
+    margin-bottom: 5px;
+}
+
+.box_indicador .txtIndiacador{
+    width: 60%;
+}
+
+.box_indicador .valorIndicador{
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.icon_indicadores{
+    width: 100px;
+    height: 90px;
+}
+
+.div_tabela_clientes{
+    text-align: center;
+}
+
+.table_empresas_clientes{
+    width: 90%;
+    margin: auto;
+    text-align: left;
+}
+
+.table_empresas_clientes .campo_id{
+    text-align: center;
+    padding: 0;
+    /* border: solid 1px; */
+}
+
+.table_empresas_clientes tr{
+    width: 100%;
+}
+
+.table_empresas_clientes th{
+    border-bottom: solid 2px;
+}
+
+.table_empresas_clientes .campo_id{
+    border-right: solid 2px;
+}
+
+.table_empresas_clientes td{
+    padding-left: 15px;
+}
+
+/* .table_empresas_clientes thead, tbody{
+  display: block;  
+}
+
+.table_empresas_clientes tbody{
+    overflow-y: scroll; */
+}
+
+.icons_table{
+    width: 25px;
+}
+

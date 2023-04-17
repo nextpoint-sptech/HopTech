@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | HopTech</title>
+    <link rel="shortcut icon" href="../../assets/images/logosProjeto/HopTech-dark.png" type="image/x-icon">
+    <link rel="stylesheet" href="../../assets/css/area-restrita CSS/styleDashboardHopTech.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body id="dashboard">
+    <div class="div_menu_lateral">
+        <img src="../../assets/images/logosProjeto/HopTech-dark.png" class="logo_hoptech" alt="Logo da HopTech">
+        <button class="pageAtual">
+            <img src="../../assets/images/icons/dashboard.png" class="icons_menu" alt="icone dashboard">
+            Dashboard
+        </button>
+        <button>
+            <img src="../../assets/images/icons/icon_cadastro.png" width="35" class="icons_menu" alt="icone mapa de calor">
+            Cadastros
+        </button>
+        <footer>
+            <img src="../../assets/images/logosProjeto/NEXTPOINT.png" class="logo_empresa" alt="Logo da NEXTPOINT">
+            © 2023 HopTech
+        </footer>
+    </div>
+    <div class="div_conteiner_conteudo">
+        <div class="div_menu_top">
+            <div><!--  --></div>
+            <h3 class="titleDashboardCliente">Gerenciamento - HopTech</h3>
+            <button class="btnSair" onclick="sair(); return false">Sair</button>
+        </div>
+        <div class="conteiner_dashboard">
+            <div class="titleDashboard">
+                <h1>Dashboard</h1>
+                <span id="data">28/04/2023</span>
+            </div>
+            <div class="conteudo_graficos_dashboard">
+                <div class="conteiner_graficos">
+                    <div class="div_indicadores">
+                        <div class="box_indicador">
+                            <div class="txtIndiacador">
+                                <h5>Quantidade de empresas cadastradas</h5>
+                                <span class="valorIndicador">100</span>
+                            </div>
+                            <div>
+                                <img class="icon_indicadores" src="../../assets/images/icons/icon_indicador_empresas_clientes.png" alt="icon indicador 1">
+                            </div>
+                        </div>
+                        <div class="box_indicador">
+                            <div class="txtIndiacador">
+                                <h5>Quantidade de plantações cadastradas</h5>
+                                <span class="valorIndicador">125</span>
+                            </div>
+                            <div>
+                                <img class="icon_indicadores" src="../../assets/images/icons/icon_indicador_lupulo.png" alt="icon indicador 2">
+                            </div>
+                        </div>
+                        <div class="box_indicador">
+                            <div class="txtIndiacador">
+                                <h5>Quantidade de sensores  ativos</h5>
+                                <span class="valorIndicador">1500</span>
+                            </div>
+                            <div>
+                                <img class="icon_indicadores" src="../../assets/images/icons/icon_indicador_sensores.png" alt="icon indicador 2">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="conteiner_div_grafico_1_e_2">
+                        <div class="div_grafico">
+                            <canvas id="myChart" style="position: relative; height: 90%; width:100%;"></canvas>
+                        </div>
+                        <div class="div_tabela_clientes">
+                            <h4>Empresas Parceiras</h4>
+                            <div>
+                                <table class="table_empresas_clientes">
+                                    <thead>
+                                        <tr>
+                                            <th class="campo_id">ID</th>
+                                            <th style="padding-left: 15px;">Empresa</th>
+                                            <th>&nbsp;</th>
+                                            <th>&nbsp;</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="campo_id">1</td>
+                                            <td>LupAgro</td>
+                                            <td class="icons_table"><img src="../../assets/images/icons/icon_info.png" width="25" alt=""></td>
+                                            <td class="icons_table"><img src="../../assets/images/icons/icon_editar.png" width="25" alt=""></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="campo_id">2</td>
+                                            <td>LupAgro</td>
+                                            <td class="icons_table"><img src="../../assets/images/icons/icon_info.png" width="25" alt=""></td>
+                                            <td class="icons_table"><img src="../../assets/images/icons/icon_editar.png" width="25" alt=""></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="campo_id">3</td>
+                                            <td>LupAgro</td>
+                                            <td class="icons_table"><img src="../../assets/images/icons/icon_info.png" width="25" alt=""></td>
+                                            <td class="icons_table"><img src="../../assets/images/icons/icon_editar.png" width="25" alt=""></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="campo_id">4</td>
+                                            <td>LupAgro</td>
+                                            <td class="icons_table"><img src="../../assets/images/icons/icon_info.png" width="25" alt=""></td>
+                                            <td class="icons_table"><img src="../../assets/images/icons/icon_editar.png" width="25" alt=""></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="campo_id">5</td>
+                                            <td>LupAgro</td>
+                                            <td class="icons_table"><img src="../../assets/images/icons/icon_info.png" width="25" alt=""></td>
+                                            <td class="icons_table"><img src="../../assets/images/icons/icon_editar.png" width="25" alt=""></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="campo_id">6</td>
+                                            <td>LupAgro</td>
+                                            <td class="icons_table"><img src="../../assets/images/icons/icon_info.png" width="25" alt=""></td>
+                                            <td class="icons_table"><img src="../../assets/images/icons/icon_editar.png" width="25" alt=""></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="campo_id">7</td>
+                                            <td>LupAgro</td>
+                                            <td class="icons_table"><img src="../../assets/images/icons/icon_info.png" width="25" alt=""></td>
+                                            <td class="icons_table"><img src="../../assets/images/icons/icon_editar.png" width="25" alt=""></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="campo_id">8</td>
+                                            <td>LupAgro</td>
+                                            <td class="icons_table"><img src="../../assets/images/icons/icon_info.png" width="25" alt=""></td>
+                                            <td class="icons_table"><img src="../../assets/images/icons/icon_editar.png" width="25" alt=""></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="campo_id">9</td>
+                                            <td>LupAgro</td>
+                                            <td class="icons_table"><img src="../../assets/images/icons/icon_info.png" width="25" alt=""></td>
+                                            <td class="icons_table"><img src="../../assets/images/icons/icon_editar.png" width="25" alt=""></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="campo_id">10</td>
+                                            <td>LupAgro</td>
+                                            <td class="icons_table"><img src="../../assets/images/icons/icon_info.png" width="25" alt=""></td>
+                                            <td class="icons_table"><img src="../../assets/images/icons/icon_editar.png" width="25" alt=""></td>
+                                        </tr>
+                                        <!-- <tr>
+                                            <td class="campo_id">11</td>
+                                            <td>LupAgro</td>
+                                            <td class="icons_table"><img src="../../assets/images/icons/icon_info.png" width="25" alt=""></td>
+                                            <td class="icons_table"><img src="../../assets/images/icons/icon_editar.png" width="25" alt=""></td>
+                                        </tr> -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+<script src="../../assets/js/dashboardHoptech.js"></script>
