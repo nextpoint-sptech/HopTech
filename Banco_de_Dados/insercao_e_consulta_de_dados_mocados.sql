@@ -46,21 +46,36 @@ insert into sensor values
     (null, 'Luminosidade', 'Ativo', 3, 'Sul');
     
 insert into capturaLuminosidade values
-	(null, '2023-04-01', '10:00:00', '350', 1),
-    (null, '2023-04-01', '10:00:00', '350', 2),
-    (null, '2023-04-01', '10:00:00', '520', 3),
-    (null, '2023-04-01', '10:00:00', '550', 4),
-    (null, '2023-04-01', '10:00:00', '550', 5),
-    (null, '2023-04-01', '10:00:00', '575', 6),
-    (null, '2023-04-01', '10:00:00', '578', 7),
-    (null, '2023-04-01', '10:00:00', '645', 8),
-    (null, '2023-04-01', '10:00:00', '576', 9),
-    (null, '2023-04-01', '10:00:00', '574', 10),
-    (null, '2023-04-01', '10:00:00', '700', 11),
-    (null, '2023-04-01', '10:00:00', '701', 12),
-    (null, '2023-04-01', '10:00:00', '659', 13),
-    (null, '2023-04-01', '10:00:00', '500', 14),
-    (null, '2023-04-01', '10:00:00', '505', 15);
+	(null, '2023-04-01', '10:00:00', 350, 1),
+    (null, '2023-04-01', '10:00:00', 350, 2),
+    (null, '2023-04-01', '10:00:00', 520, 3),
+    (null, '2023-04-01', '10:00:00', 550, 4),
+    (null, '2023-04-01', '10:00:00', 550, 5),
+    (null, '2023-04-01', '10:00:00', 575, 6),
+    (null, '2023-04-01', '10:00:00', 578, 7),
+    (null, '2023-04-01', '10:00:00', 645, 8),
+    (null, '2023-04-01', '10:00:00', 576, 9),
+    (null, '2023-04-01', '10:00:00', 574, 10),
+    (null, '2023-04-01', '10:00:00', 700, 11),
+    (null, '2023-04-01', '10:00:00', 701, 12),
+    (null, '2023-04-01', '10:00:00', 659, 13),
+    (null, '2023-04-01', '10:00:00', 500, 14),
+    (null, '2023-04-01', '10:00:00', 505, 15),
+    (null, '2023-04-01', '10:30:00', 467, 1),
+    (null, '2023-04-01', '10:30:00', 128, 2),
+    (null, '2023-04-01', '10:30:00', 520, 3),
+    (null, '2023-04-01', '10:30:00', 550, 4),
+    (null, '2023-04-01', '10:30:00', 550, 5),
+    (null, '2023-04-01', '10:30:00', 575, 6),
+    (null, '2023-04-01', '10:30:00', 578, 7),
+    (null, '2023-04-01', '10:30:00', 645, 8),
+    (null, '2023-04-01', '10:30:00', 572, 9),
+    (null, '2023-04-01', '10:30:00', 570, 10),
+    (null, '2023-04-01', '10:30:00', 705, 11),
+    (null, '2023-04-01', '10:30:00', 702, 12),
+    (null, '2023-04-01', '10:30:00', 659, 13),
+    (null, '2023-04-01', '10:30:00', 479, 14),
+    (null, '2023-04-01', '10:30:00', 505, 15);
 
 -- Consulta de dados
 select * from empresa_cliente;
@@ -71,3 +86,16 @@ select * from sensor;
 select * from plantacao;
 select * from capturaLuminosidade;
 
+select date_format(capturaLuminosidade.dtCaptura, '%d/%m/%Y')  as 'Data',
+	capturaLuminosidade.hrCaptura as Hora,
+	capturaLuminosidade.luminosidade as 'Luminosidade Recebida',
+	sensor.regiaoSensor as 'Região da Plantação',
+	lupulo.tipoLupulo as 'Lupulo',
+	empresa_cliente.nomeEmpresa as 'Empresa Responsável'
+from capturaLuminosidade 
+join sensor on idSensor = fkSensor
+join plantacao on idPlantacao = fkPlantacao
+join lupulo on idLupulo = fkLupulo
+join empresa_cliente on idEmpresa = fkEmpresa
+where luminosidade < 500
+order by luminosidade;
