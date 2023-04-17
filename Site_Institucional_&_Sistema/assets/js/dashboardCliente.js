@@ -1,5 +1,5 @@
 function sair(){
-    window.parent.location.href = "../index.html";
+    window.parent.location.href = "../login.html";
 }
 
 const ctx = document.getElementById('myChart');
