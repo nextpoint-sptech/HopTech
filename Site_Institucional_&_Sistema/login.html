@@ -28,7 +28,7 @@
                     <label>Senha*</label>
                     <input class="iptLogin" type="password" id="ipt_senha" required>
                     <div class="linksLogin">
-                        <a class="a" href="./index.html#contato">Ainda não possui cadastro? Acesse aqui.</a>
+                        <a class="a" href="./siteHopTech.html#contato">Ainda não possui cadastro? Acesse aqui.</a>
                         <a class="a" href="#">Esqueci minha senha</a>
                     </div>
                     <input class="btnEntrarLogin" type="submit" value="Entrar" onclick="fazerLogin(); return false">
@@ -38,20 +38,4 @@
     </div>
 </body>
 </html>
-<script>
-    function fazerLogin(){
-        var usuario = ipt_usuario.value;
-        var senha = ipt_senha.value;
-
-        if(usuario == "hoppers" && senha == "123"){
-            window.parent.location.href ="./area-restrita/dashboard.html";
-        }else if(usuario == "AdiminEmpresaCliente" && senha == "1234"){
-            window.parent.location.href ="./area-restrita/dashboard.html";
-        }else{
-            formLogin.style.color = "red";
-            if(usuario != "" && senha != ""){
-                alert("Usuário e/ou Senha incorretos! Tente Novamente.");
-            }
-        }
-    }
-</script>
+<script src="./assets/js/login.js"></script>
