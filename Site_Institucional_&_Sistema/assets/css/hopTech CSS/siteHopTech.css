@@ -6,14 +6,22 @@
     flex-direction: row-reverse; /* inverte a ordem*/
 }
 
-.darkSection main h1{
+.darkSection main h2{
     color: var(--color2);
 }
 
-.lightSection main h1{
+.lightSection main h2{
     color: var(--color1);
 }
 
+
+.darkSection main h3{
+    color: var(--color2);
+}
+
+.lightSection main h3{
+    color: var(--color1);
+}
 
 .sections{
     display: flex;
@@ -65,7 +73,7 @@
 .sections main .firstContainer .buttonBox button{
     font-size: 1em;
     border-radius: 500px;
-    padding: 1em 7em;
+    padding: 1em 4em;
     cursor: pointer;
     border: none;
     outline: none;
@@ -92,13 +100,22 @@
     outline: none;
 }
 
+.sections main .firstContainer .inputBox .inputs textarea{
+    padding: 1em;
+    border: none;
+    outline: none;
+    border-radius: 25px;
+    width: 80%;
+    height: 200px;
+}
+
 .sections main .secondContainer .topics{
     display: flex;
     flex-direction: column;
 }
 
 .sections main .secondContainer .topics * {
-    padding: 10px;
+    padding: 5px;
 }
 
 .sections main .secondContainer .topics .socialMedia{
