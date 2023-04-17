@@ -3,11 +3,11 @@ function sair(){
 }
 
 function irParaDashboard(){
-  window.parent.location.href = "./dashboardHoptech.html";
+    window.parent.location.href = "./dashboardHoptech.html";
 }
 
 function irParaCadastro(){
-  window.parent.location.href = "./cadastro.html";
+    window.parent.location.href = "./cadastro.html";
 }
 
 const ctx = document.getElementById('myChart');
