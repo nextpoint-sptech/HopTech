@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro | HopTech</title>
+    <link rel="shortcut icon" href="../../assets/images/logosProjeto/HopTech-dark.png" type="image/x-icon">
+    <link rel="stylesheet" href="../../assets/css/cadastro CSS/styleCadastro.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body id="dashboard">
+    <div class="div_menu_lateral">
+        <img src="../../assets/images/logosProjeto/HopTech-dark.png" class="logo_hoptech" alt="Logo da HopTech">
+        <button onclick="irParaDashboard(); return false">
+            <img src="../../assets/images/icons/dashboard.png" class="icons_menu" alt="icone dashboard">
+            Dashboard
+        </button>
+        <button class="pageAtual" onclick="irParaCadastro(); return false">
+            <img src="../../assets/images/icons/icon_cadastro.png" width="35" class="icons_menu"
+                alt="icone cadastro">
+            Cadastros
+        </button>
+        <footer>
+            <img src="../../assets/images/logosProjeto/NEXTPOINT.png" class="logo_empresa" alt="Logo da NEXTPOINT">
+            © 2023 HopTech
+        </footer>
+    </div>
+    <div class="div_conteiner_conteudo">
+        <div class="div_menu_top">
+            <div><!--  --></div>
+            <h3 class="titleDashboardCliente">Gerenciamento - HopTech</h3>
+            <button class="btnSair" onclick="sair(); return false">Sair</button>
+        </div>
+        <div class="conteiner_cadastro">
+            <div class="titleDashboard">
+                <h1>Cadastro de Empresa</h1>
+                <span id="data">28/04/2023</span>
+            </div>
+            <div class="conteudo_cadastro">
+                <!-- codar o conteudo do cadastro aqui -->
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+<script src="../../assets/js/cadastro.js"></script>
