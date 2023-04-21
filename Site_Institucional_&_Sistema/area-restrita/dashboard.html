@@ -4,21 +4,30 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard | HopTech</title>
-    <link rel="shortcut icon" href="../assets/images/logosProjeto/HopTech-dark.png" type="image/x-icon">
-    <link rel="stylesheet" href="../assets/css/styleDashboard.css">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title>Painel Inicial | Dashboard</title>
+
+    <link rel="shortcut icon" href="../assets/images/logosProjeto/flaticon-HOPTECH-white.png" type="image/x-icon"> <!-- Flaticon -->
+    
+    <link rel="stylesheet" href="../assets/css/styleDashboard.css"> <!-- Exportando CSS do dashboard -->
 </head>
 <body id="dashboard">
     <div class="div_menu_lateral">
-        <img src="../assets/images/logosProjeto/HopTech-dark.png" class="logo_hoptech" alt="Logo da HopTech">
+        <a href="../siteHopTech.html"><img src="../assets/images/logosProjeto/HopTech-dark.png" class="logo_hoptech" alt="Logo da HopTech"></a>
         <button class="pageAtual">
-            <img src="../assets/images/icons/dashboard.png" class="icons_menu" alt="icone dashboard">
+            <img src="../assets/images/icons/dashboard.png" class="icons_menu" alt="Ícone do dashboard">
             Dashboard
         </button>
         <button>
-            <img src="../assets/images/icons/mapa-de-calor.png" class="icons_menu" alt="icone mapa de calor">
+            <img src="../assets/images/icons/mapa-de-calor.png" class="icons_menu" alt="Ícone do mapa de calor">
             Mapa de calor
+        </button>
+        <button>
+            <img src="../assets/images/icons/iconeHistorico.png" class="icons_menu" style="width: 30px;" alt="Ícone do histórico">
+            Histórico
+        </button>
+        <button>
+            <img src="../assets/images/icons/iconeHeadset.png" class="icons_menu" style="width: 30px;" alt="Ícone de suporte">
+            Suporte
         </button>
         <footer>
             <img src="../assets/images/logosProjeto/NEXTPOINT.png" class="logo_empresa" alt="Logo da NEXTPOINT">
@@ -28,12 +37,12 @@
     <div class="div_conteiner_conteudo">
         <div class="div_menu_top">
             <div><!--  --></div>
-            <h3 class="titleDashboardCliente">Gerenciamento - LupAgro</h3>
+            <h3 class="titleDashboardCliente">Gerenciamento - Hop6</h3>
             <button class="btnSair" onclick="sair(); return false">Sair</button>
         </div>
         <div class="conteiner_dashboard">
             <div class="titleDashboard">
-                <h1>Dashboard</h1>
+                <h1>Painel inicial</h1>
                 <span id="data">28/04/2023</span>
             </div>
             <div class="conteudo_graficos_dashboard">
@@ -47,48 +56,49 @@
                         </div>
                         <div class="box_indicador">
                             <div>
-                                <h5>Região destaque</h5>
+                                <h5>Região em destaque</h5>
                                 <span class="valorIndicador">Norte</span>
                             </div>
                             <div>
-                                <img class="icon_indicadores" src="../assets/images/icons/icon_indicador2.png" alt="icon indicador 2">
+                                <img class="icon_indicadores" src="../assets/images/icons/iconeIndicador.png" alt="icon indicador 2">
                             </div>
                         </div>
-                        <div class="box_indicador">
+                        <div class="box_indicador" id="box-cuidado">
                             <div>
                                 <h5>Região de atenção</h5>
                                 <span class="valorIndicador">Sudeste</span>
                             </div>
                             <div>
-                                <img class="icon_indicadores" src="../assets/images/icons/icon_indicador3.png" alt="icon indicador 2">
+                                <img class="icon_indicadores" src="../assets/images/icons/iconeAtencao.png" alt="icon indicador 2">
                             </div>
                         </div>
                     </div>
                     <div class="div_grafico1">
-                        <canvas id="myChart" style="position: relative; height: 90%; width:100%;"></canvas>
+                        <canvas id="chart_line_dia" style="position: relative; height: 90%; width:100%;"></canvas>
                     </div>
                     <div class="conteiner_div_grafico_1_e_2">
                         <div class="div_grafico2">
-                            <canvas id="myChart2" style="position: relative; height: 90%; width:100%;"></canvas>
+                            <canvas id="chart_line_regiao" style="position: relative; height: 90%; width:100%;"></canvas>
                         </div>
                         <div class="div_grafico3">
-                            <canvas id="myChart3" style="position: relative; height: 90%; width:100%;"></canvas>
+                            <canvas id="chart_bar_mes" style="position: relative; height: 90%; width:100%;"></canvas>
                         </div>
                     </div>
                 </div>
                 <div class="div_alertas">
                     <h3>Alertas</h3>
                     <div class="alerta">
-                        <h4>Baixa Luminosidade!</h4>
-                        <p>A região sudeste da sua plantação está recebendo luminosidade abaixo da média!</p>
+                        <!-- Emitindo alertas baseado na luminosidade (apontada no gráfico) -->
+                        <h4>Alta Luminosidade! (12:56)</h4>
+                        <p>A região nordeste da sua plantação está recebendo luminosidade acima da média!</p>
                     </div>
                     <div class="alerta">
-                        <h4>Baixa Luminosidade!</h4>
+                        <h4>Baixa Luminosidade! (09:33)</h4>
                         <p>A região sudeste da sua plantação está recebendo luminosidade abaixo da média!</p>
                     </div>
                     <div class="alerta2">
-                        <h4>Risco de Baixa Luminosidade!</h4>
-                        <p>A região nordeste da sua plantação está recebendo pouca luminosidade e está quase ficando abaixo da média!</p>
+                        <h4>Risco de Baixa Luminosidade! (09:07)</h4>
+                        <p>A região sudeste da sua plantação está recebendo pouca luminosidade e está quase ficando abaixo da média!</p>
                     </div>
                     <div class="fim_alertas">
                         <span>...</span>
@@ -99,4 +109,10 @@
     </div>
 </body>
 </html>
-<script src="../assets/js/dashboard.js"></script>
+
+<!-- Exportando a biblioteca ChartJS: -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<!-- Exportando o plugin DataLabels do ChartJS: -->
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
+<!-- Exportando o back-end do ChartJS: -->
+<script src="dashboard.js"></script>

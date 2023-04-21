@@ -27,18 +27,23 @@ new Chart(ctx, {
         label: 'Plantações cadastradas',
         data: [1, 6, 2, 12, 26, 10, 7, 18, 4, 2, 5, 15],
         borderWidth: 1,
-        backgroundColor: '#D7FFC2',
-        borderColor: '#D7FFC2',
+        backgroundColor: '#DDFFBB',
+        borderColor: '#DDFFBB',
       },
       {
         label: 'Sensores instalados',
-        data: [5, 30, 10, 60, 130, 50, 35, 90, 20, 10, 25, 75],
+        data: [5, 30, 10, 60, 108, 50, 35, 90, 20, 10, 25, 75],
         borderWidth: 1,
-        backgroundColor: '#94D0AA',
-        borderColor: '#94D0AA',
+        backgroundColor: '#48724c',
+        borderColor: '#48724c',
       }]
     },
     options: {
+      aspectRadio: 2,
+      interaction: {
+        mode: 'index',
+        intersect: false
+      },
       scales: {
         y: {
           beginAtZero: true
@@ -54,6 +59,11 @@ new Chart(ctx, {
               font:{
                   size: 18
               }
+          },
+          tooltip: {
+            displayColor: false,
+            borderColor: '#4CB648',
+            borderWidth: 3
           }
       }
     }
