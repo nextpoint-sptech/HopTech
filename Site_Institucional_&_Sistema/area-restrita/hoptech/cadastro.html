@@ -10,8 +10,7 @@
     <link rel="stylesheet" href="../../assets/css/cadastro CSS/styleCadastro.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
-
-<body id="dashboard">
+<body>
     <div class="div_menu_lateral">
         <img src="../../assets/images/logosProjeto/HopTech-dark.png" class="logo_hoptech" alt="Logo da HopTech">
         <button onclick="irParaDashboard(); return false">
@@ -30,20 +29,130 @@
     </div>
     <div class="div_conteiner_conteudo">
         <div class="div_menu_top">
-            <div><!--  --></div>
             <h3 class="titleDashboardCliente">Gerenciamento - HopTech</h3>
             <button class="btnSair" onclick="sair(); return false">Sair</button>
         </div>
         <div class="conteiner_cadastro">
             <div class="titleDashboard">
-                <h1>Cadastro de Empresa</h1>
-                <span id="data">28/04/2023</span>
+                <h1>Cadastro de empresa</h1>
+                <h1 id="data">28/04/2023</h1>
             </div>
             <div class="conteudo_cadastro">
-                <!-- codar o conteudo do cadastro aqui -->
+                <section class="containerCadastro">
+                    <div class="firstContainer">
+                        <form action="" class="credentialsContainer">
+                            <!--Nome Empresa-->
+                            <div class="inputsRow">
+                                <div class="inputBox uniqueRow">
+                                    <label for="nomeEmpresa">Nome da Empresa</label>
+                                    <input id="nomeEmpresa" required>
+                                </div>
+                            </div>
+                            <!--Telefone && CNPJ-->
+                            <div class="inputsRow">
+                                <div class="inputBox">
+                                    <label for="telefoneEmpresa">Telefone</label>
+                                    <input maxlength="13" id="telefoneEmpresa" placeholder="(XX)XXXX-XXXX" required>
+                                </div>
+                                <div class="inputBox">
+                                    <label for="documentoCNPJ">CNPJ</label>
+                                    <input maxlength="18" id="documentoCNPJ" required>
+                                </div>
+                            </div>
+                            <!--Email-->
+                            <div class="inputsRow">
+                                <div class="inputBox uniqueRow">
+                                    <label for="emailEmpresa">Email</label>
+                                    <input id="emailEmpresa" required>
+                                </div>
+                            </div>
+                            <!--Confirmaçao Email-->
+                            <div class="inputsRow">
+                                <div class="inputBox uniqueRow">
+                                    <label for="emailConfirmacao">Confirme o email</label>
+                                    <input id="emailConfirmacao" required>
+                                </div>
+                            </div>
+                            <!--CEP && Estado-->
+                            <div class="inputsRow">
+                                <div class="inputBox">
+                                    <label for="cepEmpresa">CEP</label>
+                                    <input maxlength="9" id="cepEmpresa" required>
+                                </div>
+                                <div class="inputBox">
+                                    <label for="estadoEmpresa">Estado</label>
+                                    <input id="estadoEmpresa">
+                                </div>
+                            </div>
+                            <!--Cidade && Bairro-->
+                            <div class="inputsRow">
+                                <div class="inputBox">
+                                    <label for="cidadeEmpresa">Cidade</label>
+                                    <input id="cidadeEmpresa" required>
+                                </div>
+                                <div class="inputBox">
+                                    <label for="bairroEmpresa">Bairro</label>
+                                    <input id="bairroEmpresa" required>
+                                </div>
+                            </div>
+                            <!--Rua && Complemento-->
+                            <div class="inputsRow">
+                                <div class="inputBox">
+                                    <label for="ruaEmpresa">Rua</label>
+                                    <input id="ruaEmpresa" required>
+                                </div>
+                                <div class="inputBox">
+                                    <label for="complementoEmpresa">Complemento</label>
+                                    <input id="complementoEmpresa">
+                                </div>
+                            </div>
+                        </form>
+            
+                        <div class="buttonBox">
+                            <button onclick="verifyCredentials()">Cadastrar</button>
+                        </div>
+                    </div>
+                    <div class="barra">|</div>
+                
+                    <div class="secondContainer">
+                        <form action="" class="">
+                        <div class="inputsRow">
+                            <div class="inputBox uniqueRow">
+                                <label for="nomeEmpresa">Empresa*</label>
+                                <select name="empresas" id="">
+                                    <option value="">Lupulandia</option>
+                                    <option value="">Hop6</option>
+                                    <option value="">PlantaFort</option>
+                                </select>
+                            </div>
+                            <div class="inputsRow">
+                                <div class="inputBox uniqueRow">
+                                    <label for="usuarioEmpresa">Usuário da empresa*</label>
+                                    <input id="usuarioEmpresa">
+                                </div>
+                                <div class="inputsRow">
+                                    <div class="inputBox uniqueRow">
+                                        <label for="SenhaEmpresa">Senha da Empresa*</label>
+                                        <input id="ipt_senha_empresa" type="password">
+                                    </div>
+                                    <div class="inputsRow">
+                                        <div class="inputBox uniqueRow">
+                                            <label for="SenhaEmpresa_confirmacao">Confirmar senha*</label>
+                                            <input id="ipt_senha_confirmacao" type="password">
+                                        </div>
+                                    </form>
+                                        <div class="buttonBox">
+                                            <button onclick="cadastroLogin()">Cadastrar Login</button>
+                                        </div>
+                        <div class="imgBox">
+                            <img src="../../assets/images/logosProjeto/HopTech-dark.png">
+                        </div>
+                    </div>
+                </section>
             </div>
         </div>
     </div>
 </body>
 </html>
+
 <script src="../../assets/js/cadastro.js"></script>
