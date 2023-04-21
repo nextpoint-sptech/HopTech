@@ -31,12 +31,17 @@ new Chart(ctx, { // Gráfico principal (linha)
         ]
     },
     options: {
+        interaction: {
+            mode: 'nearest',
+            axis: 'x',
+            intersect: false
+          },
         layout: {
             padding: 5
         },
         elements: {
             point: {
-                hoverRadius: 10
+                hoverRadius: 7
             }
         },
         scales: {
@@ -61,7 +66,12 @@ new Chart(ctx, { // Gráfico principal (linha)
             },
             legend: {
                 display: false
-            }
+            },
+            tooltip: {
+                displayColor: false,
+                borderColor: '#4CB648',
+                borderWidth: 3
+              }
         }
     }
 });
@@ -86,6 +96,10 @@ new Chart(ctx2, { // Gráfico de barra mostrando luminosidade por estações
         }]
     },
     options: {
+        interaction: {
+            mode: 'index',
+            intersect: false
+          },
         layout: {
             padding: 5
         },
@@ -102,17 +116,22 @@ new Chart(ctx2, { // Gráfico de barra mostrando luminosidade por estações
         plugins: {
             title: {
                 display: true,
-                text: 'Média de luminosidade do dia por estação',
+                text: 'Média de luminosidade do último mês por estação',
                 font: {
                     size: 15
                 }
             },
             legend: {
-                display: true
+                display: false
             },
             datalabels: {
                 display: false
-            }
+            },
+            tooltip: {
+                displayColor: false,
+                borderColor: '#4CB648',
+                borderWidth: 3
+              }
         }
     }
 });
@@ -137,6 +156,10 @@ new Chart(ctx3, { // Gráfico de barra mostrando luminosidade por região
         }]
     },
     options: {
+        interaction: {
+            mode: 'index',
+            intersect: false
+          },
         layout: {
             padding: 5
         },
@@ -165,7 +188,12 @@ new Chart(ctx3, { // Gráfico de barra mostrando luminosidade por região
                 font: {
                     size: 15
                 }
-            }
+            },
+            tooltip: {
+                displayColor: false,
+                borderColor: '#4CB648',
+                borderWidth: 3
+              }
         }
     }
 });
