@@ -1,15 +1,3 @@
-function sair(){
-    window.parent.location.href = "../../login.html";
-}
-
-function irParaDashboard(){
-    window.parent.location.href = "./dashboardHoptech.html";
-}
-
-function irParaCadastro(){
-    window.parent.location.href = "./cadastro.html";
-}
-
 let credentials =
 {
     empresaNome: '',
@@ -181,16 +169,53 @@ function formatacaoNumeros() {
     })
 }
 
-formatacaoNumeros()
+
+// function sair(){
+//     window.parent.location.href = "../../login.html";
+// }
+
+// function irParaDashboard(){
+//     window.parent.location.href = "./dashboardHoptech.html";
+// }
+
+// function irParaCadastro(){
+//     window.parent.location.href = "./cadastro.html";
+// }
+
+// function verifyCredentials() {
+
+//     var nomeEmpresa = nomeEmpresa.value;
+//     var telefoneEmpresa = Number(telefoneEmpresa.value);
+//     var documentoCNPJ = Number(documentoCNPJ.value);
+//     var emailEmpresa = emailEmpresa.value;
+//     var emailConfirmacao = emailConfirmacao.value;
+//     var cepEmpresa = Number(cepEmpresa.value);
+//     var estadoEmpresa = estadoEmpresa.value;
+//     var cidadeEmpresa = cidadeEmpresa.value;
+//     var bairroEmpresa = bairroEmpresa.value;
+//     var ruaEmpresa = ruaEmpresa.value;
+//     var complementoEmpresa = complementoEmpresa.value;
+
+
+// if (nomeEmpresa == '' || telefoneEmpresa == 0 || documentoCNPJ == 0 || emailEmpresa == '' || emailConfirmacao == '' || cepEmpresa == 0 || estadoEmpresa == '' || cidadeEmpresa == '' || bairroEmpresa == '' ||  ruaEmpresa == '' );
+
+
+
+//             if(emailEmpresa.indexOf('@') < -1){
+//                 alert('E-mail inválido')
+//             } else {
+//                 if(emailConfirmacao == emailEmpresa) {
+//                 }
+//             }
+// }
 
 // function cadastroLogin() {
+ 
+//     var empresas = select_empresa.value;
 //     var usuarioEmpresa = usuarioEmpresa.value;
-//     var senhaLogin = ipt_senha_empresa.value;
+//     var senhaEmpresa = ipt_senha_empresa.value;
 //     var senhaConfirmacao = ipt_senha_confirmacao.value;
 
-//     if(senhaConfirmacao != senhaLogin) {
-//         alert(`Senha incorreta.`)
-//     }
-    
-
+// if (senhaConfirmacao != senhaEmpresa) {
+//     alert('Senha incorreta')}
 // }
