@@ -15,7 +15,7 @@ new Chart(ctx, { // Gráfico principal (linha)
   data: {
     labels: ['00:00', '01:00', '02:00', '03:00', '04:00', '05:00', '06:00', '07:00', '08:00', '09:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00', '19:00', '20:00', '21:00', '22:00', '23:00'],
     datasets: [{
-      label: 'Luminosidade (Outono)',
+      label: 'Luminosidade (Hoje)',
       data: [2, 5, 20, 58, 106, 170, 200, 450, 650, 432, 550, 870, 960, 1000, 776, 574, 700, 701, 659, 505, 300, 267, 129, 3], // Dados mockados e chumbados
       borderWidth: 1,
       backgroundColor: '#9DC08B',
@@ -23,14 +23,13 @@ new Chart(ctx, { // Gráfico principal (linha)
       tension: 0.3 // Curvatura do gráfico
     },
     {
-      label: 'Luminosidade (Verão)', // Gráfico de comparação ao mesmo dia, só que de uma estação com mais luminosidade
+      label: 'Luminosidade (Ontem)', // Linha de comparação ao dia anterior
       data: [87, 66, 55, 41, 78, 110, 200, 341, 591, 640, 716, 601, 460, 671, 433, 409, 511, 474, 324, 325, 321, 289, 219, 102],
       borderWidth: 1,
       backgroundColor: '#E9EDC9',
       borderColor: '#E9EDC9',
       tension: 0.3
-    }
-    ]
+    }]
   },
   options: {
     interaction: {
