@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="../../assets/css/cadastro CSS/styleCadastro.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
+
 <body>
     <div class="div_menu_lateral">
         <img src="../../assets/images/logosProjeto/HopTech-dark.png" class="logo_hoptech" alt="Logo da HopTech">
@@ -18,9 +19,12 @@
             Dashboard
         </button>
         <button class="pageAtual" onclick="irParaCadastro(); return false">
-            <img src="../../assets/images/icons/icon_cadastro.png" width="35" class="icons_menu"
-                alt="icone cadastro">
+            <img src="../../assets/images/icons/icon_cadastro.png" width="35" class="icons_menu" alt="icone cadastro">
             Cadastros
+        </button>
+        <button onclick="irParaNotificacoes(); return false">
+            <img src="../../assets/images/icons/notification.png" width="30" class="icons_menu" alt="Ícone de caixa de entrada">
+            Notificação
         </button>
         <footer>
             <img src="../../assets/images/logosProjeto/NEXTPOINT.png" class="logo_empresa" alt="Logo da NEXTPOINT">
@@ -29,6 +33,7 @@
     </div>
     <div class="div_conteiner_conteudo">
         <div class="div_menu_top">
+            <div><!--  --></div>
             <h3 class="titleDashboardCliente">Gerenciamento - HopTech</h3>
             <button class="btnSair" onclick="sair(); return false">Sair</button>
         </div>
@@ -107,7 +112,6 @@
                                 </div>
                             </div>
                         </form>
-            
                         <div class="buttonBox">
                             <button onclick="verificarCredenciais()">Cadastrar</button>
                         </div>
@@ -115,38 +119,37 @@
 
                     <div class="secondContainer">
                         <form action="" class="">
-                        <div class="inputsRow">
-                            <div class="inputBox uniqueRow">
-                                <label for="nomeEmpresa">Empresa*</label>
-<<<<<<< HEAD
-                                <select name="empresas" id="select_empresas">
-=======
-                                <select name="empresas" id="select_empresa">
->>>>>>> 91b58b38c6dcc5df73df56fe9647f031fad76306
-                                    <option value="">Lupulandia</option>
-                                    <option value="">Hop6</option>
-                                    <option value="">PlantaFort</option>
-                                </select>
-                            </div>
                             <div class="inputsRow">
                                 <div class="inputBox uniqueRow">
-                                    <label for="usuarioEmpresa">Usuário da empresa*</label>
-                                    <input id="usuarioEmpresa">
+                                    <label for="nomeEmpresa">Empresa*</label>
+                                    <select name="empresas" id="select_empresa">
+                                        <option value="0" style="color: grey;">Selecione...</option>
+                                        <option value="">Lupulandia</option>
+                                        <option value="">Hop6</option>
+                                        <option value="">PlantaFort</option>
+                                    </select>
                                 </div>
                                 <div class="inputsRow">
                                     <div class="inputBox uniqueRow">
-                                        <label for="SenhaEmpresa">Senha da Empresa*</label>
-                                        <input id="ipt_senha_empresa" type="password">
+                                        <label for="usuarioEmpresa">Usuário da empresa*</label>
+                                        <input id="usuarioEmpresa">
                                     </div>
                                     <div class="inputsRow">
                                         <div class="inputBox uniqueRow">
-                                            <label for="SenhaEmpresa_confirmacao">Confirmar senha*</label>
-                                            <input id="ipt_senha_confirmacao" type="password">
+                                            <label for="SenhaEmpresa">Senha da Empresa*</label>
+                                            <input id="ipt_senha_empresa" type="password">
                                         </div>
-                                    </form>
-                                        <div class="buttonBox">
-                                            <button onclick="cadastroLogin()">Cadastrar Login</button>
-                                        </div>
+                                        <div class="inputsRow">
+                                            <div class="inputBox uniqueRow">
+                                                <label for="SenhaEmpresa_confirmacao">Confirmar senha*</label>
+                                                <input id="ipt_senha_confirmacao" type="password">
+                                            </div>
+                                            <div class="buttonBox">
+                                                <button onclick="cadastroLogin()">Cadastrar Login</button>
+                                            </div>
+                                </div>
+                        </form>
+
                         <div class="imgBox">
                             <img src="../../assets/images/logosProjeto/HopTech-dark.png">
                         </div>
@@ -156,6 +159,7 @@
         </div>
     </div>
 </body>
+
 </html>
 <!-- Exportando a API de alertas "SweetAlert2": -->
 <link href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-bootstrap-4/bootstrap-4.css" rel="stylesheet">
