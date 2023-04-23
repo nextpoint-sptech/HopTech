@@ -1,196 +1,95 @@
-function sair(){
+function sair() {
     window.parent.location.href = "../../login.html";
 }
 
-function irParaDashboard(){
+function irParaDashboard() {
     window.parent.location.href = "./dashboardHoptech.html";
 }
 
-function irParaCadastro(){
+function irParaCadastro() {
     window.parent.location.href = "./cadastro.html";
 }
 
-let credentials =
-{
-    empresaNome: '',
-    empresaTelefone: '', // 8 digitos
-    cnpjDocumento: '', // 14 digitos
-    empresaEmail: '',
-    confirmacaoEmail: '',
-    empresaCep: '', // 8 digitos
-    empresaEstado: '',
-    empresaCidade: '',
-    empresaBairro: '',
-    empresaRua: '',
-    empresaComplemento: ''
-}
+function verificarCredenciais() {
+    var empresaNome = nomeEmpresa.value;
+    var telefone = Number(telefoneEmpresa.value);
+    var cnpj = Number(documentoCNPJ.value);
+    var empresaEmail = emailEmpresa.value;
+    var confirmacaoEmail = emailConfirmacao.value;
+    var cep = Number(cepEmpresa.value);
+    var estado = estadoEmpresa.value;
+    var cidade = cidadeEmpresa.value;
+    var bairro = bairroEmpresa.value;
+    var rua = ruaEmpresa.value;
+    var complemento = complementoEmpresa.value;
 
-// as chaves estao na mesma ordem das inputs
+    select_empresas.innerHTML += `<option>${empresaNome}</option>`
 
-let armazenamento = []
-
-
-function verifyCredentials() {
-
-    function enviandoDados() {
-        let allInputs = document.querySelectorAll('input')
-        let allLabels = document.querySelectorAll('label')
-        let boxError = document.querySelectorAll('.errorsBox')
-        let alertMessage = ''
-        let inputStatus = ['', '', '', '', '', '', '', '', '', '', '']
-        let qtyStatusOk = 0
-
-        for (let counter = 0; counter < allInputs.length; counter++) {
-            let formatedValues = ``
-            let keyName = Object.keys(credentials)[counter] // pegando o nome da chave do dicionario
-            let inputId = allInputs[counter].id
-            let inputValues = allInputs[counter].value // pegando o valor da INPUT
-            for (let chars of inputValues) {
-                if (chars != '(' && chars != ')' && chars != '-' && chars != '.' && chars != '/') {
-                    formatedValues += chars
-                }
-            }
-
-            if (inputId == `telefoneEmpresa` || inputId == `documentoCNPJ` || inputId == `cepEmpresa`) {
-                if (formatedValues == Number(formatedValues)) {
-                    if (inputId == `telefoneEmpresa` && formatedValues.length == 10 || inputId == `documentoCNPJ` && formatedValues.length == 14 || inputId == `cepEmpresa` && formatedValues.length == 8) {
-                        credentials[keyName] = formatedValues
-                        allLabels[counter].style.color = 'var(--color1)'
-                        inputStatus[counter] = 'ok'
-                    } else {
-                        alertMessage += `• ${inputId}: Quantidade de digitos inválidas.\n`
-                        allLabels[counter].style.color = 'var(--color6)'
-                        inputStatus[counter] = 'not ok'
-                    }
-                } else {
-                    alertMessage += `• ${inputId}: Não é um número.\n`
-                    allLabels[counter].style.color = 'var(--color6)'
-                    inputStatus[counter] = 'not ok'
-                }
-            } else if (inputId == 'emailEmpresa') {
-                if (formatedValues != '' && formatedValues.includes('@')) {
-                    credentials[keyName] = formatedValues
-                    allLabels[counter].style.color = 'var(--color1)'
-                    inputStatus[counter] = 'ok'
-                } else {
-                    alertMessage += `• ${inputId}: Valor inválido.\n`
-                    allLabels[counter].style.color = 'var(--color6)'
-                    inputStatus[counter] = 'not ok'
-                }
-            } else if (inputId == 'emailConfirmacao') {
-                if (credentials.empresaEmail == formatedValues && credentials.empresaEmail != '') {
-                    credentials[keyName] = formatedValues
-                    allLabels[counter].style.color = 'var(--color1)'
-                    inputStatus[counter] = 'ok'
-                } else {
-                    if(credentials.empresaEmail == ''){
-                        alertMessage += `• ${inputId}: Email inválido!\n`
-                    }else{
-                        alertMessage += `• ${inputId}: Emails não correspondentes\n`
-                    }
-                    allLabels[counter].style.color = 'var(--color6)'
-                    inputStatus[counter] = 'not ok'
-                }
-            } else {
-                if (inputValues != '') {
-                    credentials[keyName] == formatedValues
-                    allLabels[counter].style.color = 'var(--color1)'
-                    inputStatus[counter] = 'ok'
-                } else {
-                    alertMessage += `• ${inputId}: Valor inválido.\n`
-                    allLabels[counter].style.color = 'var(--color6)'
-                    inputStatus[counter] = 'not ok'
-                }
-            }
-        }
-        
-        for (x of inputStatus) {
-            if (x == 'ok') {
-                qtyStatusOk++
-            }
-        }
-
-        if (qtyStatusOk == 11) {
-            armazenamento.push(credentials)
-            alert('Cadastro feito com sucesso!')
-        }else{
-            alert(alertMessage)
-        }
+    if (empresaNome == '' || telefone == 0 || cnpj == 0 || empresaEmail == '' || confirmacaoEmail == ''
+        || cep == 0 || estado == '' || cidade == '' || bairro == '' || rua == '') {
+        Swal.fire({
+            position: 'center',
+            icon: 'error',
+            title: 'Campo obrigatório vazio.',
+            showConfirmButton: false,
+            timer: 1500
+        });
     }
-    enviandoDados()
 
-    formatacaoNumeros()
-}
-
-
-
-////////////////////////////////////////////////////////
-function formatacaoNumeros() {
-    let cnpjInput = document.querySelector('#documentoCNPJ')
-    let cepInput = document.querySelector(`#cepEmpresa`)
-    let teleInput = document.querySelector(`#telefoneEmpresa`)
-    // FORMATACAO CNPJ
-    cnpjInput.addEventListener('keypress', function addingSignalsCNPJ(key) {
-        if (cnpjInput.value.length == 2 || cnpjInput.value.length == 6) {
-            cnpjInput.value += '.'
-        } else if (cnpjInput.value.length == 10) {
-            cnpjInput.value += `/`
-        } else if (cnpjInput.value.length == 15) {
-            cnpjInput.value += `-`
-        }
-    })
-
-    cnpjInput.addEventListener(`keydown`, function removingSignalsCNPJ(key) {
-        if (key.code == `Backspace`) {
-            if (cnpjInput.value.length == 4) {
-                cnpjInput.value = cnpjInput.value.slice(0, 3)
-            } else if (cnpjInput.value.length == 8) {
-                cnpjInput.value = cnpjInput.value.slice(0, 7)
-            } else if (cnpjInput.value.length == 12) {
-                cnpjInput.value = cnpjInput.value.slice(0, 11)
-            } else if (cnpjInput.value.length == 17) {
-                cnpjInput.value = cnpjInput.value.slice(0, 16)
+    if (empresaEmail.indexOf('@') != -1 || confirmacaoEmail.indexOf('@') != -1) {
+        if (confirmacaoEmail == empresaEmail) {
+            if (empresaNome != '' || telefone != 0 || cnpj != 0 || empresaEmail != '' || confirmacaoEmail != ''
+                || cep != 0 || estado != '' || cidade != '' || bairro != '' || rua != '') {
+                Swal.fire({
+                    position: 'center',
+                    icon: 'sucess',
+                    title: 'Cadastro concluído!',
+                    showConfirmButton: true,
+                    timer: 1500
+                });
             }
         }
-    })
-
-    // FORMATACAO CEP
-    cepInput.addEventListener(`keypress`, function addingSignalsCEP() {
-        if (cepInput.value.length == 5) {
-            cepInput.value += `-`
-        }
-    })
-
-    cepInput.addEventListener(`keydown`, function removingSignalsCEP(key) {
-        if (key.code == `Backspace`) {
-            if (cepInput.value.length == 7) {
-                cepInput.value = cepInput.value.slice(0, 6)
-            }
-        }
-    })
-
-    // FORMATACAO CEL
-    teleInput.addEventListener(`keypress`, function addingSignalsTel() {
-        if (teleInput.value.length == 0) {
-            teleInput.value += `(`
-        } else if (teleInput.value.length == 3) {
-            teleInput.value += `)`
-        } else if (teleInput.value.length == 8) {
-            teleInput.value += `-`
-        }
-    })
+    } else {
+        Swal.fire({
+            position: 'center',
+            icon: 'error',
+            title: 'Email inválido. Tente novamente.',
+            showConfirmButton: false,
+            timer: 1500
+        });
+    }
 }
 
-formatacaoNumeros()
+function cadastroLogin() {
 
-// function cadastroLogin() {
-//     var usuarioEmpresa = usuarioEmpresa.value;
-//     var senhaLogin = ipt_senha_empresa.value;
-//     var senhaConfirmacao = ipt_senha_confirmacao.value;
+    var empresas = select_empresa.value;
+    var usuarioEmpresa = usuarioEmpresa.value;
+    var senhaEmpresa = ipt_senha_empresa.value;
+    var senhaConfirmacao = ipt_senha_confirmacao.value;
 
-//     if(senhaConfirmacao != senhaLogin) {
-//         alert(`Senha incorreta.`)
-//     }
-    
-
-// }
+    if (usuarioEmpresa == '' || senhaEmpresa == '' || senhaConfirmacao == '') {
+        Swal.fire({
+            position: 'center',
+            icon: 'error',
+            title: 'Campo obrigatório vazio.',
+            showConfirmButton: false,
+            timer: 1500
+        });
+    } if (senhaConfirmacao != senhaEmpresa) {
+        Swal.fire({
+            position: 'center',
+            icon: 'error',
+            title: 'Senha incorreta.',
+            showConfirmButton: false,
+            timer: 1500
+        });
+    } else {
+        Swal.fire({
+            position: 'center',
+            icon: 'sucess',
+            title: 'Cadastro concluído!',
+            showConfirmButton: true,
+            timer: 1500
+        });
+    }
+}
