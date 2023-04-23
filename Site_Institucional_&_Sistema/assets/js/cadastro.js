@@ -93,7 +93,3 @@ function cadastroLogin() {
         });
     }
 }
-<<<<<<< HEAD
-=======
-
->>>>>>> f7ccaad00378b92477aace21f570095ba7c29ada
