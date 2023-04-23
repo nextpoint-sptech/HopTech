@@ -22,3 +22,14 @@ Entenda um pouco melhor com nosso diagrama de solução logo abaixo... ⬇️
   <img src="https://img.shields.io/badge/Canva-%2300C4CC.svg?&style=for-the-badge&logo=Canva&logoColor=white">
   <img src="https://img.shields.io/badge/Trello-0052CC?style=for-the-badge&logo=trello&logoColor=white">
 </div>
+
+<br>
+
+## 💻 Desenvolvedores
+
+‣ 👨‍🚀 [Kauanny Tenorio](https://github.com/KakauFelix)
+‣ 👨‍🚀 [Nayra Belarmino](https://github.com/nayrabelarmino)
+‣ 👨‍🚀 [Lucas Santos](https://github.com/lucasgianine)
+‣ 👨‍🚀 [Kaiky Yuji](https://github.com/kaikyuji)
+‣ 👨‍🚀 [Vinicius Costa](https://github.com/Vinicius-Costa23)
+‣ 👨‍🚀 [Gabriel Namur](https://github.com/gabrielnamur)
