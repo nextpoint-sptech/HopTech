@@ -2,8 +2,8 @@
 
 <img src="https://github.com/nextpointbr/HopTech/blob/main/Site_Institucional_&_Sistema/assets/images/logosProjeto/HopTech-dark.png" width="400px" align="left">
 
-### O projeto HopTech surgiu com a iniciativa da nossa organização, e é um projeto que tem como principal objetivo desenvolver soluções simples e efetivas para problemas no plantio de lúpulo.
-### Nosso objetivo é auxiliar no controle das plantações por meio de um sistema de monitoramento utilizando sensores e dashboards para coleta e análise de dados.
+#### O projeto HopTech surgiu com a iniciativa da nossa organização, e é um projeto que tem como principal objetivo desenvolver soluções simples e efetivas para problemas no plantio de lúpulo.
+#### Nosso objetivo é auxiliar no controle das plantações por meio de um sistema de monitoramento utilizando sensores e dashboards para coleta e análise de dados.
 
 Entenda um pouco melhor com nosso diagrama de solução logo abaixo... ⬇️
 ##
@@ -20,6 +20,5 @@ Entenda um pouco melhor com nosso diagrama de solução logo abaixo... ⬇️
   <img src="https://img.shields.io/badge/MySQL-005C84?style=for-the-badge&logo=mysql&logoColor=white">
   <img src="https://img.shields.io/badge/GIT-E44C30?style=for-the-badge&logo=git&logoColor=white">
   <img src="https://img.shields.io/badge/Canva-%2300C4CC.svg?&style=for-the-badge&logo=Canva&logoColor=white">
-  <img src="https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white">
   <img src="https://img.shields.io/badge/Trello-0052CC?style=for-the-badge&logo=trello&logoColor=white">
 </div>
