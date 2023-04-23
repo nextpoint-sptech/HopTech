@@ -2,10 +2,10 @@ function fazerLogin() {
     var usuario = ipt_usuario.value;
     var senha = ipt_senha.value;
 
-    if (usuario.toLowerCase() == "hoppers@nextpoint.com.br" && senha == "123") {
+    if (usuario.toLowerCase() == "hoppers" && senha == "123") {
         window.parent.location.href = "./area-restrita/hoptech/dashboardHoptech.html";
     }
-    else if (usuario.toLowerCase() == "admincliente@nextpoint.com.br" && senha == "1234") {
+    else if (usuario.toLowerCase() == "admincliente" && senha == "1234") {
         window.parent.location.href = "./area-restrita/dashboard.html";
     }
     else {

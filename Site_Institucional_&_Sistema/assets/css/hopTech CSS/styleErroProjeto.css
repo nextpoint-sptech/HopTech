@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css2?family=Mukta:wght@800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    text-decoration: none;
+    list-style: none;
+} /* Seletor universal */
+
+body {
+    background-color: #609966;
+    overflow: hidden;
+}
+
+header {
+    position: fixed;
+    width: 100%;
+    padding: 22px 60px;
+}
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #8F43EE;
+}
+
+nav ul{
+    display: flex;
+    align-items: center;
+    gap: 55px;
+}
+
+nav ul li a{
+    color: #fff;
+    font-size: 1.0rem;
+    font-family: 'Mukta', sans-serif;;
+    border-bottom: 3px solid transparent;
+    transition: all 0.5s;
+    text-shadow: 0 1px 2px #2D2727;
+}
+nav ul li a:hover{
+    border-bottom: 3px solid #40513B;
+    color: #fff;
+    text-shadow: 0 1px 2px #40513B;
+}
+.main{
+    overflow: hidden;
+}
+.section{
+    height: 100vh;
+    padding: 8rem;
+    
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.Left{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.Left p{
+    font-size: 2.2rem;
+    color: #fff;
+    margin-bottom: 13px;
+}
+.Left h4{
+    font-size: 1.5rem;
+    color: #40513B;
+    margin-bottom: 1.7rem;
+}
+.Left .btn {
+    padding: 1.1rem 3.7rem;
+    background-color: #40513B;
+    border-radius: 15px;
+    color: #fff;
+    font-size: 1.0rem;
+    font-weight: 700;
+    transition: 0.3s;
+}
+.Left .btn:hover {
+    box-shadow: 0 1px 4px #40513B;
+}
+.Right img{
+    width: 340px;
+    margin-bottom: 1rem;
+}
+
+.btn-area {
+    padding: 0.9rem 1.7rem;
+    background-color: #40513B;
+    border-radius: 15px;
+    color: #fff;
+    font-size: 1.0rem;
+    font-weight: 700;
+    transition: 0.3s;
+}
+.btn-area:hover {
+    box-shadow: 0 1px 4px #40513B;
+}
