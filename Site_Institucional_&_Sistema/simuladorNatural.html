@@ -7,14 +7,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Simulador Financeiro | HopTech</title>
 
-    <link rel="shortcut icon" href="assets/images/logosProjeto/flaticon-HOPTECH-white.png" type="image/x-icon"> <!-- Flavicon -->
+    <link rel="shortcut icon" href="assets/images/logosProjeto/flaticon-HOPTECH-white.png" type="image/x-icon">
+    <!-- Flavicon -->
 
-    <link rel="stylesheet" href="assets/css/hopTech CSS/styleSimulador.css"> <!-- Exportando o CSS -->
-    <link rel="stylesheet" href="assets/css/hopTech CSS/headerSimulador.css"> <!-- Exportando header do simulador -->
+    <link rel="stylesheet" href="assets/css/hopTech CSS/styleSimulador.css"> <!-- Importando o CSS -->
+    <link rel="stylesheet" href="assets/css/hopTech CSS/headerSimulador.css"> <!-- Importando header do simulador -->
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
         integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" /> <!-- Exportando FONTAWESOME -->
+        crossorigin="anonymous" referrerpolicy="no-referrer" /> <!-- Importando FONTAWESOME -->
 
 
 </head>
@@ -60,7 +61,7 @@
                 </div>
                 <div class="input-box">
                     <label for="weight">
-                        Qtd. produzida em Kg
+                        Qtd. anual produzida em Kg
                     </label>
                     <div class="input-field">
                         <i class="fa-solid fa-weight-hanging"></i>
@@ -79,208 +80,32 @@
                             <option value="saaz">Saaz</option>
                             <option value="citra">Citra</option>
                             <option value="mantiqueira">Mantiqueira</option>
-                            <option value="brewersgold">Brewer's Gold</option>
-                            <option value="northern">Northern Brewer</option>
                         </select>
                     </div>
                 </div>
             </form>
             <button class="btn" onclick="simular()">Simular</button>
+
         </section>
     </main>
-
-    <main id="result">
-        <section id="com_solucao"></section>
-        <section id="sem_solucao"></section>
-    </main>
-
-    <main id="grafic-result">
+    
+    <div id="js_primeira_div"></div>
+    <!-- <div id="resultado" class="div-resultados">
         <section>
             <canvas id="chartSimulador"></canvas>
         </section>
-    </main>
+    </div> -->
 </body>
 
 </html>
 
-<!-- Exportando API de alertas "SweetAlert2" -->
+<!-- Importando API de alertas "SweetAlert2" -->
 <link href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-bootstrap-4/bootstrap-4.css" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
 
-<script>
-    /* Variável global, pois o valor será usado em todas as funções que tiver.
-    Por ser Simulador Natural, o seu valor será inicialmente esse: */
-    var economia = 0.93;
-
-    function simular() {
-        var tipo_lupulo = escolhaDoLupulo.value;
-        var area = Number(input_tamanho_area.value);
-        var kgLupulo = Number(input_kg_lupulo.value);
-
-        if (tipo_lupulo == '') {
-            Swal.fire({
-                position: 'center',
-                icon: 'warning',
-                title: 'Tipo de lúpulo indefinido.',
-                showConfirmButton: false,
-                timer: 2100
-            });
-        } else if (area == 0 || kgLupulo == 0) {
-            Swal.fire({
-                position: 'center',
-                icon: 'warning',
-                title: 'Área ou quantidade de lúpulo indefinido.',
-                showConfirmButton: false,
-                timer: 2100
-            });
-        } else {
-            if (area <= 30) {
-                console.log("Área entre 1 e 30m²");
-                var numSensores = 10;
-                // Mais uma estrutura de decisão, dessa vez, vendo qual é o tipo de lúpulo que o usuário escolheu, a sua escolha altera o valor do produto, por isso o motivo da estrutura dessa decisão.
-                if (tipo_lupulo == 'saaz') {
-                    console.log("Tipo de Lúpulo = Saaz");
-                    // O valor do Saaz:
-                    var valorLupulo = 192.30; // Ou 360
-
-                    var diminuir_perdas = ((valorLupulo * kgLupulo) * area) * economia;
-                    var percentual = diminuir_perdas / 100;
-
-                    var diminuicao = ((valorLupulo * kgLupulo) - diminuir_perdas) / 100;
-
-                    // Frase:
-                    com_solucao.innerHTML = `<div class="comparacao1">
-                            <img src=""
-                            alt="Com a Hoptech"
-                            style="width: 50px;" /> <br />
-                            <h1 class="title-comparacao">
-                                COM A HOPTECH:
-                            <h1>
-                            <p class="text-comparacao">
-                                Ótima plantação, mas ainda podemos melhorar!
-                                Você tem a oportunidade de diminuir suas perdas em:
-                                <b>${diminuicao.toFixed(2)}%</b> por mês!
-                                E consegue crescer seu negócio em:
-                                <b>R$${diminuir_perdas.toFixed(2)}</b> (<b>${percentual.toFixed(2)}%</b>) p/ mês!
-                                Equivalente a <b>R$${diminuir_perdas * 12}</b> (<b>${percentual * 12}%</b>) p/ ano!
-                            </p>
-
-                        </div>`;
-                } else if (tipoLupulo == 'citra') {
-                    console.log("3.2º - Tipo de Lúpulo = Citra");
-                    // O valor da Citra:
-                    var valorLupulo = 579.90; // Ou 210
-
-                    var totalPrejuizo = ((kgLupulo * area) * valorLupulo) / 0.13;
-                    var totalInvestimento = (numSensores * sensores) * area;
-
-                    description.innerHTML = frase;
-                } else if (tipoLupulo == 'mantiqueira') {
-                    console.log("3.3º - Tipo de Lúpulo = Mantiqueira");
-                    // O valor do Mantiqueira:
-                    var valorLupulo = 200;
-
-                    var totalPrejuizo = (kgLupulo * area) * valorLupulo;
-                    var totalInvestimento = (numSensores * sensores) * area;
-
-                    description.innerHTML = `Seu investimento inicial será de ${totalInvestimento.toFixed(2)}`;
-                } else if (tipoLupulo == 'brewersgold') {
-                    console.log("3.4º - Tipo de Lúpulo = Brewer's Gold");
-                    // O valor do Brewer's Gold:
-                    var valorLupulo = 223.92;
-
-                    var totalPrejuizo = (kgLupulo * area) * valorLupulo;
-                    var totalInvestimento = (numSensores * sensores) * area;
-
-                    description.innerHTML = `Seu investimento inicial será de ${totalInvestimento.toFixed(2)}`;
-
-                } else if (tipoLupulo == 'northern') {
-                    console.log("3.5º - Tipo de Lúpulo = Northern Brewer");
-                    // O valor do Northern Brewer:
-                    var valorLupulo = 340.90;
-
-                    var totalPrejuizo = (kgLupulo * area) * valorLupulo;
-                    var totalInvestimento = (numSensores * sensores) * area;
-
-                    description.innerHTML = `Seu investimento inicial será de ${totalInvestimento.toFixed(2)}`;
-
-                }
-            }
-        }
-    }
-</script>
-
-<!-- CHARTJS -->
+<!-- Importando CHARTJS -->
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<!-- <script src="https://cdn.jsdelivr.net/npm/chart.js/dist/chart.min.js"></script> -->
 <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
 
-
-<script>
-    Chart.register(ChartDataLabels);
-
-    Chart.defaults.set('plugins.datalabels', {
-        color: '#40513B',
-        formatter: (value, ctx) => {
-            let sum = 0;
-            let dataArr = ctx.chart.data.datasets[0].data;
-            dataArr.map(data => {
-                sum += data;
-            });
-            let percentage = value.toFixed(2) + "%";
-            return percentage;
-        }
-    });
-
-    const data = {
-        labels: [
-            'Janeiro',
-            'Fevereiro',
-            'Março',
-            'Abril',
-            'Maio',
-            'Junho'
-        ],
-        datasets: [{
-            label: 'C/ nossa solução',
-            backgroundColor: '#A5C9CA',
-            borderColor: '#395B64',
-            data: [9.6, 28.1, 32.8, 57.2, 62.1, 79.9]
-        },
-        {
-            label: 'S/ nossa solução',
-            backgroundColor: '#FA9884',
-            borderColor: '#D21312',
-            data: [31.2, 28.1, 11.8, 9.3, 4.2, 4.1]
-        }]
-    };
-
-    const config = {
-        type: 'line',
-        data: data,
-        options: {
-            layout: {
-                padding: 5
-            },
-            elements: {
-                point: {
-                    hoverRadius: 10
-                }
-            },
-            plugins: {
-                title: {
-                    display: true,
-                    text: 'Média de lucro em 6 meses',
-                    color: '#40513B'
-                }
-            }
-        }
-    };
-</script>
-
-<script>
-    const chartSimulador = new Chart(
-        document.getElementById('chartSimulador'),
-        config
-    );
-</script>
+<!-- Importando JS -->
+<script src="assets/js/simuladorNatural.js"></script>
