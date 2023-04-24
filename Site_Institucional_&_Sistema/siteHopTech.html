@@ -4,9 +4,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HopTech</title>
+    <title>Página inicial | HopTech</title>
     <link rel="shortcut icon" href="assets/images/logosProjeto/flaticon-HOPTECH-white.png" type="image/x-icon">
+    
     <script src="https://kit.fontawesome.com/7ac0278b37.js" crossorigin="anonymous"></script>
+
     <link rel="stylesheet" href="./assets/css/hopTech CSS/headerHopTech.css">
     <link rel="stylesheet" href="./assets/css/hopTech CSS/siteHopTech.css">
 </head>
@@ -22,7 +24,7 @@
                     <li class="menuTopics"><a href="#sobre">Sobre</a></li>
                     <li class="menuTopics"><a href="#simulacao">Simulação</a></li>
                     <li class="menuTopics"><a href="#contato">Contato</a></li>
-                    <li class="menuButton"><button onclick="goLogin()">Área do Cliente</button></li>
+                    <li class="menuButton"><button onclick="goLogin()">Area do Cliente</button></li>
                 </ul>
             </div>
         </nav>
@@ -156,27 +158,27 @@
                 <form class="inputBox">
                     <div class="inputs">
                         <label for="nomeResponsavel">Nome do responsável*</label>
-                        <input id="nomeResponsavel" required>
+                        <input id="nomeResponsavel" placeholder="Digite o nome completo" required>
                     </div>
                     <div class="inputs">
                         <label for="nomeEmpresa">Nome da empresa*</label>
-                        <input id="nomeEmpresa" required>
+                        <input id="nomeEmpresa" placeholder="Digite o nome da empresa aqui" required>
                     </div>
                     <div class="inputs">
                         <label for="empresaTelefone">Telefone*</label>
-                        <input id="empresaTelefone" required>
+                        <input id="empresaTelefone" placeholder="(11) 23456-7890" required>
                     </div>
                     <div class="inputs">
                         <label for="empresaEmail">E-mail*</label>
-                        <input id="empresaEmail" required>
+                        <input id="empresaEmail" placeholder="Digite o e-mail aqui" required>
                     </div>
                     <div class="inputs">
-                        <label for="msgContato">Descrição:</label>
-                        <textarea id="msgContato"></textarea>
+                        <label for="msgContato">Mensagem*</label>
+                        <textarea id="msgContato" placeholder="Digite sua mensagem aqui" required></textarea>
                     </div>
                 </form>
                 <div class="buttonBox">
-                    <button>Contate-nos</button>
+                    <button onclick="enviarMensagem()">Contate-nos</button>
                 </div>
             </div>
             <div class="secondContainer">
@@ -203,12 +205,9 @@
     </div>
 </body>
 </html>
-<script>
-    function goLogin(){
-        window.location.href = 'login.html'
-    }
 
-    function goSimulacao(){
-        window.location.href = 'informeSimulador.html'
-    }
-</script>
+<!-- Importando a API de alertas "SweetAlert2": -->
+<link href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-bootstrap-4/bootstrap-4.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
+<!-- Importando JS -->
+<script src="assets/js/siteHopTech.js"></script>
