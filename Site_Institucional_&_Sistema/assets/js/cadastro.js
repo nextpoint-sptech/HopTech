@@ -42,7 +42,7 @@ function verificarCredenciais() {
                 || cep != 0 || estado != '' || cidade != '' || bairro != '' || rua != '') {
                 Swal.fire({
                     position: 'center',
-                    icon: 'sucess',
+                    icon: 'success',
                     title: 'Cadastro concluído!',
                     showConfirmButton: true,
                     timer: 1500
@@ -86,7 +86,7 @@ function cadastroLogin() {
     } else {
         Swal.fire({
             position: 'center',
-            icon: 'sucess',
+            icon: 'success',
             title: 'Cadastro concluído!',
             showConfirmButton: true,
             timer: 1500
