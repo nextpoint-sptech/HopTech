@@ -21,15 +21,16 @@ new Chart(ctx, { // Gráfico principal (linha)
       backgroundColor: '#9DC08B',
       borderColor: '#9DC08B',
       tension: 0.3 // Curvatura do gráfico
-    },
-    {
-      label: 'Luminosidade (Ontem)', // Linha de comparação ao dia anterior
-      data: [87, 66, 55, 41, 78, 110, 200, 341, 591, 640, 716, 601, 460, 671, 433, 409, 511, 474, 324, 325, 321, 289, 219, 102],
-      borderWidth: 1,
-      backgroundColor: '#E9EDC9',
-      borderColor: '#E9EDC9',
-      tension: 0.3
-    }]
+    }
+    // ,{
+    //   label: 'Luminosidade (Ontem)', // Linha de comparação ao dia anterior
+    //   data: [87, 66, 55, 41, 78, 110, 200, 341, 591, 640, 716, 601, 460, 671, 433, 409, 511, 474, 324, 325, 321, 289, 219, 102],
+    //   borderWidth: 1,
+    //   backgroundColor: '#E9EDC9',
+    //   borderColor: '#E9EDC9',
+    //   tension: 0.3
+    // }
+  ]
   },
   options: {
     interaction: {
@@ -117,7 +118,7 @@ new Chart(ctx2, { // Gráfico de barra mostrando luminosidade por estações
     plugins: {
       title: {
         display: true,
-        text: 'Média de luminosidade do último mês por estação',
+        text: 'Média de luminosidade por estação',
         font: {
           size: 15
         }
@@ -143,7 +144,7 @@ new Chart(ctx3, { // Gráfico de barra mostrando luminosidade por região
     labels: ['Norte', 'Nordeste', 'Centro-Oeste', 'Sudeste', 'Sul'],
     datasets: [{
       label: 'Média obtida',
-      data: [874, 400, 567, 349, 672],
+      data: [567, 400, 874, 349, 672],
       borderWidth: 0.5,
       backgroundColor: '#9DC08B',
       borderColor: '#9DC08B',
