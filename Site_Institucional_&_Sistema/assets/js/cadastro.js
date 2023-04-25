@@ -131,19 +131,3 @@ function cadastroLogin() {
         }
     }
 }
-    // if (senhaConfirmacao != senhaEmpresa) {
-    //     Swal.fire({
-    //         position: 'center',
-    //         icon: 'error',
-    //         title: 'Senhas não coincidem.',
-    //         showConfirmButton: false,
-    //         timer: 1500
-    //     });
-    // } else {
-    //     Swal.fire({
-    //         position: 'center',
-    //         icon: 'sucess',
-    //         title: 'Cadastro concluído!',
-    //         showConfirmButton: true,
-    //         timer: 1500
-    //     })
