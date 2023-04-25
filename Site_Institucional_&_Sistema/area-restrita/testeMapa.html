@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>teste | Dashboard</title>
+    <!-- Flaticon -->
+    <link rel="shortcut icon" href="../assets/images/logosProjeto/flaticon-HOPTECH-white.png" type="image/x-icon">
+    <link rel="stylesheet" href="../assets/css/area-restrita CSS/heat_map.css">
+</head>
+
+<body id="dashboard">
+    <div class="div_menu_lateral">
+        <a href="../siteHopTech.html"><img src="../assets/images/logosProjeto/HopTech-dark.png" class="logo_hoptech"
+                alt="Logo da HopTech"></a>
+        <button>
+            <img src="../assets/images/icons/dashboard.png" class="icons_menu" alt="Ícone do dashboard">
+            Dashboard
+        </button>
+        <button class="pageAtual" onclick="irParaHeatMap(); return false">
+            <img src="../assets/images/icons/mapa-de-calor.png" class="icons_menu" alt="Ícone do mapa de calor">
+            Mapa de calor
+        </button>
+        <button>
+            <img src="../assets/images/icons/iconeHistorico.png" class="icons_menu" style="width: 30px;"
+                alt="Ícone do histórico">
+            Histórico
+        </button>
+        <button>
+            <img src="../assets/images/icons/iconeHeadset.png" class="icons_menu" style="width: 30px;"
+                alt="Ícone de suporte">
+            Suporte
+        </button>
+        <footer>
+            <img src="../assets/images/logosProjeto/NEXTPOINT.png" class="logo_empresa" alt="Logo da NEXTPOINT">
+            © 2023 HopTech
+        </footer>
+    </div>
+    <div class="div_conteiner_conteudo">
+        <div class="div_menu_top">
+            <div><!--  --></div>
+            <h3 class="titleDashboardCliente">Gerenciamento - Hop6</h3>
+            <button class="btnSair" onclick="sair(); return false">Sair</button>
+        </div>
+        <div class="conteiner_dashboard">
+            <div class="titleDashboard">
+                <h1>Mapa de Calor</h1>
+                <span id="data">28/04/2023 - 13:03:57</span>
+            </div>
+            <div class="conteudo_mapa">
+                <div class="conteiner_mapa">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
