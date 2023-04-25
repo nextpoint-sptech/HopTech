@@ -43,7 +43,7 @@ function simular() {
         }
 
         let lucroAnual = producaoAnual * precoKg;
-        let perdaNormalPCTG = 0.3;
+        let perdaNormalPCTG = 0.2;
         let perdaComSistemaPCTG = perdaNormalPCTG * .5;
         let lucroNormal = lucroAnual * (1 - perdaNormalPCTG)
         let lucroComSistema = lucroAnual * (1 - perdaComSistemaPCTG);

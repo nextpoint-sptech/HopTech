@@ -6,39 +6,47 @@
     padding: 0;
     box-sizing: border-box;
 }
+
 body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     width: 100%;
-    height: 140vh;
+    min-height: 100vh;
     background-color: #609966;
 }
 
 #container {
     display: flex;
-    align-items: center;
-    gap: 5rem;
-    margin-top: 30%;
-    margin-bottom: 5%;
+    width: 80%;
+    height: 80%;
+}
+
+#container #img{
+    display: flex;
+    justify-content: center;
+    width: 50%;
+    padding: 1em;
 }
 
 #img img{
-    width: 27rem;
+    width: 100%;
 }
 
-#simulator {
+#container #simulator {
+    width: 50%;
     display: flex;
     flex-direction: column;
-    gap: 2rem;
-    padding: 2.5rem;
+    align-items: center;
+    justify-content: center;
+    padding: 1em;
     color: #f8fafc;
     background-color: #40513B;
     border-radius: 8px;
 }
 
-#form {
+#form { 
     display: flex;
     flex-direction: column;
     gap: 2rem;
@@ -126,6 +134,7 @@ body {
 .btn:hover {
     background-color: #698e56;
     box-shadow: 0 1px 4px #40513B;
+    cursor: pointer;
 }
 
 
@@ -137,7 +146,12 @@ select{
     background-color: #f8fafc;
 }
 
-select, .tipo {
+.selectUnidade{
+    height: 100%;
+    padding: 1em;
+}
+
+#escolhaDoLupulo{
     color: #40513B;
     font-size: 1.3rem;
     padding: 0.6rem 1rem;
@@ -145,18 +159,24 @@ select, .tipo {
     width: 100%;
 }
 
-#grafic-result {
+#js_primeira_div{
+    margin: 2em;
+    width: 100%;
     display: flex;
-    background-color: #f8fafc;
-    align-items: center;
     justify-content: center;
-    width: 70%;
-    border-radius: 25px;
-    border: 3px solid #40513B;
-    margin-bottom: 5%;
+    align-items: center;
+    visibility: hidden;
 }
-#chartSimulador {
-    position: relative;
-    height:40vh;
-    width:45vw;
+
+#js_primeira_div .containerResultados{
+    display: flex;
+    justify-content: space-evenly;
+    width: 80%;
+}
+
+#js_primeira_div .containerResultados .containerComparacao{
+    padding: 2em;
+    width: 40%;
+    border-radius: 25px;
+    background-color: rgba(255, 255, 255, 0.5);
 }
