@@ -52,6 +52,6 @@ function simular() {
         document.getElementById("semSistema").innerHTML = `<h1>Sem Sistema</h1>
         <p>Atualmente, com <b>${producaoAnual}kg(s)</b> produzidos, cerca de <b>${perdaNormalPCTG * 100}%</b> dos lúpulos são perdidos devido à exposição a luz inadequada, o que indica uma perda de cerca de <b>R$${lucroAnual - lucroNormal}</b>, totalizando um lucro de <b>R$${lucroNormal}</b>.</p>`
         document.getElementById("comSistema").innerHTML = `<h1>Com sistema</h1>
-        <p>Já com o nosso produto, o <b>HopTech</b>, estimamos diminuir as suas perdas em até <b>50%</b> em cima da perda já existente, o que representa uma perda total de apenas <b>${perdaComSistemaPCTG * 100}%</b>, indicando uma perda de cerca de <b>R$${lucroAnual - lucroComSistema}</b>, e totalizando um lucro de <b>R$${lucroComSistema}</b> </p>`;
+        <p>Já com o nosso produto, o <b>HopTech</b>, estimamos diminuir as suas perdas em até <b>50%</b> em cima da perda já existente, o que representa um total de apenas <b>${perdaComSistemaPCTG * 100}%</b>, indicando um prejuizo de cerca de <b>R$${lucroAnual - lucroComSistema}</b>, e totalizando um lucro de <b>R$${lucroComSistema}</b> </p>`;
     }
 }

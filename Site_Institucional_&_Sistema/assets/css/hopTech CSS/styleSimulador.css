@@ -178,5 +178,6 @@ select{
     padding: 2em;
     width: 40%;
     border-radius: 25px;
+    text-align: justify;
     background-color: rgba(255, 255, 255, 0.5);
 }
