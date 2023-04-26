@@ -1,6 +1,18 @@
 function sair() {
   window.parent.location.href = "../login.html";
 } // Função que ao clicar em "sair", redirecionará para a tela de login
+function goDashboard() {
+  window.parent.location.href = "dashboard.html";
+}
+function goHeatMap() {
+  window.parent.location.href = "../erro-pages/erro404-hoptech.html";
+}
+function goSuporte() {
+  window.parent.location.href = "../erro-pages/erro404-hoptech.html";
+}
+function goHistorico() {
+  window.parent.location.href = "../erro-pages/erro404-hoptech.html";
+}
 
 
 // Gráficos:
