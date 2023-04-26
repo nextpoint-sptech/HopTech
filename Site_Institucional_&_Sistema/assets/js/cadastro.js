@@ -40,54 +40,43 @@ function verificarCredenciais() {
         if (telefone != Number(telefone)) {
             messageAlert += '• Telefone: Não é um número.\n'
         }
-        if (empresaEmail.indexOf('@') != -1 || confirmacaoEmail.indexOf('@') != -1) {
-            if (confirmacaoEmail == empresaEmail) {
-                if (empresaNome != '' || telefone != 0 || cnpj != 0 || empresaEmail != '' || confirmacaoEmail != ''
-                    || cep != 0 || estado != '' || cidade != '' || bairro != '' || rua != '') {
-                    Swal.fire({
-                        position: 'center',
-                        icon: 'success',
-                        title: 'Cadastro concluído!',
-                        showConfirmButton: true,
-                        timer: 1500
-                    });
-                }
-            }
-            if (cnpj.length < 14) {
-                messageAlert += '• CNPJ: Quantidade de digitos inválida.\n'
-                if (cnpj != Number(cnpj)) {
-                    messageAlert += '• CNPJ: Não é um número.\n'
-                }
-            }
-            if (cep.length < 8) {
-                messageAlert += '• CEP: Quantidade de digitos inválida. \n'
-                if (cep != Number(cep)) {
-                    messageAlert += '• CEP: Não é um número. \n'
-                }
-            }
-            if (confirmacaoEmail != empresaEmail) {
-                messageAlert += '• Confirmação de email: Emails não coincidem. \n'
-            }
-            if (empresaEmail.indexOf('@') == -1 || confirmacaoEmail.indexOf('@') == -1) {
-                messageAlert += '• Email não tem @'
-            }
 
-            if (messageAlert != '') {
-                Swal.fire({
-                    position: 'center',
-                    icon: 'error',
-                    title: messageAlert,
-                    showConfirmButton: true
-                })
-            } else {
-                Swal.fire({
-                    position: 'center',
-                    icon: 'success',
-                    title: 'Cadastro feito com sucesso!',
-                    showConfirmButton: true
-                })
-                select_empresas.innerHTML += `<option>${empresaNome}</option>`
+        if (cnpj.length < 14) {
+            messageAlert += '• CNPJ: Quantidade de digitos inválida.\n'
+            if (cnpj != Number(cnpj)) {
+                messageAlert += '• CNPJ: Não é um número.\n'
             }
+        }
+
+        if (cep.length < 8) {
+            messageAlert += '• CEP: Quantidade de digitos inválida. \n'
+            if (cep != Number(cep)) {
+                messageAlert += '• CEP: Não é um número. \n'
+            }
+        }
+        if (confirmacaoEmail != empresaEmail) {
+            messageAlert += '• Confirmação de email: Emails não coincidem. \n'
+        }
+
+        if (empresaEmail.indexOf('@') == -1) {
+            messageAlert += '• Email não tem @.'
+        }
+
+        if (messageAlert != '') {
+            Swal.fire({
+                position: 'center',
+                icon: 'error',
+                title: messageAlert,
+                showConfirmButton: true
+            })
+        }else{
+            Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: 'Cadastro feito com sucesso!',
+                showConfirmButton: true
+            })
+            select_empresas.innerHTML += `<option>${empresaNome}</option>`
         }
     }
 }
