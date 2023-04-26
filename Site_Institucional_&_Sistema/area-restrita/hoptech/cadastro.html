@@ -28,7 +28,7 @@
             Notificações
         </button>
         <footer>
-            <img src="../../assets/images/logosProjeto/NEXTPOINT.png" class="logo_empresa" alt="Logo da NEXTPOINT">
+            <a href="../../index.html"><img src="../../assets/images/logosProjeto/NEXTpoint.png" class="logo_empresa" alt="Logo da NEXTPOINT"></a>
             © 2023 HopTech
         </footer>
     </div>
@@ -165,9 +165,21 @@
 </body>
 
 </html>
-<!-- Exportando a API de alertas "SweetAlert2": -->
+<!-- Importando a API de alertas "SweetAlert2": -->
 <link href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-bootstrap-4/bootstrap-4.css" rel="stylesheet">
 
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
 
 <script src="../../assets/js/cadastro.js"></script>
+
+<script>
+    function irParaCadastro() {
+        window.parent.location.href = "cadastro.html";
+    }
+    function irParaDashboard() {
+        window.parent.location.href = "dashboardHoptech.html";
+    }
+    function irParaNotificacoes() {
+        window.parent.location.href = "../../erro-pages/erro404-hoptech.html";
+    }
+</script>
