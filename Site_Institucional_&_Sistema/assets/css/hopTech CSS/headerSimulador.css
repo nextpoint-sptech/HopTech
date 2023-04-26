@@ -9,15 +9,9 @@
     list-style: none;
 } /* Seletor universal */
 
-body {
-    background-color: #609966;
-} /* Fundo */
-
 header {
-    top: 0;
-    position: absolute;
     width: 100%;
-    padding: 30px 60px;
+    height: 20%;
 } /* Dimensão do header */
 
 /* Construção da NAVBAR: */
