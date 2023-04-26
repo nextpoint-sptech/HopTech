@@ -10,6 +10,10 @@ function irParaCadastro(){
     window.parent.location.href = "./cadastro.html";
 }
 
+function irParaNotificacoes() {
+  window.parent.location.href = "../../erro-pages/erro404-hoptech.html";
+}
+
 const ctx = document.getElementById('myChart');
 
 new Chart(ctx, {
