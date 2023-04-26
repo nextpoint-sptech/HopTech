@@ -13,24 +13,24 @@
 <body id="dashboard">
     <div class="div_menu_lateral">
         <a href="../siteHopTech.html"><img src="../assets/images/logosProjeto/HopTech-dark.png" class="logo_hoptech" alt="Logo da HopTech"></a>
-        <button class="pageAtual">
+        <button class="pageAtual" onclick="goDashboard()">
             <img src="../assets/images/icons/dashboard.png" class="icons_menu" alt="Ícone do dashboard">
             Dashboard
         </button>
-        <button>
+        <button onclick="goHeatMap()">
             <img src="../assets/images/icons/mapa-de-calor.png" class="icons_menu" alt="Ícone do mapa de calor">
             Mapa de calor
         </button>
-        <button>
+        <button onclick="goHistorico()">
             <img src="../assets/images/icons/iconeHistorico.png" class="icons_menu" style="width: 30px;" alt="Ícone do histórico">
             Histórico
         </button>
-        <button>
+        <button onclick="goSuporte()">
             <img src="../assets/images/icons/iconeHeadset.png" class="icons_menu" style="width: 30px;" alt="Ícone de suporte">
             Suporte
         </button>
         <footer>
-            <img src="../assets/images/logosProjeto/NEXTPOINT.png" class="logo_empresa" alt="Logo da NEXTPOINT">
+            <a href="../index.html"><img src="../assets/images/logosProjeto/NEXTPOINT.png" class="logo_empresa" alt="Logo da NEXTPOINT"></a>
             © 2023 HopTech
         </footer>
     </div>
@@ -52,9 +52,6 @@
                             <div class="txt_indicador1">
                                 <h5>Janela solar do dia</h5>
                                 <span class="valorIndicador">12 Horas</span>
-                            </div>
-                            <div>
-                                <img class="icon_indicadores" src="../assets/images/icons/por-do-sol.png" alt="icon indicador 2">
                             </div>
                         </div>
                         <div class="box_indicador">
@@ -110,6 +107,7 @@
             </div>
         </div>
     </div>
+
 </body>
 </html>
 
@@ -119,3 +117,18 @@
 <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
 <!-- Importando o back-end do ChartJS: -->
 <script src="../assets/js/dashboardCliente.js"></script>
+
+<script>
+    function goDashboard() {
+        window.parent.location.href = "dashboard.html";
+    }
+    function goHeatMap() {
+        window.parent.location.href = "../erro-pages/erro404-hoptech.html";
+    }
+    function goSuporte() {
+        window.parent.location.href = "../erro-pages/erro404-hoptech.html";
+    }
+    function goHistorico() {
+        window.parent.location.href = "../erro-pages/erro404-hoptech.html";
+    }
+</script>
