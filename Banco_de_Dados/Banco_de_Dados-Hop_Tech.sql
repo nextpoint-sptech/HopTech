@@ -33,7 +33,6 @@ create table usuario(
 create table lupulo(
 	idLupulo int primary key auto_increment,
     tipoLupulo varchar(45) not null,
-    qtdIdealLumens float not null,
     qtdHrsIdealLuz float
 );
 

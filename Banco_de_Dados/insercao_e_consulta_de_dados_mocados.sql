@@ -19,9 +19,9 @@ insert into usuario values
     (null, 1, 'LalAdmin', '0987', 3);    
     
 insert into lupulo values
-	(null, 'Admiral', 500, 15),
-    (null, 'Ahtanum', 500, 15),
-    (null, 'Amarillo', 500, 15);
+	(null, 'Admiral', 15),
+    (null, 'Ahtanum', 15),
+    (null, 'Amarillo', 15);
     
 insert into plantacao values
 	(null, 'Natural', 1000, 'Sul', 'RS', 'Pelotas', 2, 1),
