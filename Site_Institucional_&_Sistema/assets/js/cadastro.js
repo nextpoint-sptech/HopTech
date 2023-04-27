@@ -10,6 +10,10 @@ function irParaCadastro() {
     window.parent.location.href = "./cadastro.html";
 }
 
+function irParaNotificacoes() {
+    window.parent.location.href = "../erro-pages/erro404-hoptech.html";
+}
+
 function verificarCredenciais() {
     var empresaNome = nomeEmpresa.value;
     var telefone = telefoneEmpresa.value;
@@ -22,7 +26,18 @@ function verificarCredenciais() {
     var bairro = bairroEmpresa.value;
     var rua = ruaEmpresa.value;
     var complemento = complementoEmpresa.value;
+    const url = `http://viacep.com.br/ws/${cep}/json/`;
     var messageAlert = ''
+
+    fetch(url)
+          .then(response => response.json())
+          .then(data => {
+            const cep = `${data.rua}, ${data.bairro}, ${data.cidade} - ${data.estado}`;
+            divEndereco.textContent = cep;
+          })
+          .catch(error => {
+            console.error(error);
+          });
 
     if (empresaNome == '' || telefone == 0 || cnpj == 0 || empresaEmail == '' || confirmacaoEmail == ''
         || cep == 0 || estado == '' || cidade == '' || bairro == '' || rua == '') {
