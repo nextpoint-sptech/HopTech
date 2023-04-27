@@ -5,8 +5,8 @@ int ldr_pin = A0, leitura_ldr = 0;
 /*
 float minLumens = 500;
 float maxLumens = 800;
-float minBits = 0;
-float maxBits = 1023;*/
+float minBits = 5;
+float maxBits = 1011;*/
 
 void setup() {
   Serial.begin(9600);
@@ -14,7 +14,7 @@ void setup() {
 
 void loop() {
   leitura_ldr = analogRead(ldr_pin);
-  float varCalculoLumen = (1705 + leitura_ldr) / 3.41;
+  float varCalculoLumen = (1670 + leitura_ldr) / 3.35;
 
   float leitura1 = varCalculoLumen * 1;
   float leitura2 = varCalculoLumen * 0.9;
