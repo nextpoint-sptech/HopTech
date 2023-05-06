@@ -5,11 +5,11 @@ function goDashboard() {
   window.parent.location.href = "/dashboard/dashboard-cliente/dashboard-cliente.html";
 }
 function goCadastro() {
-  window.parent.location.href = "../area-restrita/cadastroCliente.html";
+  window.parent.location.href = "/dashboard/dashboard-cliente/cadastro-cliente.html";
 }
 
 function goPermissoes(){
-  window.parent.location.href = '../area-restrita/permissoesCliente.html'
+  window.parent.location.href = '/dashboard/dashboard-cliente/permissoes-cliente.html'
 }
 
 function goSuporte() {
