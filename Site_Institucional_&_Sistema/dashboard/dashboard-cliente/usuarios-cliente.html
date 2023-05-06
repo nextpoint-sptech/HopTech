@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Usuários | Dashboard</title>
+    <link rel="shortcut icon" href="../../images/logosProjeto/flaticon-HOPTECH-white.png" type="image/x-icon">
+    <!-- Flaticon -->
+    <link rel="stylesheet" href="/dashboard/dashboard-cliente/css/styleUsuario.css">
+    <!-- Importando CSS do dashboard -->
+</head>
+
+<body id="dashboard">
+    <div class="div_menu_lateral">
+        <a href="../siteHopTech.html"><img src="/images/logosProjeto/HopTech-dark.png" class="logo_hoptech"
+                alt="Logo da HopTech"></a>
+        <button onclick="goDashboard()">
+            <img src="/images/icons/dashboard.png" class="icons_menu" alt="Ícone do dashboard">
+            Dashboard
+        </button>
+        <button class="pageAtual" onclick="goUsuarios()">
+            <img src="../../images/icons/icon_usuarios.png" class="icons_menu" style="width: 40px;"
+                alt="Ícone de usuários">
+            Usuários
+        </button>
+        <button onclick="goPermissoes()">
+            <img src="../../images/icons/permissao.png" class="icons_menu" alt="Ícone de Permissões">
+            Permissões
+        </button>
+        <button onclick="goHistorico()">
+            <img src="/images/icons/iconeHistorico.png" class="icons_menu" style="width: 30px;"
+                alt="Ícone do histórico">
+            Histórico
+        </button>
+        <button onclick="goSuporte()">
+            <img src="/images/icons/iconeHeadset.png" class="icons_menu" style="width: 30px;" alt="Ícone de suporte">
+            Suporte
+        </button>
+        <footer>
+            <a href="../index.html"><img src="/images/logosProjeto/NEXTPOINT.png" class="logo_empresa"
+                    alt="Logo da NEXTPOINT"></a>
+            © 2023 HopTech
+        </footer>
+    </div>
+    <div class="div_conteiner_conteudo">
+        <div class="div_menu_top">
+            <div><!--  --></div>
+            <h3 class="titleDashboardCliente">Gerenciamento - Hop6</h3>
+            <button class="btnSair" onclick="sair(); return false">Sair</button>
+        </div>
+        <div class="conteiner_cadastro_usuarios">
+            <div class="titleDashboard">
+                <h1>Cadastro de Usuários</h1>
+                <span id="data">28/04/2023</span>
+            </div>
+            <div class="conteudo_cadastro_usuarios">
+                <p>Faça o cadastro do seu funcionário para que ele possa visualizar as telas de monitoramento do seu Lúpulo!</p>
+                <div class="box_cadastro_usuarios">
+                    <h2>Cadastre seu funcionário aqui!</h2>
+                    <form>
+                        <label>Nome do Funcionário*</label>
+                        <input type="text" id="ipt_nome_funcionario" required>
+                        <label>E-mail*</label>
+                        <input type="text" id="ipt_email_funcionario" required>
+                        <label>Nome de usuário*</label>
+                        <input type="text" id="ipt_username_funcionario" required>
+                        <label>Senha*</label>
+                        <input type="password" id="ipt_senha_funcionario" required>
+                        <label>Confirmar senha*</label>
+                        <input type="password" id="ipt_confirmar_senha_funcionario" required>
+                    </form>
+                    <button class="bntCadastrar" onclick="cadastrarUsuario()">Enviar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+<!-- Importando a API de alertas "SweetAlert2": -->
+<link href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-bootstrap-4/bootstrap-4.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
+
+<script src="./js/usuarios.js"></script>
