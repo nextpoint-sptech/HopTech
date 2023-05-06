@@ -36,79 +36,78 @@
         <div class="div_menu_top">
             <div><!--  --></div>
             <h3 class="titleDashboardCliente">Gerenciamento - HopTech</h3>
-            <button class="btnSair" onclick="sair(); return false">Sair</button>
+            <button class="botao_sair" onclick="sair(); return false">Sair</button>
         </div>
         
-        <div class="conteiner_cadastro">
-            <div class="titleDashboard">
+        <div class="container_principal">
+            <div class="titulo_pagina">
                 <h1>Cadastro de empresa</h1>
-                <!-- <h1 id="data">28/04/2023</h1> -->
             </div>
             <div class="conteudo_cadastro">
-                <section class="containerCadastro">
-                    <div class="firstContainer">
-                        <form action="" class="credentialsContainer">
+                <section class="sessao_cadastro">
+                    <div class="container_cadastro">
+                        <form action="" class="form_cadastro">
                             <!--Nome Empresa-->
-                            <div class="inputsRow">
-                                <div class="inputBox uniqueRow">
+                            <div class="inputs_cadastro">
+                                <div class="input_box linha_unica">
                                     <label for="nomeEmpresa">Nome da Empresa*</label>
                                     <input id="nomeEmpresa" required>
                                 </div>
                             </div>
                             <!--Telefone && CNPJ-->
-                            <div class="inputsRow">
-                                <div class="inputBox">
+                            <div class="inputs_cadastro">
+                                <div class="input_box">
                                     <label for="telefoneEmpresa">Telefone*(+DDD)</label>
                                     <input maxlength="11" id="telefoneEmpresa" required>
                                 </div>
-                                <div class="inputBox">
+                                <div class="input_box">
                                     <label for="documentoCNPJ">CNPJ*</label>
                                     <input maxlength="14" id="documentoCNPJ" required>
                                 </div>
                             </div>
                             <!--Email-->
-                            <div class="inputsRow">
-                                <div class="inputBox uniqueRow">
+                            <div class="inputs_cadastro">
+                                <div class="input_box linha_unica">
                                     <label for="emailEmpresa">Email*</label>
                                     <input id="emailEmpresa" required>
                                 </div>
                             </div>
                             <!--Confirmaçao Email-->
-                            <div class="inputsRow">
-                                <div class="inputBox uniqueRow">
+                            <div class="inputs_cadastro">
+                                <div class="input_box linha_unica">
                                     <label for="emailConfirmacao">Confirme o email*</label>
                                     <input id="emailConfirmacao" required>
                                 </div>
                             </div>
                             <!--CEP && Estado-->
-                            <div class="inputsRow">
-                                <div class="inputBox">
+                            <div class="inputs_cadastro">
+                                <div class="input_box">
                                     <label for="cepEmpresa">CEP*</label>
                                     <input maxlength="8" id="cepEmpresa" required>
                                 </div>
-                                <div class="inputBox">
+                                <div class="input_box">
                                     <label for="estadoEmpresa">Estado*</label>
                                     <input id="estadoEmpresa">
                                 </div>
                             </div>
                             <!--Cidade && Bairro-->
-                            <div class="inputsRow">
-                                <div class="inputBox">
+                            <div class="inputs_cadastro">
+                                <div class="input_box">
                                     <label for="cidadeEmpresa">Cidade*</label>
                                     <input id="cidadeEmpresa" required>
                                 </div>
-                                <div class="inputBox">
+                                <div class="input_box">
                                     <label for="bairroEmpresa">Bairro*</label>
                                     <input id="bairroEmpresa" required>
                                 </div>
                             </div>
                             <!--Rua && Complemento-->
-                            <div class="inputsRow">
-                                <div class="inputBox">
+                            <div class="inputs_cadastro">
+                                <div class="input_box">
                                     <label for="ruaEmpresa">Rua*</label>
                                     <input id="ruaEmpresa" required>
                                 </div>
-                                <div class="inputBox">
+                                <div class="input_box">
                                     <label for="complementoEmpresa">Complemento</label>
                                     <input id="complementoEmpresa">
                                 </div>
