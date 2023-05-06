@@ -14,7 +14,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: space-evenly;
     width: 80%;
     height: 90%;
     border-radius: 40px;
@@ -30,17 +30,39 @@
 
 .div_cadastro .container_cadastro .inputBox{
     width: 80%;
-    background-color: red;
+    height: 80%;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: space-around;
 }
 .div_cadastro .container_cadastro .inputBox .inputRow{
-    width: 80%;
-    background-color: yellow;
+    width: 80%; 
     display: flex;
     flex-direction: column;
 }
-.div_cadastro .container_cadastro .inputBox input{
-    width: 80% ;
+
+.div_cadastro .container_cadastro .inputBox .inputRow label{
+    font-size: 20px;
+    font-weight: 900;
+}
+
+.div_cadastro .container_cadastro .inputBox .inputRow input{
+    padding: 1em;
+    border-radius: 500px;
+    border: none;
+    outline: none;
+}
+
+
+.div_cadastro .container_cadastro .inputBox  button{
+    width: 30%;
+    border-radius: 500px;
+    background: #4C683F;
+    border: none;
+    outline: none;
+    padding: 1em;
+    color: #fff;
+    font-weight: 500;
+    font-size: 20px;
 }
