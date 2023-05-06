@@ -124,11 +124,17 @@ body{
 }
 
 .conteiner_cadastro{
+    padding-top: 30px;
+    margin-top: auto;
+    margin: auto;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    width: 96%;
-    height: 91vh;
+    width: 80%;
+    height: 95vh;
+    background-color: #BCD9AD;
+    border: solid 1px;
+    border-radius: 25px;
+    box-shadow: 2px 2px 2px;
 }
 
 .titleDashboard{
@@ -164,6 +170,7 @@ h1{
     --color5: #FAD6A5;
     --color6: #880808;
     --color7: #4C683F;
+    --color8: #ffffff;
 }
 
 *{
@@ -237,43 +244,7 @@ h1{
     width: 150px;
 }
 
-.containerCadastro .secondContainer .imgBox img{
-    width: 100%;
-}
-
-.secondContainer{
-    position: relative;
-}
-
-.secondContainer .inputsRow .inputBox input{
-    padding: 10px;
-    border-radius: 500px;
-    outline: none;
-    border: none;
-}
-
-.secondContainer label{
-    color: var(--color7);
-}
-
-.secondContainer .inputBox {
-    display: flex;
-    flex-direction: column;
-    padding: 0.5em;
-}
-
-.secondContainer .buttonBox{
-    padding: 0.5em;
-}
-
-.secondContainer .buttonBox button{
-    padding: 12px;
-    border-radius: 100px;
-    outline: none;
-    border: none;
-    background-color: var(--color7);
-    cursor: pointer;
-    color: #fff;
-    font-weight: 900;
-    width: 150px;
+.buttonBox button:hover{
+    height: 7vh;
+    font-weight: bold;
 }
