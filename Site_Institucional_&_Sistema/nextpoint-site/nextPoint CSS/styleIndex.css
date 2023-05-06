@@ -1,0 +1,421 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+html {
+    scroll-padding-top: 12.5vh;
+    scroll-behavior: smooth;
+}
+
+body{
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: #2d2727;
+    color: #ffffff;
+    overflow-x: hidden;
+}
+
+#inicio{
+    height: 100vh;
+    position: relative;
+    background-image: url(./imgs/backgroundInicio.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.header{
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color:  rgba(0,0,0, 0.2);
+    position: fixed;
+    transition: 0.5s ease-in-out;
+}
+
+.header.ativa {
+    background-color: #2e2929;
+    box-shadow: 2px 3px #212121;
+}
+
+.header .container{
+    width: 85%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.header .container .logoEmpresa img{
+    width: 150px;
+}
+
+.navbar{
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    list-style: none;
+}
+
+.navbar.ativa {
+    color:#ffffff;
+}
+
+.navbar a{
+    text-decoration: none;
+    color: #ffffff;
+    margin: 0;
+}
+
+.navbar a:hover{
+    color: #8f43ee;
+    border-bottom: solid 2px #8f43ee;
+}
+
+.agora a{
+    font-weight: 800;
+    color: #8f43ee;
+}
+
+.navbar .navbarLine{
+    height: 100%;
+    width: 2px;
+    background-color: #8f43ee;
+}
+
+.navbar .contato{
+    background-color: #8f43ee;
+    padding: 5px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 25px;
+}
+
+.navbar .contato:hover{
+    background-color: #9a4df9;
+    border: solid 2px #8f43ee;
+}
+
+.navbar .contato a:hover{
+    color: #ffffff;
+    border-bottom: none;
+}
+
+.divTxtInicio{
+    width: 85%;
+    height: 100%;
+    margin: auto;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+
+.txtInicio{
+    text-align: right;
+    margin-top: -100px;
+}
+
+.txtInicio h3{
+    color: #ffffff;
+}
+
+h1{
+    color: #8f43ee;
+    font-size: 35px;
+}
+
+#quemSomos{
+    height: 100vh;
+    background-image: url(./imgs/backgroundQuemSomos.png);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+.containerSection{
+    width: 85%;
+    margin: auto;
+    display: flex;   
+    justify-content: space-between;
+}
+
+.containerSection div{
+    width: 47%;
+    max-height: fit-content;
+}
+
+.div_icon_quemSomos{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.icon_quemSomos{
+    width: 85%;
+}
+
+p{
+    font-size: 20px;
+}
+
+#tecnologia_solucoes{
+    height: 90vh;
+    background-color: #413543;
+}
+
+.icon_solucoes{
+    height: 50%;
+}
+
+#equipe{
+    height: 130vh;
+    background-image: url(./imgs/backgroundEquipe.png);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+.containerSection .div_nossa_equipe{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.containerSection .div_nossa_equipe h1{
+    margin-bottom: 50px;
+}
+
+.containerSection .div_nossa_equipe .div_cards_equipe{
+    width: 70%;
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.foto_integrante{
+    width: 200px;
+    height: 200px;
+    border-radius: 100px;
+    border: solid 3px #8f43ee;
+}
+
+h3{
+    color: #8f43ee;
+    font-size: 18px;
+    margin-top: 0;
+}
+
+#hoptech{
+    height: 90vh;
+    background-color: #2d2727;
+}
+
+#hoptech .containerSection .div_hoptech{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+#hoptech .containerSection .div_hoptech div{
+    width: 100%;
+}
+
+#hoptech .containerSection .div_hoptech .div_conteudo_hoptech{
+    display: flex;
+    justify-content: space-between;
+}
+
+#hoptech .containerSection .div_hoptech .div_conteudo_hoptech div{
+    width: 45%;
+    height: fit-content;
+}
+
+#hoptech .containerSection .div_hoptech .div_conteudo_hoptech div{
+    width: 55%;
+}
+
+.icon_hoptech{
+    max-width: 85%;
+    margin-left: 50px;
+
+}
+
+.div_btn_conhecer_hoptech{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.btn_conhecer_hoptech{
+    width: 20%;
+    background-color: #8f43ee;
+    border: none;
+    border-radius: 50px;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.icon_btn_conhecer_hoptech{
+    height: 60px;
+}
+
+.btn_conhecer_hoptech:hover{
+    width: 21%;
+    height: 85px;
+    background-color: #9a4df9;
+}
+
+#contato{
+    height: 100vh;
+    background-color: #2d2727;
+}
+
+#contato h1{
+    width: 85%;
+    margin: auto;
+}
+
+#contato div{
+    margin-top: 20px;
+}
+
+.form_contato{
+    display: flex;
+    flex-direction: column;
+}
+
+.form_contato .ipt_contato{
+    height: 35px;
+    border: none;
+    border-radius: 25px;
+    background-color: #E4E4E3;
+    padding-left: 15px;
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.form_contato .ipt_msg_contato{
+    border: none;
+    border-radius: 25px;
+    background-color: #E4E4E3;
+    padding: 15px;
+    font-size: 18px;
+}
+
+/*.form_contato*/ .btn_enviar_mensagem{
+    width: 50%;
+    height: 40px;
+    border: none;
+    border-radius: 20px;
+    background-color: #8f43ee;
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-top: 20px;
+}
+
+/*.form_contato*/ .btn_enviar_mensagem:hover{
+    height: 42px;
+    background-color: #9a4df9;
+}
+
+.containerSection .div_info_contato{
+    border-left: solid 2px #8f43ee;
+    margin-top: 0;
+    padding-left: 3%;
+}
+
+.containerSection .div_info_contato .icon_rede_social{
+    margin-right: 10px;
+}
+
+.containerSection .div_info_contato .icon_rede_social:hover{
+    width: 34px;
+    cursor: pointer;
+}
+
+h2{
+    color: #8f43ee;
+}
+
+#footer{
+    height: 45vh;
+    background-color: #413543;
+    bottom: 0;
+    position: relative;
+}
+
+.containerFooter{
+    width: 85%;
+    margin: auto;
+}
+
+.containerFooter .div_menu_contato{
+    display: flex;
+    justify-content: space-between;
+}
+
+.containerFooter .div_menu_contato div{
+    width: 50%;
+}
+
+.menuFooter .listMenuFooter{
+    list-style: none;
+}
+
+.menuFooter .listMenuFooter a{
+    text-decoration: none;
+    color: #ffffff;
+    margin: -40px;
+}
+
+.menuFooter .listMenuFooter a:hover{
+    color: #8f43ee;
+    border-bottom: solid 2px #8f43ee;
+}
+
+h4{
+    color: #8f43ee;
+    margin-bottom: 10px;
+}
+
+.icon_contato{
+    margin-right: 10px;
+}
+
+.containerFooter .div_final_footer{
+    display: flex;
+    justify-content: space-between;
+}
+
+.containerFooter .div_final_footer div{
+    width: fit-content;
+}
+
+.div_final_footer .icon_nextpint_footer{
+    width: 200px;
+}
+
+.div_final_footer .divF{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    color: #8f43ee;
+    font-weight: bold;
+}
+
+.div_final_footer .div_redes_sociais{
+    display: flex;
+    align-items: center;
+}
+
+.div_final_footer .div_redes_sociais .icon_rede_social{
+    margin-right: 5px;
+}
+
+.div_final_footer .div_redes_sociais .icon_rede_social:hover{
+    width: 40px;
+}
