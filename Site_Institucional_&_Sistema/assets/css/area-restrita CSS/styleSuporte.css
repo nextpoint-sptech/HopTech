@@ -1,0 +1,212 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+html {
+    scroll-padding-top: 12.5vh;
+    scroll-behavior: smooth;
+}
+
+body{
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background-image: linear-gradient(90deg, #86b88b, #CCE6BF);
+    color: #4C683F;
+    overflow: hidden;
+}
+
+#dashboard{
+    height: 100vh;
+    display: flex;
+    justify-content: space-between;
+}
+
+.div_menu_lateral{
+    width: 15vw;
+    background-image: linear-gradient(90deg, #609966, #9DC08B);
+    box-shadow: 0px 4px 10px #48724c;
+}
+
+.div_conteiner_conteudo{
+    width: 84.7vw;
+}
+
+.div_menu_top{
+    height: 9vh;
+    background-image: linear-gradient(90deg, #9DC08B, #609966);
+    box-shadow: 4px 0px 10px #48724c;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 2%;
+}
+
+.logo_hoptech{
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.div_menu_lateral button{
+    width: 100%;
+    height: 7vh;
+    background-color: #D7FFC2;
+    border: none;
+    margin-bottom: 2px;
+    display: flex;
+    align-items: center;
+    padding-left: 10%;
+    font-size: 20px;
+    cursor: pointer;
+    color: #4C683F;
+}
+
+.icons_menu{
+    margin-right: 15px;
+}
+
+.div_menu_lateral button:hover{
+    height: 8vh;
+    font-weight: bold;
+}
+
+.div_menu_lateral .pageAtual{
+    height: 8vh;
+    font-size: 19px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.div_menu_lateral .pageAtual:hover{
+    font-size: 20px;
+}
+
+.div_menu_lateral footer{
+    width: 15vw;
+    bottom: 0;
+    position: absolute;
+    margin-bottom: 30px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.div_menu_lateral footer .logo_empresa{
+    width: 55%;
+}
+
+.div_menu_top .titleDashboardCliente{
+    font-size: 20px;
+    font-weight: 500;
+    margin-left: 2%;
+    color: #ffffff;
+}
+
+.div_menu_top .btnSair{
+    width: 7vw;
+    height: 50%;
+    border: none;
+    border-radius: 25px;
+    background-color: #4C683F;
+    color: #ffffff;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.div_menu_top .btnSair:hover{
+    width: 7.2vw;
+    height: 53%;
+    background-color: #506945;
+    cursor: pointer;
+}
+
+.conteiner_suporte{
+    width: 96%;
+    height: 91vh;
+    margin: auto;
+}
+
+.titleDashboard{
+    display: flex;
+    justify-content: space-between;
+}
+
+h1{
+    font-size: 30px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.titleDashboard #data{
+    font-size: 28px;
+    margin-top: 10px;
+}
+
+.conteudo_suporte{
+    height: 87%;
+    display: flex;
+    flex-direction: column;
+}
+
+.conteudo_suporte p{
+    margin: 0;
+}
+
+.conteudo_suporte a{
+    color: #40513B;
+    font-weight: bold;
+}
+
+.conteudo_suporte .box_forms_suporte{
+    width: 40%;
+    height: fit-content;
+    align-self: center;
+    margin: auto;
+    margin-top: 40px;
+    background-color: #BCD9AD;
+    border-radius: 25px;
+    border: solid 1px;
+    box-shadow: 2px 2px 2px #48724c;
+    padding: 0px 25px 20px 25px;
+    text-align: center;
+}
+
+.conteudo_suporte form{
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.conteudo_suporte form input{
+    height: 25px;
+    border: none;
+    border-radius: 15px;
+    padding-left: 10px;
+    font-size: 15px;
+}
+
+.conteudo_suporte form textarea{
+    border: none;
+    border-radius: 20px;
+    padding: 10px;
+    font-size: 15px;
+}
+
+.conteudo_suporte .bntEnviar{
+    width: 40%;
+    height: 30px;
+    margin: 20px 0 20px 0;
+    background-color: #48724c;
+    border: none;
+    border-radius: 15px;
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 15px;
+    align-self: center;
+    cursor: pointer;
+}
+
+.conteudo_suporte .bntEnviar:hover{
+    background-color: #416d45;
+    box-shadow: 2px 2px 2px;
+}
