@@ -172,11 +172,13 @@ h1{
     padding: 0 25px 20px 25px;
     display: flex;
     flex-direction: column;
+    text-align: center;
 }
 
 .conteiner_suporte .box_forms_suporte form{
     display: flex;
     flex-direction: column;
+    text-align: left;
 }
 
 .conteiner_suporte .box_forms_suporte form input{
