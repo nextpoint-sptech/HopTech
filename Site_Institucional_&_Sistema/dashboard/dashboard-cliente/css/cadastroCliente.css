@@ -54,6 +54,10 @@
     outline: none;
 }
 
+#senha_funcionario, #confirmacao_senha{
+    -webkit-text-security: square;
+}
+
 
 .div_cadastro .container_cadastro .inputBox  button{
     width: 30%;
@@ -65,4 +69,5 @@
     color: #fff;
     font-weight: 500;
     font-size: 20px;
+    cursor: pointer;
 }
