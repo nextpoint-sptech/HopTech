@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+* {
+    font-family: 'Poppins';
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+}
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 140vh;
+    background-color: #609966;
+    overflow: hidden;
+}
+
+#imagem-topo {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    top: 26%;
+    transform: translateY(-50%);
+
+    text-align: center;
+}
+
+/* Div Central: */
+#div_central {
+    width: 100%;
+    position: absolute;
+    top: 44%;
+    transform: translateY(-50%);
+    text-align: center;
+}
+
+
+/* Primeira DIV: */
+.area_sobre_simuador,
+#title {
+    font-size: 2.25rem;
+    position: relative;
+    color: #40513B;
+    bottom: 0.1%;
+    padding-top: -0.7%;
+}
+
+.area_sobre_simuador,
+#mensagem {
+    font-size: 1.15rem;
+    position: relative;
+    color: #ffffff;
+    padding-top: 0.5%;
+    
+}
+
+/* Botões: */
+#area_botao {
+    padding-bottom: 6.2%;
+}
+.btn {
+    width: 100%;
+    height: 45px;
+    border: none;
+    border-radius: 25px;
+    text-transform: uppercase;
+    color: #ffffff;
+    font-weight: bold;
+    background-color: #40513B;
+    margin-top: 20px;
+    align-self: center;
+    transform: translateY(70%);
+    cursor: pointer;
+}
+.btn:hover {
+    background-color: #9DC08B;
+    box-shadow: 0 1px 4px #40513B;
+}
