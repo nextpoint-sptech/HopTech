@@ -1,0 +1,210 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-padding-top: 12.5vh;
+    scroll-behavior: smooth;
+}
+
+body{
+    font-family: 'Poppins', sans-serif;
+    background-image: linear-gradient(90deg, #86b88b, #CCE6BF);
+    color: #4C683F;
+    display: flex;
+    justify-content: space-between;
+    overflow-y: hidden;
+}
+
+.div_menu_lateral{
+    width: 15vw;
+    height: 100vh;
+    background-color: #9DC08B;
+    background-image: linear-gradient(90deg, #609966, #9DC08B);
+    box-shadow: 0px 4px 10px #48724c;
+}
+
+.div_conteiner_conteudo{
+    position: relative;
+    width: 84.7vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.div_menu_top{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 9vh;
+    background-color: #9DC08B;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 2%;
+    color: #ffffff;
+    background-image: linear-gradient(90deg, #9DC08B, #609966);
+    box-shadow: 4px 0px 10px #48724c;
+}
+
+.logo_hoptech{
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.div_menu_lateral button{
+    width: 100%;
+    height: 8vh;
+    background-color: #D7FFC2;
+    border: none;
+    margin-bottom: 2px;
+    display: flex;
+    align-items: center;
+    padding-left: 10%;
+    font-size: 18px;
+    cursor: pointer;
+    color: #4C683F;
+}
+
+.icons_menu{
+    margin-right: 10px;
+}
+
+.div_menu_lateral button:hover{
+    height: 8vh;    
+    font-weight: bold;
+}
+
+.div_menu_lateral .pageAtual{
+    height: 8vh;
+    font-size: 15px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.div_menu_lateral .pageAtual:hover{
+    font-size: 20px;
+}
+
+.div_menu_lateral footer{
+    width: 15vw;
+    bottom: 0;
+    position: absolute;
+    margin-bottom: 30px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.div_menu_lateral footer .logo_empresa{
+    width: 55%;
+}
+
+.div_menu_top .titleDashboardCliente{
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.div_menu_top .botao_sair{
+    width: 7vw;
+    height: 50%;
+    border: none;
+    border-radius: 25px;
+    background-color: #4C683F;
+    color: #ffffff;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.div_menu_top .botao_sair:hover{
+    width: 7.2vw;
+    height: 53%;
+    background-color: #506945;
+    cursor: pointer;
+}
+
+.container1 {
+    background-color: #fff;
+    margin: 100px;
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    border: solid 1px;
+    border-radius: 25px;
+    box-shadow: 2px 2px 2px;
+    padding: 20px;
+
+    
+}
+
+.container2 {
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    border: solid 1px;
+    border-radius: 25px;
+    box-shadow: 2px 2px 2px;
+    padding: 20px;
+}
+
+.container1 .container2 h3{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 5%;
+    margin-bottom: 60px;
+}
+
+.sessao_cadastro .container_cadastro .buttonBox{
+    display: flex;
+    padding: .5em 0;
+}
+
+.buttonBox button{
+    padding: 8px;
+    border-radius: 100px;
+    outline: none;
+    border: none;
+    background-color: #40513B;
+    cursor: pointer;
+    color: #fff;
+    font-weight: 900;
+    width: 200px;
+}
+
+.buttonBox button:hover{
+    height: 7vh;
+
+}
+
+ .input_box input, select{
+    padding: 10px;
+    border-radius: 500px;
+    outline: none;
+    border: none;
+    background-color: #F2EFEB;
+}
+
+.div_sessao .container_cadastro .form_cadastro .inputs_cadastro{
+    display: flex;
+    justify-content: space-between;
+    padding: .5em 0;
+}
+
+.div_sessao .container_cadastro .form_cadastro .inputs_cadastro .input_box{
+    display: flex;
+    flex-direction: column;
+    width: 45%;
+}
+
+.linha_unica{
+    width: 100% !important;
+}
+
+

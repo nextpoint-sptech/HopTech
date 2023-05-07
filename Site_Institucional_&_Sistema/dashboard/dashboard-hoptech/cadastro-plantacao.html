@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de plantações e sensores | HopTech</title>
+    <link rel="shortcut icon" href="/images/logosProjeto/HopTech-dark.png" type="image/x-icon">
+    <link rel="stylesheet" href="/dashboard/dashboard-hoptech/css/cadastro-plantacao.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <div class="div_menu_lateral">
+        <img src="/images/logosProjeto/HopTech-dark.png" class="logo_hoptech" alt="Logo da HopTech">
+        <button onclick="irParaDashboard(); return false">
+            <img src="/images/icons/dashboard.png" class="icons_menu" alt="icone dashboard">
+            Dashboard
+        </button>
+        <button onclick="irParaCadastroEmpresa(); return false">
+            <img src="/images/icons/icon_cadastro.png" width="35" class="icons_menu" alt="icone cadastro">
+            Cadastro de empresa
+        </button>
+        <button class="pageAtual" onclick="irParaCadastroPlantacao(); return false">
+            <img src="/images/icons/notification.png" width="35" class="icons_menu" alt="Ícone de caixa de entrada">
+            Plantação e Sensores
+        </button>
+        <button onclick="irParaNotificacoes(); return false">
+            <img src="/images/icons/notification.png" width="30" class="icons_menu" alt="Ícone de caixa de entrada">
+            Notificações
+        </button>
+        <footer>
+            <a href="../../index.html"><img src="/images/logosProjeto/NEXTpoint.png" class="logo_empresa"
+                    alt="Logo da NEXTPOINT"></a>
+            © 2023 HopTech
+        </footer>
+    </div>
+    <div class="div_conteiner_conteudo">
+        <div class="div_menu_top">
+            <div><!--  --></div>
+            <h3 class="titleDashboardCliente">Gerenciamento - HopTech</h3>
+            <button class="botao_sair" onclick="sair(); return false">Sair</button>
+        </div>
+
+        <div class="container1">
+            <div>
+                <h3>Cadastre Plantações aqui!</h3>
+            </div>
+            <div class="div_sessao">
+                <section class="cadastro_plantacao">
+                    <div class="container_cadastro">
+                        <form action="" class="form_cadastro">
+                            <div class="inputs_cadastro">
+                                <div class="input_box linha_unica">
+                                    <label for="Empresa">Nome da Empresa*</label>
+                                    <select id="select_empresa">
+                                        <option style="color: rgb(167, 167, 167);" value="0">Selecione...</option>
+                                        <option value="hop6">Hop6</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="inputs_cadastro">
+                                <div class="input_box linha_unica">
+                                    <label for="">Número de identificação da Plantação*</label>
+                                    <input id="ipt_id_plantacao">
+                                </div>
+                            </div>
+                            <div class="inputs_cadastro">
+                                <div class="input_box">
+                                    <label for="">Tipo de iluminação*</label>
+                                    <select id="select_iluminacao">
+                                        <option style="color: rgb(167, 167, 167);" value="0">Selecione...</option>
+                                        <option value="artificial">Artificial</option>
+                                        <option value="natural">Natural</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="inputs_cadastro">
+                                <div class="input_box">
+                                    <label for="">Tipo de Lúpulo:</label>
+                                    <select id="select_lupulo">
+                                        <option style="color: rgb(167, 167, 167);" value="0">Selecione...</option>
+                                        <option value="citra">Citra</option>
+                                        <option value="saaz">Saaz</option>
+                                        <option value="mantiqueira">Mantiqueira</option>
+                                        <option value="outros">Outros</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="inputs_cadastro">
+                                <div class="input_box">
+                                    <label for="">CEP*</label>
+                                    <input id="ipt_cep">
+                                </div>
+                            </div>
+                            <div class="inputs_cadastro">
+                                <div class="input_box">
+                                    <label for="">Estado*</label>
+                                    <select id="select_estado">
+                                        <option value="sp">São Paulo</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="inputs_cadastro">
+                                <div class="input_box">
+                                    <label for="">Cidade*</label>
+                                    <input id="ipt_cidade">
+                                </div>
+                            </div>
+                            <div class="inputs_cadastro">
+                                <div class="input_box">
+                                    <label for="">Bairro*</label>
+                                    <input id="ipt_bairro">
+                                </div>
+                            </div>
+                            <div class="inputs_cadastro">
+                                <div class="input_box">
+                                    <label for="">Rua*</label>
+                                    <input id="ipt_rua">
+                                </div>
+                            </div>
+                            <div class="inputs_cadastro">
+                                <div class="input_box">
+                                    <label for="">Complemento</label>
+                                    <input id="ipt_complemento">
+                                </div>
+                            </div>
+                        </form>
+                        <div class="buttonBox">
+                            <button onclick="cadastrarPlantacao()">Cadastrar Plantação</button>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+        <div class="container2">
+            <div>
+                <h3>Cadastro de Sensores</h3>
+            </div>
+            <div class="div_sessao">
+                <section class="cadastro_sensores">
+                    <div class="container_cadastro_sensores">
+                        <form class="form_cadastro">
+                            <div class="inputs_cadastro">
+                                <div class="input_box">
+                                    <label for="">Tipo do sensor*</label>
+                                    <select id="select_tp_sensor">
+                                        <option style="color: rgb(167, 167, 167);" value="0">Selecione...</option>
+                                        <option value="ldr5">Sensor de luminosidade</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="inputs_cadastro">
+                                <div class="input_box">
+                                    <label for="">Status do Sensor</label>
+                                    <select id="select_status_sensor">
+                                        <option style="color: rgb(167, 167, 167);" value="0">Selecione...</option>
+                                        <option value="ativo">Ativo</option>
+                                        <option value="desativado">Desativado</option>
+                                        <option value="manutencao">Em manutenção</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="inputs_cadastro">
+                                <div class="input_box">
+                                    <label for="">Número de identificação da Plantação*</label>
+                                    <input id="ipt_id_plantacao">
+                                </div>
+                            </div>
+                            <div class="inputs_cadastro">
+                                <div class="input_box">
+                                    <label for="">Região da plantação*</label>
+                                    <select id="select_regiao_plantacao">
+                                        <option style="color: rgb(167, 167, 167);" value="0">Selecione...</option>
+                                        <option value="norte">Norte</option>
+                                        <option value="sul">Sul</option>
+                                        <option value="leste">Leste</option>
+                                        <option value="oeste">Oeste</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </form>
+                        <div class="buttonBox">
+                            <button onclick="cadastrarSensores()">Cadastrar Sensores</button>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+</body>
+
+</html>
+<!-- Importando a API de alertas "SweetAlert2": -->
+<link href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-bootstrap-4/bootstrap-4.css" rel="stylesheet">
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
+
+<script src="/dashboard/dashboard-hoptech/js/cadastro-plantacao.js"></script>
