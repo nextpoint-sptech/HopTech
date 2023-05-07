@@ -70,7 +70,7 @@
                         <label>Confirmar senha*</label>
                         <input type="password" id="ipt_confirmar_senha_funcionario" required>
                     </form>
-                    <button class="bntCadastrar" onclick="cadastrarUsuario()">Cadastrar</button>
+                    <button class="bntCadastrar" onclick="validarFormulario(); cadastrarUsuario();">Cadastrar</button>
                 </div>
             </div>
         </div>
@@ -82,3 +82,47 @@
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
 
 <script src="./js/usuarios.js"></script>
+
+<!-- Início da função p/ validar o formulário -->
+<script>
+    function validarFormulario() {
+      var nomeFuncionario = document.getElementById("ipt_nome_funcionario").value;
+      var email = document.getElementById("ipt_email_funcionario").value;
+      var nomeUsuario = document.getElementById("ipt_username_funcionario").value;
+      var senha = document.getElementById("ipt_senha_funcionario").value;
+      var confirmacao = document.getElementById("ipt_confirmar_senha_funcionario").value;
+
+      // Validar nome do funcionário
+      if (nomeFuncionario === "") {
+        alert("Por favor, insira o nome do funcionário.");
+        return false;
+      }
+
+      // Validar email
+      var emailValido = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+      if (!emailValido) {
+        alert("O email fornecido é inválido.");
+        return false;
+      }
+
+      // Validar nome de usuário
+      if (nomeUsuario === "") {
+        alert("Por favor, insira o nome de usuário.");
+        return false;
+      }
+
+      // Validar senha
+      if (senha.length < 8) {
+        alert("A senha deve ter pelo menos 8 caracteres.");
+        return false;
+      }
+
+      // Validar confirmação de senha
+      if (senha !== confirmacao) {
+        alert("A senha e a confirmação não coincidem.");
+        return false;
+      }
+
+      return true;
+}
+</script>
