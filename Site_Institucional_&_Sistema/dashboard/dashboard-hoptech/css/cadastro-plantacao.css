@@ -6,6 +6,11 @@
     box-sizing: border-box;
 }
 
+:root{
+    --color1: #4C683F;
+    --color2: #9DC08B;    
+}
+
 html {
     scroll-padding-top: 12.5vh;
     scroll-behavior: smooth;
@@ -29,18 +34,19 @@ body{
 }
 
 .div_conteiner_conteudo{
+    height: 100vh;
     position: relative;
     width: 84.7vw;
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    align-items: start;
+    justify-content: space-evenly;
 }
 
-.div_menu_top{
+.div_conteiner_conteudo .div_menu_top{
     position: absolute;
     top: 0;
     width: 100%;
-    height: 9vh;
+    height: 9%;
     background-color: #9DC08B;
     display: flex;
     justify-content: space-between;
@@ -50,6 +56,63 @@ body{
     background-image: linear-gradient(90deg, #9DC08B, #609966);
     box-shadow: 4px 0px 10px #48724c;
 }
+
+.div_conteiner_conteudo .div_cadastros{
+    position: absolute;
+    top: 9%;
+    height: 91%;
+    width: 100%;
+    padding: 2em;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.div_conteiner_conteudo .div_cadastros .container-cadastro{
+    width: 45%;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 25px;
+    padding: 2em;
+}
+.div_conteiner_conteudo .div_cadastros .container-cadastro .input_box .input_row{
+    display: flex;
+    flex-direction: column;
+    padding: .5em;
+}
+.div_conteiner_conteudo .div_cadastros .container-cadastro .input_box .double_input{
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.div_conteiner_conteudo .div_cadastros .container-cadastro .input_box .double_input .input_row {
+    width: 45%;
+}
+
+input{
+    padding: .75em;
+    border-radius: 15px;
+}
+
+select{
+    padding: .75em;
+    border-radius: 15px;
+}
+
+.div_conteiner_conteudo .div_cadastros .container-cadastro .button_box {
+    padding: .5em 0 0 0;
+}
+
+.div_conteiner_conteudo .div_cadastros .container-cadastro .button_box button{
+    padding: 1em 2em;
+    background-color: var(--color1);
+    border: none;
+    outline: none;
+    cursor: pointer;
+    border-radius: 15px;
+    color: #ffffff;
+}
+
 
 .logo_hoptech{
     width: 100%;
@@ -105,11 +168,11 @@ body{
     width: 55%;
 }
 
-.div_menu_top .titleDashboardCliente{
+.div_conteiner_conteudo .div_menu_top .titleDashboardCliente{
     font-size: 20px;
     font-weight: 500;
 }
-
+    
 .div_menu_top .botao_sair{
     width: 7vw;
     height: 50%;
@@ -126,85 +189,6 @@ body{
     height: 53%;
     background-color: #506945;
     cursor: pointer;
-}
-
-.container1 {
-    background-color: #fff;
-    margin: 100px;
-    display: flex;
-    flex-direction: column;
-    width: 50%;
-    border: solid 1px;
-    border-radius: 25px;
-    box-shadow: 2px 2px 2px;
-    padding: 20px;
-
-    
-}
-
-.container2 {
-    background-color: #fff;
-    display: flex;
-    flex-direction: column;
-    width: 50%;
-    border: solid 1px;
-    border-radius: 25px;
-    box-shadow: 2px 2px 2px;
-    padding: 20px;
-}
-
-.container1 .container2 h3{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 5%;
-    margin-bottom: 60px;
-}
-
-.sessao_cadastro .container_cadastro .buttonBox{
-    display: flex;
-    padding: .5em 0;
-}
-
-.buttonBox button{
-    padding: 8px;
-    border-radius: 100px;
-    outline: none;
-    border: none;
-    background-color: #40513B;
-    cursor: pointer;
-    color: #fff;
-    font-weight: 900;
-    width: 200px;
-}
-
-.buttonBox button:hover{
-    height: 7vh;
-
-}
-
- .input_box input, select{
-    padding: 10px;
-    border-radius: 500px;
-    outline: none;
-    border: none;
-    background-color: #F2EFEB;
-}
-
-.div_sessao .container_cadastro .form_cadastro .inputs_cadastro{
-    display: flex;
-    justify-content: space-between;
-    padding: .5em 0;
-}
-
-.div_sessao .container_cadastro .form_cadastro .inputs_cadastro .input_box{
-    display: flex;
-    flex-direction: column;
-    width: 45%;
-}
-
-.linha_unica{
-    width: 100% !important;
 }
 
 
