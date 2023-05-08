@@ -23,5 +23,9 @@ function goSuporte(){
 }
 
 function cadastrarUsuario(){
-    //fazer as verificações do cadastrar usuário aqui
+    window.parent.location.href = "./usuarios-cliente.html";
+}
+
+function validarFormulario(){
+    window.parent.location.href = "./usuarios-cliente.html";
 }
