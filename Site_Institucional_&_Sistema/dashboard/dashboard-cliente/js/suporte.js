@@ -1,13 +1,17 @@
 function sair(){
-    window.parent.location.href = "../dashboard-login/login-dashboard.html";
+    window.parent.location.href = "/dashboard/dashboard-login/login-dashboard.html";
 }
 
 function goDashboard(){
-    window.parent.location.href = "./dashboard-cliente.html";
+    window.parent.location.href = "/dashboard/dashboard-cliente/dashboard-cliente.html";
 }
 
 function goUsuarios(){
-    window.parent.location.href = "../../erro-pages/erro404-hoptech.html";
+    window.parent.location.href = "/dashboard/dashboard-cliente/usuarios-cliente.html";
+}
+
+function goPermissoes(){
+    window.parent.location.href = '/dashboard/dashboard-cliente/permissoes-cliente.html'
 }
 
 function goHistorico(){
@@ -15,7 +19,7 @@ function goHistorico(){
 }
 
 function irParaSuporte(){
-    window.parent.location.href = "./suporte.html";
+    window.parent.location.href = "dashboard/dashboard-cliente/suporte.html";
 }
 
 function realizarPedidoSuporte(){

@@ -11,7 +11,7 @@ function irParaCadastro(){
 }
 
 function irParaNotificacoes() {
-  window.parent.location.href = "../../erro-pages/erro404-hoptech.html";
+  window.parent.location.href = "/erro-pages/erro404-hoptech.html";
 }
 
 const ctx = document.getElementById('myChart');

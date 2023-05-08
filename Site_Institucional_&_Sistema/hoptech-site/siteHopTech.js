@@ -3,7 +3,7 @@ function goLogin() {
 }
 
 function goSimulacao() {
-    window.location.href = 'informeSimulador.html'
+    window.location.href = '/simulador-financeiro/simulador-informar.html'
 }
 
 function enviarMensagem(){

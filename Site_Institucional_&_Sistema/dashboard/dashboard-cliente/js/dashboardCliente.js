@@ -4,8 +4,8 @@ function sair() {
 function goDashboard() {
   window.parent.location.href = "/dashboard/dashboard-cliente/dashboard-cliente.html";
 }
-function goCadastro() {
-  window.parent.location.href = "/dashboard/dashboard-cliente/cadastro-cliente.html";
+function goUsuario() {
+  window.parent.location.href = "/dashboard/dashboard-cliente/usuarios-cliente.html";
 }
 
 function goPermissoes(){
@@ -13,10 +13,10 @@ function goPermissoes(){
 }
 
 function goSuporte() {
-  window.parent.location.href = "../erro-pages/erro404-hoptech.html";
+  window.parent.location.href = "/dashboard/dashboard-cliente/suporte.html";
 }
 function goHistorico() {
-  window.parent.location.href = "../erro-pages/erro404-hoptech.html";
+  window.parent.location.href = "/erro-pages/erro404-hoptech.html";
 }
 
 
