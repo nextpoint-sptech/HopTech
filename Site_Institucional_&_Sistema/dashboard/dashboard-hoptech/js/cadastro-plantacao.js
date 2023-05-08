@@ -10,8 +10,12 @@ function irParaCadastroEmpresa() {
     window.parent.location.href = "/dashboard/dashboard-hoptech/cadastro-hoptech.html";
 }
 
+function irParaCadastroPlantacao() {
+    window.parent.location.href = "/dashboard/dashboard-hoptech/cadastro-plantacao.html";
+}
+
 function irParaNotificacoes() {
-    window.parent.location.href = "../erro-pages/erro404-hoptech.html";
+    window.parent.location.href = "/erro-pages/erro404-hoptech.html";
 }
 
 function cadastrarPlantacao() {
