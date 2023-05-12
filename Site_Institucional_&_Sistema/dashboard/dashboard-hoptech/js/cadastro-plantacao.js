@@ -1,34 +1,12 @@
-function sair() {
-    window.parent.location.href = "/dashboard/dashboard-login/login-dashboard.html";
-}
-
-function irParaDashboard() {
-    window.parent.location.href = "/dashboard/dashboard-hoptech/dashboard-hoptech.html";
-}
-
-function irParaCadastroEmpresa() {
-    window.parent.location.href = "/dashboard/dashboard-hoptech/cadastro-hoptech.html";
-}
-
-function irParaCadastroPlantacao() {
-    window.parent.location.href = "/dashboard/dashboard-hoptech/cadastro-plantacao.html";
-}
-
-function irParaNotificacoes() {
-    window.parent.location.href = "/erro-pages/erro404-hoptech.html";
-}
-
-function cadastrarPlantacao() {
-    var empresa = select_empresa.value;
-    var idPlantacao = ipt_id_plantacao.value;
+function cadastrarPlantacao() { 
+    var empresa = nome_empresa.value;
+    var idPlantacao = ipt_plantacao_id.value;
     var tipo_iluminacao = select_iluminacao.value;
     var tipo_lupulo = select_lupulo.value;
-    var cep = Number(ipt_cep.value);
+    var cep = ipt_cep.value;
     var estado = select_estado.value;
     var cidade = ipt_cidade.value;
-    var bairro = ipt_bairro.value;
     var rua = ipt_rua.value;
-    var complemento = ipt_complemento.value;
 
     var messageAlert = ''
 
@@ -56,7 +34,7 @@ function cadastrarPlantacao() {
                 title: messageAlert,
                 showConfirmButton: true
             })
-        }else{
+        } else {
             Swal.fire({
                 position: 'center',
                 icon: 'success',
@@ -69,10 +47,10 @@ function cadastrarPlantacao() {
 }
 
 function cadastrarSensores() {
-    var tipoSensor = select_tp_sensor.value;
-    var statusSensor = select_status_sensor.value;
+    var tipoSensor = tipo_sensor.value;
+    var statusSensor = status_sensor.value;
     var idPlantacao = ipt_id_plantacao.value;
-    var regiaoPlantacao = select_regiao_plantacao.value;
+    var regiaoPlantacao = regiao_plant.value;
 
     var messageAlert = ''
 
@@ -83,7 +61,7 @@ function cadastrarSensores() {
             title: 'Campo obrigatório vazio.',
             showConfirmButton: true,
         });
-    } else{
+    } else {
         Swal.fire({
             position: 'center',
             icon: 'success',

@@ -1,25 +1,3 @@
-function sair() {
-  window.parent.location.href = "/dashboard/dashboard-login/login-dashboard.html";
-} // Função que ao clicar em "sair", redirecionará para a tela de login
-function goDashboard() {
-  window.parent.location.href = "/dashboard/dashboard-cliente/dashboard-cliente.html";
-}
-function goUsuario() {
-  window.parent.location.href = "/dashboard/dashboard-cliente/usuarios-cliente.html";
-}
-
-function goPermissoes(){
-  window.parent.location.href = '/dashboard/dashboard-cliente/permissoes-cliente.html'
-}
-
-function goSuporte() {
-  window.parent.location.href = "/dashboard/dashboard-cliente/suporte.html";
-}
-function goHistorico() {
-  window.parent.location.href = "/erro-pages/erro404-hoptech.html";
-}
-
-
 // Gráficos:
 const ctx = document.getElementById('chart_line_dia');
 const ctx2 = document.getElementById('chart_line_regiao');

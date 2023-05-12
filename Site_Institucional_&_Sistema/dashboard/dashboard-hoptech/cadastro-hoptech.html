@@ -7,31 +7,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro | HopTech</title>
     <link rel="shortcut icon" href="/images/logosProjeto/HopTech-dark.png" type="image/x-icon">
-    <link rel="stylesheet" href="/dashboard/dashboard-hoptech/css/cadastroHopTech.css">
+    <link rel="stylesheet" href="css/cadastroHopTech.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
 <body>
     <div class="div_menu_lateral">
-        <img src="/images/logosProjeto/HopTech-dark.png" class="logo_hoptech" alt="Logo da HopTech">
+        <img src="../../images/logosProjeto/HopTech-dark.png" class="logo_hoptech" alt="Logo da HopTech">
         <button onclick="irParaDashboard(); return false">
-            <img src="/images/icons/dashboard.png" class="icons_menu" alt="icone dashboard">
+            <img src="../../images/icons/dashboard.png" class="icons_menu" alt="icone dashboard">
             Dashboard
         </button>
         <button class="pageAtual" onclick="irParaCadastro(); return false">
-            <img src="/images/icons/icon_cadastro.png" width="35" class="icons_menu" alt="icone cadastro">
+            <img src="../../images/icons/icon_cadastro.png" width="35" class="icons_menu" alt="icone cadastro">
             Cadastro de empresa
         </button>
         <button onclick="irParaCadastroPlantacao(); return false">
-            <img src="/images/icons/notification.png" width="35" class="icons_menu" alt="Ícone de caixa de entrada">
+            <img src="../../images/icons/notification.png" width="35" class="icons_menu" alt="Ícone de caixa de entrada">
             Plantação e Sensores
         </button>
         <button onclick="irParaNotificacoes(); return false">
-            <img src="/images/icons/notification.png" width="30" class="icons_menu" alt="Ícone de caixa de entrada">
+            <img src="../../images/icons/notification.png" width="30" class="icons_menu" alt="Ícone de caixa de entrada">
             Notificações
         </button>
         <footer>
-            <a href="/nextpoint-site/index.html"><img src="/images/logosProjeto/NEXTpoint.png" class="logo_empresa"
+            <a href="../../nextpoint-site/index.html"><img src="../../images/logosProjeto/NEXTpoint.png" class="logo_empresa"
                     alt="Logo da NEXTPOINT"></a>
             © 2023 HopTech
         </footer>
@@ -42,86 +42,76 @@
             <h3 class="titleDashboardCliente">Gerenciamento - HopTech</h3>
             <button class="botao_sair" onclick="sair(); return false">Sair</button>
         </div>
-        
         <div class="container_principal">
-            <div class="titulo_pagina">
-                <h1>Cadastro de empresa</h1>
+            <div class="titleBox">
+                <h2>Cadastro de empresa</h1>
             </div>
-            <div class="conteudo_cadastro">
-                <section class="sessao_cadastro">
-                    <div class="container_cadastro">
-                        <form action="" class="form_cadastro">
-                            <!--Nome Empresa-->
-                            <div class="inputs_cadastro">
-                                <div class="input_box linha_unica">
-                                    <label for="nomeEmpresa">Nome da Empresa*</label>
-                                    <input id="nomeEmpresa" required>
-                                </div>
-                            </div>
-                            <!--Telefone && CNPJ-->
-                            <div class="inputs_cadastro">
-                                <div class="input_box">
-                                    <label for="telefoneEmpresa">Telefone*(+DDD)</label>
-                                    <input maxlength="11" id="telefoneEmpresa" required>
-                                </div>
-                                <div class="input_box">
-                                    <label for="documentoCNPJ">CNPJ*</label>
-                                    <input maxlength="14" id="documentoCNPJ" required>
-                                </div>
-                            </div>
-                            <!--Email-->
-                            <div class="inputs_cadastro">
-                                <div class="input_box linha_unica">
-                                    <label for="emailEmpresa">Email*</label>
-                                    <input id="emailEmpresa" required>
-                                </div>
-                            </div>
-                            <!--Confirmaçao Email-->
-                            <div class="inputs_cadastro">
-                                <div class="input_box linha_unica">
-                                    <label for="emailConfirmacao">Confirme o email*</label>
-                                    <input id="emailConfirmacao" required>
-                                </div>
-                            </div>
-                            <!--CEP && Estado-->
-                            <div class="inputs_cadastro">
-                                <div class="input_box">
-                                    <label for="cepEmpresa">CEP*</label>
-                                    <input maxlength="8" id="cepEmpresa" required>
-                                </div>
-                                <div class="input_box">
-                                    <label for="estadoEmpresa">Estado*</label>
-                                    <input id="estadoEmpresa">
-                                </div>
-                            </div>
-                            <!--Cidade && Bairro-->
-                            <div class="inputs_cadastro">
-                                <div class="input_box">
-                                    <label for="cidadeEmpresa">Cidade*</label>
-                                    <input id="cidadeEmpresa" required>
-                                </div>
-                                <div class="input_box">
-                                    <label for="bairroEmpresa">Bairro*</label>
-                                    <input id="bairroEmpresa" required>
-                                </div>
-                            </div>
-                            <!--Rua && Complemento-->
-                            <div class="inputs_cadastro">
-                                <div class="input_box">
-                                    <label for="ruaEmpresa">Rua*</label>
-                                    <input id="ruaEmpresa" required>
-                                </div>
-                                <div class="input_box">
-                                    <label for="complementoEmpresa">Complemento</label>
-                                    <input id="complementoEmpresa">
-                                </div>
-                            </div>
-                        </form>
-                        <div class="buttonBox">
-                            <button onclick="verificarCredenciais()">Cadastrar</button>
-                        </div>
+            <div class="input-container">
+                <div class="inputBox">
+                    <div class="inputUnica">
+                        <label for="input_empresa">Nome da empresa*</label>
+                        <input type="text" id="input_empresa">
                     </div>
-                </section>
+                </div>
+                <div class="inputBox">
+                    <div class="inputDupla">
+                        <label for="input_telefone">Telefone*</label>
+                        <input type="text" id="input_telefone">
+                    </div>
+                    <div class="inputDupla">
+                        <label for="input_cnpj">CNPJ*</label>
+                        <input id="input_cnpj" type="text">
+                    </div>
+                </div>
+                <div class="inputBox">
+                    <div class="inputDupla">
+                        <label for="input_email">Email*</label>
+                        <input id="input_email" type="text">
+                    </div>
+                    <div class="inputDupla">
+                            <label for="input_confirmar">Confirmar Email*</label>
+                            <input id="input_confirmar" type="text">
+                    </div>
+                </div>
+                <div class="inputBox">
+                    <div class="inputDupla">
+                        <label for="input_cep">CEP</label>
+                        <input id="input_cep" type="text">
+                    </div>
+                    <div class="inputDupla">
+                        <label for="input_estado">Estado</label>
+                        <input id="input_estado" type="text">
+                    </div>
+                </div>
+                <div class="inputBox">
+                    <div class="inputDupla">
+                        <label for="input_cidade">Cidade</label>
+                        <input id="input_cidade" type="text">
+                    </div>
+                    <div class="inputDupla">
+                        <label for="input_bairro">Bairro</label>
+                        <input id="input_bairro" type="text">
+                    </div>
+                </div>
+                <div class="inputBox">
+                    <div class="inputUnica">
+                        <label for="input_rua">Rua</label>
+                        <input id="input_rua" type="text">
+                    </div>
+                </div>
+                <div class="inputBox">
+                    <div class="inputDupla">
+                        <label for="input_usuario">Usuario</label>
+                        <input id="input_usuario" type="text">
+                    </div>
+                    <div class="inputDupla">
+                        <label for="input_senha">Senha</label>
+                        <input id="input_senha" type="text">
+                    </div>
+                </div>
+            </div>
+            <div class="buttonBox">
+                <button onclick="cadastrar()">Cadastrar</button>
             </div>
         </div>
 </body>
@@ -132,4 +122,46 @@
 
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
 
-<script src="/dashboard/dashboard-hoptech/js/cadastro-hoptech.js"></script>
+<script src="js/cadastro-hoptech.js"></script>
+<script src="js/redirect-admin.js"></script>
+<script>
+    function cadastrar(){
+        var nomeEmpresa = input_empresa.value;
+        var telefoneEmpresa = input_telefone.value;
+        var email = input_email.value;
+        var confirmarEmail = input_confirmar.value;
+        var cepEmpresa = input_cep.value;
+        var estadoEmpresa = input_estado.value;
+        var cidadeEmpresa = input_cidade.value; 
+        var bairroEmpresa = input_bairro.value;
+        var ruaEmpresa = input_rua.value;
+        var usuarioEmpresa = input_usuario.value;
+        var senhaEmpresa = input_senha.value;
+
+        if(nomeEmpresa == '' || telefoneEmpresa == '' || email == '' || confirmarEmail == '' || cepEmpresa == '' || estadoEmpresa == '' || cidadeEmpresa == '' || bairroEmpresa == '' || ruaEmpresa == '' || usuarioEmpresa == '' || senhaEmpresa == ''){
+            Swal.fire({
+                position: 'center',
+                icon: 'error',
+                title: 'Campo obrigatório vazio.',
+                showConfirmButton: true,
+            });
+        }else{
+            if(email != confirmarEmail){
+                Swal.fire({
+                    position: 'center',
+                    icon: 'error',
+                    title: 'Campos email e confirmação email não estão iguais.',
+                    showConfirmButton: true,
+                }); 
+            }else{
+                Swal.fire({
+                    position: 'center',
+                    icon: 'success',
+                    title: 'Cadastro feito com sucesso.',
+                    showConfirmButton: true,
+                });
+            }
+
+        } 
+    }
+</script>
