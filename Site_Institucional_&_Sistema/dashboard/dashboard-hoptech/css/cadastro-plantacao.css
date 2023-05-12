@@ -77,7 +77,7 @@ body{
 .div_conteiner_conteudo .div_cadastros .container-cadastro .input_box .input_row{
     display: flex;
     flex-direction: column;
-    padding: .5em;
+    padding: .4em;
 }
 .div_conteiner_conteudo .div_cadastros .container-cadastro .input_box .double_input{
     display: flex;
