@@ -25,5 +25,5 @@ function enviarMensagem() {
 }
 
 function goHopTech() {
-        window.location.href = '/hoptech-site/site-hoptech.html'
+        window.location.href = '../hoptech-site/site-hoptech.html'
 }

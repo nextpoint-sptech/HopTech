@@ -1,23 +1,3 @@
-function sair() {
-    window.parent.location.href = "/dashboard/dashboard-login/login-dashboard.html";
-}
-
-function irParaDashboard() {
-    window.parent.location.href = "/dashboard/dashboard-hoptech/dashboard-hoptech.html";
-}
-
-function irParaCadastro() {
-    window.parent.location.href = "/dashboard/dashboard-hoptech/dashboard-hoptech.html";
-}
-
-function irParaCadastroPlantacao(){
-    window.parent.location.href = '/dashboard/dashboard-hoptech/cadastro-plantacao.html'
-}
-
-function irParaNotificacoes() {
-    window.parent.location.href = "/erro-pages/erro404-hoptech.html";
-}
-
 function verificarCredenciais() {
     var empresaNome = nomeEmpresa.value;
     var telefone = telefoneEmpresa.value;

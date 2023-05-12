@@ -1,24 +1,4 @@
-function sair() {
-    window.parent.location.href = "/dashboard/dashboard-login/login-dashboard.html";
-}
-
-function irParaDashboard() {
-    window.parent.location.href = "/dashboard/dashboard-hoptech/dashboard-hoptech.html";
-}
-
-function irParaCadastroEmpresa() {
-    window.parent.location.href = "/dashboard/dashboard-hoptech/cadastro-hoptech.html";
-}
-
-function irParaCadastroPlantacao() {
-    window.parent.location.href = "/dashboard/dashboard-hoptech/cadastro-plantacao.html";
-}
-
-function irParaNotificacoes() {
-    window.parent.location.href = "/erro-pages/erro404-hoptech.html";
-}
-
-function cadastrarPlantacao() {
+function cadastrarPlantacao() { 
     var empresa = select_empresa.value;
     var idPlantacao = ipt_id_plantacao.value;
     var tipo_iluminacao = select_iluminacao.value;
@@ -56,7 +36,7 @@ function cadastrarPlantacao() {
                 title: messageAlert,
                 showConfirmButton: true
             })
-        }else{
+        } else {
             Swal.fire({
                 position: 'center',
                 icon: 'success',
@@ -83,7 +63,7 @@ function cadastrarSensores() {
             title: 'Campo obrigatório vazio.',
             showConfirmButton: true,
         });
-    } else{
+    } else {
         Swal.fire({
             position: 'center',
             icon: 'success',

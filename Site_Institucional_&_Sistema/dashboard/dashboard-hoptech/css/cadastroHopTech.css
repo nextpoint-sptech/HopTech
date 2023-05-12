@@ -146,10 +146,8 @@ body{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 5%;
-    margin-bottom: 60px;
-}
 
+}
 h1{
     font-size: 30px;
     margin-top: 10px;

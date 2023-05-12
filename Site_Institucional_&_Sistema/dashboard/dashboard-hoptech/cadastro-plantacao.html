@@ -7,31 +7,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro de plantações e sensores | HopTech</title>
     <link rel="shortcut icon" href="/images/logosProjeto/HopTech-dark.png" type="image/x-icon">
-    <link rel="stylesheet" href="/dashboard/dashboard-hoptech/css/cadastro-plantacao.css">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="css/cadastro-plantacao.css">
 </head>
 
 <body>
     <div class="div_menu_lateral">
-        <img src="/images/logosProjeto/HopTech-dark.png" class="logo_hoptech" alt="Logo da HopTech">
+        <a href="../../hoptech-site/site-hoptech.html">
+            <img src="../../images/logosProjeto/HopTech-dark.png" class="logo_hoptech" alt="Logo da HopTech">
+        </a>
         <button onclick="irParaDashboard(); return false">
-            <img src="/images/icons/dashboard.png" class="icons_menu" alt="icone dashboard">
+            <img src="../../images/icons/dashboard.png" class="icons_menu" alt="icone dashboard">
             Dashboard
         </button>
-        <button onclick="irParaCadastroEmpresa(); return false">
-            <img src="/images/icons/icon_cadastro.png" width="35" class="icons_menu" alt="icone cadastro">
+        <button onclick="irParaCadastro(); return false">
+            <img src="../../images/icons/icon_cadastro.png" width="35" class="icons_menu" alt="icone cadastro">
             Cadastro de empresa
         </button>
         <button class="pageAtual" onclick="irParaCadastroPlantacao(); return false">
-            <img src="/images/icons/notification.png" width="35" class="icons_menu" alt="Ícone de caixa de entrada">
+            <img src="../../images/icons/notification.png" width="35" class="icons_menu" alt="Ícone de caixa de entrada">
             Plantação e Sensores
         </button>
         <button onclick="irParaNotificacoes(); return false">
-            <img src="/images/icons/notification.png" width="30" class="icons_menu" alt="Ícone de caixa de entrada">
+            <img src="../../images/icons/notification.png" width="30" class="icons_menu" alt="Ícone de caixa de entrada">
             Notificações
         </button>
         <footer>
-            <a href="/nextpoint-site/index.html"><img src="/images/logosProjeto/NEXTpoint.png" class="logo_empresa"
+            <a href="../../nextpoint-site/index.html"><img src="../../images/logosProjeto/NEXTpoint.png" class="logo_empresa"
                     alt="Logo da NEXTPOINT"></a>
             © 2023 HopTech
         </footer>
@@ -143,4 +144,5 @@
 
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
 
-<script src="/dashboard/dashboard-hoptech/js/cadastro-plantacao.js"></script>
+<script src="js/cadastro-plantacao.js"></script>
+<script src="js/redirect-admin.js"></script>

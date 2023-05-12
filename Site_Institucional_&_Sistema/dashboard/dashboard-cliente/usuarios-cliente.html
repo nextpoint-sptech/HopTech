@@ -7,19 +7,19 @@
     <title>Usuários | Dashboard</title>
     <link rel="shortcut icon" href="../../images/logosProjeto/flaticon-HOPTECH-white.png" type="image/x-icon">
     <!-- Flaticon -->
-    <link rel="stylesheet" href="/dashboard/dashboard-cliente/css/styleUsuario.css">
+    <link rel="stylesheet" href="css/styleUsuario.css">
     <!-- Importando CSS do dashboard -->
 </head>
 
 <body id="dashboard">
     <div class="div_menu_lateral">
-        <a href="/hoptech-site/site-hoptech.html"><img src="/images/logosProjeto/HopTech-dark.png" class="logo_hoptech"
+        <a href="../../hoptech-site/site-hoptech.html"><img src="../../images/logosProjeto/HopTech-dark.png" class="logo_hoptech"
                 alt="Logo da HopTech"></a>
         <button onclick="goDashboard()">
-            <img src="/images/icons/dashboard.png" class="icons_menu" alt="Ícone do dashboard">
+            <img src="../../images/icons/dashboard.png" class="icons_menu" alt="Ícone do dashboard">
             Dashboard
         </button>
-        <button class="pageAtual" onclick="goUsuarios()">
+        <button class="pageAtual" onclick="goUsuario()">
             <img src="../../images/icons/icon_usuarios.png" class="icons_menu" style="width: 40px;"
                 alt="Ícone de usuários">
             Usuários
@@ -29,16 +29,16 @@
             Permissões
         </button>
         <button onclick="goHistorico()">
-            <img src="/images/icons/iconeHistorico.png" class="icons_menu" style="width: 30px;"
+            <img src="../../images/icons/iconeHistorico.png" class="icons_menu" style="width: 30px;"
                 alt="Ícone do histórico">
             Histórico
         </button>
         <button onclick="goSuporte()">
-            <img src="/images/icons/iconeHeadset.png" class="icons_menu" style="width: 30px;" alt="Ícone de suporte">
+            <img src="../../images/icons/iconeHeadset.png" class="icons_menu" style="width: 30px;" alt="Ícone de suporte">
             Suporte
         </button>
         <footer>
-            <a href="/nextpoint-site/index.html"><img src="/images/logosProjeto/NEXTPOINT.png" class="logo_empresa"
+            <a href="../../nextpoint-site/index.html"><img src="../../images/logosProjeto/NEXTPOINT.png" class="logo_empresa"
                     alt="Logo da NEXTPOINT"></a>
             © 2023 HopTech
         </footer>
@@ -81,78 +81,5 @@
 <link href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-bootstrap-4/bootstrap-4.css" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
 
-<script src="./js/usuarios.js"></script>
-
-<!-- Início da função p/ validar o formulário -->
-<script>
-    function validarFormulario() {
-      var nomeFuncionario = document.getElementById("ipt_nome_funcionario").value;
-      var email = document.getElementById("ipt_email_funcionario").value;
-      var nomeUsuario = document.getElementById("ipt_username_funcionario").value;
-      var senha = document.getElementById("ipt_senha_funcionario").value;
-      var confirmacao = document.getElementById("ipt_confirmar_senha_funcionario").value;
-
-      // Validar nome do funcionário
-      if (nomeFuncionario === ""){
-        Swal.fire({
-            position: 'center',
-            icon: 'error',
-            title: 'Campo obrigatório vazio.',
-            text: 'É necessário preencher com o nome do funcionário.',
-            showConfirmButton: true,
-        })
-        return false;
-    }
-
-      // Validar email
-      var emailValido = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-      if (!emailValido) {
-        Swal.fire({
-            position: 'center',
-            icon: 'error',
-            title: 'Campo inválido.',
-            text: 'É necessário preencher com os campos corretos de e-mail.',
-            showConfirmButton: true,
-        });
-        return false;
-    }
-
-      // Validar nome de usuário
-      if (nomeUsuario === "") {
-        Swal.fire({
-            position: 'center',
-            icon: 'error',
-            title: 'Campo obrigatório vazio.',
-            text: 'É necessário preencher com o nome do usuário.',
-            showConfirmButton: true,
-        })
-        return false;
-    }
-
-      // Validar senha
-      if (senha.length < 8){
-        Swal.fire({
-            position: 'center',
-            icon: 'error',
-            title: 'Campo inválido.',
-            text: 'A senha deve ter no mínimo 8 caracteres.',
-            showConfirmButton: true,
-        })
-        return false;
-    }
-
-      // Validar confirmação de senha
-      if (senha !== confirmacao){
-        Swal.fire({
-            position: 'center',
-            icon: 'error',
-            title: 'Campo inválido.',
-            text: 'A senha e a confirmação não coincidem.',
-            showConfirmButton: true,
-        })
-        return false;
-    }
-
-      return true;
-}
-</script>
+<script src="js/usuarios.js"></script><!-- Início da função p/ validar o formulário -->
+<script src="js/redirect.js"></script>

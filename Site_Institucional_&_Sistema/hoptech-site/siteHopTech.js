@@ -1,9 +1,9 @@
 function goLogin() {
-    window.location.href = '/dashboard/dashboard-login/login-dashboard.html'
+    window.location.href = '../dashboard/dashboard-login/login-dashboard.html'
 }
 
 function goSimulacao() {
-    window.location.href = '/simulador-financeiro/simulador-informar.html'
+    window.location.href = '../simulador-financeiro/simulador-informar.html'
 }
 
 function enviarMensagem(){
