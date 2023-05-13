@@ -72,7 +72,7 @@ create table capturaLuminosidade(
 
 create table permissoes(
 	idPermissao int,
-    tipoPermissao int,
+    tipoPermissao int, constraint ckTpPermissao check (tipoPermissao in (0, 1)),
     fkUsuario int not null, foreign key(fkUsuario) references usuario(idUsuario),
     fkPlantacao int not null, foreign key(fkPlantacao) references plantacao(idPlantacao),
     fkRegiaoPlantacao int not null, foreign key (fkRegiaoPlantacao) references regiao_plantacao(idRegiao)
