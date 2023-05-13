@@ -70,6 +70,7 @@ body{
 
 .div_conteiner_conteudo .div_cadastros .container-cadastro{
     width: 45%;
+    min-height: 600px;
     background: rgba(255, 255, 255, 0.5);
     border-radius: 25px;
     padding: 2em;

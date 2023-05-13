@@ -10,8 +10,8 @@ function cadastrarPlantacao() {
 
     var messageAlert = ''
 
-    if (empresa == 0 || idPlantacao == '' || tipo_iluminacao == 0 || tipo_lupulo == 0 ||
-        cep == 0 || estado == 0 || cidade == '' || bairro == '' || rua == '') {
+    if (empresa == '' || idPlantacao == '' || tipo_iluminacao == '0' || tipo_lupulo == '0' ||
+        cep == '' || estado == '0' || cidade == '' || rua == '') {
         Swal.fire({
             position: 'center',
             icon: 'error',
@@ -20,7 +20,7 @@ function cadastrarPlantacao() {
         });
     } else {
         // validação de CEP
-        if (cep.length < 8) {
+        if (cep.length != 8) {
             messageAlert += '• CEP: Quantidade de digitos inválida. \n'
             if (cep != Number(cep)) {
                 messageAlert += '• CEP: Não é um número. \n'
@@ -47,14 +47,13 @@ function cadastrarPlantacao() {
 }
 
 function cadastrarSensores() {
-    var tipoSensor = tipo_sensor.value;
     var statusSensor = status_sensor.value;
     var idPlantacao = ipt_id_plantacao.value;
     var regiaoPlantacao = regiao_plant.value;
 
     var messageAlert = ''
 
-    if (tipoSensor == 0 || statusSensor == 0 || idPlantacao == '' || regiaoPlantacao == 0) {
+    if (statusSensor == '0' || idPlantacao == '' || regiaoPlantacao == '0') {
         Swal.fire({
             position: 'center',
             icon: 'error',
