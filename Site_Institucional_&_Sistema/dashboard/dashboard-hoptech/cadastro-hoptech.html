@@ -56,11 +56,11 @@
                 <div class="inputBox">
                     <div class="inputDupla">
                         <label for="input_telefone">Telefone*</label>
-                        <input type="text" id="input_telefone">
+                        <input type="number" id="input_telefone">
                     </div>
                     <div class="inputDupla">
                         <label for="input_cnpj">CNPJ*</label>
-                        <input id="input_cnpj" type="text">
+                        <input id="input_cnpj" type="number">
                     </div>
                 </div>
                 <div class="inputBox">
@@ -75,38 +75,42 @@
                 </div>
                 <div class="inputBox">
                     <div class="inputDupla">
-                        <label for="input_cep">CEP</label>
-                        <input id="input_cep" type="text">
+                        <label for="input_cep">CEP*</label>
+                        <input id="input_cep" type="number">
                     </div>
                     <div class="inputDupla">
-                        <label for="input_estado">Estado</label>
+                        <label for="input_estado">Estado*</label>
                         <input id="input_estado" type="text">
                     </div>
                 </div>
                 <div class="inputBox">
                     <div class="inputDupla">
-                        <label for="input_cidade">Cidade</label>
+                        <label for="input_cidade">Cidade*</label>
                         <input id="input_cidade" type="text">
                     </div>
                     <div class="inputDupla">
-                        <label for="input_bairro">Bairro</label>
+                        <label for="input_bairro">Bairro*</label>
                         <input id="input_bairro" type="text">
                     </div>
                 </div>
                 <div class="inputBox">
-                    <div class="inputUnica">
-                        <label for="input_rua">Rua</label>
+                    <div class="inputDupla">
+                        <label for="input_rua">Rua*</label>
                         <input id="input_rua" type="text">
+                    </div>
+                    <div class="inputDupla">
+                        <label for="input_complemento">Complemento</label>
+                        <input type="text" id="input_complemento">
                     </div>
                 </div>
                 <div class="inputBox">
                     <div class="inputDupla">
-                        <label for="input_usuario">Usuario</label>
+                        <label for="input_usuario">Usuario*</label>
                         <input id="input_usuario" type="text">
                     </div>
                     <div class="inputDupla">
-                        <label for="input_senha">Senha</label>
-                        <input id="input_senha" type="text">
+                        <label for="input_senha">Senha*</label>
+                        <input id="input_senha" type="password">
                     </div>
                 </div>
             </div>
@@ -128,6 +132,7 @@
     function cadastrar(){
         var nomeEmpresa = input_empresa.value;
         var telefoneEmpresa = input_telefone.value;
+        var cnpjEmpresa = input_cnpj.value;
         var email = input_email.value;
         var confirmarEmail = input_confirmar.value;
         var cepEmpresa = input_cep.value;
@@ -135,10 +140,13 @@
         var cidadeEmpresa = input_cidade.value; 
         var bairroEmpresa = input_bairro.value;
         var ruaEmpresa = input_rua.value;
+        var complementoEmpresa = input_complemento.value;
         var usuarioEmpresa = input_usuario.value;
         var senhaEmpresa = input_senha.value;
 
-        if(nomeEmpresa == '' || telefoneEmpresa == '' || email == '' || confirmarEmail == '' || cepEmpresa == '' || estadoEmpresa == '' || cidadeEmpresa == '' || bairroEmpresa == '' || ruaEmpresa == '' || usuarioEmpresa == '' || senhaEmpresa == ''){
+        let alertMessage = ''
+
+        if(nomeEmpresa == '' || telefoneEmpresa == '' || cnpjEmpresa == '' ||  email == '' || confirmarEmail == '' || cepEmpresa == '' || estadoEmpresa == '' || cidadeEmpresa == '' || bairroEmpresa == '' || ruaEmpresa == '' || usuarioEmpresa == '' || senhaEmpresa == ''){
             Swal.fire({
                 position: 'center',
                 icon: 'error',
@@ -147,10 +155,23 @@
             });
         }else{
             if(email != confirmarEmail){
+                alertMessage += '• Email: Campos email e confirmação email não estão iguais.\n'
+            }
+            if(cepEmpresa.length != 8){
+                alertMessage += '• CEP: Quantidade de dígitos inválida. \n'
+            }
+            if(cnpjEmpresa.length != 14){
+                alertMessage += '• CNPJ: Quantidade de dígitos inválida. \n'
+            }
+            if(telefoneEmpresa.length < 8 || telefoneEmpresa.length > 9){
+                alertMessage += '• Telefone: Quantidade de dígitos inválida. \n'
+            }
+
+            if(alertMessage != ''){
                 Swal.fire({
                     position: 'center',
                     icon: 'error',
-                    title: 'Campos email e confirmação email não estão iguais.',
+                    title: alertMessage,
                     showConfirmButton: true,
                 }); 
             }else{
@@ -161,7 +182,6 @@
                     showConfirmButton: true,
                 });
             }
-
         } 
     }
 </script>
