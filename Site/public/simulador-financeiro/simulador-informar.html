@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iluminação do seu plantío | HopTech</title>
+    <link rel="shortcut icon" href="../assets/images/logosProjeto/flaticon-HOPTECH.png" type="image/x-icon">
+    <link rel="stylesheet" href="../simulador-financeiro/css/headerInformeSimulador.css">
+    <link rel="stylesheet" href="../simulador-financeiro/css/informeSimulador.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" /> <!-- Importando FONTAWESOME -->
+</head>
+
+<body>
+    <!-- Início do header -->
+    <header>
+        <nav>
+            <!-- Logo -->
+            <a href="../hoptech-site/site-hoptech.html" class="logo">
+                <img src="../assets/images/logosProjeto/HopTech-dark.png" alt="HopTech logo" width="160px"></a>
+            <!-- Navbar -->
+            <ul>
+                <li><a href="../hoptech-site/site-hoptech.html#home">
+                        Home
+                    </a></li>
+
+                <li><a href="../hoptech-site/site-hoptech.html#sobre">
+                        Sobre
+                    </a></li>
+                <!-- Logo da empresa que direcionará para a página inicial da empresa -->
+                <li><a href="../nextpoint-site/index.html">
+                        NextPoint
+                    </a></li>
+                <li>
+                    <a href="../simulador-financeiro/simulador-informar.html" style="color: #40513B;">
+                        Simulador
+                    </a>
+                </li>
+
+                <!-- Separação da Navbar por escrito para a Área do cliente -->
+                <li style="color: #40513B;">|</li>
+                <!-- "Botão" que ligará direto a Dashboard -->
+                <li class="btn-area"><a href="../dashboard/dashboard-login/login-dashboard.html">
+                        Área do Cliente
+                    </a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- Fim do header -->
+    <div id="imagem-topo">
+        <img src="../assets/images/hopTech imgs/painelPrejuizo.png" width="120px">
+    </div>
+
+    <div id="div_central">
+        <div id="area_sobre_simuador">
+            <h1 id="title">Qual o seu tipo de plantação?</h1>
+            <div id="mensagem">
+                O tipo de iluminação influencia na qualidade e tratamento da plantação, pois cada tipo necessita<br>de um tratamento diferenciado,
+                informe o tipo de sua plantação antes de continuarmos:
+            </div>
+        </div>
+        <!-- <div></div> -->
+    </div>
+    <div id="area_botao">
+        <button onclick="goNatural()" class="btn">Natural</button>
+        <button onclick="goArtificial()" class="btn">Artificial</button>
+    </div>
+</body>
+</html>
+<script>
+    function goNatural(){
+        window.location.href = 'simulador-natural.html'
+    }
+
+    function goArtificial(){
+        window.location.href = 'simulador-artificial.html'
+    }
+</script>

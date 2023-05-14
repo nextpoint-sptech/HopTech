@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Página inicial | HopTech</title>
+    <link rel="shortcut icon" href="../assets/images/logosProjeto/flaticon-HOPTECH.png" type="image/x-icon">
+
+    <script src="https://kit.fontawesome.com/7ac0278b37.js" crossorigin="anonymous"></script>
+    
+    <link rel="stylesheet" href="css/headerHopTech.css">
+    <link rel="stylesheet" href="css/siteHopTech.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="imgBox">
+                <img src="../assets/images/logosProjeto/HopTech-dark.png" alt="">
+            </div>
+            <div class="menuBox">
+                <ul class="menuList">
+                    <li class="menuTopics"><a href="#home">Home</a></li>
+                    <li class="menuTopics"><a href="#sobre">Sobre</a></li>
+                    <li class="menuTopics"><a href="#simulacao">Simulação</a></li>
+                    <li class="menuTopics"><a href="#contato">Contato</a></li>
+                    <li class="menuButton"><button onclick="goLogin()">Area do Cliente</button></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <div id="home" class="sections lightSection">
+        <main>
+            <div class="firstContainer">
+                <h2>Your hope is our hop!</h2>
+                <p>Acreditamos em iluminar o caminho da produtividade no cultivo de lúpulo com sensores de luz precisos
+                    e em tempo real, enquanto fornecemos soluções tecnológicas de qualidade com transparência, inovação
+                    e excelência no atendimento ao cliente.</p>
+            </div>
+            <div class="secondContainer">
+                <img id="hopTechLogo" src="../assets/images/hopTech imgs/painelLupulo.png"/>
+            </div>
+        </main>
+        <img src="../assets/images/hopTech imgs/waveDark.svg"/>
+    </div>
+    <div id="sobre" class="sections reverse darkSection">
+        <main>
+            <div class="firstContainer">
+                <h2>Sobre nós</h2>
+                <p>O projeto HopTech surgiu com a iniciativa do grupo NextPoint para integrar tecnologia a sua plantação de lúpulo.<br>
+                    <br>Nosso objetivo é auxiliar no controle da sua plantação por meio de um sistema de monitoramento utilizando sensores e dashboards para coleta e análise de dados.</p>
+                <br>
+                <p>Quer saber se o seu lúpulo está recebendo a quantidade ideal de luz que ele precisa? Com a HopTech você tem essas informações e muito mais!</p>
+            </div>
+            <div class="secondContainer">
+                <img src="../assets/images/hopTech imgs/painelSobreNos.png" alt="">
+            </div>
+        </main>
+        <img src="../assets/images/hopTech imgs/waveLight.svg" alt="">
+    </div>
+    <div id="simulacao" class="sections lightSection">
+        <main>
+            <div class="firstContainer">
+                <div class="textBox">
+                    <h2>Saiba seu prejuízo, conheça seu lucro!</h2>
+                    <p>A finalidade do simulador financeiro, é você informar a área e a quantidade da sua produção, para assim, ser apresentada uma estimativa do quanto você pode economizar com o nosso monitoramento. Saiba mais em:</p>
+                </div>
+                <div class="buttonBox">
+                    <button onclick="goSimulacao()">Faça sua simulação!</button>
+                </div>
+            </div>
+            <div class="imgBox">
+                <img src="../assets/images/hopTech imgs/painelOrcamento.png" width="300px">
+            </div>
+        </main>
+        <img src="../assets/images/hopTech imgs/waveDark.svg">
+    </div>
+    <div id="feedbacks" class="sections darkSection">
+        <main>
+            <div class="firstContainer">
+                <h2>A HopTech vale a pena?</h2>
+                <p>Conheça os depoimentos de quem trabalhou conosco: </p>
+            </div>
+            <div class="secondContainer">
+                <div class="carrossel">
+                    <div class="cards">
+                        <div class="imgBox">
+                            <img src="../assets/images/hopTech imgs/catarinarios.jpeg" alt="">
+                        </div>
+                        <div class="textBox">
+                            <div class="nome">
+                                <b>Catarina Rios</b>
+                            </div>
+                            <div class="empresa">
+                                <span class="representante">Representante da empresa:</span>
+                                <span>Lupulândia</span>
+                            </div>
+                            <div class="textoFeedback">
+                                <em>"A HopTech foi a solução perfeita para os nossos problemas na Lupulândia, o monitoramento de dados nos auxilia diariamente. Nota 10!"</em>
+                            </div>
+                            <div class="stars">
+                                <img src="../assets/images/hopTech imgs/feedback.png">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cards">
+                        <div class="imgBox">
+                            <img src="../assets/images/hopTech imgs/viniciusnamour.jpeg">
+                        </div>
+                        <div class="textBox">
+                            <div class="nome">
+                                <b>Vinícius Namour</b>
+                            </div>
+                            <div class="empresa">
+                                <span class="representante">Representante da empresa:</span>
+                                <span>Plantafort</span>
+                            </div>
+                            <div class="textoFeedback">
+                                <em>"Necessitávamos de um gráfico com monitoramento que nos ajudasse a compreender o estado do nosso lúpulo, a HopTech foi a solução."</em>
+                            </div>
+                            <div class="stars">
+                                <img src="../assets/images/hopTech imgs/feedback.png">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cards">
+                        <div class="imgBox">
+                            <img src="../assets/images/hopTech imgs/ritabitten.jpeg" alt="">
+                        </div>
+                        <div class="textBox">
+                            <div class="nome">
+                                <b>Catarina Rios</b>
+                            </div>
+                            <div class="empresa">
+                                <span class="representante">Representante da empresa:</span>
+                                <span>Hop6</span>
+                            </div>
+                            <div class="textoFeedback">
+                                <em>"O plantío de lúpulo no Brasil é difícil, mas com a HopTech tudo ficou mais fácil! Aqui na Hop6 somos Hoppers com orgulho! Aprovadíssimos."</em>
+                            </div>
+                            <div class="stars">
+                                <img src="../assets/images/hopTech imgs/feedback.png">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <img src="../assets/images/hopTech imgs/waveLight.svg">
+    </div>
+    <div id="contato" class="sections lightSection">
+        <main>
+            <div class="firstContainer">
+                <div class="titleBox">
+                    <h2>Contato</h2>
+                    <h4>Entre em contato conosco!</h4>
+                </div>
+                <form class="inputBox">
+                    <div class="inputs">
+                        <label for="nomeResponsavel">Nome do responsável*</label>
+                        <input id="nomeResponsavel" placeholder="Digite o nome completo" required>
+                    </div>
+                    <div class="inputs">
+                        <label for="nomeEmpresa">Nome da empresa*</label>
+                        <input id="nomeEmpresa" placeholder="Digite o nome da empresa aqui" required>
+                    </div>
+                    <div class="inputs">
+                        <label for="empresaTelefone">Telefone*</label>
+                        <input id="empresaTelefone" placeholder="(11) 23456-7890" required>
+                    </div>
+                    <div class="inputs">
+                        <label for="empresaEmail">E-mail*</label>
+                        <input id="empresaEmail" placeholder="Digite o e-mail aqui" required>
+                    </div>
+                    <div class="inputs">
+                        <label for="msgContato">Mensagem*</label>
+                        <textarea id="msgContato" placeholder="Digite sua mensagem aqui" required></textarea>
+                    </div>
+                </form>
+                <div class="buttonBox">
+                    <button onclick="enviarMensagem()">Contate-nos</button>
+                </div>
+            </div>
+            <div class="secondContainer">
+                <div class="topics">
+                    <h3>Endereço</h3>
+                    <p><span class="fa-solid fa-location-dot"></span><span>Rua Haddock Lobo, 595, São Paulo - SP</span></p>
+                </div>
+                <div class="topics">
+                    <h3>Contato</h3>
+                    <p><span class="fa-solid fa-phone fa-lg"></span><span>(11) 4123-4567</span></p>
+                    <p><span class="fa-solid fa-comment fa-lg"></span><span>atendimentohoptech@gmail.com</span></p>
+                </div>
+                <div class="topics">
+                    <h3>Redes sociais</h3>
+                    <div class="socialMedia">
+                        <a href="https://github.com/nextpointbr/HopTech"><img src="../assets/images/icons SM/instagram.png" alt=""></a>
+                        <a href="https://github.com/nextpointbr/HopTech"><img src="../assets/images/icons SM/linkedin.png" alt=""></a>
+                        <a href="https://github.com/nextpointbr/HopTech"><img src="../assets/images/icons SM/facebook.png" alt=""></a>
+                    </div>
+                </div>
+                <a href="../nextpoint-site/index.html"><img id="nextpoint" src="../assets/images/logosProjeto/NEXTPOINT.png" alt=""></a>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
+
+<!-- Importando a API de alertas "SweetAlert2": -->
+<link href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-bootstrap-4/bootstrap-4.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
+<!-- Importando JS -->
+<script src="siteHopTech.js"></script>

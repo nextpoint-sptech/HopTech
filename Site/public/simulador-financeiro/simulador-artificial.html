@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Simulador Financeiro | HopTech</title>
+    <link rel="shortcut icon" href="../assets/images/logosProjeto/flaticon-HOPTECH.png" type="image/x-icon">
+    <!-- Favicon -->
+
+    <link rel="stylesheet" href="../simulador-financeiro/css/headerSimulador.css"><!-- Importando header do simulador -->
+    <link rel="stylesheet" href="../simulador-financeiro/css/styleSimulador.css"><!-- Importando o CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" /> <!-- Importando FONTAWESOME -->
+
+
+</head>
+
+<body>
+    <!-- Início do header -->
+    <header><!-- Construção da Navbar -->
+        <nav><!-- Navbar -->
+            <ul><!-- "Botão" que retornará para a página anterior -->
+                <li class="btn-voltar"><a href="simulador-informar.html">Voltar</a></li>
+            </ul>
+            <!-- Logo -->
+            <a href="../hoptech-site/site-hoptech.html" class="logo">
+                <img src="../assets/images/logosProjeto/HopTech-dark.png" alt="HopTech logo" width="160px">
+            </a>
+        </nav>
+    </header>
+    <!-- Fim do header -->
+    <main id="container">
+        <section id="img">
+            <img src="../assets/images/hopTech imgs/painel_calculadora.svg" alt="Painel simulador.">
+        </section>
+        <section id="simulator">
+            <form id="form">
+                <h1 id="title">
+                    Simule suas finanças
+                </h1>
+                <div class="input-box">
+                    <label for="weight">
+                        Qtd. anual produzida
+                    </label>
+                    <div class="input-field">
+                        <i class="fa-solid fa-weight-hanging"></i>
+                        <input type="number" class="formInput" id="input_kg_lupulo" required>
+                        <select class="selectUnidade" id="selectUnidadePeso">
+                            <option>kg</option>
+                            <option>ton</option>
+                            <option>g</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="input-box">
+                    <label for="weight">
+                        Tipo de lúpulo
+                    </label>
+                    <div class="input-field">
+                        <i class="fa-solid fa-up-down"></i>
+                        <select id="escolhaDoLupulo" required>
+                            <option value="" disabled selected>Selecione...</option>
+                            <option value="saaz">Saaz</option>
+                            <option value="citra">Citra</option>
+                            <option value="mantiqueira">Mantiqueira</option>
+                            <option value="outros">Outros</option>
+                        </select>
+                    </div>
+                </div>
+            </form>
+            <button class="btn" onclick="simular()">Simular</button>
+
+        </section>
+    </main>
+    <div id="js_primeira_div">
+        <div class="containerResultados">
+            <div class="containerComparacao" id="semSistema">
+                
+            </div>
+            <div class="containerComparacao" id="comSistema">
+                
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+<!-- Importando API de alertas "SweetAlert2" -->
+<link href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-bootstrap-4/bootstrap-4.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
+
+<!-- Importando CHARTJS -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
+
+<!-- Importando JS -->
+<script src="../simulador-financeiro/js/simuladorArtificial.js"></script>
