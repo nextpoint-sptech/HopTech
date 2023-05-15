@@ -73,83 +73,24 @@ new Chart(ctx, { // Gráfico principal (linha)
   }
 });
 
-new Chart(ctx2, { // Gráfico de barra mostrando luminosidade por estações
-  type: 'bar',
-  data: {
-    labels: ['Verão', 'Outono', 'Primavera', 'Inverno'],
-    datasets: [{
-      label: 'Média obtida',
-      data: [731, 502, 418, 349],
-      borderWidth: 0.5,
-      backgroundColor: '#9DC08B',
-      borderColor: '#9DC08B',
-    },
-    {
-      label: 'Média mínima esperada',
-      data: [500, 500, 500, 500, 500],
-      borderWidth: 0.5,
-      backgroundColor: '#D7FFC2',
-      borderColor: '#D7FFC2',
-    }]
-  },
-  options: {
-    interaction: {
-      mode: 'index', // Adiciona o modo "index" no tooltip
-      intersect: false
-    },
-    layout: {
-      padding: 5
-    },
-    elements: {
-      point: {
-        hoverRadius: 10 // Aumenta o ponto do gráfico
-      }
-    },
-    scales: {
-      y: {
-        beginAtZero: true
-      }
-    },
-    plugins: {
-      title: {
-        display: true,
-        text: 'Média de luminosidade por estação',
-        font: {
-          size: 15
-        }
-      },
-      legend: {
-        display: false
-      },
-      datalabels: {
-        display: false
-      },
-      tooltip: {
-        displayColor: false,
-        borderColor: '#4CB648',
-        borderWidth: 3
-      }
-    }
-  }
-});
-
-new Chart(ctx3, { // Gráfico de barra mostrando luminosidade por região
-  type: 'bar',
+new Chart(ctx2, { // Gráfico de barra mostrando luminosidade por região
+  type: 'line',
   data: {
     labels: ['Norte', 'Nordeste', 'Centro-Oeste', 'Sudeste', 'Sul'],
     datasets: [{
       label: 'Média obtida',
-      data: [567, 400, 874, 349, 672],
+      data: [731, 502, 318, 671, 331], // Importado de uma plantação específica
       borderWidth: 0.5,
-      backgroundColor: '#9DC08B',
-      borderColor: '#9DC08B',
+      backgroundColor: '#48724c',
+      borderColor: '#48724c',
+      tension: 0.2,
     },
     {
       label: 'Média mínima esperada',
       data: [500, 500, 500, 500, 500],
       borderWidth: 0.5,
-      backgroundColor: '#D7FFC2',
-      borderColor: '#D7FFC2',
+      backgroundColor: '#9DC08B',
+      borderColor: '#9DC08B',
     }]
   },
   options: {
@@ -162,7 +103,7 @@ new Chart(ctx3, { // Gráfico de barra mostrando luminosidade por região
     },
     elements: {
       point: {
-        hoverRadius: 10
+        hoverRadius: 7
       }
     },
     scales: {
@@ -177,7 +118,7 @@ new Chart(ctx3, { // Gráfico de barra mostrando luminosidade por região
         color: '#48724c'
       },
       legend: {
-        display: false
+        display: true
       },
       title: {
         display: true,
@@ -194,3 +135,65 @@ new Chart(ctx3, { // Gráfico de barra mostrando luminosidade por região
     }
   }
 });
+
+// new Chart(ctx3, { // Gráfico de barra mostrando luminosidade por região
+//   type: 'bar',
+//   data: {
+//     labels: ['Norte', 'Nordeste', 'Centro-Oeste', 'Sudeste', 'Sul'],
+//     datasets: [{
+//       label: 'Média obtida',
+//       data: [567, 400, 874, 349, 672],
+//       borderWidth: 0.5,
+//       backgroundColor: '#9DC08B',
+//       borderColor: '#9DC08B',
+//     },
+//     {
+//       label: 'Média mínima esperada',
+//       data: [500, 500, 500, 500, 500],
+//       borderWidth: 0.5,
+//       backgroundColor: '#D7FFC2',
+//       borderColor: '#D7FFC2',
+//     }]
+//   },
+//   options: {
+//     interaction: {
+//       mode: 'index',
+//       intersect: false
+//     },
+//     layout: {
+//       padding: 5
+//     },
+//     elements: {
+//       point: {
+//         hoverRadius: 10
+//       }
+//     },
+//     scales: {
+//       y: {
+//         beginAtZero: true
+//       }
+//     },
+//     plugins: {
+//       datalabels: { // Plugin Datalabels
+//         display: false,
+//         anchor: 'center',
+//         color: '#48724c'
+//       },
+//       legend: {
+//         display: false
+//       },
+//       title: {
+//         display: true,
+//         text: 'Média de luminosidade do último mês por região',
+//         font: {
+//           size: 15
+//         }
+//       },
+//       tooltip: {
+//         displayColor: false,
+//         borderColor: '#4CB648',
+//         borderWidth: 3
+//       }
+//     }
+//   }
+// });
