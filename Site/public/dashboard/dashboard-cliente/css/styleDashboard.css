@@ -294,11 +294,13 @@ p{
     color: rgba(76, 104, 63, 0.6);
     margin: 0;
     margin-bottom: 5px;
+    padding-left: 8px;
 }
 
 .box_indicador .valorIndicador{
     font-size: 26px;
     font-weight: bold;
+    margin-left: 12px;
 }
 
 .txt_indicador1{
