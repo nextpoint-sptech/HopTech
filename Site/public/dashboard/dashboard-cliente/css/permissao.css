@@ -1,0 +1,135 @@
+.conteiner_cadastro_usuarios{
+    display: flex;
+    flex-direction: column;
+    width: 96%;
+    height: 91vh;
+    margin: auto;
+
+}
+
+.titleDashboard{
+    display: flex;
+    justify-content: space-between;
+}
+
+h1{
+    font-size: 30px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.titleDashboard #data{
+    font-size: 28px;
+    margin-top: 10px;
+}
+
+.conteudo_cadastro_usuarios{
+    height: 87%;
+    display: flex;
+    flex-direction: column;
+}
+
+.conteudo_cadastro_usuarios p{
+    margin: 0;
+    font-size: 18px;
+}
+
+.conteiner_cadastro_usuarios .box_cadastro_usuarios{
+    width: 70%;
+    height: 90%;
+    background-color: #BCD9AD;
+    border: solid 1px;
+    border-radius: 25px;
+    box-shadow: 2px 2px 2px;
+    margin: auto;
+    margin-top: 40px;
+    padding: 0 25px 20px 25px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.conteiner_cadastro_usuarios .box_cadastro_usuarios form{
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.conteiner_cadastro_usuarios .box_cadastro_usuarios form input{
+    height: 25px;
+    border: none;
+    border-radius: 15px;
+    font-size:  15px;
+    padding-left: 10px;
+}
+
+.conteiner_cadastro_usuarios .box_cadastro_usuarios button{
+    width: 40%;
+    height: 30px;
+    background-color: #4C683F;
+    border: none;
+    border-radius: 15px;
+    color: #ffffff;
+    font-size:  15px;
+    font-weight: bold;
+    margin: 20px 0 10px 0;
+    align-self: center;
+    cursor: pointer;
+}
+
+.conteiner_cadastro_usuarios .box_cadastro_usuarios button:hover{
+    background-color: #4b663e;
+    box-shadow: 2px 2px 2px;
+}
+
+
+
+.imagem_cadastro_usuarios {
+
+    background-color: #BCD9AD;
+    height: 30%;
+}
+
+.tabela_gerenciamento {
+
+    display: flex;
+    align-items:center;
+    justify-content: center;
+    width: 100%;
+    flex-direction: column;
+    overflow-x: auto;
+    margin-top: 20px;
+    padding-top: 100px;
+    height: 70%;
+    background-color: #9bc188;
+    color: #2c461e ;
+    border-radius: 20px;
+}
+
+.borda1 {
+
+    border-left: 3px solid black;
+
+}
+
+.tabela_usuarios th:nth-child(even){
+    
+   /* padding:35px; */
+   
+}
+
+.tabela_usuarios {
+    border-collapse: separate;
+    border-spacing: 0;
+  }
+  
+  th, td {
+    border-right: 1px solid black; 
+    padding: 10px;
+  }
+
+  .imagem_cadastro_usuarios {
+        width: 100px; /* Define a largura do contêiner */
+        height: 100px; /* Define a altura do contêiner */
+        background-image: url(./assets/images/icons/icon_gerenciamento.jpeg);
+  }

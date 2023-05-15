@@ -1,50 +1,129 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Permissões | Dashboard</title>
-    <link rel="shortcut icon" href="../../assets/assets/images/logosProjeto/flaticon-HOPTECH-white.png" type="image/x-icon"> <!-- Flaticon -->
-    
+    <link rel="shortcut icon" href="../../assets/assets/images/logosProjeto/flaticon-HOPTECH-white.png"
+        type="image/x-icon"> <!-- Flaticon -->
+
+    <link rel="stylesheet" href="css/permissao.css">
     <link rel="stylesheet" href="css/styleDashboard.css"> <!-- Importando CSS do dashboard -->
 </head>
+
 <body id="dashboard">
     <div class="div_menu_lateral">
-        <a href="../../hoptech-site/site-hoptech.html"><img src="../../assets/images/logosProjeto/HopTech-dark.png" class="logo_hoptech" alt="Logo da HopTech"></a>
+        <a href="../../hoptech-site/site-hoptech.html"><img src="../../assets/images/logosProjeto/HopTech-dark.png"
+                class="logo_hoptech" alt="Logo da HopTech"></a>
         <button onclick="goDashboard()">
             <img src="../../assets/images/icons/dashboard.png" class="icons_menu" alt="Ícone do dashboard">
             Dashboard
         </button>
         <button onclick="goUsuario()">
-            <img src="../../assets/images/icons/icon_usuarios.png" class="icons_menu" style="width: 40px;" alt="Ícone de usuários">
+            <img src="../../assets/images/icons/icon_usuarios.png" class="icons_menu" style="width: 40px;"
+                alt="Ícone de usuários">
             Usuários
         </button>
-        <button class="pageAtual" onclick="goPermissoes()">
+        <button onclick="goPermissoes()">
             <img src="../../assets/images/icons/permissao.png" class="icons_menu" alt="Ícone de Permissões">
-            Permissões
+            Gerenciar funcionarios
         </button>
         <button onclick="goHistorico()">
-            <img src="../../assets/images/icons/iconeHistorico.png" class="icons_menu" style="width: 30px;" alt="Ícone do histórico">
+            <img src="../../assets/images/icons/iconeHistorico.png" class="icons_menu" style="width: 30px;"
+                alt="Ícone do histórico">
             Histórico
         </button>
         <footer>
-            <a href="../../nextpoint-site/index.html"><img src="../../assets/images/logosProjeto/NEXTPOINT.png" class="logo_empresa" alt="Logo da NEXTPOINT"></a>
+            <a href="../../nextpoint-site/index.html"><img src="../../assets/images/logosProjeto/NEXTPOINT.png"
+                    class="logo_empresa" alt="Logo da NEXTPOINT"></a>
             © 2023 HopTech
         </footer>
     </div>
     <div class="div_conteiner_conteudo">
         <div class="div_menu_top">
             <div><!--  --></div>
-            <h3 class="titleDashboardCliente">Gerenciamento - Hop6</h3>
+            <h3 class="titleDashboardCliente">Gerenciamento - LupAgro</h3>
             <button class="btnSair" onclick="sair(); return false">Sair</button>
         </div>
-        
+        <div class="conteiner_cadastro_usuarios">
+            <div class="box_cadastro_usuarios">
+                <div class="tabela_gerenciamento">
+                    <h2>Gerenciar funcionários e permissões</h2> <br>
+                    <table class="tabela_usuarios">
+                        <tr class="tr1">
+                            <th>Nome</th>
+                            <th>Plantação</th>
+                            <th>Região</th>
+                            <th>Editar </th>
+                            <th>Excluir</th>
+                        </tr>
+                        <tr class="tr2">
+                            <td>Jean Lucas</td>
+                            <td>1001</td>
+                            <td>Norte</td>
+                            <td>Editar</td>
+                            <td>Excluir</td>
+                        </tr>
+                        <tr class="tr3">
+                            <td>Maria Rita</td>
+                            <td>1013</td>
+                            <td>Sul, Oeste</td>
+                            <td>Editar </td>
+                            <td>Excluir</td>
+                        </tr>
+                        <tr class="tr4">
+                            <td>Antonio Roberto</td>
+                            <td>1012</td>
+                            <td>Norte</td>
+                            <td>Editar </td>
+                            <td>Excluir</td>
+                        </tr>
+                        <tr class="tr5">
+                            <td>Maria Cintia</td>
+                            <td>1002</td>
+                            <td>Leste</td>
+                            <td>Editar </td>
+                            <td>Excluir</td>
+                        </tr>
+                        <tr class="tr6">
+                            <td>Miguel Santos</td>
+                            <td>1001</td>
+                            <td>Sul</td>
+                            <td>Editar </td>
+                            <td>Excluir</td>
+                        </tr>
+                        <tr>
+                            <td>Manuel Rodrigues</td>
+                            <td>1003</td>
+                            <td>Leste</td>
+                            <td>Editar </td>
+                            <td>Excluir</td>
+                        </tr>
+                        <tr>
+                            <td>Carla Araujo</td>
+                            <td>1012</td>
+                            <td>Sudeste</td>
+                            <td>Editar </td>
+                            <td>Excluir</td>
+                        </tr>
+                        
+                    </table>
+                </div>
+                <div class="imagem_cadastro_usuarios">
+                
+                </div>
+            </div>
         </div>
     </div>
+    </div>
 
+    </div>
+    </div>
 </body>
+
 </html>
 
 <!-- Importando a biblioteca ChartJS: -->
@@ -54,4 +133,5 @@
 <!-- Importando o back-end do ChartJS: -->
 
 <script src="js/redirect.js"></script>
-<script type="text/javascript" nonce="{coloque_seu_valor_nonce_aqui}" src="https://desk.zoho.com/portal/api/web/inapp/858677000000226265?orgId=810882795" defer></script>
+<script type="text/javascript" nonce="{coloque_seu_valor_nonce_aqui}"
+    src="https://desk.zoho.com/portal/api/web/inapp/858677000000226265?orgId=810882795" defer></script>
