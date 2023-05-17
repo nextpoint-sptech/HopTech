@@ -1,7 +1,7 @@
 var express = require("express");
 var router = express.Router();
 
-router.get("../../public/nextpoint-site/", function (req, res) {
+router.get("/", function (req, res) {
     res.render("index", { title: "Express" });
 });
 

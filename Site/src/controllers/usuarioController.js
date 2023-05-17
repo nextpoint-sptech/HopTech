@@ -62,33 +62,30 @@ function entrar(req, res) {
 
 function cadastrar(req, res) {
     // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
-    var usuario = req.body.usuarioServer;
-    var senha = req.body.senhaServer;
+    var empresa = req.body.empresaJSON;
 
     // Faça as validações dos valores
-    if (senha == undefined) {
-        res.status(400).send("Sua senha está undefined!");
-    } else if (usuario == undefined) {
-        res.status(400).send("Seu usuario está undefined!");
-    } else {
-        
-        // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-        usuarioModel.cadastrar(usuario, senha)
-            .then(
-                function (resultado) {
-                    res.json(resultado);
-                }
-            ).catch(
-                function (erro) {
-                    console.log(erro);
-                    console.log(
-                        "\nHouve um erro ao realizar o cadastro! Erro: ",
-                        erro.sqlMessage
-                    );
-                    res.status(500).json(erro.sqlMessage);
-                }
-            );
+    for(let object of Object.keys(empresa)){
+        if(empresa[object] == undefined){
+            res.status(400).send(`${object} está undefined!`)
+            return false
+        }
     }
+
+    // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
+    usuarioModel.cadastrar(empresa)
+        .then(function (resultado) {
+                res.json(resultado);
+            })
+        .catch(
+            function (erro) {
+                console.log(erro);
+                console.log(
+                "\nHouve um erro ao realizar o cadastro! Erro: ",
+                erro.sqlMessage
+            );
+            res.status(500).json(erro.sqlMessage);
+        });
 }
 
 module.exports = {

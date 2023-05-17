@@ -24,16 +24,18 @@
             Cadastro de empresa
         </button>
         <button onclick="irParaCadastroPlantacao(); return false">
-            <img src="../../assets/images/icons/notification.png" width="35" class="icons_menu" alt="Ícone de caixa de entrada">
+            <img src="../../assets/images/icons/notification.png" width="35" class="icons_menu"
+                alt="Ícone de caixa de entrada">
             Plantação e Sensores
         </button>
         <button onclick="irParaNotificacoes(); return false">
-            <img src="../../assets/images/icons/notification.png" width="30" class="icons_menu" alt="Ícone de caixa de entrada">
+            <img src="../../assets/images/icons/notification.png" width="30" class="icons_menu"
+                alt="Ícone de caixa de entrada">
             Notificações
         </button>
         <footer>
-            <a href="../../nextpoint-site/index.html"><img src="../../assets/images/logosProjeto/NEXTpoint.png" class="logo_empresa"
-                    alt="Logo da NEXTPOINT"></a>
+            <a href="../../nextpoint-site/index.html"><img src="../../assets/images/logosProjeto/NEXTpoint.png"
+                    class="logo_empresa" alt="Logo da NEXTPOINT"></a>
             © 2023 HopTech
         </footer>
     </div>
@@ -51,7 +53,7 @@
                 <div class="inputBox">
                     <div class="inputUnica">
                         <label for="input_empresa">Nome da empresa*</label>
-                        <input type="text" id="input_empresa">
+                        <input type="text" maxlength="50" id="input_empresa">
                     </div>
                 </div>
                 <div class="inputBox">
@@ -67,11 +69,11 @@
                 <div class="inputBox">
                     <div class="inputDupla">
                         <label for="input_email">Email*</label>
-                        <input id="input_email" type="text">
+                        <input maxlength="100" id="input_email" type="text">
                     </div>
                     <div class="inputDupla">
-                            <label for="input_confirmar">Confirmar Email*</label>
-                            <input id="input_confirmar" type="text">
+                        <label for="input_confirmaEmail">Confirmar Email*</label>
+                        <input maxlength="100" id="input_confirmaEmail" type="text">
                     </div>
                 </div>
                 <div class="inputBox">
@@ -81,37 +83,47 @@
                     </div>
                     <div class="inputDupla">
                         <label for="input_estado">Estado*</label>
-                        <input id="input_estado" type="text">
+                        <input maxlength="2" id="input_estado" type="text">
                     </div>
                 </div>
                 <div class="inputBox">
                     <div class="inputDupla">
                         <label for="input_cidade">Cidade*</label>
-                        <input id="input_cidade" type="text">
+                        <input maxlength="25" id="input_cidade" type="text">
                     </div>
                     <div class="inputDupla">
                         <label for="input_bairro">Bairro*</label>
-                        <input id="input_bairro" type="text">
+                        <input maxlength="100" id="input_bairro" type="text">
                     </div>
                 </div>
                 <div class="inputBox">
                     <div class="inputDupla">
                         <label for="input_rua">Rua*</label>
-                        <input id="input_rua" type="text">
+                        <input maxlength="100" id="input_rua" type="text">
                     </div>
                     <div class="inputDupla">
                         <label for="input_complemento">Complemento</label>
-                        <input type="text" id="input_complemento">
+                        <input maxlength="100" type="text" id="input_complemento">
                     </div>
                 </div>
                 <div class="inputBox">
                     <div class="inputDupla">
-                        <label for="input_usuario">Usuario*</label>
-                        <input id="input_usuario" type="text">
+                        <label for="input_numero">Número*</label>
+                        <input type="number" id="input_numero">
                     </div>
                     <div class="inputDupla">
+                        <label for="input_usuario">Usuario*</label>
+                        <input maxlength="100" id="input_usuario" type="text">
+                    </div>
+                </div>
+                <div class="inputBox">
+                    <div class="inputDupla">
                         <label for="input_senha">Senha*</label>
-                        <input id="input_senha" type="password">
+                        <input maxlength="45" id="input_senha" type="password">
+                    </div>
+                    <div class="inputDupla">
+                        <label for="input_confirmaSenha">Confirmar senha*</label>
+                        <input maxlength="45" id="input_confirmaSenha" type="password">
                     </div>
                 </div>
             </div>
@@ -127,106 +139,97 @@
 
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
 
-<script src="js/cadastro-hoptech.js"></script>
 <script src="js/redirect-admin.js"></script>
 <script>
-    function cadastrar(){
-        aguardar();
-        var nomeEmpresa = input_empresa.value;
-        var telefoneEmpresa = input_telefone.value;
-        var cnpjEmpresa = input_cnpj.value;
-        var email = input_email.value;
-        var confirmarEmail = input_confirmar.value;
-        var cepEmpresa = input_cep.value;
-        var estadoEmpresa = input_estado.value;
-        var cidadeEmpresa = input_cidade.value; 
-        var bairroEmpresa = input_bairro.value;
-        var ruaEmpresa = input_rua.value;
-        var complementoEmpresa = input_complemento.value;
-        var usuarioEmpresa = input_usuario.value;
-        var senhaEmpresa = input_senha.value;
+    function cadastrar() {
+        //tabela empresa:
+        var empresa = {
+            nome: input_empresa.value,
+            telefone: input_telefone.value,
+            cnpj: input_cnpj.value,
+            email: input_email.value,
+            confirmaEmail: input_confirmaEmail.value,
+            cep: input_cep.value,
+            estado: input_estado.value,
+            cidade: input_cidade.value,
+            bairro: input_bairro.value,
+            rua: input_rua.value,
+            complemento: input_complemento.value,
+            numero: input_numero.value,
+            usuario: input_usuario.value,
+            senha: input_senha.value,
+            confirmaSenha: input_confirmaSenha.value,
+            tpTelefone: function (){
+                if(this.telefone.length == 10){
+                    return 'Celular'
+                }else{
+                    return 'Fixo'
+                }
+            }
+        }
 
         let alertMessage = ''
+        for(let object of Object.keys(empresa)){
+            if(empresa[object] == ''){
+                alertMessage = 'Campo obrigatório vazio'
+                break
+            }else{
+                if(object == 'telefone' && empresa[object] == Number(empresa[object]) &&  (empresa[object].length < 10 || empresa[object].length > 11)){
+                    alertMessage += '• Telefone: Quantidade de dígitos inválida ou não é um número. \n'
+                }else if(object == 'cep' && empresa[object] == Number(empresa[object]) && empresa[object].length != 8){
+                    alertMessage += '• CEP: Quantidade de dígitos inválida ou não é um número. \n'
+                }else if(object == 'cnpj' && empresa[object] == Number(empresa[object]) && empresa[object].length != 14){
+                    alertMessage += '• CNPJ: Quantidade de dígitos inválida ou não é um número. \n'
+                }else if(object == 'email' && empresa[object] != empresa.confirmaEmail){
+                    alertMessage += '• Email: Campos email e confirmação email não estão iguais.\n'
+                }else if(object == 'senha' && empresa[object] != empresa.confirmaSenha){
+                    alertMessage += '• Email: Campos senha e confirmação senha não estão iguais.\n'
+                }else if(object == 'estado' && empresa[object].length != 2){
+                    alertMessage += '• Estado: O campo deve ser inserido como a sigla do Estado.\n '
+                }
+            }
+        }
 
-        if(nomeEmpresa == '' || telefoneEmpresa == '' || cnpjEmpresa == '' ||  email == '' || confirmarEmail == '' || cepEmpresa == '' || estadoEmpresa == '' || cidadeEmpresa == '' || bairroEmpresa == '' || ruaEmpresa == '' || usuarioEmpresa == '' || senhaEmpresa == ''){
+        if(alertMessage != ''){
             Swal.fire({
                 position: 'center',
                 icon: 'error',
-                title: 'Campo obrigatório vazio.',
+                title: alertMessage,
                 showConfirmButton: true,
-            });
-
-            finalizarAguardar();
-            return false;
-        } else if (email != confirmarEmail) {
-                alertMessage += '• Email: Campos email e confirmação email não estão iguais.\n'
-            } else if(cepEmpresa.length != 8){
-                alertMessage += '• CEP: Quantidade de dígitos inválida. \n'
-            } else if(cnpjEmpresa.length != 14){
-                alertMessage += '• CNPJ: Quantidade de dígitos inválida. \n'
-            } else if(telefoneEmpresa.length < 8 || telefoneEmpresa.length > 9){
-                alertMessage += '• Telefone: Quantidade de dígitos inválida. \n'
-            } else {
-            setInterval(sumirMensagem, 5000)
-        }
-
-        // Enviando o valor da nova input
-        fetch("/usuarios/cadastrar", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                // crie um atributo que recebe o valor recuperado aqui
-                // Agora vá para o arquivo routes/usuario.js
-                nomeEmpresaServer: nomeEmpresa,
-                emailEmpresaServer: email,
-                usuarioServer, usuarioEmpresa,
-                senhaServer: senhaEmpresa,
-                cepEmpresaServer: cnpjEmpresa,
-                estadoEmpresaServer: estadoEmpresa,
-                cidadeEmpresaServer: cidadeEmpresa,
-                bairroEmpresaServer: bairroEmpresa,
-                ruaEmpresaServer: ruaEmpresa,
-                complementoEmpresaServer: complementoEmpresa
             })
-        }).then(function (resposta) {
-
-            console.log("resposta: ", resposta);
-
-            if (resposta.ok) {
-                cardErro.style.display = "block";
-
-                Swal.fire({
-                    position: 'center',
-                    icon: 'success',
-                    title: 'Cadastro feito com sucesso.',
-                    showConfirmButton: true,
-                });
-
-                setTimeout(() => {
-                    window.location = "login.html";
-                }, "2000")
-
-                limparFormulario();
-                finalizarAguardar();
-            } else {
-                throw (Swal.fire({
-                    position: 'center',
-                    icon: 'error',
-                    title: 'Houve um erro ao tentar se cadastrar.',
-                    showConfirmButton: true,
-                }));
-            }
-        }).catch(function (resposta) {
-            console.log(`#ERRO: ${resposta}`);
-            finalizarAguardar();
-        });
-
-        return false;
+        }else{
+            // Enviando o valor da nova input
+            fetch("/usuarios/cadastrar", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    // crie um atributo que recebe o valor recuperado aqui
+                    // Agora vá para o arquivo routes/usuario.js
+                    empresaJSON: empresa
+                })
+            }).then(function (resposta) {
+                console.log("resposta: ", resposta);
+                if (resposta.ok) {
+                    Swal.fire({
+                        position: 'center',
+                        icon: 'success',
+                        title: 'Cadastro feito com sucesso.',
+                        showConfirmButton: true,
+                    });
+                } else {
+                    Swal.fire({
+                        position: 'center',
+                        icon: 'error',
+                        title: 'Houve um erro ao tentar se cadastrar.',
+                        showConfirmButton: true,
+                    });
+                }
+            }).catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+            });
+        }
     }
 
-    function sumirMensagem() {
-        cardErro.style.display = "none"
-    }
 </script>
