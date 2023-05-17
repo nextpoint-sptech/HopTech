@@ -25,16 +25,14 @@ function listar(req, res) {
 }
 
 function entrar(req, res) {
-    var usuario = req.body.usuarioServer;
-    var senha = req.body.senhaServer;
+    var credenciais = req.body.credenciaisJSON;
 
-    if (usuario == undefined) {
+    if (credenciais.usuario == undefined) {
         res.status(400).send("Seu usuário está undefined!");
-    } else if (senha == undefined) {
+    } else if (credenciais.senha == undefined) {
         res.status(400).send("Sua senha está indefinida!");
     } else {
-        
-        usuarioModel.entrar(usuario, senha)
+        usuarioModel.entrar(credenciais)
             .then(
                 function (resultado) {
                     console.log(`\nResultados encontrados: ${resultado.length}`);

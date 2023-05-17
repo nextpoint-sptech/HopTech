@@ -90,7 +90,7 @@ footer{
     border-color: #40513B;
 }
 
-.formLogin .btnEntrarLogin{
+.btnEntrarLogin{
     width: 50%;
     height: 35px;
     border: none;
@@ -104,7 +104,7 @@ footer{
     cursor: pointer;
 }
 
-.formLogin .btnEntrarLogin:hover{
+.btnEntrarLogin:hover{
     border-color: #40513B;
     background-color: #9DC08B;
 }
