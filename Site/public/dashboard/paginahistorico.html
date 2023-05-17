@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Histórico Padrão</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Histórico Padrão</h1>
+    
+    <button onclick="adicionarEvento()">Adicionar Evento</button>
+    <ul id="historico"></ul>
+    
+    <script>
+        function adicionarEvento() {
+            var evento = prompt("Digite o nome do evento:");
+            
+            if (evento) {
+                var data = new Date();
+                var dataFormatada = data.toLocaleString();
+                
+                var historico = document.getElementById("historico");
+                var li = document.createElement("li");
+                li.textContent = evento + " - " + dataFormatada;
+                historico.appendChild(li);
+            }
+        }
+    </script>
+</body>
+</html>
