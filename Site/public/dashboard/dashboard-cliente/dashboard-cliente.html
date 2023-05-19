@@ -141,22 +141,24 @@
     src="https://desk.zoho.com/portal/api/web/inapp/858677000000226265?orgId=810882795" defer></script>
 <script src="js/funcoes.js"></script>
 <script>
-    function obterDadosGraficos() {
-        obterDadosGrafico(1)
-    }
-
-    obterDadosGraficos()
     // O gráfico é construído com três funções:
     // 1. obterDadosGrafico -> Traz dados do Banco de Dados para montar o gráfico da primeira vez
     // 2. plotarGrafico -> Monta o gráfico com os dados trazidos e exibe em tela
     // 3. atualizarGrafico -> Atualiza o gráfico, trazendo novamente dados do Banco
 
+    function obterDadosGraficos() {
+        obterDadosGrafico(1)
+        obterDadosGrafico(2)
+        obterDadosGrafico(3)
+        obterDadosGrafico(4)
+        obterDadosGrafico(5)
+    }
+
+    obterDadosGraficos()
+
     // Esta função *obterDadosGrafico* busca os últimos dados inseridos em tabela de medidas.
     // para, quando carregar o gráfico da primeira vez, já trazer com vários dados.
     // A função *obterDadosGrafico* também invoca a função *plotarGrafico*
-
-    //     Se quiser alterar a busca, ajuste as regras de negócio em src/controllers
-    //     Para ajustar o "select", ajuste o comando sql em src/models
 
 
 
@@ -184,16 +186,18 @@
         console.log('iniciando plotagem do gráfico...');
         // Criando estrutura para plotar gráfico - labels
         let labels = []; // labels serve para ficar o dado que fica no eixo X  (NO NOSSO CASO, O HORARIO) 
-        
+
         // Criando estrutura para plotar gráfico - dados
         let dados = {
             labels: labels,
             datasets: [{
-                label: 'Luminosidade',
+                label: 'Luminosidade (Hoje)',
                 data: [], // DADOS DO SENSOR (LUMINOSIDADE)
                 fill: false,
-                borderColor: 'rgb(75, 192, 192)',
-                tension: 0.1
+                borderWidth: 1,
+                backgroundColor: '#9DC08B',
+                borderColor: '#9DC08B',
+                tension: 0.3 // Curvatura do gráfico
             }]
         };
 
@@ -204,7 +208,7 @@
         // Inserindo valores recebidos em estrutura para plotar o gráfico
         for (i = 0; i < resposta.length; i++) {
             var registro = resposta[i];
-            labels.push(registro.hrCaptura); 
+            labels.push(registro.hrCaptura);
             dados.datasets[0].data.push(registro.luminosidade); //
         }
 
@@ -220,6 +224,26 @@
         const config = {
             type: 'line',
             data: dados,
+            options: {
+                interaction: {
+                    mode: 'nearest', // Adiciona o modo "nearest" no tooltip
+                    axis: 'x', // Aparece o tooltip a partir dos eixos X
+                    intersect: false
+                },
+                layout: {
+                    padding: 5
+                },
+                elements: {
+                    point: {
+                        hoverRadius: 7
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
         };
 
         // Adicionando gráfico criado em div na tela
@@ -248,7 +272,7 @@
                     //let avisoCaptura = document.getElementById(`avisoCaptura${idAquario}`)
                     //avisoCaptura.innerHTML = ""
 
-                    if (novoRegistro[0].hrCaptura == dados.labels[dados.labels.length - 1]) { 
+                    if (novoRegistro[0].hrCaptura == dados.labels[dados.labels.length - 1]) {
                         //se a hora da captura enviada é igual a hora da captura que já temos, então, não é um novo gráfico, pois em DADOS temos só 10 dados, pois assim que entra um novo dado, o outro sai. 
                         console.log("---------------------------------------------------------------")
                         console.log("Como não há dados novos para captura, o gráfico não atualizará.")
