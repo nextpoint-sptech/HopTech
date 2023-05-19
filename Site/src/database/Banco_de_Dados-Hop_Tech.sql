@@ -1,11 +1,11 @@
 create database hop_tech;
 use hop_tech;
 
-create table empresa_cliente(
+create table empresa(
 	idEmpresa int primary key auto_increment,
     nomeEmpresa varchar(50) not null,
-    cnpj char(18) not null,
-    emailEmpresa varchar(100) not null,
+    cnpj char(18) not null unique,
+    emailEmpresa varchar(100) not null unique,
     cepEmpresa char(9) not null,
     estadoEmpresa char(2) not null,
     cidadeEmpresa varchar (25) not null,
@@ -15,9 +15,9 @@ create table empresa_cliente(
     complementoEmpresa varchar(100)
 );
 
-create table telefone_empresa(
+create table telefone(
 	idTelefone int primary key auto_increment,
-    telefone varchar(15) not null,
+    telefone varchar(15) not null unique,
     tpTelefone varchar(10) not null, constraint chTpTelefone check (tpTelefone in ('Celular', 'Fixo')),
     fkEmpresa int, foreign key (fkEmpresa) references empresa_cliente(idEmpresa)
 );
@@ -26,8 +26,8 @@ create table usuario(
 	idUsuario int primary key auto_increment,
     -- tipoUsuario int, constraint chkTpUsuario check (tipoUsuario in (0, 1)),
     nome varchar(100),
-    email varchar(100),
-    usuario varchar(45) not null,
+    email varchar(100) unique,
+    usuario varchar(45) not null unique,
     senha varchar(45) not null,
     fkEmpresa int not null, foreign key(fkEmpresa) references empresa_cliente(idEmpresa)
 );

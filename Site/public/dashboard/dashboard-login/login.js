@@ -37,7 +37,7 @@ function fazerLogin() {
                         console.log(JSON.stringify(json));
                         sessionStorage.EMAIL_USUARIO = json.email;
                         sessionStorage.NOME_USUARIO = json.nome;
-                        sessionStorage.ID_USUARIO = json.id;
+                        sessionStorage.FK_EMPRESA = json.fkEmpresa;
                         Swal.fire({
                             position: 'center',
                             icon: 'success',
