@@ -12,24 +12,26 @@ create table empresa(
     bairroEmpresa varchar(100) not null,
     ruaEmpresa varchar(100) not null,
     numeroEmpresa int not null,
-    complementoEmpresa varchar(100)
+    complementoEmpresa varchar(100),
+    mesCadastrado int, constraint ckMesEmpresaCadastrada
+	check (mesCadastrado in (1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12))
 );
 
 create table telefone(
 	idTelefone int primary key auto_increment,
     telefone varchar(15) not null unique,
-    tpTelefone varchar(10) not null, constraint chTpTelefone check (tpTelefone in ('Celular', 'Fixo')),
-    fkEmpresa int, foreign key (fkEmpresa) references empresa_cliente(idEmpresa)
+    tpTelefone varchar(10), constraint chTpTelefone check (tpTelefone in ('Celular', 'Fixo')),
+    fkEmpresa int, foreign key (fkEmpresa) references empresa(idEmpresa)
 );
 
 create table usuario(
 	idUsuario int primary key auto_increment,
-    -- tipoUsuario int, constraint chkTpUsuario check (tipoUsuario in (0, 1)),
+    tipoUsuario int, constraint chkTpUsuario check (tipoUsuario in (0, 1, 2)),
     nome varchar(100),
-    email varchar(100) unique,
+    email varchar(100),
     usuario varchar(45) not null unique,
     senha varchar(45) not null,
-    fkEmpresa int not null, foreign key(fkEmpresa) references empresa_cliente(idEmpresa)
+    fkEmpresa int not null, foreign key(fkEmpresa) references empresa(idEmpresa)
 );
 
 create table lupulo(
@@ -46,20 +48,17 @@ create table plantacao(
     estadoPlantacao char(2) not null,
     cidadePlantacao varchar(25) not null,
     fkLupulo int not null, foreign key (fkLupulo) references lupulo(idLupulo),
-    fkEmpresa int not null, foreign key (fkEmpresa) references empresa_cliente(idEmpresa)
-);
-
-create table regiao_plantacao(
-	idRegiao int primary key auto_increment,
-    regiao varchar(15) not null, constraint chkRegiao check (regiao in ('Norte', 'Nordeste', 'Centro-Oeste', 'Suldeste', 'Sul')),
-    fkPlantacao int not null, foreign key(fkPlantacao) references plantacao(idPlantacao)
+    fkEmpresa int not null, foreign key (fkEmpresa) references empresa(idEmpresa),
+    mesCadastrado int, constraint ckMesPlantacaoCadastrada
+	check (mesCadastrado in (1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12))
 );
 
 create table sensor(
 	idSensor int primary key auto_increment,
     tipoSensor varchar(20) not null, constraint chkTpSensor check (tipoSensor in('LDR5 - Luminosidade')),
     statusSensor varchar(15) not null, constraint chkStatusSensor check (statusSensor in('Ativo', 'Inativo', 'Em manutenção')),
-    fkRegiaoPlantacao int not null, foreign key (fkRegiaoPlantacao) references regiao_plantacao(idRegiao)
+	fkPlantacao int not null, foreign key(fkPlantacao) references plantacao(idPlantacao),
+    regiaoPlantacao varchar(15) not null, constraint chkRegiao check (regiaoPlantacao in ('Norte', 'Nordeste', 'Centro-Oeste', 'Suldeste', 'Sul'))
 );
 
 create table capturaLuminosidade(
@@ -72,8 +71,8 @@ create table capturaLuminosidade(
 
 create table permissoes(
 	idPermissao int,
-    tipoPermissao int, constraint ckTpPermissao check (tipoPermissao in (0, 1)),
+    -- tipoPermissao int, constraint ckTpPermissao check (tipoPermissao in (0, 1)),
     fkUsuario int not null, foreign key(fkUsuario) references usuario(idUsuario),
     fkPlantacao int not null, foreign key(fkPlantacao) references plantacao(idPlantacao),
-    fkRegiaoPlantacao int not null, foreign key (fkRegiaoPlantacao) references regiao_plantacao(idRegiao)
+    fkEmpresa int, foreign key (fkEmpresa) references empresa(idEmpresa)
 );

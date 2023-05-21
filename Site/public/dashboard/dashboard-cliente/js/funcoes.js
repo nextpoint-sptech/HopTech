@@ -1,4 +1,4 @@
-empresaNome.innerHTML = sessionStorage.getItem(`NOME_USUARIO`)
+empresaNome.innerHTML = sessionStorage.getItem(`NOME_EMPRESA_USUARIO`)
 
 function sair() {
     window.parent.location.href = "../dashboard-login/login-dashboard.html";

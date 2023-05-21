@@ -44,7 +44,7 @@
     <div class="div_conteiner_conteudo">
         <div class="div_menu_top">
             <div><!--  --></div>
-            <h3 class="titleDashboardCliente">Gerenciamento - Hop6</h3>
+            <h3 class="titleDashboardCliente">Gerenciamento - <span id="empresaNome">Hop6</span></h3>
             <button class="btnSair" onclick="sair(); return false">Sair</button>
         </div>
         <div class="conteiner_cadastro_usuarios">
@@ -81,3 +81,6 @@
 <script src="js/usuarios.js"></script><!-- Início da função p/ validar o formulário -->
 <script src="js/funcoes.js"></script>
 <script type="text/javascript" nonce="{coloque_seu_valor_nonce_aqui}" src="https://desk.zoho.com/portal/api/web/inapp/858677000000226265?orgId=810882795" defer></script>
+<script>
+    empresaNome.innerHTML = sessionStorage.getItem(`NOME_EMPRESA_USUARIO`)
+</script>
