@@ -61,6 +61,7 @@ function entrar(req, res) {
 function cadastrar(req, res) {
     // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
     var empresa = req.body.empresaJSON;
+    console.log(empresa)
 
     // Faça as validações dos valores
     for(let object of Object.keys(empresa)){

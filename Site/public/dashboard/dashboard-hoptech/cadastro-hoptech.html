@@ -139,8 +139,10 @@
 
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
 
-<script src="js/redirect-admin.js"></script>
+<script src="js/funcoes-admin.js"></script>
 <script>
+    var mesAtual = pegarMes()
+    var tipoTelefone = pegarTpTelefone()
     function cadastrar() {
         //tabela empresa:
         var empresa = {
@@ -159,13 +161,8 @@
             usuario: input_usuario.value,
             senha: input_senha.value,
             confirmaSenha: input_confirmaSenha.value,
-            tpTelefone: function (){
-                if(this.telefone.length == 10){
-                    return 'Celular'
-                }else{
-                    return 'Fixo'
-                }
-            }
+            tpTelefone: pegarTpTelefone(),
+            mesCadastrado: pegarMes(),
         }
 
         let alertMessage = ''
