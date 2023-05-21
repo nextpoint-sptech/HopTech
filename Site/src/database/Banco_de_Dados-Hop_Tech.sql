@@ -17,7 +17,7 @@ create table empresa(
 	check (mesCadastrado in (1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12))
 );
 
-create table telefone(
+create table telefone_empresa(
 	idTelefone int primary key auto_increment,
     telefone varchar(15) not null unique,
     tpTelefone varchar(10), constraint chTpTelefone check (tpTelefone in ('Celular', 'Fixo')),
