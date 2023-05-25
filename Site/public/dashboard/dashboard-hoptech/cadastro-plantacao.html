@@ -86,7 +86,7 @@
                         </div>
                         <div class="input_row">
                             <label for="estado">Estado (sigla)*</label>
-                            <input maxlength="2" type="text" id="select_estado">
+                            <input maxlength="2" type="text" id="ipt_estado">
                         </div>
                     </div>
                     <div class="double_input">
@@ -95,46 +95,12 @@
                             <input type="text" id="ipt_cidade">
                         </div>
                         <div class="input_row">
-                            <label for="complemento">Rua*</label>
-                            <input type="text" id="ipt_rua">
+                            <label for="complemento">Região*</label>
+                            <input type="text" id="ipt_regiao">
                         </div>
                     </div>
                     <div class="button_box">
                         <button onclick="cadastrarPlantacao()">Cadastrar plantação</button>
-                    </div>
-                </div>
-            </div>
-            <div class="container-cadastro">
-                <div class="title_box">
-                    <h1>Cadastro de sensores</h1>
-                </div>
-                <div class="input_box">
-                    <div class="input_row">
-                        <label for="status_sensor">Status*</label>
-                        <select name="" id="status_sensor">
-                            <option value="0" style="color:rgb(170, 170, 170);">Selecione...</option>
-                            <option value="Manu">Em manutenção</option>
-                            <option value="Ativ">Ativo</option>
-                            <option value="Inat">Inativo</option>
-                        </select>
-                    </div>
-                    <div class="input_row">
-                        <label for="escolher">Número de identificação da Plantação</label>
-                        <input type="text" id="ipt_id_plantacao">
-                    </div>
-                    <div class="input_row">
-                        <label for="">Região da Plantação</label>
-                        <select name="" id="regiao_plant">
-                            <option value="0" style="color:rgb(170, 170, 170);">Selecione...</option>
-                            <option value="Norte">Norte</option>
-                            <option value="Nordeste">Nordeste</option>
-                            <option value="Sul">Sul</option>
-                            <option value="Sudeste">Sudeste</option>
-                            <option value="Centro-oeste">Centro-Oeste</option>
-                        </select>
-                    </div>
-                    <div class="button_box">
-                        <button onclick="cadastrarSensores()">Cadastrar sensor</button>
                     </div>
                 </div>
             </div>
@@ -150,12 +116,27 @@
 <script src="js/cadastro-plantacao.js"></script>
 <script src="js/funcoes-admin.js"></script>
 <script>
-    function cadastrarPlantacao(){
-        var plantacaoJSON = {
-            empresa: nome_empresa.value,
-            metros: metro_plantacao.value
-        }
-        fetch('/usuario/')
+    buscarEmpresas()
+    function buscarEmpresas(){
+        fetch('/medidas/buscarEmpresas', {cache: "no-store"})
+        .then(function(response){
+            if(response.ok){
+                response.json().then(function (resposta) {
+                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                    for(let i of resposta){
+                        console.log(i.nome)
+                        const option = document.createElement('option');
+                        option.setAttribute('value', i.nome);
+                        option.textContent = i.nome;
+                        document.querySelector('#nome_empresa').appendChild(option)
+                    }
+                })
+            }else{
+                console.error('Nenhum dado encontrado ou erro na API');
+            }
+        }).catch(function(error){
+            console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+        })
     }
 
     function pegarMes(){
@@ -163,4 +144,47 @@
         let mes = dtAtual.getMonth() + 1
         return mes
     }
+    
+    function cadastrarPlantacao(){
+        var plantacaoJSON = {
+            empresa: nome_empresa.value,
+            tpIluminacao: select_iluminacao.value,
+            metros: metro_plantacao.value,
+            tpLupulo: select_lupulo.value,
+            cep: ipt_cep.value,
+            estado: ipt_estado.value,
+            cidade: ipt_cidade.value,
+            regiao: ipt_regiao.value,
+            mesCadastro: pegarMes()
+        };
+        fetch('/medidas/cadastroPlantacao', {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    // crie um atributo que recebe o valor recuperado aqui
+                    // Agora vá para o arquivo routes/usuario.js
+                    plantacao: plantacaoJSON
+        })}).then(function (resposta) {
+                console.log("resposta: ", resposta);
+                if (resposta.ok) {
+                    Swal.fire({
+                        position: 'center',
+                        icon: 'success',
+                        title: 'Cadastro feito com sucesso.',
+                        showConfirmButton: true,
+                    });
+                } else {
+                    Swal.fire({
+                        position: 'center',
+                        icon: 'error',
+                        title: 'Houve um erro ao tentar se cadastrar.',
+                        showConfirmButton: true,
+                    });
+                }
+            }).catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+            });
+        }
 </script>

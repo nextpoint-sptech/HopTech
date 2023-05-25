@@ -32,7 +32,12 @@ function cadastrar(empresa) {
     console.log("Executando a instrução SQL: \n" + instrucao);
     console.log("Executando a instrução SQL: \n" + instrucao2);
     console.log("Executando a instrução SQL: \n" + instrucao3);
-    return database.executar(instrucao), database.executar(instrucao2), database.executar(instrucao3);
+    database.executar(instrucao)
+    setTimeout(
+        ()=>{
+            return database.executar(instrucao2), database.executar(instrucao3);
+        }, 500
+    )
 }
 
 module.exports = {

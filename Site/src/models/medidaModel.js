@@ -55,8 +55,29 @@ function buscarMedidasEmTempoReal(idSensor) {
     return database.executar(instrucaoSql);
 }
 
+function buscarEmpresas(){
+    console.log('estou no medida model, funcao buscarEmpresas')
+    var instrucao = `select nome from empresa;`
+    console.log('Executando a instrucao SQL:', instrucao)
+    return database.executar(instrucao)
+}
+
+function cadastrarPlantacao(plantacao){
+    var instrucao = `insert into plantacao values (null, '${plantacao.tpIluminacao}', '${plantacao.metros}', '${plantacao.regiao}', '${plantacao.estado}', '${plantacao.cidade}', (select idLupulo from lupulo where tipoLupulo = '${plantacao.tpLupulo}'), (select idEmpresa from empresa where nome = '${plantacao.empresa}'), ${plantacao.mesCadastro});`
+    
+    var instrucao2 = `insert into sensor values 
+    (null, 'LDR5 - Luminosidade', 'Ativo', 'Norte', (select idPlantacao from plantacao where fkEmpresa = (select idEmpresa from empresa where nome = '${plantacao.empresa}') order by idEmpresa desc limit 1)),
+    (null, 'LDR5 - Luminosidade', 'Ativo', 'Nordeste', (select idPlantacao from plantacao where fkEmpresa = (select idEmpresa from empresa where nome = '${plantacao.empresa}') order by idEmpresa desc limit 1)),
+    (null, 'LDR5 - Luminosidade', 'Ativo', 'Centro-Oeste', (select idPlantacao from plantacao where fkEmpresa = (select idEmpresa from empresa where nome = '${plantacao.empresa}') order by idEmpresa desc limit 1)),
+    (null, 'LDR5 - Luminosidade', 'Ativo', 'Sudeste', (select idPlantacao from plantacao where fkEmpresa = (select idEmpresa from empresa where nome = '${plantacao.empresa}') order by idEmpresa desc limit 1)),
+    (null, 'LDR5 - Luminosidade', 'Ativo', 'Sul', (select idPlantacao from plantacao where fkEmpresa = (select idEmpresa from empresa where nome = '${plantacao.empresa}') order by idEmpresa desc limit 1))
+    ;`
+    return database.executar(instrucao), database.executar(instrucao2)
+}
 
 module.exports = {
     buscarUltimasMedidas,
-    buscarMedidasEmTempoReal
+    buscarMedidasEmTempoReal,
+    buscarEmpresas,
+    cadastrarPlantacao
 }

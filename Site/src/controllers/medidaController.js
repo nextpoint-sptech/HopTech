@@ -41,7 +41,47 @@ function buscarMedidasEmTempoReal(req, res) {
     });
 }
 
+function buscarEmpresas(req, res){
+    medidaModel.buscarEmpresas()
+    .then(function (resultado) {
+        res.json(resultado);
+    }).catch(
+        function (erro) {
+            console.log(erro);
+            console.log(
+            "\nHouve um erro ao realizar o cadastro! Erro: ",
+            erro.sqlMessage
+        );
+        res.status(500).json(erro.sqlMessage);
+    });
+}
+
+function cadastrarPlantacao(req, res){
+    var plantacao = req.body.plantacao;
+    for(let object of Object.keys(plantacao)){
+        if(plantacao[object] == undefined){
+            res.status(400).send(`${object} está undefined!`)
+            return false
+        }
+    }
+    medidaModel.cadastrarPlantacao(plantacao)
+    .then(function (resultado) {
+        res.json(resultado);
+    }).catch(
+        function (erro) {
+            console.log(erro);
+            console.log(
+            "\nHouve um erro ao realizar o cadastro! Erro: ",
+            erro.sqlMessage
+        );
+        res.status(500).json(erro.sqlMessage);
+    });
+}
+
+
 module.exports = {
     buscarUltimasMedidas,
-    buscarMedidasEmTempoReal
+    buscarMedidasEmTempoReal,
+    buscarEmpresas,
+    cadastrarPlantacao
 }
