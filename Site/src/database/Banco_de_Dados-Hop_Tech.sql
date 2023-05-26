@@ -57,9 +57,14 @@ create table sensor(
 	idSensor int auto_increment,
     tpSensor varchar(20) not null, constraint chkTpSensor check (tpSensor in('LDR5 - Luminosidade')),
     statusSensor varchar(15) not null, constraint chkStatusSensor check (statusSensor in('Ativo', 'Inativo', 'Em manutenção')),
+<<<<<<< HEAD
+    fkPlantacao int not null, foreign key(fkPlantacao) references plantacao(idPlantacao),
+	regiao varchar(15) not null, constraint chkRegiao check (regiao in ('Norte', 'Nordeste', 'Centro-Oeste', 'Sudeste', 'Sul'))
+=======
 	regiao varchar(15) not null, constraint chkRegiao check (regiao in ('Norte', 'Nordeste', 'Centro-Oeste', 'Sudeste', 'Sul')),
     fkPlantacao int not null, foreign key(fkPlantacao) references plantacao(idPlantacao),
     primary key(idSensor, fkPlantacao)
+>>>>>>> 0695b327ea6d52eb00a583e16c5b37d7535cc55d
 );
 
 create table capturaLuminosidade(
@@ -79,24 +84,3 @@ create table permissoes(
     fkPlantacao int not null, foreign key(fkPlantacao) references plantacao(idPlantacao),
     fkEmpresa int, foreign key (fkEmpresa) references empresa(idEmpresa)
 );
-
-desc lupulo;
-insert into lupulo values
-(null, 'Saaz', 100),
-(null, 'Mantiqueira', 100),
-(null, 'Citra', 100);
-
-select * from empresa;
-select * from usuario;
-select * from telefone;
-select * from sensor;
-select * from plantacao;
-select * from lupulo;
-
-
--- insert into sensor values (null, 'LDR5 - Luminosidade', 'Ativo', 'Norte', (select idPlantacao from plantacao where fkEmpresa = (select idEmpresa from empresa where nome = 'aaa')));
--- select idPlantacao from plantacao where fkEmpresa = (select idEmpresa from empresa where nome = 'aaa');
-
--- select idPlantacao from plantacao where fkEmpresa = (select idEmpresa from empresa where nome = 'aaa') order by idPlantacao desc limit 1;
--- (select idPlantacao from plantacao where fkEmpresa = (select idEmpresa from empresa where nome = '${plantacao.empresa}'));
--- (select idPlantacao from plantacao where fkEmpresa = (select idEmpresa from empresa where nome = '${plantacao.empresa}') order by idPlantacao desc limit 1);
