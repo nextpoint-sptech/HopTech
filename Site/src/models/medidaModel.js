@@ -62,6 +62,12 @@ function buscarEmpresas(){
     return database.executar(instrucao)
 }
 
+function buscarMetricasCadastro(mes){
+    console.log('Estou buscando as metricas de cadastros por mes')
+    var instrucao = `select count(idSensor) as sensorMes${mes}, count(idEmpresa) as empresaMes${mes}, count(idPlantacao) as plantacaoMes${mes} from sensor join plantacao on sensor.fkPlantacao = plantacao.idPlantacao join empresa on plantacao.fkEmpresa = empresa.idEmpresa where empresa.mesCadastrado = ${mes} and plantacao.mesCadastrado = ${mes}`
+    return database.executar(instrucao)
+}
+
 function cadastrarPlantacao(plantacao){
     var instrucao = `insert into plantacao values (null, '${plantacao.tpIluminacao}', '${plantacao.metros}', '${plantacao.regiao}', '${plantacao.estado}', '${plantacao.cidade}', (select idLupulo from lupulo where tipoLupulo = '${plantacao.tpLupulo}'), (select idEmpresa from empresa where nome = '${plantacao.empresa}'), ${plantacao.mesCadastro});`
     
@@ -104,5 +110,6 @@ module.exports = {
     buscarMedidasEmTempoReal,
     buscarEmpresas,
     cadastrarPlantacao,
-    listarHistoricoAlertas
+    listarHistoricoAlertas,
+    buscarMetricasCadastro,
 }

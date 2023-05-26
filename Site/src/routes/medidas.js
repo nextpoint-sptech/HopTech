@@ -24,4 +24,8 @@ router.get('/listarHistoricoAlertas/:idEmpresa', function(req, res){
     medidaController.listarHistoricoAlertas(req, res)
 })
 
+router.get('/metricasCadastros/:mes', function(req, res){
+    medidaController.buscarMetricasCadastro(req, res)
+})
+
 module.exports = router;

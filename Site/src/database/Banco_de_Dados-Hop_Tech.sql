@@ -54,11 +54,17 @@ create table plantacao(
 );
 
 create table sensor(
-	idSensor int primary key auto_increment,
+	idSensor int auto_increment,
     tpSensor varchar(20) not null, constraint chkTpSensor check (tpSensor in('LDR5 - Luminosidade')),
     statusSensor varchar(15) not null, constraint chkStatusSensor check (statusSensor in('Ativo', 'Inativo', 'Em manutenção')),
+<<<<<<< HEAD
     fkPlantacao int not null, foreign key(fkPlantacao) references plantacao(idPlantacao),
 	regiao varchar(15) not null, constraint chkRegiao check (regiao in ('Norte', 'Nordeste', 'Centro-Oeste', 'Sudeste', 'Sul'))
+=======
+	regiao varchar(15) not null, constraint chkRegiao check (regiao in ('Norte', 'Nordeste', 'Centro-Oeste', 'Sudeste', 'Sul')),
+    fkPlantacao int not null, foreign key(fkPlantacao) references plantacao(idPlantacao),
+    primary key(idSensor, fkPlantacao)
+>>>>>>> 0695b327ea6d52eb00a583e16c5b37d7535cc55d
 );
 
 create table capturaLuminosidade(
@@ -67,7 +73,8 @@ create table capturaLuminosidade(
     hrCaptura time not null,
     luminosidade double not null,
     fkSensor int, foreign key (fkSensor) references sensor(idSensor),
-    primary key(idCaptura, fkSensor)
+    fkPlantacao int, foreign key (fkPlantacao) references plantacao(idPlantacao),
+    primary key(idCaptura, fkSensor, fkPlantacao)
 );
 
 create table permissoes(

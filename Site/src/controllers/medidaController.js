@@ -79,6 +79,22 @@ function cadastrarPlantacao(req, res){
     });
 }
 
+function buscarMetricasCadastro(req, res){
+    var mes = req.params.mes
+    medidaModel.buscarMetricasCadastro(mes)
+    .then(function (resultado) {
+        if (resultado.length > 0) {
+            res.status(200).json(resultado);
+        } else {
+            res.status(204).send("Nenhum resultado encontrado!")
+        }
+    }).catch(function (erro) {
+        console.log(erro);
+        console.log("Houve um erro ao buscar as ultimas medidas.", erro.sqlMessage);
+        res.status(500).json(erro.sqlMessage);
+    });
+}
+
 function listarHistoricoAlertas(req, res) {
     var idEmpresa = req.params.idEmpresa;
     console.log("entrei no  medidaController no listarHistoricoAlertas");
@@ -102,5 +118,6 @@ module.exports = {
     buscarMedidasEmTempoReal,
     buscarEmpresas,
     cadastrarPlantacao,
-    listarHistoricoAlertas
+    listarHistoricoAlertas,
+    buscarMetricasCadastro,
 }
