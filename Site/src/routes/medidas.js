@@ -19,4 +19,9 @@ router.post('/cadastroPlantacao', function(req, res){
     medidaController.cadastrarPlantacao(req, res)
 })
 
+router.get('/listarHistoricoAlertas/:idEmpresa', function(req, res){
+    console.log("entrei no  medidas no listarHistoricoAlertas");
+    medidaController.listarHistoricoAlertas(req, res)
+})
+
 module.exports = router;

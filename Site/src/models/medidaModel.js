@@ -77,9 +77,32 @@ function cadastrarPlantacao(plantacao){
     return database.executar(instrucao), database.executar(instrucao2)
 }
 
+function listarHistoricoAlertas(idEmpresa) {
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function listar()");
+    var instrucao = `
+        select date_format(capturaLuminosidade.dtCaptura, '%d/%m/%Y')  as dtCaptura,
+            capturaLuminosidade.hrCaptura,
+            capturaLuminosidade.luminosidade,
+            sensor.regiao,
+            lupulo.tipoLupulo,
+            empresa.idEmpresa
+        from capturaLuminosidade
+        join sensor on idSensor = fkSensor
+        join plantacao on idPlantacao = fkPlantacao
+        join lupulo on idLupulo = fkLupulo
+        join empresa on idEmpresa = fkEmpresa
+        where (luminosidade <= 600 or luminosidade >= 700)
+            and idEmpresa = ${idEmpresa}
+        order by dtCaptura desc;
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+
 module.exports = {
     buscarUltimasMedidas,
     buscarMedidasEmTempoReal,
     buscarEmpresas,
-    cadastrarPlantacao
+    cadastrarPlantacao,
+    listarHistoricoAlertas
 }
