@@ -158,3 +158,20 @@
 <!-- Exportando o JS: -->
 <script src="js/dashboardHoptech.js"></script>
 <script src="js/funcoes-admin.js"></script>
+<script>
+    metricasCadastros(5)
+    function metricasCadastros(mes){
+        fetch(`/medidas/metricasCadastros/${mes}`, {cache:"no-store"})
+        .then(function(response){
+            if(response.ok){
+                response.json().then(function(resposta){
+                    console.log('Dados recebidos: ', JSON.stringify(resposta))
+                })
+            }else{
+                console.log('Nenhum dado encontrado na API')
+            }
+        }).catch(function(error){
+            console.log('ERROR: ', error)
+        })
+    }
+</script>

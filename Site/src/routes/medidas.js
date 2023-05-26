@@ -19,4 +19,8 @@ router.post('/cadastroPlantacao', function(req, res){
     medidaController.cadastrarPlantacao(req, res)
 })
 
+router.get('/metricasCadastros/:mes', function(req, res){
+    medidaController.buscarMetricasCadastro(req, res)
+})
+
 module.exports = router;
