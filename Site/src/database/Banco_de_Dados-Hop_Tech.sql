@@ -57,16 +57,17 @@ create table sensor(
 	idSensor int primary key auto_increment,
     tpSensor varchar(20) not null, constraint chkTpSensor check (tpSensor in('LDR5 - Luminosidade')),
     statusSensor varchar(15) not null, constraint chkStatusSensor check (statusSensor in('Ativo', 'Inativo', 'Em manutenção')),
-	regiao varchar(15) not null, constraint chkRegiao check (regiao in ('Norte', 'Nordeste', 'Centro-Oeste', 'Suldeste', 'Sul')),
+	regiao varchar(15) not null, constraint chkRegiao check (regiao in ('Norte', 'Nordeste', 'Centro-Oeste', 'Sudeste', 'Sul')),
     fkPlantacao int not null, foreign key(fkPlantacao) references plantacao(idPlantacao)
 );
 
 create table capturaLuminosidade(
-	idCaptura int primary key auto_increment,
+	idCaptura int auto_increment,
     dtCaptura date not null,
     hrCaptura time not null,
     luminosidade double not null,
-    fkSensor int, foreign key (fkSensor) references sensor(idSensor)
+    fkSensor int, foreign key (fkSensor) references sensor(idSensor),
+    primary key(idCaptura, fkSensor)
 );
 
 create table permissoes(
@@ -76,3 +77,24 @@ create table permissoes(
     fkPlantacao int not null, foreign key(fkPlantacao) references plantacao(idPlantacao),
     fkEmpresa int, foreign key (fkEmpresa) references empresa(idEmpresa)
 );
+
+desc lupulo;
+insert into lupulo values
+(null, 'Saaz', 100),
+(null, 'Mantiqueira', 100),
+(null, 'Citra', 100);
+
+select * from empresa;
+select * from usuario;
+select * from telefone;
+select * from sensor;
+select * from plantacao;
+select * from lupulo;
+
+
+-- insert into sensor values (null, 'LDR5 - Luminosidade', 'Ativo', 'Norte', (select idPlantacao from plantacao where fkEmpresa = (select idEmpresa from empresa where nome = 'aaa')));
+-- select idPlantacao from plantacao where fkEmpresa = (select idEmpresa from empresa where nome = 'aaa');
+
+-- select idPlantacao from plantacao where fkEmpresa = (select idEmpresa from empresa where nome = 'aaa') order by idPlantacao desc limit 1;
+-- (select idPlantacao from plantacao where fkEmpresa = (select idEmpresa from empresa where nome = '${plantacao.empresa}'));
+-- (select idPlantacao from plantacao where fkEmpresa = (select idEmpresa from empresa where nome = '${plantacao.empresa}') order by idPlantacao desc limit 1);
