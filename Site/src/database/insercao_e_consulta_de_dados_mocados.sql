@@ -8,7 +8,7 @@ insert into empresa values
     (null, 'LAL Agro Malte ', '89.422.803/0001-48', 'lal@outlook.com.br', '78065-150', 'MT', 'Cuiabá', 'Jardim Tropical', 'Rua Varsóvia', '222', null, 5);
 
 /*
-insert into telefone_empresa values
+insert into telefone values
 	(null, '(53) 2814-7384', 1),
     (null, '(53) 99374-9980', 1),
     (null, '(92) 3876-9475', 2),
@@ -49,45 +49,45 @@ insert into sensor values
     (null, 'LDR5 - Luminosidade', 'Ativo', 3, 'Sul');
     
 insert into capturaLuminosidade values
-	(null, '2023-04-01', '10:00:00', 350, 1),
-    (null, '2023-04-01', '10:00:00', 350, 2),
-    (null, '2023-04-01', '10:00:00', 520, 3),
-    (null, '2023-04-01', '10:00:00', 550, 4),
-    (null, '2023-04-01', '10:00:00', 550, 5),
-    (null, '2023-04-01', '10:00:00', 575, 6),
-    (null, '2023-04-01', '10:00:00', 578, 7),
-    (null, '2023-04-01', '10:00:00', 645, 8),
-    (null, '2023-04-01', '10:00:00', 576, 9),
-    (null, '2023-04-01', '10:00:00', 574, 10),
-    (null, '2023-04-01', '10:00:00', 700, 11),
-    (null, '2023-04-01', '10:00:00', 701, 12),
-    (null, '2023-04-01', '10:00:00', 659, 13),
-    (null, '2023-04-01', '10:00:00', 500, 14),
-    (null, '2023-04-01', '10:00:00', 505, 15),
-    (null, '2023-04-01', '10:30:00', 467, 1),
-    (null, '2023-04-01', '10:30:00', 128, 2),
-    (null, '2023-04-01', '10:30:00', 520, 3),
-    (null, '2023-04-01', '10:30:00', 550, 4),
-    (null, '2023-04-01', '10:30:00', 550, 5),
-    (null, '2023-04-01', '10:30:00', 575, 6),
-    (null, '2023-04-01', '10:30:00', 578, 7),
-    (null, '2023-04-01', '10:30:00', 645, 8),
-    (null, '2023-04-01', '10:30:00', 572, 9),
-    (null, '2023-04-01', '10:30:00', 570, 10),
-    (null, '2023-04-01', '10:30:00', 705, 11),
-    (null, '2023-04-01', '10:30:00', 702, 12),
-    (null, '2023-04-01', '10:30:00', 659, 13),
-    (null, '2023-04-01', '10:30:00', 479, 14),
-    (null, '2023-04-01', '10:30:00', 505, 15),
-    (null, '2023-05-25', '10:30:00', 850, 1),
-    (null, '2023-05-25', '10:30:00', 960, 2),
-    (null, '2023-05-25', '10:30:00', 605, 3),
-    (null, '2023-05-25', '10:30:00', 985, 4),
-    (null, '2023-05-25', '10:30:00', 600, 5);
+	(null, '2023-04-01', '10:00:00', 350, 1, 1),
+    (null, '2023-04-01', '10:00:00', 350, 2, 1),
+    (null, '2023-04-01', '10:00:00', 520, 3, 1),
+    (null, '2023-04-01', '10:00:00', 550, 4, 1),
+    (null, '2023-04-01', '10:00:00', 550, 5, 1),
+    (null, '2023-04-01', '10:00:00', 575, 6, 1),
+    (null, '2023-04-01', '10:00:00', 578, 7, 2),
+    (null, '2023-04-01', '10:00:00', 645, 8, 2 ),
+    (null, '2023-04-01', '10:00:00', 576, 9, 2),
+    (null, '2023-04-01', '10:00:00', 574, 10, 2),
+    (null, '2023-04-01', '10:00:00', 700, 11, 2),
+    (null, '2023-04-01', '10:00:00', 701, 12, 2),
+    (null, '2023-04-01', '10:00:00', 659, 13, 2),
+    (null, '2023-04-01', '10:00:00', 500, 14, 2),
+    (null, '2023-04-01', '10:00:00', 505, 15, 2),
+    (null, '2023-04-01', '10:30:00', 467, 1, 3),
+    (null, '2023-04-01', '10:30:00', 128, 2, 3),
+    (null, '2023-04-01', '10:30:00', 520, 3, 3),
+    (null, '2023-04-01', '10:30:00', 550, 4, 3),
+    (null, '2023-04-01', '10:30:00', 550, 5, 3),
+    (null, '2023-04-01', '10:30:00', 575, 6, 3),
+    (null, '2023-04-01', '10:30:00', 578, 7, 3),
+    (null, '2023-04-01', '10:30:00', 645, 8, 3),
+    (null, '2023-04-01', '10:30:00', 572, 9, 3),
+    (null, '2023-04-01', '10:30:00', 570, 10, 1),
+    (null, '2023-04-01', '10:30:00', 705, 11, 1),
+    (null, '2023-04-01', '10:30:00', 702, 12, 1),
+    (null, '2023-04-01', '10:30:00', 659, 13, 1),
+    (null, '2023-04-01', '10:30:00', 479, 14, 1),
+    (null, '2023-04-01', '10:30:00', 505, 15, 1),
+    (null, '2023-05-25', '10:30:00', 850, 1, 1),
+    (null, '2023-05-25', '10:30:00', 960, 2, 1),
+    (null, '2023-05-25', '10:30:00', 605, 3, 1),
+    (null, '2023-05-25', '10:30:00', 985, 4, 1),
+    (null, '2023-05-25', '10:30:00', 600, 5, 1);
 
 -- Consulta de dados
 select * from empresa;
-select * from telefone_empresa;
+select * from telefone;
 select * from usuario;
 select * from lupulo;
 select * from sensor;
@@ -97,7 +97,7 @@ select * from capturaLuminosidade;
 select date_format(capturaLuminosidade.dtCaptura, '%d/%m/%Y')  as 'Data',
 	capturaLuminosidade.hrCaptura as Hora,
 	capturaLuminosidade.luminosidade as 'Luminosidade Recebida',
-	sensor.regiaoSensor as 'Região da Plantação',
+	sensor.regiao as 'Região da Plantação',
 	lupulo.tipoLupulo as 'Lupulo',
 	empresa.nome as 'Empresa Responsável'
 from capturaLuminosidade 
@@ -114,7 +114,7 @@ select hrCaptura,
 from capturaLuminosidade
 join sensor on capturaLuminosidade.fkSensor = sensor.idSensor
 join plantacao on sensor.fkPlantacao = plantacao.idPlantacao
-where idPlantacao = 1 and fkEmpresa = 1 and dtCaptura = current_date()
+where idPlantacao = 1 and fkEmpresa = 2 and dtCaptura = current_date()
 group by hrCaptura;
 
 -- Média de luminosidade de todas as plantações de uma determinada empresa do dia específico
@@ -123,39 +123,40 @@ select hrCaptura,
 from capturaLuminosidade
 join sensor on capturaLuminosidade.fkSensor = sensor.idSensor
 join plantacao on sensor.fkPlantacao = plantacao.idPlantacao
-where fkEmpresa = 1 and dtCaptura = current_date()
+where fkEmpresa = 2 and dtCaptura = current_date()
 group by hrCaptura;
 
 -- Média de luminosidade por região de todas plantação do dia específico
-select sensor.regiaoPlantacao,
+select sensor.regiao,
 	round(avg(luminosidade), 2) as media_luminosidade
 from sensor 
 join capturaLuminosidade on capturaLuminosidade.fkSensor = sensor.idSensor
 join plantacao on sensor.fkPlantacao = plantacao.idPlantacao
-where fkEmpresa = 1 and dtCaptura = current_date()
-group by sensor.regiaoPlantacao;
+where fkEmpresa = 2 and dtCaptura = current_date()
+group by sensor.regiao;
 
 -- Média de luminosidade por região de uma determinada plantação do dia específico
-select sensor.regiaoPlantacao,
+select sensor.regiao,
 	round(avg(luminosidade), 2) as media_luminosidade
 from sensor 
 join capturaLuminosidade on capturaLuminosidade.fkSensor = sensor.idSensor
 join plantacao on sensor.fkPlantacao = plantacao.idPlantacao
 where idPlantacao = 1 and fkEmpresa = 1 and dtCaptura = current_date()
-group by sensor.regiaoPlantacao;
+group by sensor.regiao;
 
 -- Alertas
 select date_format(capturaLuminosidade.dtCaptura, '%d/%m/%Y')  as dtCaptura,
 	capturaLuminosidade.hrCaptura,
 	capturaLuminosidade.luminosidade,
-	sensor.regiaoPlantacao,
+	sensor.regiao,
 	lupulo.tipoLupulo,
-	empresa.nome
+    plantacao.idPlantacao,
+	empresa.idEmpresa
 from capturaLuminosidade
 join sensor on idSensor = fkSensor
-join plantacao on idPlantacao = fkPlantacao
+join plantacao on plantacao.idPlantacao = sensor.fkPlantacao
 join lupulo on idLupulo = fkLupulo
 join empresa on idEmpresa = fkEmpresa
 where (luminosidade <= 600 or luminosidade >= 700)
-	and idEmpresa = 1
+	and idEmpresa = 2
 order by dtCaptura desc;

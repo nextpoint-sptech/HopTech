@@ -17,10 +17,19 @@ create table empresa(
 	check (mesCadastrado in (1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12))
 );
 
+create table tipoTelefone(
+	idTipoTelefone int primary key auto_increment,
+    tipo varchar(10) constraint chkTpTelefone check (tipo in ('Fixo', 'Celular')) unique
+);
+
+insert into tipoTelefone values
+	(null, 'Fixo'),
+    (null, 'Celular');
+
 create table telefone(
 	idTelefone int primary key auto_increment,
     telefone varchar(15) not null,
-    tpTelefone varchar(10), constraint chTpTelefone check (tpTelefone in ('Celular', 'Fixo')),
+	fkTpTelefone int, foreign key (fkTpTelefone) references tipoTelefone(idTipoTelefone),
     fkEmpresa int, foreign key (fkEmpresa) references empresa(idEmpresa)
 );
 
@@ -36,12 +45,12 @@ create table usuario(
 
 create table lupulo(
 	idLupulo int primary key auto_increment,
-    tipoLupulo varchar(50) not null,
+    tipoLupulo varchar(50) unique not null,
     qtdHrsIdealLuz double not null
 );
 
 create table plantacao(
-	idPlantacao int primary key auto_increment,
+	idPlantacao int auto_increment,
     tpIluminacao varchar(45) not null, constraint chkTpIluminacao check (tpIluminacao in('Natural', 'Artificial')),
     metroQuadradoPlantacao double not null,
     regiao varchar(15) not null,
@@ -50,21 +59,17 @@ create table plantacao(
     fkLupulo int not null, foreign key (fkLupulo) references lupulo(idLupulo),
     fkEmpresa int not null, foreign key (fkEmpresa) references empresa(idEmpresa),
     mesCadastrado int, constraint ckMesPlantacaoCadastrada
-	check (mesCadastrado in (1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12))
+	check (mesCadastrado in (1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12)),
+    primary key(idPlantacao, fkEmpresa)
 );
 
 create table sensor(
 	idSensor int auto_increment,
     tpSensor varchar(20) not null, constraint chkTpSensor check (tpSensor in('LDR5 - Luminosidade')),
     statusSensor varchar(15) not null, constraint chkStatusSensor check (statusSensor in('Ativo', 'Inativo', 'Em manutenção')),
-<<<<<<< HEAD
     fkPlantacao int not null, foreign key(fkPlantacao) references plantacao(idPlantacao),
-	regiao varchar(15) not null, constraint chkRegiao check (regiao in ('Norte', 'Nordeste', 'Centro-Oeste', 'Sudeste', 'Sul'))
-=======
 	regiao varchar(15) not null, constraint chkRegiao check (regiao in ('Norte', 'Nordeste', 'Centro-Oeste', 'Sudeste', 'Sul')),
-    fkPlantacao int not null, foreign key(fkPlantacao) references plantacao(idPlantacao),
     primary key(idSensor, fkPlantacao)
->>>>>>> 0695b327ea6d52eb00a583e16c5b37d7535cc55d
 );
 
 create table capturaLuminosidade(

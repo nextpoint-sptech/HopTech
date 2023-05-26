@@ -22,7 +22,7 @@ fetch(`/medidas/listarHistoricoAlertas/${idEmpresa}`).then(function (resposta) {
                         <p>${alerta.dtCaptura} - ${alerta.hrCaptura}</p>
                         <div class="alerta2" id="alerta">
                             <h4>Risco de Baixa Luminosidade!</h4>
-                            <p>A região ${alerta.regiao} da sua plantação está recebendo pouca luminosidade e está quase ficando abaixo da média!</p>
+                            <p>A região ${alerta.regiao} da sua plantação ${alerta.idPlantacao} está recebendo pouca luminosidade e está quase ficando abaixo da média!</p>
                             <h3>Luminosidade: ${alerta.luminosidade}</h3>
                         </div>
                     `;
@@ -31,7 +31,7 @@ fetch(`/medidas/listarHistoricoAlertas/${idEmpresa}`).then(function (resposta) {
                         <p>${alerta.dtCaptura} - ${alerta.hrCaptura}</p>
                         <div class="alerta" id="alerta">
                             <h4>Baixa Luminosidade!</h4>
-                            <p>A região ${alerta.regiao} da sua plantação está recebendo pouca luminosidade e está quase ficando abaixo da média!</p>
+                            <p>A região ${alerta.regiao} da sua plantação ${alerta.idPlantacao} está recebendo pouca luminosidade e está quase ficando abaixo da média!</p>
                             <h3>Luminosidade: ${alerta.luminosidade}</h3>
                         </div>
                     `;        
@@ -40,7 +40,7 @@ fetch(`/medidas/listarHistoricoAlertas/${idEmpresa}`).then(function (resposta) {
                         <p>${alerta.dtCaptura} - ${alerta.hrCaptura}</p>
                         <div class="alerta2" id="alerta">
                             <h4>Risco de Alta Luminosidade!</h4>
-                            <p>A luminosidade da região ${alerta.regiao} da sua plantação está se aproximando ao limite da média ideal!</p>
+                            <p>A luminosidade da região ${alerta.regiao} da sua plantação ${alerta.idPlantacao} está se aproximando ao limite da média ideal!</p>
                             <h3>Luminosidade: ${alerta.luminosidade}</h3>
                         </div>
                     `;  
@@ -49,7 +49,7 @@ fetch(`/medidas/listarHistoricoAlertas/${idEmpresa}`).then(function (resposta) {
                         <p>${alerta.dtCaptura} - ${alerta.hrCaptura}</p>
                         <div class="alerta" id="alerta">
                             <h4>Alta Luminosidade!</h4>
-                            <p>A região centro-oeste da sua plantação está recebendo luminosidade acima da média!</p>
+                            <p>A região centro-oeste da sua plantação ${alerta.idPlantacao} está recebendo luminosidade acima da média!</p>
                             <h3>Luminosidade: ${alerta.luminosidade}</h3>
                         </div>
                     `; 

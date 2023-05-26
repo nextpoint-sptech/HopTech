@@ -91,10 +91,11 @@ function listarHistoricoAlertas(idEmpresa) {
             capturaLuminosidade.luminosidade,
             sensor.regiao,
             lupulo.tipoLupulo,
+            plantacao.idPlantacao,
             empresa.idEmpresa
         from capturaLuminosidade
         join sensor on idSensor = fkSensor
-        join plantacao on idPlantacao = fkPlantacao
+        join plantacao on plantacao.idPlantacao = sensor.fkPlantacao
         join lupulo on idLupulo = fkLupulo
         join empresa on idEmpresa = fkEmpresa
         where (luminosidade <= 600 or luminosidade >= 700)
