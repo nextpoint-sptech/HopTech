@@ -18,7 +18,7 @@ function goSuporte() {
     window.parent.location.href = "suporte.html";
 }
 function goHistorico() {
-    window.parent.location.href = "../../erro-pages/erro404-hoptech.html";
+    window.parent.location.href = "historico.html";
 }
 
 let data = document.querySelector('#data');

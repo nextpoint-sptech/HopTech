@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Permissões | Dashboard</title>
+    <link rel="shortcut icon" href="../../assets/assets/images/logosProjeto/flaticon-HOPTECH-white.png"
+        type="image/x-icon"> <!-- Flaticon -->
+
+    <link rel="stylesheet" href="css/styleDashboard.css"> <!-- Importando CSS do dashboard -->
+    <link rel="stylesheet" href="css/styleHistorico.css">
+</head>
+
+<body id="dashboard">
+    <div class="div_menu_lateral">
+        <a href="../../hoptech-site/site-hoptech.html"><img src="../../assets/images/logosProjeto/HopTech-dark.png"
+                class="logo_hoptech" alt="Logo da HopTech"></a>
+        <button onclick="goDashboard()">
+            <img src="../../assets/images/icons/dashboard.png" class="icons_menu" alt="Ícone do dashboard">
+            Dashboard
+        </button>
+        <button onclick="goUsuario()">
+            <img src="../../assets/images/icons/icon_usuarios.png" class="icons_menu" style="width: 40px;"
+                alt="Ícone de usuários">
+            Usuários
+        </button>
+        <button onclick="goPermissoes()">
+            <img src="../../assets/images/icons/permissao.png" class="icons_menu" alt="Ícone de Permissões">
+            Permissões
+        </button>
+        <button  class="pageAtual" onclick="goHistorico()">
+            <img src="../../assets/images/icons/iconeHistorico.png" class="icons_menu" style="width: 30px;"
+                alt="Ícone do histórico">
+            Histórico
+        </button>
+        <footer>
+            <a href="../../nextpoint-site/index.html"><img src="../../assets/images/logosProjeto/NEXTPOINT.png"
+                    class="logo_empresa" alt="Logo da NEXTPOINT"></a>
+            © 2023 HopTech
+        </footer>
+    </div>
+    <div class="div_conteiner_conteudo">
+        <div class="div_menu_top">
+            <div><!--  --></div>
+            <h3 class="titleDashboardCliente">Gerenciamento - <span id="empresaNome">Hop6</span></h3>
+            <button class="btnSair" onclick="sair(); return false">Sair</button>
+        </div>
+        <div class="conteiner_historico">
+            <div class="titleDashboard">
+                <h1>Histórico de Alertas</h1>
+            </div>
+            <div class="conteudo_historico">
+                <p><span id="dtAlertaEmitido">25/05/2023</span> - <span id="hrAlertaEmitido">08:59</span></p>
+                <div class="alerta" id="alerta">
+                    <h4>Baixa Luminosidade!</h4>
+                    <p>A região sudeste da sua plantação está recebendo luminosidade abaixo da média!</p>
+                    <h3>Luminosidade: 357</h3>
+                </div>
+                <p><span id="dtAlertaEmitido">25/05/2023</span> - <span id="hrAlertaEmitido">08:59</span></p>
+                <div class="alerta2" id="alerta">
+                    <h4>Risco de Baixa Luminosidade!</h4>
+                    <p>A região sudeste da sua plantação está recebendo pouca luminosidade e está quase ficando abaixo da média!</p>
+                    <h3>Luminosidade: 357</h3>
+                </div>
+                <p><span id="dtAlertaEmitido">25/05/2023</span> - <span id="hrAlertaEmitido">08:59</span></p>
+                <div class="alerta" id="alerta">
+                    <h4>Baixa Luminosidade!</h4>
+                    <p>A região sudeste da sua plantação está recebendo luminosidade abaixo da média!</p>
+                    <h3>Luminosidade: 357</h3>
+                </div>
+                <p><span id="dtAlertaEmitido">25/05/2023</span> - <span id="hrAlertaEmitido">08:59</span></p>
+                <div class="alerta" id="alerta">
+                    <h4>Baixa Luminosidade!</h4>
+                    <p>A região sudeste da sua plantação está recebendo luminosidade abaixo da média!</p>
+                    <h3>Luminosidade: 357</h3>
+                </div>
+                <p><span id="dtAlertaEmitido">25/05/2023</span> - <span id="hrAlertaEmitido">08:59</span></p>
+                <div class="alerta2" id="alerta">
+                    <h4>Risco de Baixa Luminosidade!</h4>
+                    <p>A região sudeste da sua plantação está recebendo pouca luminosidade e está quase ficando abaixo da média!</p>
+                    <h3>Luminosidade: 357</h3>
+                </div>
+                <p><span id="dtAlertaEmitido">25/05/2023</span> - <span id="hrAlertaEmitido">08:59</span></p>
+                <div class="alerta2" id="alerta">
+                    <h4>Risco de Baixa Luminosidade!</h4>
+                    <p>A região sudeste da sua plantação está recebendo pouca luminosidade e está quase ficando abaixo da média!</p>
+                    <h3>Luminosidade: 357</h3>
+                </div>
+                <p><span id="dtAlertaEmitido">25/05/2023</span> - <span id="hrAlertaEmitido">08:59</span></p>
+                <div class="alerta2" id="alerta">
+                    <h4>Risco de Baixa Luminosidade!</h4>
+                    <p>A região sudeste da sua plantação está recebendo pouca luminosidade e está quase ficando abaixo da média!</p>
+                    <h3>Luminosidade: 357</h3>
+                </div>
+                <p><span id="dtAlertaEmitido">25/05/2023</span> - <span id="hrAlertaEmitido">08:59</span></p>
+                <div class="alerta2" id="alerta">
+                    <h4>Risco de Baixa Luminosidade!</h4>
+                    <p>A região sudeste da sua plantação está recebendo pouca luminosidade e está quase ficando abaixo da média!</p>
+                    <h3>Luminosidade: 357</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    </div>
+    </div>
+</body>
+
+</html>
+
+<!-- Importando a biblioteca ChartJS: -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<!-- Importando o plugin DataLabels do ChartJS: -->
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
+<!-- Importando o back-end do ChartJS: -->
+
+<script src="js/funcoes.js"></script>
+<script type="text/javascript" nonce="{coloque_seu_valor_nonce_aqui}" src="https://desk.zoho.com/portal/api/web/inapp/858677000000226265?orgId=810882795" defer></script>
+<script>
+    empresaNome.innerHTML = sessionStorage.getItem(`NOME_EMPRESA_USUARIO`)
+</script>
