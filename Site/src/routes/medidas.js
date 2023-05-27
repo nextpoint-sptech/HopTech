@@ -15,6 +15,10 @@ router.get("/buscarEmpresas", function(req, res){
     medidaController.buscarEmpresas(req, res)
 })
 
+router.get("/buscarTpLupulo", function(req, res){
+    medidaController.buscarLupulo(req, res)
+})
+
 router.post('/cadastroPlantacao', function(req, res){
     medidaController.cadastrarPlantacao(req, res)
 })

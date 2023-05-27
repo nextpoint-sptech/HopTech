@@ -57,6 +57,21 @@ function buscarEmpresas(req, res){
     });
 }
 
+function buscarLupulo(req, res){
+    medidaModel.buscarLupulo()
+    .then(function (resultado) {
+        res.json(resultado);
+    }).catch(
+        function (erro) {
+            console.log(erro);
+            console.log(
+            "\nHouve um erro ao realizar o cadastro! Erro: ",
+            erro.sqlMessage
+        );
+        res.status(500).json(erro.sqlMessage);
+    });
+}
+
 function cadastrarPlantacao(req, res){
     var plantacao = req.body.plantacao;
     for(let object of Object.keys(plantacao)){
@@ -117,7 +132,8 @@ module.exports = {
     buscarUltimasMedidas,
     buscarMedidasEmTempoReal,
     buscarEmpresas,
+    buscarLupulo,
     cadastrarPlantacao,
     listarHistoricoAlertas,
-    buscarMetricasCadastro,
+    buscarMetricasCadastro
 }

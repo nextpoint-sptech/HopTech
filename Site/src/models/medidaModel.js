@@ -62,23 +62,39 @@ function buscarEmpresas(){
     return database.executar(instrucao)
 }
 
+function buscarLupulo(){
+    console.log('estou no medida model, funcao buscarlupulo');
+    var instrucao = `select tipoLupulo from lupulo`
+    return database.executar(instrucao)
+}
+
 function buscarMetricasCadastro(mes){
     console.log('Estou buscando as metricas de cadastros por mes')
-    var instrucao = `select count(idSensor) as sensorMes${mes}, count(idEmpresa) as empresaMes${mes}, count(idPlantacao) as plantacaoMes${mes} from sensor join plantacao on sensor.fkPlantacao = plantacao.idPlantacao join empresa on plantacao.fkEmpresa = empresa.idEmpresa where empresa.mesCadastrado = ${mes} and plantacao.mesCadastrado = ${mes}`
+    var instrucao = `select count(idSensor)+1 as sensorMes${mes}, count(idEmpresa) as empresaMes${mes}, count(idPlantacao) as plantacaoMes${mes} from sensor join plantacao on sensor.fkPlantacao = plantacao.idPlantacao join empresa on plantacao.fkEmpresa = empresa.idEmpresa where empresa.mesCadastrado = ${mes} and plantacao.mesCadastrado = ${mes}`
     return database.executar(instrucao)
 }
 
 function cadastrarPlantacao(plantacao){
-    var instrucao = `insert into plantacao values (null, '${plantacao.tpIluminacao}', '${plantacao.metros}', '${plantacao.regiao}', '${plantacao.estado}', '${plantacao.cidade}', (select idLupulo from lupulo where tipoLupulo = '${plantacao.tpLupulo}'), (select idEmpresa from empresa where nome = '${plantacao.empresa}'), ${plantacao.mesCadastro});`
+    var instrucao = `
+    insert into plantacao values 
+    (fn_qtdPlantacao((select idEmpresa from empresa where nome = '${plantacao.empresa}')),
+    '${plantacao.tpIluminacao}',
+    ${plantacao.metros},
+    '${plantacao.regiao}',
+    '${plantacao.estado}',
+    '${plantacao.cidade}',
+    (select idLupulo from lupulo where tipoLupulo = '${plantacao.tpLupulo}'),
+    (select idEmpresa from empresa where nome = '${plantacao.empresa}'),
+    5);`
+    console.log('Executando instrucao SQL: ' + instrucao)
     
     var instrucao2 = `
     insert into sensor values 
-    (1, 'LDR5 - Luminosidade', 'Ativo', 'Norte', (select idPlantacao from plantacao where fkEmpresa = (select idEmpresa from empresa where nome = '${plantacao.empresa}') order by idPlantacao desc limit 1)),
-    (2, 'LDR5 - Luminosidade', 'Ativo', 'Nordeste', (select idPlantacao from plantacao where fkEmpresa = (select idEmpresa from empresa where nome = '${plantacao.empresa}') order by idPlantacao desc limit 1)),
-    (3, 'LDR5 - Luminosidade', 'Ativo', 'Centro-Oeste', (select idPlantacao from plantacao where fkEmpresa = (select idEmpresa from empresa where nome = '${plantacao.empresa}') order by idPlantacao desc limit 1)),
-    (4, 'LDR5 - Luminosidade', 'Ativo', 'Sudeste', (select idPlantacao from plantacao where fkEmpresa = (select idEmpresa from empresa where nome = '${plantacao.empresa}') order by idPlantacao desc limit 1)),
-    (5, 'LDR5 - Luminosidade', 'Ativo', 'Sul', (select idPlantacao from plantacao where fkEmpresa = (select idEmpresa from empresa where nome = '${plantacao.empresa}') order by idPlantacao desc limit 1))
-    
+    (1, 'LDR5 - Luminosidade', 'Ativo', (select idPlantacao from plantacao where fkEmpresa = (select idEmpresa from empresa where nome = '${plantacao.empresa}') order by idPlantacao desc limit 1), (select idEmpresa from empresa where nome = '${plantacao.empresa}'), 'Norte'),
+    (2, 'LDR5 - Luminosidade', 'Ativo', (select idPlantacao from plantacao where fkEmpresa = (select idEmpresa from empresa where nome = '${plantacao.empresa}') order by idPlantacao desc limit 1), (select idEmpresa from empresa where nome = '${plantacao.empresa}'), 'Nordeste'),
+    (3, 'LDR5 - Luminosidade', 'Ativo', (select idPlantacao from plantacao where fkEmpresa = (select idEmpresa from empresa where nome = '${plantacao.empresa}') order by idPlantacao desc limit 1),(select idEmpresa from empresa where nome = '${plantacao.empresa}'), 'Centro-Oeste'),
+    (4, 'LDR5 - Luminosidade', 'Ativo', (select idPlantacao from plantacao where fkEmpresa = (select idEmpresa from empresa where nome = '${plantacao.empresa}') order by idPlantacao desc limit 1),(select idEmpresa from empresa where nome = '${plantacao.empresa}'), 'Sudeste'),
+    (5, 'LDR5 - Luminosidade', 'Ativo', (select idPlantacao from plantacao where fkEmpresa = (select idEmpresa from empresa where nome = '${plantacao.empresa}') order by idPlantacao desc limit 1),(select idEmpresa from empresa where nome = '${plantacao.empresa}'), 'Sul')
     ;`
     return database.executar(instrucao), database.executar(instrucao2)
 }
@@ -110,6 +126,7 @@ module.exports = {
     buscarUltimasMedidas,
     buscarMedidasEmTempoReal,
     buscarEmpresas,
+    buscarLupulo,
     cadastrarPlantacao,
     listarHistoricoAlertas,
     buscarMetricasCadastro,
