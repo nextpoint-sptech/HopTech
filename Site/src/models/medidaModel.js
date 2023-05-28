@@ -57,7 +57,7 @@ function buscarMedidasEmTempoReal(idSensor) {
 
 function buscarEmpresas(){
     console.log('estou no medida model, funcao buscarEmpresas')
-    var instrucao = `select nome from empresa;`
+    var instrucao = `select idEmpresa, nome from empresa order by idEmpresa;`
     console.log('Executando a instrucao SQL:', instrucao)
     return database.executar(instrucao)
 }
@@ -70,7 +70,16 @@ function buscarLupulo(){
 
 function buscarMetricasCadastro(mes){
     console.log('Estou buscando as metricas de cadastros por mes')
-    var instrucao = `select count(idSensor)+1 as sensorMes${mes}, count(idEmpresa) as empresaMes${mes}, count(idPlantacao) as plantacaoMes${mes} from sensor join plantacao on sensor.fkPlantacao = plantacao.idPlantacao join empresa on plantacao.fkEmpresa = empresa.idEmpresa where empresa.mesCadastrado = ${mes} and plantacao.mesCadastrado = ${mes}`
+    var instrucao = `select count(idSensor) as sensorMes, ${mes-1} as 'mes', count(distinct(idEmpresa)) as empresaMes, count(distinct concat(plantacao.idPlantacao, plantacao.fkEmpresa)) as plantacaoMes from sensor join plantacao on sensor.fkPlantacao = plantacao.idPlantacao join empresa on plantacao.fkEmpresa = empresa.idEmpresa where empresa.mesCadastrado = ${mes} and plantacao.mesCadastrado = ${mes}`
+    return database.executar(instrucao)
+}
+
+function buscarQtTotal(){
+    console.log('estou no medidamodel, na funcao buscarqttotal');
+    var instrucao = `select count(distinct(idEmpresa)) as empresasTotal, 
+    count(distinct concat(plantacao.idPlantacao, plantacao.fkEmpresa)) as plantacoesTotal , 
+    count(distinct concat (sensor.idSensor, sensor.fkPlantacao, sensor.fkEmpresa)) as sensoresTotal 
+    from empresa left join plantacao on plantacao.fkEmpresa = empresa.idEmpresa left join sensor on sensor.fkPlantacao = plantacao.idPlantacao`
     return database.executar(instrucao)
 }
 
@@ -130,4 +139,5 @@ module.exports = {
     cadastrarPlantacao,
     listarHistoricoAlertas,
     buscarMetricasCadastro,
+    buscarQtTotal
 }

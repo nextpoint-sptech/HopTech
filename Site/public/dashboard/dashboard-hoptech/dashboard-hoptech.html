@@ -54,7 +54,7 @@
                         <div class="box_indicador">
                             <div class="txtIndiacador">
                                 <h5>Qtde. de empresas cadastradas</h5>
-                                <span class="valorIndicador">112</span>
+                                <span id="qtdEmpresas" class="valorIndicador">XX</span>
                             </div>
                             <div>
                                 <img class="icon_indicadores" src="../../assets/images/icons/icon_indicador_empresas_clientes.png" alt="icon indicador 1">
@@ -63,7 +63,7 @@
                         <div class="box_indicador">
                             <div class="txtIndiacador">
                                 <h5>Qtde. de plantações cadastradas</h5>
-                                <span class="valorIndicador">126</span>
+                                <span id="qtdPlantacoes" class="valorIndicador">XX</span>
                             </div>
                             <div>
                                 <img class="icon_indicadores" src="../../assets/images/icons/iconeLupulo.png" alt="Ícone de plantações">
@@ -72,7 +72,7 @@
                         <div class="box_indicador">
                             <div class="txtIndiacador">
                                 <h5>Qtde. de sensores ativos</h5>
-                                <span class="valorIndicador">1510</span>
+                                <span id="qtdSensores" class="valorIndicador">XX</span>
                             </div>
                             <div>
                                 <img class="icon_indicadores" src="../../assets/images/icons/iconeSensor.png" alt="ícone de sensores ativos">
@@ -96,45 +96,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td class="campo_id">1</td>
-                                            <td>Hop6</td>
-                                            <td class="icons_table"><img src="../../assets/images/icons/icon_info.png" width="25" alt=""></td>
-                                            <td class="icons_table"><img src="../../assets/images/icons/icon_editar.png" width="25" alt=""></td>
-                                        </tr>
-                                        <tr>
-                                            <td class="campo_id">2</td>
-                                            <td>LupAgro</td>
-                                            <td class="icons_table"><img src="../../assets/images/icons/icon_info.png" width="25" alt=""></td>
-                                            <td class="icons_table"><img src="../../assets/images/icons/icon_editar.png" width="25" alt=""></td>
-                                        </tr>
-                                        <tr>
-                                            <td class="campo_id">3</td>
-                                            <td>Lupulo Ltda</td>
-                                            <td class="icons_table"><img src="../../assets/images/icons/icon_info.png" width="25" alt=""></td>
-                                            <td class="icons_table"><img src="../../assets/images/icons/icon_editar.png" width="25" alt=""></td>
-                                        </tr>
-                                        <tr>
-                                            <td class="campo_id">4</td>
-                                            <td>LAL Agro Malte</td>
-                                            <td class="icons_table"><img src="../../assets/images/icons/icon_info.png" width="25" alt=""></td>
-                                            <td class="icons_table"><img src="../../assets/images/icons/icon_editar.png" width="25" alt=""></td>
-                                        </tr>
-                                        <tr>
-                                            <td class="campo_id">5</td>
-                                            <td>Plantafort</td>
-                                            <td class="icons_table"><img src="../../assets/images/icons/icon_info.png" width="25" alt=""></td>
-                                            <td class="icons_table"><img src="../../assets/images/icons/icon_editar.png" width="25" alt=""></td>
-                                        </tr>
-                                        <tr>
-                                            <td class="campo_id">6</td>
-                                            <td>Lupulândia</td>
-                                            <td class="icons_table"><img src="../../assets/images/icons/icon_info.png" width="25" alt=""></td>
-                                            <td class="icons_table"><img src="../../assets/images/icons/icon_editar.png" width="25" alt=""></td>
-                                        </tr>
-                                        <tr>
-                                            <td>...</td>
-                                        </tr>
+                                        
                                         <!-- <tr>
                                             <td class="campo_id">7</td>
                                             <td>LupAgro</td>
@@ -156,16 +118,32 @@
 <!-- Adicionando a biblioteca ChartJS: -->
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <!-- Exportando o JS: -->
-<script src="js/dashboardHoptech.js"></script>
+
 <script src="js/funcoes-admin.js"></script>
 <script>
-    metricasCadastros(5)
+    var labelSensores = [];
+    var labelPlantacoes = [];
+    var labelEmpresas = []
+    
+    for(var i = 1; i <= 12; i++){
+        metricasCadastros(i)
+        if(i == 12){
+            setTimeout(
+                ()=>{
+                    plotarGrafico() 
+                }, 250 // delay para ter tempo do fetch ser finalizado antes da aparição do gráfico!
+            )
+        }
+    }
     function metricasCadastros(mes){
         fetch(`/medidas/metricasCadastros/${mes}`, {cache:"no-store"})
         .then(function(response){
             if(response.ok){
                 response.json().then(function(resposta){
-                    console.log('Dados recebidos: ', JSON.stringify(resposta))
+                    console.log('Dados recebidos: ', JSON.stringify(resposta));
+                        labelSensores[resposta[0].mes] = resposta[0].sensorMes;
+                        labelPlantacoes[resposta[0].mes] = resposta[0].plantacaoMes;
+                        labelEmpresas[resposta[0].mes] = resposta[0].empresaMes;
                 })
             }else{
                 console.log('Nenhum dado encontrado na API')
@@ -174,4 +152,110 @@
             console.log('ERROR: ', error)
         })
     }
+
+    function plotarGrafico() {
+        console.log('estou plotando o grafico!')
+        const ctx = document.getElementById('myChart');
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+            labels: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'],
+            datasets: [{
+                label: 'Empresas cadastradas',
+                data: labelEmpresas,
+                borderWidth: 1,
+                backgroundColor: '#9DC08B',
+                borderColor: '#9DC08B',
+            },
+            {
+                label: 'Plantações cadastradas',
+                data: labelPlantacoes,
+                borderWidth: 1,
+                backgroundColor: '#DDFFBB',
+                borderColor: '#DDFFBB',
+            },
+            {
+                label: 'Sensores instalados',
+                data: labelSensores,
+                borderWidth: 1,
+                backgroundColor: '#48724c',
+                borderColor: '#48724c',
+            }]
+            },
+            options: {
+            aspectRadio: 2,
+            interaction: {
+                mode: 'index',
+                intersect: false
+            },
+            scales: {
+                y: {
+                beginAtZero: true
+                }
+            },
+            plugins: {
+                legend: {
+                display: false
+                },
+                title: {
+                display: true,
+                text: 'Fluxo do sistema',
+                font: {
+                    size: 18
+                }
+                },
+                tooltip: {
+                displayColor: false,
+                borderColor: '#4CB648',
+                borderWidth: 3
+                }
+            }
+            }
+        });
+}
+    
+    function buscarEmpresas(){
+        fetch('/medidas/buscarEmpresas')
+        .then(function(response){
+            if(response.ok){
+                response.json().then(function(resposta){
+                    console.log('dados recebidos: ', resposta)
+                    for(let object of resposta){
+                        document.querySelector('tbody').innerHTML += `
+                        <tr>
+                            <td class="campo_id">${object.idEmpresa}</td>
+                            <td>${object.nome}</td>
+                            <td class="icons_table"><img src="../../assets/images/icons/icon_info.png" width="25" alt=""></td>
+                            <td class="icons_table"><img src="../../assets/images/icons/icon_editar.png" width="25" alt=""></td>
+                        </tr>
+                        `
+                    }
+                })
+            }else{
+                console.log('Nenhum dado encontrado ou erro na API')
+            }
+        }).catch(function(error){
+            console.log('erro:', error)
+        })
+    }
+    
+    function metricasCadastroTotal(){
+        fetch('/medidas/buscarQtTotal')
+        .then(function(response){
+            if(response.ok){
+                response.json().then(function(resposta){
+                    console.log('dados recebidos: ', resposta)
+                    qtdEmpresas.textContent = resposta[0].empresasTotal;
+                    qtdPlantacoes.textContent = resposta[0].plantacoesTotal;
+                    qtdSensores.textContent = resposta[0].sensoresTotal;
+                })
+            }else{
+                console.log('Nenhum dado encontrado ou erro na API')
+            }
+        }).catch(function(error){
+            console.log('erro:', error)
+        })
+    }
+    metricasCadastroTotal()
+    buscarEmpresas()
 </script>

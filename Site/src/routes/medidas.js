@@ -32,4 +32,8 @@ router.get('/metricasCadastros/:mes', function(req, res){
     medidaController.buscarMetricasCadastro(req, res)
 })
 
+router.get('/buscarQtTotal', function(req, res){
+    medidaController.buscarQtTotal(req, res)
+})
+
 module.exports = router;
