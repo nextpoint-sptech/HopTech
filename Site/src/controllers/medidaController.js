@@ -57,6 +57,21 @@ function buscarEmpresas(req, res){
     });
 }
 
+function buscarLupulo(req, res){
+    medidaModel.buscarLupulo()
+    .then(function (resultado) {
+        res.json(resultado);
+    }).catch(
+        function (erro) {
+            console.log(erro);
+            console.log(
+            "\nHouve um erro ao realizar o cadastro! Erro: ",
+            erro.sqlMessage
+        );
+        res.status(500).json(erro.sqlMessage);
+    });
+}
+
 function cadastrarPlantacao(req, res){
     var plantacao = req.body.plantacao;
     for(let object of Object.keys(plantacao)){
@@ -112,12 +127,27 @@ function listarHistoricoAlertas(req, res) {
     });
 }
 
+function buscarQtTotal(req, res){
+    medidaModel.buscarQtTotal().then(function (resultado) {
+        if (resultado.length > 0) {
+            res.status(200).json(resultado);
+        } else {
+            res.status(204).send("Nenhum resultado encontrado!")
+        }
+    }).catch(function (erro) {
+        console.log(erro);
+        console.log("Houve um erro ao buscar os avisos: ", erro.sqlMessage);
+        res.status(500).json(erro.sqlMessage);
+    });
+}
 
 module.exports = {
     buscarUltimasMedidas,
     buscarMedidasEmTempoReal,
     buscarEmpresas,
+    buscarLupulo,
     cadastrarPlantacao,
     listarHistoricoAlertas,
     buscarMetricasCadastro,
+    buscarQtTotal
 }

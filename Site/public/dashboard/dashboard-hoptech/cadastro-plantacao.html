@@ -72,9 +72,6 @@
                             <label for="tipo_lupulo">Tipo de Lupulo*</label>
                                 <select name="" id="select_lupulo">
                                     <option value="0" style="color:rgb(170, 170, 170);">Selecione...</option>
-                                    <option value="Saaz">Saaz</option>
-                                    <option value="Mantiqueira">Mantiqueira</option>
-                                    <option value="Citra">Citra</option>
                                 </select>
                             </label>
                         </div>
@@ -117,6 +114,7 @@
 <script src="js/funcoes-admin.js"></script>
 <script>
     buscarEmpresas()
+    buscarLupulos()
     function buscarEmpresas(){
         fetch('/medidas/buscarEmpresas', {cache: "no-store"})
         .then(function(response){
@@ -139,12 +137,24 @@
         })
     }
 
-    function pegarMes(){
-        let dtAtual = new Date();
-        let mes = dtAtual.getMonth() + 1
-        return mes
+    function buscarLupulos(){
+        fetch('/medidas/buscarTpLupulo', {cache:"no-store"})
+        .then(function(response){
+            if(response.ok){
+                response.json().then(function(resposta){
+                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                    for(let object of resposta){
+                        const option = document.createElement('option');
+                        option.setAttribute('value', object.tipoLupulo);
+                        option.textContent = object.tipoLupulo;
+                        select_lupulo.appendChild(option)
+                    }
+                })
+            }
+        })
     }
-    
+
+
     function cadastrarPlantacao(){
         var plantacaoJSON = {
             empresa: nome_empresa.value,

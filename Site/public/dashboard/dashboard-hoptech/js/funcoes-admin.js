@@ -27,8 +27,8 @@ function pegarMes(){
 
 function pegarTpTelefone (){
     if(input_telefone.value.length == 11){
-        return 'Celular'
+        return 2 // Celular
     }else{
-        return 'Fixo'
+        return 1 // Fixo
     }
 }
