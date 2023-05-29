@@ -1,4 +1,3 @@
-use hop_tech;
 
 -- Inserção de dados mocados
 insert into empresa values 
@@ -25,65 +24,66 @@ insert into lupulo values
 	(null, 'Admiral', 15),
     (null, 'Ahtanum', 15),
     (null, 'Amarillo', 15);
+
+
+insert into plantacao values -- fkLupulo fkEmpresa mes
+	(fn_qtdPlantacao(2), 'Natural', 1000, 'Sul', 'RS', 'Pelotas', 2, 2, 5),
+    (fn_qtdPlantacao(2), 'artificial', 5500, 'Centro-Oeste', 'MT', 'Cuiabá', 3, 2, 5),
+    (fn_qtdPlantacao(3), 'Natural', 10000, 'Norte', 'AM', 'Manaus', 1, 3, 5);
+
+desc sensor;
+insert into sensor values -- FKPLANTACAO E FKEMPRESA NESSA ORDEM
+	(1, 'LDR5 - Luminosidade', 'Ativo', 1 , 2, 'Norte'),
+    (2, 'LDR5 - Luminosidade', 'Ativo', 1, 2, 'Nordeste'),
+    (3, 'LDR5 - Luminosidade', 'Em manutenção', 1, 2, 'Centro-Oeste'),
+    (4, 'LDR5 - Luminosidade', 'Ativo', 1, 2, 'Sudeste'),
+    (5, 'LDR5 - Luminosidade', 'Ativo', 1, 2, 'Sul'), -- 5 SENSORES DA PLANTACAO 1 DA EMPRESA 1
+    (1, 'LDR5 - Luminosidade', 'Ativo', 2, 2, 'Norte'),
+    (2, 'LDR5 - Luminosidade', 'Ativo', 2, 2, 'Nordeste'),
+    (3, 'LDR5 - Luminosidade', 'Ativo', 2, 2, 'Centro-Oeste'),
+    (4, 'LDR5 - Luminosidade', 'Ativo', 2, 2, 'Sudeste'),
+    (5, 'LDR5 - Luminosidade', 'Ativo', 2, 2, 'Sul'), -- 5 SENSORES DA PLANTACAO 2 DA EMPRESA 1 
+    (1, 'LDR5 - Luminosidade', 'Ativo', 1, 3, 'Norte'),
+    (2, 'LDR5 - Luminosidade', 'Ativo', 1, 3, 'Nordeste'),
+    (3, 'LDR5 - Luminosidade', 'Ativo', 1, 3, 'Centro-Oeste'),
+    (4, 'LDR5 - Luminosidade', 'Ativo', 1, 3, 'Sudeste'),
+    (5, 'LDR5 - Luminosidade', 'Ativo', 1, 3, 'Sul'); -- 5 SENSORES DA PLANTACAO 1 DA EMPRESA 3
     
-insert into plantacao values
-	(null, 'Natural', 1000, 'Sul', 'RS', 'Pelotas', 2, 2, 5),
-    (null, 'Natural', 10000, 'Norte', 'AM', 'Manaus', 1, 3, 5),
-    (null, 'artificial', 5500, 'Centro-Oeste', 'MT', 'Cuiabá', 3, 4, 5);
-    
-insert into sensor values
-	(null, 'LDR5 - Luminosidade', 'Ativo', 1 , 'Norte'),
-    (null, 'LDR5 - Luminosidade', 'Ativo', 1, 'Nordeste'),
-    (null, 'LDR5 - Luminosidade', 'Em manutenção', 1, 'Centro-Oeste'),
-    (null, 'LDR5 - Luminosidade', 'Ativo', 1, 'Sudeste'),
-    (null, 'LDR5 - Luminosidade', 'Ativo', 1, 'Sul'),
-    (null, 'LDR5 - Luminosidade', 'Ativo', 2, 'Norte'),
-    (null, 'LDR5 - Luminosidade', 'Ativo', 2, 'Nordeste'),
-    (null, 'LDR5 - Luminosidade', 'Ativo', 2, 'Centro-Oeste'),
-    (null, 'LDR5 - Luminosidade', 'Ativo', 2, 'Sudeste'),
-    (null, 'LDR5 - Luminosidade', 'Ativo', 2, 'Sul'),
-    (null, 'LDR5 - Luminosidade', 'Ativo', 3, 'Norte'),
-    (null, 'LDR5 - Luminosidade', 'Ativo', 3, 'Nordeste'),
-    (null, 'LDR5 - Luminosidade', 'Ativo', 3, 'Centro-Oeste'),
-    (null, 'LDR5 - Luminosidade', 'Ativo', 3, 'Sudeste'),
-    (null, 'LDR5 - Luminosidade', 'Ativo', 3, 'Sul');
-    
-insert into capturaLuminosidade values
-	(null, '2023-04-01', '10:00:00', 350, 1, 1),
-    (null, '2023-04-01', '10:00:00', 350, 2, 1),
-    (null, '2023-04-01', '10:00:00', 520, 3, 1),
-    (null, '2023-04-01', '10:00:00', 550, 4, 1),
-    (null, '2023-04-01', '10:00:00', 550, 5, 1),
-    (null, '2023-04-01', '10:00:00', 575, 6, 1),
-    (null, '2023-04-01', '10:00:00', 578, 7, 2),
-    (null, '2023-04-01', '10:00:00', 645, 8, 2 ),
-    (null, '2023-04-01', '10:00:00', 576, 9, 2),
-    (null, '2023-04-01', '10:00:00', 574, 10, 2),
-    (null, '2023-04-01', '10:00:00', 700, 11, 2),
-    (null, '2023-04-01', '10:00:00', 701, 12, 2),
-    (null, '2023-04-01', '10:00:00', 659, 13, 2),
-    (null, '2023-04-01', '10:00:00', 500, 14, 2),
-    (null, '2023-04-01', '10:00:00', 505, 15, 2),
-    (null, '2023-04-01', '10:30:00', 467, 1, 3),
-    (null, '2023-04-01', '10:30:00', 128, 2, 3),
-    (null, '2023-04-01', '10:30:00', 520, 3, 3),
-    (null, '2023-04-01', '10:30:00', 550, 4, 3),
-    (null, '2023-04-01', '10:30:00', 550, 5, 3),
-    (null, '2023-04-01', '10:30:00', 575, 6, 3),
-    (null, '2023-04-01', '10:30:00', 578, 7, 3),
-    (null, '2023-04-01', '10:30:00', 645, 8, 3),
-    (null, '2023-04-01', '10:30:00', 572, 9, 3),
-    (null, '2023-04-01', '10:30:00', 570, 10, 1),
-    (null, '2023-04-01', '10:30:00', 705, 11, 1),
-    (null, '2023-04-01', '10:30:00', 702, 12, 1),
-    (null, '2023-04-01', '10:30:00', 659, 13, 1),
-    (null, '2023-04-01', '10:30:00', 479, 14, 1),
-    (null, '2023-04-01', '10:30:00', 505, 15, 1),
-    (null, '2023-05-25', '10:30:00', 850, 1, 1),
-    (null, '2023-05-25', '10:30:00', 960, 2, 1),
-    (null, '2023-05-25', '10:30:00', 605, 3, 1),
-    (null, '2023-05-25', '10:30:00', 985, 4, 1),
-    (null, '2023-05-25', '10:30:00', 600, 5, 1);
+
+SELECT * FROM USUARIO;
+desc capturaluminosidade;
+select * from plantacao;
+insert into capturaLuminosidade values -- fkSensor fkPlantacao fkEmpresa
+	(null, '2023-04-01', '10:00:00', 350, 1, 1, 2),
+    (null, '2023-04-01', '10:00:00', 350, 2, 1, 2),
+    (null, '2023-04-01', '10:00:00', 520, 3, 1, 2),
+    (null, '2023-04-01', '10:00:00', 550, 4, 1, 2),
+    (null, '2023-04-01', '10:00:00', 550, 5, 1, 2), -- dados as 10 horas de todos sensores da plantacao 1 da empresa 2
+    (null, '2023-04-01', '10:00:00', 575, 1, 2, 2), 
+    (null, '2023-04-01', '10:00:00', 578, 2, 2, 2),
+    (null, '2023-04-01', '10:00:00', 645, 3, 2, 2),
+    (null, '2023-04-01', '10:00:00', 576, 4, 2, 2),
+    (null, '2023-04-01', '10:00:00', 574, 5, 2, 2), -- dados as 10 horas de todos sensores da plantacao 2 da empresa 2
+    (null, '2023-04-01', '10:00:00', 700, 1, 1, 3),
+    (null, '2023-04-01', '10:00:00', 701, 2, 1, 3),
+    (null, '2023-04-01', '10:00:00', 659, 3, 1, 3),
+    (null, '2023-04-01', '10:00:00', 500, 4, 1, 3),
+    (null, '2023-04-01', '10:00:00', 505, 5, 1, 3), -- dados as 10 horas de todos sensores da plantacao 1 da empresa 3
+    (null, '2023-04-01', '10:30:00', 467, 1, 1, 2),
+    (null, '2023-04-01', '10:30:00', 128, 2, 1, 2),
+    (null, '2023-04-01', '10:30:00', 520, 3, 1, 2),
+    (null, '2023-04-01', '10:30:00', 550, 4, 1, 2),
+    (null, '2023-04-01', '10:30:00', 550, 5, 1, 2), -- dados as 10:30 de todos sensores da plantacao 1 da empresa 2
+    (null, '2023-04-01', '10:30:00', 575, 1, 1, 3),
+    (null, '2023-04-01', '10:30:00', 578, 2, 1, 3),
+    (null, '2023-04-01', '10:30:00', 645, 3, 1, 3),
+    (null, '2023-04-01', '10:30:00', 572, 4, 1, 3),
+    (null, '2023-04-01', '10:30:00', 570, 5, 1, 3), -- dados as 10:30 de todos sensores da plantacao 1 da empresa 3
+    (null, '2023-04-01', '10:30:00', 705, 1, 2, 2),
+    (null, '2023-04-01', '10:30:00', 702, 2, 2, 2),
+    (null, '2023-04-01', '10:30:00', 659, 3, 2, 2),
+    (null, '2023-04-01', '10:30:00', 479, 4, 2, 2),
+    (null, '2023-04-01', '10:30:00', 505, 5, 2, 2); -- dados as 10:30 de todos os sensores da plantacao 2 da empresa 2
 
 -- Consulta de dados
 select * from empresa;
@@ -101,10 +101,10 @@ select date_format(capturaLuminosidade.dtCaptura, '%d/%m/%Y')  as 'Data',
 	lupulo.tipoLupulo as 'Lupulo',
 	empresa.nome as 'Empresa Responsável'
 from capturaLuminosidade 
-join sensor on idSensor = fkSensor
-join plantacao on idPlantacao = fkPlantacao
-join lupulo on idLupulo = fkLupulo
-join empresa on idEmpresa = fkEmpresa
+join sensor on idSensor = capturaLuminosidade.fkSensor
+join plantacao on idPlantacao = capturaLuminosidade.fkPlantacao
+join lupulo on idLupulo = plantacao.fkLupulo
+join empresa on idEmpresa = capturaLuminosidade.fkEmpresa
 where luminosidade < 500
 order by luminosidade;
 
@@ -112,9 +112,9 @@ order by luminosidade;
 select hrCaptura, 
 	round(avg(luminosidade), 2) as media_luminosidade
 from capturaLuminosidade
-join sensor on capturaLuminosidade.fkSensor = sensor.idSensor
-join plantacao on sensor.fkPlantacao = plantacao.idPlantacao
-where idPlantacao = 1 and fkEmpresa = 2 and dtCaptura = current_date()
+join sensor on capturaLuminosidade.fkSensor = idSensor
+join plantacao on sensor.fkPlantacao = idPlantacao
+where idPlantacao = 1 and capturaLuminosidade.fkEmpresa = 2 and dtCaptura = current_date()
 group by hrCaptura;
 
 -- Média de luminosidade de todas as plantações de uma determinada empresa do dia específico
@@ -144,7 +144,7 @@ join plantacao on sensor.fkPlantacao = plantacao.idPlantacao
 where idPlantacao = 1 and fkEmpresa = 1 and dtCaptura = current_date()
 group by sensor.regiao;
 
--- Alertas do histórico
+-- Alertas
 select date_format(capturaLuminosidade.dtCaptura, '%d/%m/%Y')  as dtCaptura,
 	capturaLuminosidade.hrCaptura,
 	capturaLuminosidade.luminosidade,
@@ -160,20 +160,3 @@ join empresa on idEmpresa = fkEmpresa
 where (luminosidade <= 600 or luminosidade >= 700)
 	and idEmpresa = 2
 order by dtCaptura desc;
-
--- alertas do dadhboard
-select date_format(capturaLuminosidade.dtCaptura, '%d/%m/%Y')  as dtCaptura,
-	capturaLuminosidade.hrCaptura,
-	capturaLuminosidade.luminosidade,
-	sensor.regiao,
-	lupulo.tipoLupulo,
-    plantacao.idPlantacao,
-	empresa.idEmpresa
-from capturaLuminosidade
-join sensor on idSensor = fkSensor
-join plantacao on plantacao.idPlantacao = sensor.fkPlantacao
-join lupulo on idLupulo = fkLupulo
-join empresa on idEmpresa = fkEmpresa
-where (luminosidade <= 600 or luminosidade >= 700)
-	and idEmpresa = 2
-order by dtCaptura desc limit 3;
