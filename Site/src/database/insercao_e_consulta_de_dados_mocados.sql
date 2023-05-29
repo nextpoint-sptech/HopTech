@@ -144,7 +144,7 @@ join plantacao on sensor.fkPlantacao = plantacao.idPlantacao
 where idPlantacao = 1 and fkEmpresa = 1 and dtCaptura = current_date()
 group by sensor.regiao;
 
--- Alertas
+-- Alertas do histórico
 select date_format(capturaLuminosidade.dtCaptura, '%d/%m/%Y')  as dtCaptura,
 	capturaLuminosidade.hrCaptura,
 	capturaLuminosidade.luminosidade,
@@ -160,3 +160,20 @@ join empresa on idEmpresa = fkEmpresa
 where (luminosidade <= 600 or luminosidade >= 700)
 	and idEmpresa = 2
 order by dtCaptura desc;
+
+-- alertas do dadhboard
+select date_format(capturaLuminosidade.dtCaptura, '%d/%m/%Y')  as dtCaptura,
+	capturaLuminosidade.hrCaptura,
+	capturaLuminosidade.luminosidade,
+	sensor.regiao,
+	lupulo.tipoLupulo,
+    plantacao.idPlantacao,
+	empresa.idEmpresa
+from capturaLuminosidade
+join sensor on idSensor = fkSensor
+join plantacao on plantacao.idPlantacao = sensor.fkPlantacao
+join lupulo on idLupulo = fkLupulo
+join empresa on idEmpresa = fkEmpresa
+where (luminosidade <= 600 or luminosidade >= 700)
+	and idEmpresa = 2
+order by dtCaptura desc limit 3;
