@@ -15,6 +15,10 @@ router.get("/buscarEmpresas", function(req, res){
     medidaController.buscarEmpresas(req, res)
 })
 
+router.get("/buscarTpLupulo", function(req, res){
+    medidaController.buscarLupulo(req, res)
+})
+
 router.post('/cadastroPlantacao', function(req, res){
     medidaController.cadastrarPlantacao(req, res)
 })
@@ -26,6 +30,10 @@ router.get('/listarHistoricoAlertas/:idEmpresa', function(req, res){
 
 router.get('/metricasCadastros/:mes', function(req, res){
     medidaController.buscarMetricasCadastro(req, res)
+})
+
+router.get('/buscarQtTotal', function(req, res){
+    medidaController.buscarQtTotal(req, res)
 })
 
 module.exports = router;

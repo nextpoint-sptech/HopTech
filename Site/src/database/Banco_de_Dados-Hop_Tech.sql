@@ -17,10 +17,15 @@ create table empresa(
 	check (mesCadastrado in (1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12))
 );
 
+create table tipoTelefone(
+	idTipoTelefone int primary key auto_increment,
+    tipo varchar(10) constraint chkTpTelefone check (tipo in ('Fixo', 'Celular')) unique
+);
+
 create table telefone(
 	idTelefone int primary key auto_increment,
     telefone varchar(15) not null,
-    tpTelefone varchar(10), constraint chTpTelefone check (tpTelefone in ('Celular', 'Fixo')),
+	fkTpTelefone int, foreign key (fkTpTelefone) references tipoTelefone(idTipoTelefone),
     fkEmpresa int, foreign key (fkEmpresa) references empresa(idEmpresa)
 );
 
@@ -36,12 +41,12 @@ create table usuario(
 
 create table lupulo(
 	idLupulo int primary key auto_increment,
-    tipoLupulo varchar(50) not null,
+    tipoLupulo varchar(50) unique not null,
     qtdHrsIdealLuz double not null
 );
 
 create table plantacao(
-	idPlantacao int primary key auto_increment,
+	idPlantacao int,
     tpIluminacao varchar(45) not null, constraint chkTpIluminacao check (tpIluminacao in('Natural', 'Artificial')),
     metroQuadradoPlantacao double not null,
     regiao varchar(15) not null,
@@ -50,21 +55,18 @@ create table plantacao(
     fkLupulo int not null, foreign key (fkLupulo) references lupulo(idLupulo),
     fkEmpresa int not null, foreign key (fkEmpresa) references empresa(idEmpresa),
     mesCadastrado int, constraint ckMesPlantacaoCadastrada
-	check (mesCadastrado in (1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12))
+	check (mesCadastrado in (1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12)),
+    primary key(idPlantacao, fkEmpresa)
 );
 
 create table sensor(
-	idSensor int auto_increment,
+	idSensor int,
     tpSensor varchar(20) not null, constraint chkTpSensor check (tpSensor in('LDR5 - Luminosidade')),
     statusSensor varchar(15) not null, constraint chkStatusSensor check (statusSensor in('Ativo', 'Inativo', 'Em manutenção')),
-<<<<<<< HEAD
     fkPlantacao int not null, foreign key(fkPlantacao) references plantacao(idPlantacao),
-	regiao varchar(15) not null, constraint chkRegiao check (regiao in ('Norte', 'Nordeste', 'Centro-Oeste', 'Sudeste', 'Sul'))
-=======
+    fkEmpresa int not null, foreign key(fkEmpresa) references plantacao(fkEmpresa),
 	regiao varchar(15) not null, constraint chkRegiao check (regiao in ('Norte', 'Nordeste', 'Centro-Oeste', 'Sudeste', 'Sul')),
-    fkPlantacao int not null, foreign key(fkPlantacao) references plantacao(idPlantacao),
-    primary key(idSensor, fkPlantacao)
->>>>>>> 0695b327ea6d52eb00a583e16c5b37d7535cc55d
+    primary key(idSensor, fkPlantacao, fkEmpresa)
 );
 
 create table capturaLuminosidade(
@@ -73,8 +75,9 @@ create table capturaLuminosidade(
     hrCaptura time not null,
     luminosidade double not null,
     fkSensor int, foreign key (fkSensor) references sensor(idSensor),
-    fkPlantacao int, foreign key (fkPlantacao) references plantacao(idPlantacao),
-    primary key(idCaptura, fkSensor, fkPlantacao)
+    fkPlantacao int, foreign key (fkPlantacao) references sensor(fkPlantacao),
+    fkEmpresa int, foreign key(fkEmpresa) references sensor(fkEmpresa),
+    primary key(idCaptura, fkSensor, fkPlantacao, fkEmpresa)
 );
 
 create table permissoes(
@@ -84,3 +87,29 @@ create table permissoes(
     fkPlantacao int not null, foreign key(fkPlantacao) references plantacao(idPlantacao),
     fkEmpresa int, foreign key (fkEmpresa) references empresa(idEmpresa)
 );
+
+
+-- FUNCAO PARA FAZER A CONTAGEM DE PLANTACOES POR EMPRESA
+DELIMITER $$
+CREATE FUNCTION fn_qtdPlantacao(f_idEmpresa int) 
+RETURNS int
+deterministic
+BEGIN
+	DECLARE vId int;
+    set vId = (select count(idPlantacao)+1 from empresa join plantacao on plantacao.fkEmpresa = empresa.idEmpresa where idEmpresa = f_idEmpresa);
+    return(vId);
+    
+END$$;
+DELIMITER ;
+-- FIM DA FUNCAO
+
+
+-- inserções padrões para o funcionamento do sistema
+insert into tipoTelefone values
+	(null, 'Fixo'),
+    (null, 'Celular');
+
+insert into lupulo values
+	(null, 'Saaz', 15),
+    (null, 'Mantiqueira', 15),
+    (null, 'Citra', 15);

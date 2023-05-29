@@ -65,13 +65,13 @@ h1{
 .conteiner_cadastro_usuarios .box_cadastro_usuarios button{
     width: 40%;
     height: 30px;
-    background-color: #4C683F;
+    background-color: #9bc188;
     border: none;
     border-radius: 15px;
-    color: #ffffff;
+    /* color: #ffffff; */
     font-size:  15px;
-    font-weight: bold;
-    margin: 20px 0 10px 0;
+    /* font-weight: bold; */
+    /* margin: 20px 0 10px 0; */
     align-self: center;
     cursor: pointer;
 }
