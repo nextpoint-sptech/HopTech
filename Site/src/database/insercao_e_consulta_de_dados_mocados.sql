@@ -1,3 +1,4 @@
+use hop_tech;
 
 -- Inserção de dados mocados
 insert into empresa values 
@@ -123,7 +124,7 @@ select hrCaptura,
 from capturaLuminosidade
 join sensor on capturaLuminosidade.fkSensor = sensor.idSensor
 join plantacao on sensor.fkPlantacao = plantacao.idPlantacao
-where fkEmpresa = 2 and dtCaptura = current_date()
+where plantacao.fkEmpresa = 2 and dtCaptura = current_date()
 group by hrCaptura;
 
 -- Média de luminosidade por região de todas plantação do dia específico
@@ -132,7 +133,7 @@ select sensor.regiao,
 from sensor 
 join capturaLuminosidade on capturaLuminosidade.fkSensor = sensor.idSensor
 join plantacao on sensor.fkPlantacao = plantacao.idPlantacao
-where fkEmpresa = 2 and dtCaptura = current_date()
+where plantacao.fkEmpresa = 2 and dtCaptura = current_date()
 group by sensor.regiao;
 
 -- Média de luminosidade por região de uma determinada plantação do dia específico
