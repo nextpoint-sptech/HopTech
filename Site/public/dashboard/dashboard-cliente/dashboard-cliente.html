@@ -1,4 +1,4 @@
-i<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-br">
 
 <head>
@@ -17,6 +17,7 @@ i<!DOCTYPE html>
         integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
+    <script src="js/clima.js"></script>
 </head>
 
 <body id="dashboard">
@@ -95,34 +96,48 @@ i<!DOCTYPE html>
                     <div class="div_grafico1">
                         <canvas id="chart_line_dia" style="position: relative; height: 90%; width:100%;"></canvas>
                     </div>
+
+                    <!-- API de clima plotada e dinâmica -->
                     <div class="conteiner_div_grafico_1_e_2">
                         <div class="div_grafico2">
-                            <canvas id="chart_line_regiao"
-                                style="position: relative; height: 90%; width:100%;"></canvas>
-                        </div>
-                        <div class="div_grafico3">
-                            <canvas id="chart_bar_mes" style="position: relative; height: 90%; width:100%;"></canvas>
+                            <div id="weather-data" class="hide">
+                                <p><b id="city"></b></p>
+                                <p> | </p>
+                                <p id="temperature">
+                                    <span></span>&deg;C
+                                </p>
+                                <p> | </p>
+                                <p id="description"></p>
+                                <img src="" id="weather-icon">
+                                <p> | </p>
+                                <p id="humidity">
+                                    <i class="fa-solid fa-droplet"></i>
+                                    <span></span>
+                                </p>
+                                <p> | </p>
+                                <p id="wind">
+                                    <i class="fa-solid fa-wind"></i>
+                                    <span></span>
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div class="div_alertas">
                     <h3>Alertas</h3>
-                    <div id="div_alertas">
-                        <div class="alerta">
-                            <!-- Emitindo alertas baseado na luminosidade (apontada no gráfico) -->
-                            <h4>Alta Luminosidade! (12:56)</h4>
-                            <p>A região centro-oeste da sua plantação está recebendo luminosidade acima da média!</p>
-                            <h4>Luminosidade: 950</h4>
-                        </div>
-                        <div class="alerta">
-                            <h4>Baixa Luminosidade! (08:59)</h4>
-                            <p>A região sudeste da sua plantação está recebendo luminosidade abaixo da média!</p>
-                        </div>
-                        <div class="alerta2">
-                            <h4>Risco de Baixa Luminosidade! (08:30)</h4>
-                            <p>A região sudeste da sua plantação está recebendo pouca luminosidade e está quase ficando
-                                abaixo da média!</p>
-                        </div>
+                    <div class="alerta">
+                        <!-- Emitindo alertas baseado na luminosidade (apontada no gráfico) -->
+                        <h4>Alta Luminosidade! (12:56)</h4>
+                        <p>A região centro-oeste da sua plantação está recebendo luminosidade acima da média!</p>
+                    </div>
+                    <div class="alerta">
+                        <h4>Baixa Luminosidade! (08:59)</h4>
+                        <p>A região sudeste da sua plantação está recebendo luminosidade abaixo da média!</p>
+                    </div>
+                    <div class="alerta2">
+                        <h4>Risco de Baixa Luminosidade! (08:30)</h4>
+                        <p>A região sudeste da sua plantação está recebendo pouca luminosidade e está quase ficando
+                            abaixo da média!</p>
                     </div>
                     <div class="fim_alertas">
                         <span>...</span>
@@ -143,6 +158,8 @@ i<!DOCTYPE html>
 <script type="text/javascript" nonce="{coloque_seu_valor_nonce_aqui}"
     src="https://desk.zoho.com/portal/api/web/inapp/858677000000226265?orgId=810882795" defer></script>
 <script src="js/funcoes.js"></script>
+
+
 <script>
     // O gráfico é construído com três funções:
     // 1. obterDadosGrafico -> Traz dados do Banco de Dados para montar o gráfico da primeira vez
