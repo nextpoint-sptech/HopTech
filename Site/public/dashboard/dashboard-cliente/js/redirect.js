@@ -19,3 +19,6 @@ function sair() {
     window.parent.location.href = "../../erro-pages/erro404-hoptech.html";
   }
   
+  function goPlantacao(){
+    window.parent.location.href = "plantacoes-graficos.html"
+  }

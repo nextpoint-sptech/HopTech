@@ -17,9 +17,15 @@ function goPermissoes() {
 function goSuporte() {
     window.parent.location.href = "suporte.html";
 }
+
+function goPlantacao(){
+    window.parent.location.href = "plantacoes-graficos.html"
+}
+
 function goHistorico() {
     window.parent.location.href = "historico.html";
 }
+
 
 let data = document.querySelector('#data');
 let horas = document.querySelector('#hr');

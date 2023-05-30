@@ -12,12 +12,12 @@
     <link rel="shortcut icon" href="../../assets/images/logosProjeto/flaticon-HOPTECH.png" type="image/x-icon">
     <!-- Importando CSS do dashboard -->
     <link rel="stylesheet" href="../../dashboard/dashboard-cliente/css/styleDashboard.css">
+    <link rel="stylesheet" href="../../dashboard/dashboard-cliente/css/stylePlantacoes.css">
     <!-- Importando FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
         integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <script src="js/clima.js"></script>
 </head>
 
 <body id="dashboard">
@@ -59,101 +59,48 @@
             <h3 class="titleDashboardCliente">Gerenciamento - <span id="empresaNome">Hop6</span></h3>
             <button class="btnSair" onclick="sair(); return false">Sair</button>
         </div>
-        <div class="conteiner_dashboard">
-            <div class="titleDashboard">
-                <h1>Painel inicial</h1>
-                <span id="data"></span>
-            </div>
-            <div class="conteudo_graficos_dashboard">
-                <div class="conteiner_graficos">
-                    <div class="div_indicadores">
-                        <div class="box_indicador">
-                            <div class="txt_indicador1">
-                                <h5>Janela solar do dia</h5>
-                                <span class="valorIndicador">12 Horas</span>
-                            </div>
-                            <div>
-                                <img class="icon_indicadores" src="../../assets/images/icons/por-do-sol.png"
-                                    alt="icon indicador 1">
-                            </div>
-                        </div>
-                        <div class="box_indicador">
-                            <div>
-                                <h5>Região em destaque</h5>
-                                <span class="valorIndicador">Norte</span>
-                            </div>
-                            <div>
-                                <img class="icon_indicadores" src="../../assets/images/icons/iconeIndicador.png"
-                                    alt="icon indicador 2">
-                            </div>
-                        </div>
-                        <div class="box_indicador" id="box-cuidado">
-                            <div>
-                                <h5>Região de atenção</h5>
-                                <span class="valorIndicador">Sudeste</span>
-                            </div>
-                            <div>
-                                <img class="icon_indicadores" src="../../assets/images/icons/iconeAtencao.png"
-                                    alt="icon indicador 3">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="div_grafico1">
-                        <canvas id="chart_line_dia" style="position: relative; height: 90%; width:100%;"></canvas>
-                    </div>
+        <div class="div_grafico">
+            <div class="title_box">
 
-                    <!-- API de clima plotada e dinâmica -->
-                    <div class="conteiner_div_grafico_1_e_2">
-                        <div class="div_grafico2">
-                            <div id="weather-data" class="hide">
-                                <p><b id="city"></b></p>
-                                <p> | </p>
-                                <p id="temperature">
-                                    <span></span>&deg;C
-                                </p>
-                                <p> | </p>
-                                <img src="" id="weather-icon">
-                                <p> | </p>
-                                <p id="humidity">
-                                    <i class="fa-solid fa-droplet"></i>
-                                    <span></span>
-                                </p>
-                                <p> | </p>
-                                <p id="wind">
-                                    <i class="fa-solid fa-wind"></i>
-                                    <span></span>
-                                </p>
-                            </div>
-                        </div>
+                <h1>Gráficos Plantação <b id="plantacaoIdentificacao"></b></h1>
+                <select id="select_plantacoes">
+                </select>
+                <button onclick="atualizar()">Atualizar</button>
+            </div>
+            <div class="container_grafico">
+                <span>
+                    <div class="plantacao_grafico">
+                        <h2>Norte</h2>
+                        <canvas id="g1"></canvas>
                     </div>
-                </div>
-                <div class="div_alertas">
-                    <h3>Alertas</h3>
-                    <div class="alerta">
-                        <!-- Emitindo alertas baseado na luminosidade (apontada no gráfico) -->
-                        <h4>Alta Luminosidade! (12:56)</h4>
-                        <p>A região centro-oeste da sua plantação está recebendo luminosidade acima da média!</p>
+                    <div class="plantacao_grafico">
+                        <h2>Nordeste</h2>
+                        <canvas id="g2"></canvas>
                     </div>
-                    <div class="alerta">
-                        <h4>Baixa Luminosidade! (08:59)</h4>
-                        <p>A região sudeste da sua plantação está recebendo luminosidade abaixo da média!</p>
+                </span>
+                <span>
+
+                    <div class="plantacao_grafico">
+                        <h2>Centro-Oeste</h2>
+                        <canvas id="g3"></canvas>
                     </div>
-                    <div class="alerta2">
-                        <h4>Risco de Baixa Luminosidade! (08:30)</h4>
-                        <p>A região sudeste da sua plantação está recebendo pouca luminosidade e está quase ficando
-                            abaixo da média!</p>
+                    <div class="plantacao_grafico">
+                        <h2>Sudeste</h2>
+                        <canvas id="g4"></canvas>
                     </div>
-                    <div class="fim_alertas">
-                        <span>...</span>
+                </span>
+                <span>
+                    <div class="plantacao_grafico">
+                        <h2>Sul</h2>
+                        <canvas id="g5"></canvas>
                     </div>
-                </div>
+                </span>
             </div>
         </div>
     </div>
-
 </body>
-
 </html>
+
 
 <!-- Importando a biblioteca ChartJS: -->
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -161,27 +108,67 @@
 <!--Funções de data atual e redirecionamento de páginas-->
 <script type="text/javascript" nonce="{coloque_seu_valor_nonce_aqui}"
     src="https://desk.zoho.com/portal/api/web/inapp/858677000000226265?orgId=810882795" defer></script>
-<script src="js/funcoes.js"></script>
-
-
+<script src="js/redirect.js"></script>
 <script>
-    obterMediaTotal(sessionStorage.getItem('FK_EMPRESA'))
-    function obterMediaTotal(fkEmpresa){
-        fetch(`/medidas/obterMedidaTotal/${fkEmpresa}`, {cache:"no-store"})
+    puxarPlantacoes(sessionStorage.getItem('FK_EMPRESA'))
+    obterDadosGraficos(sessionStorage.getItem('FK_PLANTACAO'))
+    plantacaoIdentificacao.innerHTML = sessionStorage.getItem('FK_PLANTACAO')
+    function atualizar(){
+        sessionStorage.FK_PLANTACAO = Number(select_plantacoes.value)
+        location.reload()
+    }
+    function puxarPlantacoes(idEmpresa){
+        fetch(`/medidas/plantacoesPorEmpresa/${idEmpresa}`, {cache: 'no-store'})
         .then(function (response) {
             console.log(response)
             if (response.ok) {
                 response.json().then(function (resposta) {
                     console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-                    plotarGrafico(fkEmpresa, resposta)
+                    for(i = 0; i <  resposta.length; i++){
+                        const option = document.createElement('option');
+                        option.textContent = 'Plantação ' + resposta[i].idPlantacao;
+                        option.setAttribute('class', 'optionPlantacoes')
+                        option.setAttribute('value', resposta[i].idPlantacao)
+                        option.addEventListener('click', function(){
+                            alert('oi')
+                        })
+                        select_plantacoes.appendChild(option);
+                        console.log('criando funçao para a plantacao ' + resposta[i].idPlantacao)
+
+                    }
                 });
             } else {
                 console.error('Nenhum dado encontrado ou erro na API');
             }
         })
     }
+    
+    function obterDadosGraficos(plantacao) {
+        obterDadosGrafico(1, plantacao, sessionStorage.getItem('FK_EMPRESA'))
+        obterDadosGrafico(2, plantacao, sessionStorage.getItem('FK_EMPRESA'))
+        obterDadosGrafico(3, plantacao, sessionStorage.getItem('FK_EMPRESA'))
+        obterDadosGrafico(4, plantacao, sessionStorage.getItem('FK_EMPRESA'))
+        obterDadosGrafico(5, plantacao, sessionStorage.getItem('FK_EMPRESA'))
+    }
 
-    function plotarGrafico(fkEmpresa, resposta) {
+    function obterDadosGrafico(idSensor, fkPlantacao, fkEmpresa) {
+        fetch(`/medidas/ultimas/${idSensor}/${fkPlantacao}/${fkEmpresa}`, { cache: 'no-store' }).then(function (response) {
+            if (response.ok) {
+                response.json().then(function (resposta) {
+                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                    resposta.reverse();
+                    plotarGrafico(resposta, idSensor, fkPlantacao, fkEmpresa);
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+            }
+        })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
+    }
+
+    function plotarGrafico(resposta, idSensor, fkPlantacao, fkEmpresa) {
         console.log('iniciando plotagem do gráfico...');
         // Criando estrutura para plotar gráfico - labels
         let labels = []; // labels serve para ficar o dado que fica no eixo X  (NO NOSSO CASO, O HORARIO) 
@@ -190,7 +177,7 @@
         let dados = {
             labels: labels,
             datasets: [{
-                label: 'Luminosidade Média de todas Plantações (Hoje)',
+                label: 'Luminosidade (Hoje)',
                 data: [], // DADOS DO SENSOR (LUMINOSIDADE)
                 fill: false,
                 borderWidth: 1,
@@ -201,7 +188,7 @@
         };
 
         console.log('----------------------------------------------')
-        console.log('Estes dados foram recebidos pela funcao "obterMediaTotal" e passados para "plotarGrafico":')
+        console.log('Estes dados foram recebidos pela funcao "obterDadosGrafico" e passados para "plotarGrafico":')
         console.log(resposta)
 
         // Inserindo valores recebidos em estrutura para plotar o gráfico
@@ -242,15 +229,15 @@
 
         // Adicionando gráfico criado em div na tela
         let myChart = new Chart(
-            document.querySelector(`#chart_line_dia`),
+            document.querySelector(`#g${idSensor}`),
             config
         );
 
-        setTimeout(() => atualizarGrafico(fkEmpresa, dados, myChart), 2000);
+        setTimeout(() => atualizarGrafico(idSensor, fkPlantacao, fkEmpresa, dados, myChart), 2000);
     }
 
-    function atualizarGrafico(fkEmpresa, dados, myChart) {
-        fetch(`/medidas/obterMediaTempoReal/${fkEmpresa}`, { cache: 'no-store' }).then(function (response) {
+    function atualizarGrafico(idSensor, fkPlantacao, fkEmpresa, dados, myChart) {
+        fetch(`/medidas/tempo-real/${idSensor}/${fkPlantacao}/${fkEmpresa}`, { cache: 'no-store' }).then(function (response) {
             if (response.ok) {
                 response.json().then(function (novoRegistro) {
                     console.log(`Dados recebidos: ${JSON.stringify(novoRegistro)}`);
@@ -278,12 +265,12 @@
                     }
 
                     // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
-                    proximaAtualizacao = setTimeout(() => atualizarGrafico(fkEmpresa, dados, myChart), 2000);
+                    proximaAtualizacao = setTimeout(() => atualizarGrafico(idSensor, fkPlantacao, fkEmpresa, dados, myChart), 2000);
                 });
             } else {
                 console.error('Nenhum dado encontrado ou erro na API');
                 // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
-                proximaAtualizacao = setTimeout(() => atualizarGrafico(fkEmpresa, dados, myChart), 2000);
+                proximaAtualizacao = setTimeout(() => atualizarGrafico(idSensor, fkPlantacao, fkEmpresa, dados, myChart), 2000);
             }
         })
             .catch(function (error) {
@@ -293,3 +280,4 @@
     }
     
 </script>
+    

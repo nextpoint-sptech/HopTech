@@ -1,0 +1,77 @@
+*{
+    padding: 0;
+}
+
+.div_conteiner_conteudo .div_grafico{
+    padding: 2em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 91vh;
+    overflow: auto;
+}
+
+.div_conteiner_conteudo .div_grafico .title_box{
+    display: flex;
+    align-items: center;
+    width: 50%;
+    flex-direction: column;
+    gap: .5em;
+}
+
+.div_conteiner_conteudo .div_grafico .title_box select{
+    width: 50%;
+    padding: .5em;
+    outline: none;
+    border: none;
+}
+
+.div_conteiner_conteudo .div_grafico .container_grafico{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.div_conteiner_conteudo .div_grafico .container_grafico span{
+    padding: 2em;
+    gap: 2em;
+    width: 100%;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+}
+
+.div_conteiner_conteudo .div_grafico .container_grafico span .plantacao_grafico{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 50%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.div_conteiner_conteudo .div_grafico .container_grafico span .plantacao_grafico h2{
+    height: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+}
+
+.div_conteiner_conteudo .div_grafico .container_grafico span .plantacao_grafico canvas{
+    width: 100%;
+    height: 90%;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+}
+
+button{
+    width: 25%;
+    padding: .5em;
+    cursor: pointer;
+    border: none;
+    background: #D7FFC2;
+}

@@ -3,12 +3,15 @@ var medidaModel = require("../models/medidaModel");
 function buscarUltimasMedidas(req, res) {
 
     const limite_linhas = 7;
-
-    var idSensor = req.params.idSensor;
+    var identificacoes = {  
+        sensor: req.params.idSensor,
+        plantacao: req.params.fkPlantacao,
+        empresa: req.params.fkEmpresa
+    }
 
     console.log(`Recuperando as ultimas ${limite_linhas} medidas`);
 
-    medidaModel.buscarUltimasMedidas(idSensor, limite_linhas).then(function (resultado) {
+    medidaModel.buscarUltimasMedidas(identificacoes, limite_linhas).then(function (resultado) {
         if (resultado.length > 0) {
             res.status(200).json(resultado);
         } else {
@@ -21,14 +24,17 @@ function buscarUltimasMedidas(req, res) {
     });
 }
 
-
 function buscarMedidasEmTempoReal(req, res) {
+    var identificacoes = {
+        sensor: req.params.idSensor,
+        plantacao: req.params.fkPlantacao,
+        empresa: req.params.fkEmpresa
+    }
 
-    var idSensor = req.params.idSensor;
 
     console.log(`Recuperando medidas em tempo real`);
 
-    medidaModel.buscarMedidasEmTempoReal(idSensor)
+    medidaModel.buscarMedidasEmTempoReal(identificacoes)
     .then(function (resultado) {
         if (resultado.length > 0) {
             res.status(200).json(resultado);
@@ -59,6 +65,23 @@ function buscarEmpresas(req, res){
 
 function buscarLupulo(req, res){
     medidaModel.buscarLupulo()
+    .then(function (resultado) {
+        res.json(resultado);
+    }).catch(
+        function (erro) {
+            console.log(erro);
+            console.log(
+            "\nHouve um erro ao realizar o cadastro! Erro: ",
+            erro.sqlMessage
+        );
+        res.status(500).json(erro.sqlMessage);
+    });
+}
+
+function buscarPlantacoes(req, res){
+    console.log('erro no medidacontroller')
+    var idEmpresa = req.params.idEmpresa;
+    medidaModel.buscarPlantacoes(idEmpresa)
     .then(function (resultado) {
         res.json(resultado);
     }).catch(
@@ -141,6 +164,38 @@ function buscarQtTotal(req, res){
     });
 }
 
+function obterMediaTotal(req, res){
+    var fkEmpresa = req.params.fkEmpresa;
+    medidaModel.obterMediaTotal(fkEmpresa)
+    .then(function (resultado) {
+        if (resultado.length > 0) {
+            res.status(200).json(resultado);
+        } else {
+            res.status(204).send("Nenhum resultado encontrado!")
+        }
+    }).catch(function (erro) {
+        console.log(erro);
+        console.log("Houve um erro ao buscar os avisos: ", erro.sqlMessage);
+        res.status(500).json(erro.sqlMessage);
+    });
+}
+
+function obterMediaTempoReal(req, res){
+    var fkEmpresa = req.params.fkEmpresa;
+    medidaModel.obterMediaTempoReal(fkEmpresa)
+    .then(function (resultado) {
+        if (resultado.length > 0) {
+            res.status(200).json(resultado);
+        } else {
+            res.status(204).send("Nenhum resultado encontrado!")
+        }
+    }).catch(function (erro) {
+        console.log(erro);
+        console.log("Houve um erro ao buscar os avisos: ", erro.sqlMessage);
+        res.status(500).json(erro.sqlMessage);
+    });
+}
+
 module.exports = {
     buscarUltimasMedidas,
     buscarMedidasEmTempoReal,
@@ -149,5 +204,8 @@ module.exports = {
     cadastrarPlantacao,
     listarHistoricoAlertas,
     buscarMetricasCadastro,
-    buscarQtTotal
+    buscarQtTotal,
+    buscarPlantacoes,
+    obterMediaTotal,
+    obterMediaTempoReal
 }

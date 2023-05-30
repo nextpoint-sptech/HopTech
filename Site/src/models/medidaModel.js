@@ -1,6 +1,6 @@
 var database = require("../database/config");
 
-function buscarUltimasMedidas(idSensor, limite_linhas) {
+function buscarUltimasMedidas(identificacoes, limite_linhas) {
 
     instrucaoSql = ''
 
@@ -14,10 +14,10 @@ function buscarUltimasMedidas(idSensor, limite_linhas) {
                     where fk_aquario = ${idSensor}
                     order by id desc`;
     } else if (process.env.AMBIENTE_PROCESSO == "desenvolvimento") {
-        instrucaoSql = `select dtCaptura, 
+        instrucaoSql = `select 
         hrCaptura, 
         luminosidade 
-        from capturaLuminosidade where fkSensor = ${idSensor} order by fkSensor desc limit ${limite_linhas}`
+        from capturaLuminosidade where fkSensor = ${identificacoes.sensor} and fkPlantacao = ${identificacoes.plantacao} and fkEmpresa = ${identificacoes.empresa} and dtCaptura = current_date order by idCaptura desc limit ${limite_linhas}`
     } else {
         console.log("\nO AMBIENTE (produção OU desenvolvimento) NÃO FOI DEFINIDO EM app.js\n");
         return
@@ -27,7 +27,7 @@ function buscarUltimasMedidas(idSensor, limite_linhas) {
     return database.executar(instrucaoSql);
 }
 
-function buscarMedidasEmTempoReal(idSensor) {
+function buscarMedidasEmTempoReal(identificacoes) {
 
     instrucaoSql = ''
 
@@ -41,11 +41,12 @@ function buscarMedidasEmTempoReal(idSensor) {
                     order by id desc`;
 
     } else if (process.env.AMBIENTE_PROCESSO == "desenvolvimento") {
-        instrucaoSql = `select dtCaptura, 
+        instrucaoSql = `select  
         hrCaptura, 
         luminosidade 
         from capturaLuminosidade 
-        where fkSensor = ${idSensor} order by idCaptura desc limit 1`
+        where fkSensor = ${identificacoes.sensor} and fkPlantacao = ${identificacoes.plantacao} and fkEmpresa = ${identificacoes.empresa} and dtCaptura = current_date order by idCaptura desc limit 1`
+
     } else {
         console.log("\nO AMBIENTE (produção OU desenvolvimento) NÃO FOI DEFINIDO EM app.js\n");
         return
@@ -131,6 +132,30 @@ function listarHistoricoAlertas(idEmpresa) {
     return database.executar(instrucao);
 }
 
+function buscarPlantacoes(idEmpresa){
+    var instrucao = `select idPlantacao from plantacao where fkEmpresa = ${idEmpresa}`
+    return database.executar(instrucao)
+}
+
+function obterMediaTotal(fkEmpresa){
+    var instrucao = `select hrCaptura, round(avg(luminosidade), 2) as luminosidade from capturaLuminosidade
+    join sensor on capturaLuminosidade.fkSensor = sensor.idSensor 
+    join plantacao on sensor.fkPlantacao = plantacao.idPlantacao
+    where plantacao.fkEmpresa = ${fkEmpresa} and dtCaptura = current_date
+    group by hrCaptura`
+    return database.executar(instrucao)
+}
+
+function obterMediaTempoReal(fkEmpresa){
+    var instrucao = `select hrCaptura, round(avg(luminosidade), 2) as luminosidade from capturaLuminosidade
+    join sensor on capturaLuminosidade.fkSensor = sensor.idSensor 
+    join plantacao on sensor.fkPlantacao = plantacao.idPlantacao
+    where plantacao.fkEmpresa = ${fkEmpresa} and dtCaptura = current_date
+    group by hrCaptura order by hrCaptura desc limit 1`
+    return database.executar(instrucao)
+
+}
+
 module.exports = {
     buscarUltimasMedidas,
     buscarMedidasEmTempoReal,
@@ -139,5 +164,8 @@ module.exports = {
     cadastrarPlantacao,
     listarHistoricoAlertas,
     buscarMetricasCadastro,
-    buscarQtTotal
+    buscarQtTotal,
+    buscarPlantacoes,
+    obterMediaTotal,
+    obterMediaTempoReal
 }
