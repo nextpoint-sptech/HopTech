@@ -123,7 +123,7 @@ function listarHistoricoAlertas(idEmpresa) {
         join sensor on idSensor = fkSensor
         join plantacao on plantacao.idPlantacao = sensor.fkPlantacao
         join lupulo on idLupulo = fkLupulo
-        join empresa on idEmpresa = fkEmpresa
+        join empresa on idEmpresa = capturaluminosidade.fkEmpresa
         where (luminosidade <= 600 or luminosidade >= 700)
             and idEmpresa = ${idEmpresa}
         order by dtCaptura desc;

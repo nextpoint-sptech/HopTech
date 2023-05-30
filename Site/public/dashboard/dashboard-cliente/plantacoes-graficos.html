@@ -23,26 +23,26 @@
 <body id="dashboard">
     <div class="div_menu_lateral">
         <a href="../../hoptech-site/site-hoptech.html"><img src="../../assets/images/logosProjeto/HopTech-dark.png"
-                class="logo_hoptech" alt="Logo da HopTech"></a>
-        <button class="pageAtual" onclick="goDashboard()">
+            class="logo_hoptech" alt="Logo da HopTech"></a>
+        <button id="menu_dashboard" class="pageAtual" onclick="goDashboard()">
             <img src="../../assets/images/icons/dashboard.png" class="icons_menu" alt="Ícone do dashboard">
             Dashboard
         </button>
-        <button onclick="goUsuario()">
+        <button id="menu_cadastros" onclick="goUsuario()">
             <img src="../../assets/images/icons/icon_usuarios.png" class="icons_menu" style="width: 40px;"
                 alt="Ícone de usuários">
             Usuários
         </button>
-        <button onclick="goPermissoes()">
+        <button id="menu_perms" onclick="goPermissoes()">
             <img src="../../assets/images/icons/permissao.png" class="icons_menu" alt="Ícone de Permissões">
             Permissões
         </button>
-        <button onclick="goPlantacao()">
+        <button id="menu_plantacoes" onclick="goPlantacao()">
             <img src="../../assets/images/icons/iconeLupulo.png" class="icons_menu" style="width: 40px;"
                 alt="Ícone de usuários">
             Plantações
         </button>
-        <button onclick="goHistorico()">
+        <button id="menu_hist" onclick="goHistorico()">
             <img src="../../assets/images/icons/iconeHistorico.png" class="icons_menu" style="width: 30px;"
                 alt="Ícone do histórico">
             Histórico
@@ -56,7 +56,7 @@
     <div class="div_conteiner_conteudo">
         <div class="div_menu_top">
             <div><!--  --></div>
-            <h3 class="titleDashboardCliente">Gerenciamento - <span id="empresaNome">Hop6</span></h3>
+            <h3 class="titleDashboardCliente">Gerenciamento - <span id="empresaNome">EMPRESA_NOME</span> - <span id="usuarioNome">USUARIO_NOME</span></h3>
             <button class="btnSair" onclick="sair(); return false">Sair</button>
         </div>
         <div class="div_grafico">
@@ -108,7 +108,7 @@
 <!--Funções de data atual e redirecionamento de páginas-->
 <script type="text/javascript" nonce="{coloque_seu_valor_nonce_aqui}"
     src="https://desk.zoho.com/portal/api/web/inapp/858677000000226265?orgId=810882795" defer></script>
-<script src="js/redirect.js"></script>
+<script src="js/funcoes.js"></script>
 <script>
     puxarPlantacoes(sessionStorage.getItem('FK_EMPRESA'))
     obterDadosGraficos(sessionStorage.getItem('FK_PLANTACAO'))
@@ -129,13 +129,9 @@
                         option.textContent = 'Plantação ' + resposta[i].idPlantacao;
                         option.setAttribute('class', 'optionPlantacoes')
                         option.setAttribute('value', resposta[i].idPlantacao)
-                        option.addEventListener('click', function(){
-                            alert('oi')
-                        })
                         select_plantacoes.appendChild(option);
-                        console.log('criando funçao para a plantacao ' + resposta[i].idPlantacao)
-
                     }
+                    exibirPlantacoesPermitidas()
                 });
             } else {
                 console.error('Nenhum dado encontrado ou erro na API');
@@ -279,5 +275,20 @@
 
     }
     
+    function exibirPlantacoesPermitidas(){
+        let allOptions = document.querySelectorAll('option');
+        const plantacaoPermitida = sessionStorage.getItem('PERM_PLANTACAO');
+        console.log(plantacaoPermitida)
+        if(plantacaoPermitida != 'null'){
+            console.log('removendo as opçoes nao permitidas')
+            for(options of allOptions ){
+                if(options.value != plantacaoPermitida){
+                    options.style.display = 'none'
+                }else{
+                    options.selected = true
+                }
+            }
+        }
+    }
 </script>
     

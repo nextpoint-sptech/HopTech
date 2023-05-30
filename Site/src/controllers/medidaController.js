@@ -79,7 +79,6 @@ function buscarLupulo(req, res){
 }
 
 function buscarPlantacoes(req, res){
-    console.log('erro no medidacontroller')
     var idEmpresa = req.params.idEmpresa;
     medidaModel.buscarPlantacoes(idEmpresa)
     .then(function (resultado) {

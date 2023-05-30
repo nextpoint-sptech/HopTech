@@ -202,3 +202,10 @@ h1{
     background-color: #4b663e;
     box-shadow: 2px 2px 2px;
 }
+.conteiner_cadastro_usuarios .box_cadastro_usuarios select{
+    height: 25px;
+    border: none;
+    border-radius: 15px;
+    font-size:  15px;
+    padding-left: 10px;
+}

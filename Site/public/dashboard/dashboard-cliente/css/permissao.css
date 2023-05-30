@@ -106,15 +106,7 @@ h1{
 }
 
 .borda1 {
-
     border-left: 3px solid black;
-
-}
-
-.tabela_usuarios th:nth-child(even){
-    
-   /* padding:35px; */
-   
 }
 
 .tabela_usuarios {
@@ -123,8 +115,15 @@ h1{
   }
   
   th, td {
-    border-right: 1px solid black; 
+    border-right: 1px solid black;
     padding: 10px;
+  }
+  
+  .th_end{
+    border: none !important;
+  }
+  .th_function{
+    cursor: pointer;
   }
 
   .imagem_cadastro_usuarios {

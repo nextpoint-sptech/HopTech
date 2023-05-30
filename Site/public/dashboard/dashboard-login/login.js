@@ -32,9 +32,10 @@ function fazerLogin() {
                     console.log(JSON.stringify(json));
                     sessionStorage.NOME_EMPRESA_USUARIO = json.nome;
                     sessionStorage.EMAIL_USUARIO = json.email;
-                    sessionStorage.NOME_USUARIO = json.nome;
+                    sessionStorage.NOME_USUARIO = json.usuario;
                     sessionStorage.FK_EMPRESA = json.fkEmpresa;
                     sessionStorage.TP_USUARIO = json.tpUsuario;
+                    sessionStorage.PERM_PLANTACAO = json.PlantacaoPermitida;
                     Swal.fire({
                         position: 'center',
                         icon: 'success',
@@ -46,12 +47,11 @@ function fazerLogin() {
                             window.parent.location.href = "../../dashboard/dashboard-hoptech/dashboard-hoptech.html";
                         }, 1000);
                         
-                    } else if (sessionStorage.getItem(`TP_USUARIO`) == 1) {
+                    } else if (sessionStorage.getItem(`TP_USUARIO`) == 1 || sessionStorage.getItem(`TP_USUARIO`) == 2) {
                         setTimeout(function () {
                             window.parent.location.href = "../../dashboard/dashboard-cliente/dashboard-cliente.html";
                         }, 1000); // apenas para exibir o loading
-        
-                    } else {
+                    }else {
                         setTimeout(function () {
                             window.parent.location.href = "#";
                         }, 1000);

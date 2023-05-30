@@ -17,26 +17,26 @@
 <body id="dashboard">
     <div class="div_menu_lateral">
         <a href="../../hoptech-site/site-hoptech.html"><img src="../../assets/images/logosProjeto/HopTech-dark.png"
-                class="logo_hoptech" alt="Logo da HopTech"></a>
-        <button onclick="goDashboard()">
+            class="logo_hoptech" alt="Logo da HopTech"></a>
+        <button id="menu_dashboard" class="pageAtual" onclick="goDashboard()">
             <img src="../../assets/images/icons/dashboard.png" class="icons_menu" alt="Ícone do dashboard">
             Dashboard
         </button>
-        <button onclick="goUsuario()">
+        <button id="menu_cadastros" onclick="goUsuario()">
             <img src="../../assets/images/icons/icon_usuarios.png" class="icons_menu" style="width: 40px;"
                 alt="Ícone de usuários">
             Usuários
         </button>
-        <button onclick="goPermissoes()">
+        <button id="menu_perms" onclick="goPermissoes()">
             <img src="../../assets/images/icons/permissao.png" class="icons_menu" alt="Ícone de Permissões">
             Permissões
         </button>
-        <button onclick="goPlantacao()">
+        <button id="menu_plantacoes" onclick="goPlantacao()">
             <img src="../../assets/images/icons/iconeLupulo.png" class="icons_menu" style="width: 40px;"
                 alt="Ícone de usuários">
             Plantações
         </button>
-        <button onclick="goHistorico()">
+        <button id="menu_hist" onclick="goHistorico()">
             <img src="../../assets/images/icons/iconeHistorico.png" class="icons_menu" style="width: 30px;"
                 alt="Ícone do histórico">
             Histórico
@@ -50,7 +50,7 @@
     <div class="div_conteiner_conteudo">
         <div class="div_menu_top">
             <div><!--  --></div>
-            <h3 class="titleDashboardCliente">Gerenciamento - <span id="empresaNome">Hop6</span></h3>
+            <h3 class="titleDashboardCliente">Gerenciamento - <span id="empresaNome">EMPRESA_NOME</span> - <span id="usuarioNome">USUARIO_NOME</span></h3>
             <button class="btnSair" onclick="sair(); return false">Sair</button>
         </div>
         <div class="conteiner_cadastro_usuarios">
@@ -61,52 +61,9 @@
                         <tr class="tr1">
                             <th>Nome</th>
                             <th>Plantação</th>
-                            <th>Região</th>
                             <th>Excluir</th>
+                            <th class="th_end">Editar</th>
                         </tr>
-                        <tr class="tr2">
-                            <td>Jean Lucas</td>
-                            <td>1001</td>
-                            <td>Norte</td>
-                            <td>Excluir</td>
-                        </tr>
-                        <tr class="tr3">
-                            <td>Maria Rita</td>
-                            <td>1013</td>
-                            <td>Sul</td>
-                            <td>Excluir</td>
-                        </tr>
-                        <tr class="tr4">
-                            <td>Antonio Roberto</td>
-                            <td>1012</td>
-                            <td>Norte</td>
-                            <td>Excluir</td>
-                        </tr>
-                        <tr class="tr5">
-                            <td>Maria Cintia</td>
-                            <td>1002</td>
-                            <td>Leste</td>
-                            <td>Excluir</td>
-                        </tr>
-                        <tr class="tr6">
-                            <td>Miguel Santos</td>
-                            <td>1001</td>
-                            <td>Sul</td>
-                            <td>Excluir</td>
-                        </tr>
-                        <tr>
-                            <td>Manuel Rodrigues</td>
-                            <td>1003</td>
-                            <td>Leste</td>
-                            <td>Excluir</td>
-                        </tr>
-                        <tr>
-                            <td>Carla Araujo</td>
-                            <td>1012</td>
-                            <td>Sudeste</td>
-                            <td>Excluir</td>
-                        </tr>
-                        
                     </table>
                 </div>
                 <div class="imagem_cadastro_usuarios">
@@ -131,5 +88,30 @@
 <script src="js/funcoes.js"></script>
 <script type="text/javascript" nonce="{coloque_seu_valor_nonce_aqui}" src="https://desk.zoho.com/portal/api/web/inapp/858677000000226265?orgId=810882795" defer></script>
 <script>
-    empresaNome.innerHTML = sessionStorage.getItem(`NOME_EMPRESA_USUARIO`)
+    function puxarUsuariosEmpresa(fkEmpresa){
+
+        fetch(`/usuarios/puxarFuncionarios/${fkEmpresa}`, {cache: 'no-store'})
+        .then(function (response) {
+            console.log(response)
+            if (response.ok) {
+                response.json().then(function (resposta) {
+                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                    console.log(resposta)
+                    for(i in resposta){
+                        document.querySelector('.tabela_usuarios').innerHTML += `
+                        <tr>
+                            <th>${resposta[i].usuario}</th>
+                            <th>${resposta[i].fkPlantacao}</th>
+                            <th onclick="excluirFuncionario()" class="th_function">Excluir</th>
+                            <th class="th_end th_function">Editar</th>
+
+                        </tr>`
+                    }
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+            }
+        })
+    }
+    puxarUsuariosEmpresa(sessionStorage.getItem('FK_EMPRESA'))
 </script>

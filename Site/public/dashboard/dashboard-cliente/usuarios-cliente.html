@@ -15,41 +15,41 @@
 
 <body id="dashboard">
     <div class="div_menu_lateral">
-        <a href="../../hoptech-site/site-hoptech.html"><img src="../../assets/images/logosProjeto/HopTech-dark.png" class="logo_hoptech"
-                alt="Logo da HopTech"></a>
-        <button onclick="goDashboard()">
+        <a href="../../hoptech-site/site-hoptech.html"><img src="../../assets/images/logosProjeto/HopTech-dark.png"
+            class="logo_hoptech" alt="Logo da HopTech"></a>
+        <button id="menu_dashboard" class="pageAtual" onclick="goDashboard()">
             <img src="../../assets/images/icons/dashboard.png" class="icons_menu" alt="Ícone do dashboard">
             Dashboard
         </button>
-        <button class="pageAtual" onclick="goUsuario()">
+        <button id="menu_cadastros" onclick="goUsuario()">
             <img src="../../assets/images/icons/icon_usuarios.png" class="icons_menu" style="width: 40px;"
                 alt="Ícone de usuários">
             Usuários
         </button>
-        <button onclick="goPermissoes()">
+        <button id="menu_perms" onclick="goPermissoes()">
             <img src="../../assets/images/icons/permissao.png" class="icons_menu" alt="Ícone de Permissões">
             Permissões
         </button>
-        <button onclick="goPlantacao()">
+        <button id="menu_plantacoes" onclick="goPlantacao()">
             <img src="../../assets/images/icons/iconeLupulo.png" class="icons_menu" style="width: 40px;"
                 alt="Ícone de usuários">
             Plantações
         </button>
-        <button onclick="goHistorico()">
+        <button id="menu_hist" onclick="goHistorico()">
             <img src="../../assets/images/icons/iconeHistorico.png" class="icons_menu" style="width: 30px;"
                 alt="Ícone do histórico">
             Histórico
         </button>
         <footer>
-            <a href="../../nextpoint-site/index.html"><img src="../../assets/images/logosProjeto/NEXTPOINT.png" class="logo_empresa"
-                    alt="Logo da NEXTPOINT"></a>
+            <a href="../../nextpoint-site/index.html"><img src="../../assets/images/logosProjeto/NEXTPOINT.png"
+                    class="logo_empresa" alt="Logo da NEXTPOINT"></a>
             © 2023 HopTech
         </footer>
     </div>
     <div class="div_conteiner_conteudo">
         <div class="div_menu_top">
             <div><!--  --></div>
-            <h3 class="titleDashboardCliente">Gerenciamento - <span id="empresaNome">Hop6</span></h3>
+            <h3 class="titleDashboardCliente">Gerenciamento - <span id="empresaNome">EMPRESA_NOME</span> - <span id="usuarioNome">USUARIO_NOME</span></h3>
             <button class="btnSair" onclick="sair(); return false">Sair</button>
         </div>
         <div class="conteiner_cadastro_usuarios">
@@ -71,8 +71,12 @@
                         <input type="password" id="ipt_senha_funcionario" required>
                         <label>Confirmar senha*</label>
                         <input type="password" id="ipt_confirmar_senha_funcionario" required>
+                        <label>Plantação de acesso*</label>
+                        <select id="select_plant_acesso">
+
+                        </select>
                     </form>
-                    <button class="bntCadastrar" onclick="validarFormulario(); cadastrarUsuario();">Cadastrar</button>
+                    <button class="bntCadastrar" onclick="cadastrarUsuario();">Cadastrar</button>
                 </div>
             </div>
         </div>
@@ -82,10 +86,113 @@
 <!-- Importando a API de alertas "SweetAlert2": -->
 <link href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-bootstrap-4/bootstrap-4.css" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
-
-<script src="js/usuarios.js"></script><!-- Início da função p/ validar o formulário -->
+<!-- Início da função p/ validar o formulário -->
 <script src="js/funcoes.js"></script>
 <script type="text/javascript" nonce="{coloque_seu_valor_nonce_aqui}" src="https://desk.zoho.com/portal/api/web/inapp/858677000000226265?orgId=810882795" defer></script>
 <script>
-    empresaNome.innerHTML = sessionStorage.getItem(`NOME_EMPRESA_USUARIO`)
+    puxarPlantacoes(sessionStorage.getItem('FK_EMPRESA'))
+        empresaNome.innerHTML = sessionStorage.getItem(`NOME_EMPRESA_USUARIO`)
+    function puxarPlantacoes(idEmpresa){
+        fetch(`/medidas/plantacoesPorEmpresa/${idEmpresa}`, {cache: 'no-store'})
+        .then(function (response) {
+            console.log(response)
+            if (response.ok) {
+                response.json().then(function (resposta) {
+                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                    for(i = 0; i <  resposta.length; i++){
+                        const option = document.createElement('option');
+                        option.textContent = 'Plantação ' + resposta[i].idPlantacao;
+                        option.setAttribute('class', 'optionPlantacoes')
+                        option.setAttribute('value', resposta[i].idPlantacao)
+                        select_plant_acesso.appendChild(option);
+
+                    }
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+            }
+        })
+    }
+
+    function cadastrarUsuario(){
+        var funcionario = {
+            nomeFuncionario: document.getElementById("ipt_nome_funcionario").value,
+            email: document.getElementById("ipt_email_funcionario").value,
+            nomeUsuario: document.getElementById("ipt_username_funcionario").value,
+            senha: document.getElementById("ipt_senha_funcionario").value,
+            confirmacao: document.getElementById("ipt_confirmar_senha_funcionario").value,
+            plantacao: document.getElementById("select_plant_acesso").value,
+            fkEmpresa: sessionStorage.getItem('FK_EMPRESA')
+        }
+        for(keys of Object.keys(funcionario)){
+            if(funcionario[keys] == ''){
+                Swal.fire({
+                    position: 'center',
+                    icon: 'error',
+                    title: 'Campo inválido.',
+                    text: `Campo de ${keys} em branco!`,
+                    showConfirmButton: true,
+                })
+                return false
+            }else if(keys == 'email'){
+                var emailValido = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(funcionario[keys]);
+                if (!emailValido){
+                    Swal.fire({
+                        position: 'center',
+                        icon: 'error',
+                        title: 'Campo inválido.',
+                        text: 'É necessário preencher com os campos corretos de e-mail.',
+                        showConfirmButton: true,
+                    });
+                    return false;
+                }
+            }else if(keys == 'senha'){
+                if (funcionario[keys].length < 8){
+                    Swal.fire({
+                        position: 'center',
+                        icon: 'error',
+                        title: 'Campo inválido.',
+                        text: 'A senha deve ter no mínimo 8 caracteres.',
+                        showConfirmButton: true,
+                    })
+                    return false;
+                }
+                if(funcionario[keys] != funcionario.confirmacao){
+                    Swal.fire({
+                        position: 'center',
+                        icon: 'error',
+                        title: 'Campo inválido.',
+                        text: 'A senha e a confirmação não coincidem.',
+                        showConfirmButton: true,
+                    })
+                }
+            }
+        }
+        fetch('/usuarios/cadastrarFuncionario',
+        {method: 'POST',
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            funcionarioJSON: funcionario
+        })}).then(function (resposta) {
+        console.log("resposta: ", resposta);
+        if (resposta.ok) {
+            Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: 'Cadastro feito com sucesso.',
+                showConfirmButton: true,
+            });
+        } else {
+            Swal.fire({
+                position: 'center',
+                icon: 'error',
+                title: 'Houve um erro ao tentar se cadastrar.',
+                showConfirmButton: true,
+            });
+        }}).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+        });
+    }
 </script>

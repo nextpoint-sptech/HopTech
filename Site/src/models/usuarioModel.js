@@ -12,15 +12,16 @@ function listar() {
 function entrar(credenciais) {
     console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function entrar(): ", credenciais.usuario, credenciais.senha)
     var instrucao = `
-        SELECT  usuario.*, empresa.nome FROM usuario JOIN empresa ON fkEmpresa = idEmpresa WHERE usuario.usuario = '${credenciais.usuario}' AND usuario.senha = '${credenciais.senha}';
+    SELECT  usuario.*, empresa.nome, permissoes.fkPlantacao as 'PlantacaoPermitida' FROM usuario 
+    JOIN empresa ON usuario.fkEmpresa = idEmpresa left join permissoes on permissoes.fkUsuario = idUsuario WHERE usuario.usuario = '${credenciais.usuario}' AND usuario.senha = '${credenciais.senha}';
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
 }
 
 // Coloque os mesmos parâmetros aqui. Vá para a var instrucao
-async function cadastrar(empresa) {
-    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():", empresa.usuario, empresa.senha);
+async function cadastrarEmpresa(empresa) {
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrarEmpresa():", empresa.usuario, empresa.senha);
     
     // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
     //  e na ordem de inserção dos dados.
@@ -43,8 +44,30 @@ async function cadastrar(empresa) {
     }
 }
 
+async function cadastrarFuncionario(funcionario){
+    var instrucao = `insert into usuario values (null, 2, '${funcionario.nomeFuncionario}', '${funcionario.email}', '${funcionario.nomeUsuario}', '${funcionario.senha}', ${funcionario.fkEmpresa})`
+
+    var instrucao2 = `insert into permissoes values(1, (select idUsuario from usuario where usuario = '${funcionario.nomeUsuario}'), ${funcionario.fkEmpresa}, ${funcionario.plantacao})`
+    
+    try{
+        console.log('Executando a instrução SQL:' + instrucao);
+        await database.executar(instrucao)
+        console.log('Executando a instrução SQL:' + instrucao2);
+        await database.executar(instrucao2)
+    }catch(error){
+        throw error
+    }
+}
+
+function puxarFuncionarios(empresa){
+    var instrucao = `select usuario.*, permissoes.fkPlantacao from usuario join permissoes on permissoes.fkUsuario = idUsuario where usuario.fkEmpresa = ${empresa} and tpUsuario = 2`
+    return database.executar(instrucao)
+}
+
 module.exports = {
     entrar,
-    cadastrar,
+    cadastrarEmpresa,
+    cadastrarFuncionario,
     listar,
+    puxarFuncionarios
 };

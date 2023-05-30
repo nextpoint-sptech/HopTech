@@ -53,7 +53,7 @@ function entrar(req, res) {
 
 }
 
-function cadastrar(req, res) {
+function cadastrarEmpresa(req, res) {
     // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
     var empresa = req.body.empresaJSON;
     console.log(empresa)
@@ -67,8 +67,49 @@ function cadastrar(req, res) {
     }
 
     // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-    usuarioModel.cadastrar(empresa)
+    usuarioModel.cadastrarEmpresa(empresa)
     .then(function (resultado) {
+        console.log('Then do usuarioCONTROLLER: ' + resultado)
+        res.json(resultado);
+    }).catch(function (erro) {
+            console.log(erro);
+            console.log(
+            "\nHouve um erro ao realizar o cadastro! Erro: ",
+            erro.sqlMessage
+        );
+        res.status(500).json(erro.sqlMessage);
+    });
+}
+
+function cadastrarFuncionario(req, res){
+    var funcionario = req.body.funcionarioJSON;
+
+    for(object of Object.keys(funcionario)){
+        if(funcionario[object] == undefined){
+            res.status(400).send(`${object} está undefined!`)
+            return false
+        }
+    }
+    usuarioModel.cadastrarFuncionario(funcionario).then(function (resultado) {
+        console.log('Then do usuarioCONTROLLER: ' + resultado)
+        res.json(resultado);
+    }).catch(function (erro) {
+            console.log(erro);
+            console.log(
+            "\nHouve um erro ao realizar o cadastro! Erro: ",
+            erro.sqlMessage
+        );
+        res.status(500).json(erro.sqlMessage);
+    });
+}
+
+function puxarFuncionarios(req, res){
+    var empresa = req.params.fkEmpresa;
+    if(empresa == undefined){
+        res.status(400).send('empresa está undefined');
+        return false
+    }
+    usuarioModel.puxarFuncionarios(empresa).then(function (resultado) {
         console.log('Then do usuarioCONTROLLER: ' + resultado)
         res.json(resultado);
     }).catch(function (erro) {
@@ -83,7 +124,9 @@ function cadastrar(req, res) {
 
 module.exports = {
     entrar,
-    cadastrar,
+    cadastrarEmpresa,
+    cadastrarFuncionario,
     listar,
-    testar
+    testar,
+    puxarFuncionarios
 }
