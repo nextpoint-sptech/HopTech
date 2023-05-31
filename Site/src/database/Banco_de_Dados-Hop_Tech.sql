@@ -81,13 +81,12 @@ create table capturaLuminosidade(
 );
 
 create table permissoes(
-	idPermissao int,
+	idPermissao int primary key auto_increment,
     -- tipoPermissao int, constraint ckTpPermissao check (tipoPermissao in (0, 1)),
     fkUsuario int not null, foreign key(fkUsuario) references usuario(idUsuario),
     fkPlantacao int not null, foreign key(fkPlantacao) references plantacao(idPlantacao),
     fkEmpresa int, foreign key (fkEmpresa) references empresa(idEmpresa)
 );
-
 
 -- FUNCAO PARA FAZER A CONTAGEM DE PLANTACOES POR EMPRESA
 DELIMITER $$

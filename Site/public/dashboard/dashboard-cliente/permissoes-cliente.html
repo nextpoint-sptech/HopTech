@@ -71,12 +71,19 @@
             </div>
         </div>
     </div>
-    </div>
-
-    </div>
+    <div class="div_edicao">
+        <p> <h2 id="usuario_edicao">User</h2></p>
+        
+        <label>Mudar nome de usuário</label>
+        <input type="text" id="mudancaNomeUsuario">
+        <label for="">Permissão em:</label>
+        <select id="select_plantacoes"></select>
+        <div class="buttonBox">
+            <button onclick="confirmarEdicao()">Confirmar</button>
+            <button onclick="cancelarEdicao()">Cancelar</button>
+        </div>
     </div>
 </body>
-
 </html>
 
 <!-- Importando a biblioteca ChartJS: -->
@@ -84,12 +91,12 @@
 <!-- Importando o plugin DataLabels do ChartJS: -->
 <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
 <!-- Importando o back-end do ChartJS: -->
-
+<link href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-bootstrap-4/bootstrap-4.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
 <script src="js/funcoes.js"></script>
 <script type="text/javascript" nonce="{coloque_seu_valor_nonce_aqui}" src="https://desk.zoho.com/portal/api/web/inapp/858677000000226265?orgId=810882795" defer></script>
 <script>
     function puxarUsuariosEmpresa(fkEmpresa){
-
         fetch(`/usuarios/puxarFuncionarios/${fkEmpresa}`, {cache: 'no-store'})
         .then(function (response) {
             console.log(response)
@@ -98,14 +105,34 @@
                     console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
                     console.log(resposta)
                     for(i in resposta){
-                        document.querySelector('.tabela_usuarios').innerHTML += `
-                        <tr>
-                            <th>${resposta[i].usuario}</th>
-                            <th>${resposta[i].fkPlantacao}</th>
-                            <th onclick="excluirFuncionario()" class="th_function">Excluir</th>
-                            <th class="th_end th_function">Editar</th>
-
-                        </tr>`
+                        const usuario = {
+                            nome: resposta[i].usuario,
+                            idUsuario: resposta[i].idUsuario,
+                            idPermissao: resposta[i].idPermissao,
+                            fkPlantacao: resposta[i].fkPlantacao
+                        }
+                        const tr = document.createElement('tr');
+                        const thNome = document.createElement('th');
+                        thNome.textContent = usuario.nome;
+                        const thPlantacao = document.createElement('th');
+                        thPlantacao.textContent = usuario.fkPlantacao;
+                        const thExcluir = document.createElement('th');
+                        thExcluir.textContent = 'Excluir'
+                        thExcluir.setAttribute('class', 'th_function');
+                        thExcluir.addEventListener('click', ()=>{
+                            excluirPermissao(usuario)
+                        })
+                        const thEditar = document.createElement('th');
+                        thEditar.textContent = 'Editar'
+                        thEditar.setAttribute('class', 'th_function th_end');
+                        thEditar.addEventListener('click', ()=>{
+                            editarPermissao(usuario)
+                        })
+                        tr.appendChild(thNome)
+                        tr.appendChild(thPlantacao)
+                        tr.appendChild(thExcluir)
+                        tr.appendChild(thEditar)
+                        document.querySelector('.tabela_usuarios').appendChild(tr)
                     }
                 });
             } else {
@@ -114,4 +141,88 @@
         })
     }
     puxarUsuariosEmpresa(sessionStorage.getItem('FK_EMPRESA'))
+
+    function excluirPermissao(usuario){
+        Swal.fire({
+            title: `Você realmente quer excluir o usuário ${usuario.nome}?`,
+            showDenyButton: true,
+            confirmButtonText: 'Yes',
+            denyButtonText: 'No'
+            })
+            .then((result) => {
+            if (result.isConfirmed) {
+                fetch(`/usuarios/excluirUsuario/`,
+                {method: 'POST',
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    usuarioJSON: usuario
+                })})
+                .then(function(resposta){
+                    if(resposta.ok){
+                        Swal.fire('Saved!', '', 'success')
+                        location.reload()
+                    }
+                })
+            }
+        })
+    }
+
+    function editarPermissao(usuario){
+        document.querySelector('.div_edicao').style.display = 'flex';
+        usuario_edicao.innerHTML = usuario.nome;
+    }
+
+    function confirmarEdicao(usuario){
+        Swal.fire({
+            title: `Você realmente quer editar as permissões do usuário ${usuario.nome}?`,
+            showDenyButton: true,
+            confirmButtonText: 'Yes',
+            denyButtonText: 'No'
+            })
+            .then((result) => {
+            if (result.isConfirmed) {
+                fetch(`/usuarios/editarUsuario/`,
+                {method: 'POST',
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    usuarioJSON: usuario
+                })})
+                .then(function(resposta){
+                    if(resposta.ok){
+                        Swal.fire('Saved!', '', 'success')
+                        location.reload()
+                    }
+                })
+            }
+        })
+    }
+
+    function cancelarEdicao(){
+        document.querySelector('.div_edicao').style.display = 'none';
+    }
+    puxarPlantacoesEdit(sessionStorage.getItem('FK_EMPRESA'))
+    function puxarPlantacoesEdit(idEmpresa){
+        fetch(`/medidas/plantacoesPorEmpresa/${idEmpresa}`, {cache: 'no-store'})
+        .then(function (response) {
+            console.log(response)
+            if (response.ok) {
+                response.json().then(function (resposta) {
+                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                    for(i = 0; i <  resposta.length; i++){
+                        const option = document.createElement('option');
+                        option.textContent = 'Plantação ' + resposta[i].idPlantacao;
+                        option.setAttribute('class', 'optionPlantacoes')
+                        option.setAttribute('value', resposta[i].idPlantacao)
+                        select_plantacoes.appendChild(option);
+                    }
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+            }
+        })
+    }
 </script>

@@ -131,3 +131,41 @@ h1{
         height: 100px; /* Define a altura do contêiner */
         background-image: url(./assets/images/icons/icon_gerenciamento.jpeg);
   }
+
+  .div_edicao{
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2em;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 500px;
+    height: 400px;
+    background-color: #2c461e;
+    border-radius: 25px;
+    outline: 10px solid #2c461e;
+    border: 10px solid #4b663e ;
+  }
+
+  .div_edicao select, input{
+    padding: .5em 1em;
+    border-radius: 25px;
+    outline: none;
+    border: none;
+  }
+  .div_edicao .buttonBox{
+    display: flex;
+    gap: 2em;
+  }
+  .div_edicao .buttonBox button{
+    padding: .5em 1em;
+    border-radius: 25px;
+    border: none;
+    background-color: #9bc188;
+    cursor: pointer;
+  }

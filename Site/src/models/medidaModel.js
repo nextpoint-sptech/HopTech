@@ -126,7 +126,7 @@ function listarHistoricoAlertas(idEmpresa) {
         join empresa on idEmpresa = capturaluminosidade.fkEmpresa
         where (luminosidade <= 600 or luminosidade >= 700)
             and idEmpresa = ${idEmpresa}
-        order by dtCaptura desc;
+        order by dtCaptura desc limit 150;
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);

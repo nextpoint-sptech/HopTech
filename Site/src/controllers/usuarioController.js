@@ -122,11 +122,17 @@ function puxarFuncionarios(req, res){
     });
 }
 
+function excluirUsuario(req, res){
+    var usuario = req.body.usuarioJSON;
+    usuarioModel.excluirUsuario(usuario)
+}
+
 module.exports = {
     entrar,
     cadastrarEmpresa,
     cadastrarFuncionario,
     listar,
     testar,
-    puxarFuncionarios
+    puxarFuncionarios,
+    excluirUsuario
 }

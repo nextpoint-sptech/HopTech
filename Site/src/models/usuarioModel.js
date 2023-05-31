@@ -47,7 +47,7 @@ async function cadastrarEmpresa(empresa) {
 async function cadastrarFuncionario(funcionario){
     var instrucao = `insert into usuario values (null, 2, '${funcionario.nomeFuncionario}', '${funcionario.email}', '${funcionario.nomeUsuario}', '${funcionario.senha}', ${funcionario.fkEmpresa})`
 
-    var instrucao2 = `insert into permissoes values(1, (select idUsuario from usuario where usuario = '${funcionario.nomeUsuario}'), ${funcionario.fkEmpresa}, ${funcionario.plantacao})`
+    var instrucao2 = `insert into permissoes values(null, (select idUsuario from usuario where usuario = '${funcionario.nomeUsuario}'), ${funcionario.fkEmpresa}, ${funcionario.plantacao})`
     
     try{
         console.log('Executando a instrução SQL:' + instrucao);
@@ -60,8 +60,19 @@ async function cadastrarFuncionario(funcionario){
 }
 
 function puxarFuncionarios(empresa){
-    var instrucao = `select usuario.*, permissoes.fkPlantacao from usuario join permissoes on permissoes.fkUsuario = idUsuario where usuario.fkEmpresa = ${empresa} and tpUsuario = 2`
+    var instrucao = `select usuario.*, permissoes.idPermissao, permissoes.fkPlantacao from usuario join permissoes on permissoes.fkUsuario = idUsuario where usuario.fkEmpresa = ${empresa} and tpUsuario = 2`
     return database.executar(instrucao)
+}
+
+async function excluirUsuario(usuario){
+    var instrucao = `delete from permissoes where idPermissao = ${usuario.idPermissao}`
+    var instrucao2 = `delete from usuario where idUsuario = ${usuario.idUsuario}`
+    try{
+        await database.executar(instrucao)
+        await database.executar(instrucao2)
+    }catch(error){
+        throw error
+    }
 }
 
 module.exports = {
@@ -69,5 +80,6 @@ module.exports = {
     cadastrarEmpresa,
     cadastrarFuncionario,
     listar,
-    puxarFuncionarios
+    puxarFuncionarios,
+    excluirUsuario
 };
