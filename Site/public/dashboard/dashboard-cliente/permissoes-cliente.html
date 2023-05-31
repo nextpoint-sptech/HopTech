@@ -72,7 +72,7 @@
         </div>
     </div>
     <div class="div_edicao">
-        <p> <h2 id="usuario_edicao">User</h2></p>
+        <p><h2 id="usuario_edicao">User</h2></p>
         
         <label>Mudar nome de usuário</label>
         <input type="text" id="mudancaNomeUsuario">
@@ -172,30 +172,41 @@
     function editarPermissao(usuario){
         document.querySelector('.div_edicao').style.display = 'flex';
         usuario_edicao.innerHTML = usuario.nome;
+        sessionStorage.ID_PERMISSAO = usuario.idPermissao;
     }
 
-    function confirmarEdicao(usuario){
+    function confirmarEdicao(){
         Swal.fire({
-            title: `Você realmente quer editar as permissões do usuário ${usuario.nome}?`,
+            title: `Você realmente quer editar as permissões do usuário ${usuario_edicao.textContent}?`,
             showDenyButton: true,
             confirmButtonText: 'Yes',
             denyButtonText: 'No'
             })
             .then((result) => {
             if (result.isConfirmed) {
+                var mudancas = {
+                    nomeAntigo: usuario_edicao.textContent,
+                    nomeNovo: mudancaNomeUsuario.value,
+                    fkPlantacao: select_plantacoes.value,
+                    idPermissao: sessionStorage.getItem('ID_PERMISSAO')
+                }
                 fetch(`/usuarios/editarUsuario/`,
                 {method: 'POST',
                 headers: {
                     "Content-Type": "application/json"
                 },
                 body: JSON.stringify({
-                    usuarioJSON: usuario
+                    mudancasJSON: mudancas
                 })})
                 .then(function(resposta){
                     if(resposta.ok){
-                        Swal.fire('Saved!', '', 'success')
-                        location.reload()
+                        Swal.fire('Mudanças feitas com sucesso!', '', 'success')
+                        setTimeout(()=>{location.reload()}, 1000)
+                    }else{
+                        Swal.fire('Houve algum erro na mudança de dados, tente novamente por favor!', '', 'error')
                     }
+                }).catch(function(error){
+                    console.log('ERRO: ' + error)
                 })
             }
         })
