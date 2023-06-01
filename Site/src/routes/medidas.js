@@ -5,11 +5,11 @@ var medidaController = require("../controllers/medidaController");
 
 router.get("/ultimas/:idSensor/:fkPlantacao/:fkEmpresa", function (req, res) {
     medidaController.buscarUltimasMedidas(req, res);
-});
+}); // buscar dados por SENSOR de PLANTACAO
 
 router.get("/tempo-real/:idSensor/:fkPlantacao/:fkEmpresa", function (req, res) {
     medidaController.buscarMedidasEmTempoReal(req, res);
-});
+});// buscar ULTIMO dado
 
 router.get("/buscarEmpresas", function(req, res){
     medidaController.buscarEmpresas(req, res)
@@ -23,7 +23,7 @@ router.post('/cadastroPlantacao', function(req, res){
     medidaController.cadastrarPlantacao(req, res)
 })
 
-router.get('/listarHistoricoAlertas/:idEmpresa', function(req, res){
+router.get('/listarHistoricoAlertas/:idEmpresa/:permPlantacao', function(req, res){
     console.log("entrei no  medidas no listarHistoricoAlertas");
     medidaController.listarHistoricoAlertas(req, res)
 })
@@ -48,7 +48,7 @@ router.get('/obterMediaTempoReal/:fkEmpresa/:permPlantacao', function(req, res){
     medidaController.obterMediaTempoReal(req, res)
 })
 
-router.get('/listarAlertasDashPrincipal/:idEmpresa', function(req, res){
+router.get('/listarAlertasDashPrincipal/:idEmpresa/:permPlantacao', function(req, res){
     console.log("entrei no  medidas no listarAlertasDashPrincipal");
     medidaController.listarAlertasDashPrincipal(req, res)
 })

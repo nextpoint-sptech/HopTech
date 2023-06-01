@@ -1,9 +1,10 @@
 empresaNome.innerHTML = sessionStorage.getItem(`NOME_EMPRESA_USUARIO`);
 
 var idEmpresa = sessionStorage.getItem(`FK_EMPRESA`);
+var permPlantacao = sessionStorage.getItem('PERM_PLANTACAO')
 console.log(idEmpresa);
 
-fetch(`/medidas/listarHistoricoAlertas/${idEmpresa}`).then(function (resposta) {
+fetch(`/medidas/listarHistoricoAlertas/${idEmpresa}/${permPlantacao}`).then(function (resposta) {
     console.log(resposta);
     if (resposta.ok) {
         if (resposta.status == 204) { 
@@ -12,11 +13,10 @@ fetch(`/medidas/listarHistoricoAlertas/${idEmpresa}`).then(function (resposta) {
         }
 
         resposta.json().then(function (resposta) {
-            console.log("Dados recebidos: ", JSON.stringify(resposta));;
-            
+            console.log("Dados recebidos: " );
+            console.log(resposta)
             for (let i = 0; i < resposta.length; i++) {
                 var alerta = resposta[i];
-
                 if (alerta.luminosidade <= 600 && alerta.luminosidade >= 500) {
                     conteudo_historico.innerHTML += `
                         <p>${alerta.dtCaptura} - ${alerta.hrCaptura}</p>
@@ -49,7 +49,7 @@ fetch(`/medidas/listarHistoricoAlertas/${idEmpresa}`).then(function (resposta) {
                         <p>${alerta.dtCaptura} - ${alerta.hrCaptura}</p>
                         <div class="alerta" id="alerta">
                             <h4>Alta Luminosidade!</h4>
-                            <p>A região centro-oeste da sua plantação ${alerta.idPlantacao} está recebendo luminosidade acima da média!</p>
+                            <p>A região ${alerta.regiao} da sua plantação ${alerta.idPlantacao} está recebendo luminosidade acima da média!</p>
                             <h3>Luminosidade: ${alerta.luminosidade}</h3>
                         </div>
                     `; 

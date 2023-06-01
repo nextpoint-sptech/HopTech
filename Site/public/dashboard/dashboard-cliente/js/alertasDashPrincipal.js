@@ -1,16 +1,16 @@
 empresaNome.innerHTML = sessionStorage.getItem(`NOME_EMPRESA_USUARIO`);
 
 var idEmpresa = sessionStorage.getItem(`FK_EMPRESA`);
+var permPlantacao = sessionStorage.getItem('PERM_PLANTACAO')
 console.log(idEmpresa);
 
-fetch(`/medidas/listarAlertasDashPrincipal/${idEmpresa}`).then(function (resposta) {
+fetch(`/medidas/listarAlertasDashPrincipal/${idEmpresa}/${permPlantacao}`).then(function (resposta) {
     console.log(resposta);
     if (resposta.ok) {
         if (resposta.status == 204) { 
             console.log("Nenhum resultado encontrado.");
             throw "Nenhum resultado encontrado!!";
         }
-
         resposta.json().then(function (resposta) {
             console.log("Dados recebidos: ", JSON.stringify(resposta));;
             

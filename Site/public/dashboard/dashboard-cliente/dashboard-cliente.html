@@ -148,7 +148,7 @@
 
 
 <script>
-    obterMediaTotal(sessionStorage.getItem('FK_EMPRESA'))
+    obterMediaTotal()
     function obterMediaTotal(){
         var fkEmpresa = sessionStorage.getItem('FK_EMPRESA');
         var permPlantacao = sessionStorage.getItem('PERM_PLANTACAO');
@@ -237,7 +237,7 @@
             config
         );
 
-        //setTimeout(() => atualizarGrafico(fkEmpresa, dados, myChart), 2000);
+        //setTimeout(() => atualizarGrafico(fkEmpresa, permPlantacao, dados, myChart), 2000);
     }
 
     function atualizarGrafico(fkEmpresa, permPlantacao, dados, myChart) {

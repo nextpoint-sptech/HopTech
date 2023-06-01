@@ -134,9 +134,10 @@ function buscarMetricasCadastro(req, res){
 
 function listarHistoricoAlertas(req, res) {
     var idEmpresa = req.params.idEmpresa;
+    var permPlantacao = req.params.permPlantacao
     console.log("entrei no  medidaController no listarHistoricoAlertas");
 
-    medidaModel.listarHistoricoAlertas(idEmpresa).then(function (resultado) {
+    medidaModel.listarHistoricoAlertas(idEmpresa, permPlantacao).then(function (resultado) {
         if (resultado.length > 0) {
             res.status(200).json(resultado);
         } else {
@@ -199,9 +200,10 @@ function obterMediaTempoReal(req, res){
 
 function listarAlertasDashPrincipal(req, res) {
     var idEmpresa = req.params.idEmpresa;
+    var permPlantacao = req.params.permPlantacao;
     console.log("entrei no  medidaController no listarAlertasDashPrincipal");
 
-    medidaModel.listarAlertasDashPrincipal(idEmpresa).then(function (resultado) {
+    medidaModel.listarAlertasDashPrincipal(idEmpresa, permPlantacao).then(function (resultado) {
         if (resultado.length > 0) {
             res.status(200).json(resultado);
         } else {
