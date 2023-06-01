@@ -124,7 +124,32 @@ function puxarFuncionarios(req, res){
 
 function excluirUsuario(req, res){
     var usuario = req.body.usuarioJSON;
-    usuarioModel.excluirUsuario(usuario)
+    usuarioModel.excluirUsuario(usuario).then(function (resultado) {
+        console.log('Then do usuarioCONTROLLER: ' + resultado)
+        res.json(resultado);
+    }).catch(function (erro) {
+            console.log(erro);
+            console.log(
+            "\nHouve um erro ao realizar o cadastro! Erro: ",
+            erro.sqlMessage
+        );
+        res.status(500).json(erro.sqlMessage);
+    });
+}
+
+function editarUsuario(req, res){
+    var mudancas = req.body.mudancasJSON;
+    usuarioModel.editarUsuario(mudancas).then(function (resultado) {
+        console.log('Then do usuarioCONTROLLER: ' + resultado)
+        res.json(resultado);
+    }).catch(function (erro) {
+            console.log(erro);
+            console.log(
+            "\nHouve um erro ao realizar o cadastro! Erro: ",
+            erro.sqlMessage
+        );
+        res.status(500).json(erro.sqlMessage);
+    });
 }
 
 module.exports = {
@@ -134,5 +159,6 @@ module.exports = {
     listar,
     testar,
     puxarFuncionarios,
-    excluirUsuario
+    excluirUsuario,
+    editarUsuario
 }

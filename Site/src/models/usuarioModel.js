@@ -75,11 +75,24 @@ async function excluirUsuario(usuario){
     }
 }
 
+function editarUsuario(mudancas){
+    // permissao
+    var instrucao = `update permissoes set fkPlantacao = ${mudancas.fkPlantacao} where idPermissao = ${mudancas.idPermissao}`
+    console.log('acessei model editar usuario')
+    var instrucao2 = `update usuario set usuario = '${mudancas.nomeNovo}' where idUsuario = (select idUsuario where usuario.usuario = '${mudancas.nomeAntigo}')`
+    if(mudancas.nomeNovo != ''){
+        return database.executar(instrucao), database.executar(instrucao2)
+    }else{
+        return database.executar(instrucao)
+    }
+}
+
 module.exports = {
     entrar,
     cadastrarEmpresa,
     cadastrarFuncionario,
     listar,
     puxarFuncionarios,
-    excluirUsuario
+    excluirUsuario,
+    editarUsuario
 };

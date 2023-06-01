@@ -32,4 +32,8 @@ router.post('/excluirUsuario', function(req, res){
     usuarioController.excluirUsuario(req, res)
 })
 
+router.post('/editarUsuario', function(req, res){
+    usuarioController.editarUsuario(req, res)
+})
+
 module.exports = router;
