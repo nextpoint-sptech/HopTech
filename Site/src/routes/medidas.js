@@ -40,11 +40,11 @@ router.get('/plantacoesPorEmpresa/:idEmpresa', function(req, res){
     medidaController.buscarPlantacoes(req, res)
 })
 
-router.get('/obterMedidaTotal/:fkEmpresa', function(req, res){
+router.get('/obterMedidaTotal/:fkEmpresa/:permPlantacao', function(req, res){
     medidaController.obterMediaTotal(req, res)
 })
 
-router.get('/obterMediaTempoReal/:fkEmpresa', function(req, res){
+router.get('/obterMediaTempoReal/:fkEmpresa/:permPlantacao', function(req, res){
     medidaController.obterMediaTempoReal(req, res)
 })
 

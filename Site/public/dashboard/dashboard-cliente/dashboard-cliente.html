@@ -149,14 +149,16 @@
 
 <script>
     obterMediaTotal(sessionStorage.getItem('FK_EMPRESA'))
-    function obterMediaTotal(fkEmpresa){
-        fetch(`/medidas/obterMedidaTotal/${fkEmpresa}`, {cache:"no-store"})
+    function obterMediaTotal(){
+        var fkEmpresa = sessionStorage.getItem('FK_EMPRESA');
+        var permPlantacao = sessionStorage.getItem('PERM_PLANTACAO');
+        fetch(`/medidas/obterMedidaTotal/${fkEmpresa}/${permPlantacao}`, {cache:"no-store"})
         .then(function (response) {
             console.log(response)
             if (response.ok) {
                 response.json().then(function (resposta) {
                     console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-                    plotarGrafico(fkEmpresa, resposta)
+                    plotarGrafico(fkEmpresa, permPlantacao, resposta)
                 });
             } else {
                 console.error('Nenhum dado encontrado ou erro na API');
@@ -164,16 +166,22 @@
         })
     }
 
-    function plotarGrafico(fkEmpresa, resposta) {
+    function plotarGrafico(fkEmpresa, permPlantacao, resposta) {
         console.log('iniciando plotagem do gráfico...');
         // Criando estrutura para plotar gráfico - labels
         let labels = []; // labels serve para ficar o dado que fica no eixo X  (NO NOSSO CASO, O HORARIO) 
 
         // Criando estrutura para plotar gráfico - dados
+        var titulo
+        if(permPlantacao == 'null'){
+            titulo = 'Luminosidade Média de todas Plantações (Hoje)'
+        }else{
+            titulo = `Luminosidade Média da Plantação ${permPlantacao}`
+        }
         let dados = {
             labels: labels,
             datasets: [{
-                label: 'Luminosidade Média de todas Plantações (Hoje)',
+                label: titulo,
                 data: [], // DADOS DO SENSOR (LUMINOSIDADE)
                 fill: false,
                 borderWidth: 1,
@@ -229,11 +237,11 @@
             config
         );
 
-        setTimeout(() => atualizarGrafico(fkEmpresa, dados, myChart), 2000);
+        //setTimeout(() => atualizarGrafico(fkEmpresa, dados, myChart), 2000);
     }
 
-    function atualizarGrafico(fkEmpresa, dados, myChart) {
-        fetch(`/medidas/obterMediaTempoReal/${fkEmpresa}`, { cache: 'no-store' }).then(function (response) {
+    function atualizarGrafico(fkEmpresa, permPlantacao, dados, myChart) {
+        fetch(`/medidas/obterMediaTempoReal/${fkEmpresa}/${permPlantacao}`, { cache: 'no-store' }).then(function (response) {
             if (response.ok) {
                 response.json().then(function (novoRegistro) {
                     console.log(`Dados recebidos: ${JSON.stringify(novoRegistro)}`);
@@ -261,12 +269,12 @@
                     }
 
                     // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
-                    proximaAtualizacao = setTimeout(() => atualizarGrafico(fkEmpresa, dados, myChart), 2000);
+                    proximaAtualizacao = setTimeout(() => atualizarGrafico(fkEmpresa, permPlantacao, dados, myChart), 2000);
                 });
             } else {
                 console.error('Nenhum dado encontrado ou erro na API');
                 // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
-                proximaAtualizacao = setTimeout(() => atualizarGrafico(fkEmpresa, dados, myChart), 2000);
+                proximaAtualizacao = setTimeout(() => atualizarGrafico(fkEmpresa, permPlantacao, dados, myChart), 2000);
             }
         })
             .catch(function (error) {

@@ -137,21 +137,39 @@ function buscarPlantacoes(idEmpresa){
     return database.executar(instrucao)
 }
 
-function obterMediaTotal(fkEmpresa){
-    var instrucao = `select hrCaptura, round(avg(luminosidade), 2) as luminosidade from capturaLuminosidade
-    join sensor on capturaLuminosidade.fkSensor = sensor.idSensor 
-    join plantacao on sensor.fkPlantacao = plantacao.idPlantacao
-    where plantacao.fkEmpresa = ${fkEmpresa} and dtCaptura = current_date
-    group by hrCaptura`
+function obterMediaTotal(fkEmpresa, permPlantacao){
+    var instrucao
+    if(permPlantacao == 'null'){
+        instrucao = `select hrCaptura, round(avg(luminosidade), 2) as luminosidade from capturaLuminosidade
+        join sensor on capturaLuminosidade.fkSensor = sensor.idSensor 
+        join plantacao on sensor.fkPlantacao = plantacao.idPlantacao
+        where plantacao.fkEmpresa = ${fkEmpresa} and dtCaptura = current_date
+        group by hrCaptura`
+    }else{
+        instrucao = `select hrCaptura, round(avg(luminosidade), 2) as luminosidade from capturaLuminosidade
+        join sensor on capturaLuminosidade.fkSensor = sensor.idSensor 
+        join plantacao on sensor.fkPlantacao = plantacao.idPlantacao
+        where plantacao.fkEmpresa = ${fkEmpresa} and capturaluminosidade.fkPlantacao = ${permPlantacao} and dtCaptura = current_date
+        group by hrCaptura`
+    }
     return database.executar(instrucao)
 }
 
-function obterMediaTempoReal(fkEmpresa){
-    var instrucao = `select hrCaptura, round(avg(luminosidade), 2) as luminosidade from capturaLuminosidade
-    join sensor on capturaLuminosidade.fkSensor = sensor.idSensor 
-    join plantacao on sensor.fkPlantacao = plantacao.idPlantacao
-    where plantacao.fkEmpresa = ${fkEmpresa} and dtCaptura = current_date
-    group by hrCaptura order by hrCaptura desc limit 1`
+function obterMediaTempoReal(fkEmpresa, permPlantacao){
+    var instrucao
+    if(permPlantacao == 'null'){
+        instrucao = `select hrCaptura, round(avg(luminosidade), 2) as luminosidade from capturaLuminosidade
+        join sensor on capturaLuminosidade.fkSensor = sensor.idSensor 
+        join plantacao on sensor.fkPlantacao = plantacao.idPlantacao
+        where plantacao.fkEmpresa = ${fkEmpresa} and dtCaptura = current_date
+        group by hrCaptura order by hrCaptura desc limit 1`
+    }else{
+        instrucao = `select hrCaptura, round(avg(luminosidade), 2) as luminosidade from capturaLuminosidade
+        join sensor on capturaLuminosidade.fkSensor = sensor.idSensor 
+        join plantacao on sensor.fkPlantacao = plantacao.idPlantacao
+        where plantacao.fkEmpresa = ${fkEmpresa} and capturaluminosidade.fkPlantacao = ${permPlantacao} and dtCaptura = current_date
+        group by hrCaptura order by hrCaptura desc limit 1`
+    }
     return database.executar(instrucao)
 
 }

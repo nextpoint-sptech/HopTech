@@ -165,7 +165,8 @@ function buscarQtTotal(req, res){
 
 function obterMediaTotal(req, res){
     var fkEmpresa = req.params.fkEmpresa;
-    medidaModel.obterMediaTotal(fkEmpresa)
+    var permPlantacao = req.params.permPlantacao;
+    medidaModel.obterMediaTotal(fkEmpresa, permPlantacao)
     .then(function (resultado) {
         if (resultado.length > 0) {
             res.status(200).json(resultado);
@@ -181,7 +182,8 @@ function obterMediaTotal(req, res){
 
 function obterMediaTempoReal(req, res){
     var fkEmpresa = req.params.fkEmpresa;
-    medidaModel.obterMediaTempoReal(fkEmpresa)
+    var permPlantacao = req.params.permPlantacao;
+    medidaModel.obterMediaTempoReal(fkEmpresa, permPlantacao)
     .then(function (resultado) {
         if (resultado.length > 0) {
             res.status(200).json(resultado);
