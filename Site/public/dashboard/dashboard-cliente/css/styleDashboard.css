@@ -168,6 +168,8 @@ h1{
 }
 
 .div_alertas{
+    display: flex;
+    flex-direction: column;
     width: 25%;
 }
 
@@ -250,12 +252,12 @@ h1{
 } */
 
 .div_alertas h3{
-    font-size: 20px;
+    font-size: 15px;
     margin-top: 0;
 }
 
 .alerta{
-    height: 100px;
+    height: 120px;
     background-color: #FAAB9E;
     border-radius: 25px;
     padding-left: 10px;
@@ -265,13 +267,12 @@ h1{
     margin-top: 10px;
     margin-bottom: 10px;
     font-size: 0.8rem;
-
     border: 2px solid #fb826f;
     box-shadow: 2px 2px 6px #48724c;
 }
 
 .alerta2{
-    height: 100px;
+    height: 120px;
     background-color: #faeb9e;
     border-radius: 25px;
     padding-left: 10px;
@@ -281,9 +282,17 @@ h1{
     margin-top: 10px;
     margin-bottom: 10px;
     font-size: 0.8rem;
-
     border: 2px solid #FFD93D;
     box-shadow: 2px 2px 6px #48724c;
+}
+
+.alerta h4{
+     display: flex;
+     justify-content: space-between;
+}
+
+.div_alertas  h3{
+    margin-top: 5px;
 }
 
 h4{
@@ -422,3 +431,21 @@ p{
     border-radius: 50%;
     display: inline-block;
   }
+
+  .btnIrParaHistorico{
+    width: 50%;
+    height: 25px;
+    border-radius: 20px;
+    border: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #CCE6BF;
+    cursor: pointer;
+    background-color: #86b88b;
+    box-shadow: 2px 2px 6px #48724c;
+    align-self: center;
+}
+
+.btnIrParaHistorico:hover{
+    background-color: #609966;
+}

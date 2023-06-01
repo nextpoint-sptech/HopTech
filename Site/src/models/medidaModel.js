@@ -156,6 +156,30 @@ function obterMediaTempoReal(fkEmpresa){
 
 }
 
+function listarAlertasDashPrincipal(idEmpresa) {
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function listar()");
+    var instrucao = `
+        select date_format(capturaLuminosidade.dtCaptura, '%d/%m/%Y')  as dtCaptura,
+            capturaLuminosidade.hrCaptura,
+            capturaLuminosidade.luminosidade,
+            sensor.regiao,
+            lupulo.tipoLupulo,
+            plantacao.idPlantacao,
+            empresa.idEmpresa
+        from capturaLuminosidade
+        join sensor on idSensor = fkSensor
+        join plantacao on plantacao.idPlantacao = sensor.fkPlantacao
+        join lupulo on idLupulo = fkLupulo
+        join empresa on empresa.idEmpresa = plantacao.fkEmpresa
+        where (luminosidade <= 600 or luminosidade >= 700)
+            and idEmpresa = ${idEmpresa}
+        order by dtCaptura desc, hrCaptura desc
+        limit 3;
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+
 module.exports = {
     buscarUltimasMedidas,
     buscarMedidasEmTempoReal,
@@ -167,5 +191,6 @@ module.exports = {
     buscarQtTotal,
     buscarPlantacoes,
     obterMediaTotal,
-    obterMediaTempoReal
+    obterMediaTempoReal,
+    listarAlertasDashPrincipal
 }

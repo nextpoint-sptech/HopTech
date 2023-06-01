@@ -127,25 +127,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="div_alertas">
-                    <h3>Alertas</h3>
-                    <div class="alerta">
-                        <!-- Emitindo alertas baseado na luminosidade (apontada no gráfico) -->
-                        <h4>Alta Luminosidade! (12:56)</h4>
-                        <p>A região centro-oeste da sua plantação está recebendo luminosidade acima da média!</p>
-                    </div>
-                    <div class="alerta">
-                        <h4>Baixa Luminosidade! (08:59)</h4>
-                        <p>A região sudeste da sua plantação está recebendo luminosidade abaixo da média!</p>
-                    </div>
-                    <div class="alerta2">
-                        <h4>Risco de Baixa Luminosidade! (08:30)</h4>
-                        <p>A região sudeste da sua plantação está recebendo pouca luminosidade e está quase ficando
-                            abaixo da média!</p>
-                    </div>
-                    <div class="fim_alertas">
-                        <span>...</span>
-                    </div>
+                <div class="div_alertas" id="div_alertas">
+                    <h3>Últimos Alertas</h3>
                 </div>
             </div>
         </div>
@@ -154,7 +137,7 @@
 </body>
 
 </html>
-
+<script src="js/alertasDashPrincipal.js"></script>
 <!-- Importando a biblioteca ChartJS: -->
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>

@@ -48,4 +48,9 @@ router.get('/obterMediaTempoReal/:fkEmpresa', function(req, res){
     medidaController.obterMediaTempoReal(req, res)
 })
 
+router.get('/listarAlertasDashPrincipal/:idEmpresa', function(req, res){
+    console.log("entrei no  medidas no listarAlertasDashPrincipal");
+    medidaController.listarAlertasDashPrincipal(req, res)
+})
+
 module.exports = router;

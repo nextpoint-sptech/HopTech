@@ -15,20 +15,20 @@
     <button onclick="adicionarEvento()">Adicionar Evento</button>
     <ul id="historico"></ul>
     
-    <script>
-        function adicionarEvento() {
-            var evento = prompt("Digite o nome do evento:");
-            
-            if (evento) {
-                var data = new Date();
-                var dataFormatada = data.toLocaleString();
-                
-                var historico = document.getElementById("historico");
-                var li = document.createElement("li");
-                li.textContent = evento + " - " + dataFormatada;
-                historico.appendChild(li);
-            }
-        }
-    </script>
 </body>
 </html>
+<script>
+    function adicionarEvento() {
+        var evento = prompt("Digite o nome do evento:");
+        
+        if (evento) {
+            var data = new Date();
+            var dataFormatada = data.toLocaleString();
+            
+            var historico = document.getElementById("historico");
+            var li = document.createElement("li");
+            li.textContent = evento + " - " + dataFormatada;
+            historico.appendChild(li);
+        }
+    }
+</script>
