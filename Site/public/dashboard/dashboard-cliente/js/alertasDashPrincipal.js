@@ -81,16 +81,4 @@ function ultimosAlertas() {
         console.error(resposta);
         // finalizarAguardar();
     });
-<<<<<<< HEAD
-=======
-}, 3000);
-
-function btnIrParaHistorico() {
-    window.location = "historico.html";
-}
-
-function irPlantacao(plantacao) {
-    window.location = "plantacoes-graficos.html"
-    sessionStorage.FK_PLANTACAO = plantacao;
->>>>>>> 291818fd0e4e65411e1872c7becb1d9defbc05a7
 }
