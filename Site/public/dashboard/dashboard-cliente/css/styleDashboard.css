@@ -269,7 +269,6 @@ h1{
     font-size: 0.8rem;
     border: 2px solid #fb826f;
     box-shadow: 2px 2px 6px #48724c;
-
     cursor: pointer;
 }
 
@@ -286,6 +285,7 @@ h1{
     font-size: 0.8rem;
     border: 2px solid #FFD93D;
     box-shadow: 2px 2px 6px #48724c;
+    cursor: pointer;
 }
 
 .alerta h4{
@@ -412,4 +412,9 @@ p{
 
 .btnIrParaHistorico:hover{
     background-color: #609966;
+}
+
+#alerta:hover{
+    transform: translateY(-5px);
+    transition-delay: 5ms;
 }

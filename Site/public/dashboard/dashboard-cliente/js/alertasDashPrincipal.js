@@ -4,7 +4,19 @@ var idEmpresa = sessionStorage.getItem(`FK_EMPRESA`);
 var permPlantacao = sessionStorage.getItem('PERM_PLANTACAO')
 console.log(idEmpresa);
 
-setInterval(()=>{
+window.onload = ultimosAlertas();
+setInterval(ultimosAlertas, 3000);
+
+function btnIrParaHistorico() {
+    window.location = "historico.html";
+}
+
+function irPlantacao(plantacao) {
+    window.location = "plantacoes-graficos.html"
+    sessionStorage.FK_PLANTACAO = plantacao
+}
+
+function ultimosAlertas() {
     fetch(`/medidas/listarAlertasDashPrincipal/${idEmpresa}/${permPlantacao}`).then(function (resposta) {
         console.log(resposta);
         if (resposta.ok) {
@@ -31,7 +43,7 @@ setInterval(()=>{
                         `;
                     } else if (alerta.luminosidade < 500) {
                         div_alertas.innerHTML += `
-                            <div class="alerta" id="alerta" onclick="irPlantacao()">
+                            <div class="alerta" id="alerta" onclick="irPlantacao(${alerta.idPlantacao})">
                                 <h4>Baixa Luminosidade! (${alerta.dtCaptura} - ${alerta.hrCaptura})</h4>
                                 <p>A região ${alerta.regiao} da sua plantação ${alerta.idPlantacao} está recebendo pouca luminosidade e está quase ficando abaixo da média!</p>
                                 <h3>Luminosidade: ${alerta.luminosidade}</h3>
@@ -39,7 +51,7 @@ setInterval(()=>{
                         `;        
                     } else if (alerta.luminosidade >= 700 && alerta.luminosidade <= 800) {
                         div_alertas.innerHTML += `
-                            <div class="alerta2" id="alerta" onclick="irPlantacao()">
+                            <div class="alerta2" id="alerta" onclick="irPlantacao(${alerta.idPlantacao})">
                                 <h4>Risco de Alta Luminosidade! (${alerta.dtCaptura} - ${alerta.hrCaptura})</h4>
                                 <p>A luminosidade da região ${alerta.regiao} da sua plantação ${alerta.idPlantacao} está se aproximando ao limite da média ideal!</p>
                                 <h3>Luminosidade: ${alerta.luminosidade}</h3>
@@ -47,7 +59,7 @@ setInterval(()=>{
                         `;  
                     } else {
                         div_alertas.innerHTML += `
-                            <div class="alerta" id="alerta" onclick="irPlantacao()">
+                            <div class="alerta" id="alerta" onclick="irPlantacao(${alerta.idPlantacao})">
                                 <h4>Alta Luminosidade! (${alerta.dtCaptura} - ${alerta.hrCaptura})</h4>
                                 <p>A região centro-oeste da sua plantação ${alerta.idPlantacao} está recebendo luminosidade acima da média!</p>
                                 <h3>Luminosidade: ${alerta.luminosidade}</h3>
@@ -70,12 +82,4 @@ setInterval(()=>{
         console.error(resposta);
         // finalizarAguardar();
     });
-}, 3000);
-
-function btnIrParaHistorico() {
-    window.location = "historico.html";
-}
-
-function irPlantacao() {
-    window.location = "../plantacoes-graficos.html"
 }
