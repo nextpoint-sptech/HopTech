@@ -84,7 +84,7 @@ function buscarQtTotal(){
     return database.executar(instrucao)
 }
 
-function cadastrarPlantacao(plantacao){
+async function cadastrarPlantacao(plantacao){
     var instrucao = `
     insert into plantacao values 
     (fn_qtdPlantacao((select idEmpresa from empresa where nome = '${plantacao.empresa}')),
@@ -106,7 +106,12 @@ function cadastrarPlantacao(plantacao){
     (4, 'LDR5 - Luminosidade', 'Ativo', (select idPlantacao from plantacao where fkEmpresa = (select idEmpresa from empresa where nome = '${plantacao.empresa}') order by idPlantacao desc limit 1),(select idEmpresa from empresa where nome = '${plantacao.empresa}'), 'Sudeste'),
     (5, 'LDR5 - Luminosidade', 'Ativo', (select idPlantacao from plantacao where fkEmpresa = (select idEmpresa from empresa where nome = '${plantacao.empresa}') order by idPlantacao desc limit 1),(select idEmpresa from empresa where nome = '${plantacao.empresa}'), 'Sul')
     ;`
-    return database.executar(instrucao), database.executar(instrucao2)
+    try{
+        await database.executar(instrucao)
+        await database.executar(instrucao2)
+    }catch(error){
+        throw error
+    }
 }
 
 function listarHistoricoAlertas(idEmpresa, permPlantacao) {
