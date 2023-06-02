@@ -68,7 +68,9 @@ async function excluirUsuario(usuario){
     var instrucao = `delete from permissoes where idPermissao = ${usuario.idPermissao}`
     var instrucao2 = `delete from usuario where idUsuario = ${usuario.idUsuario}`
     try{
+        console.log('executando instrucao sql:' + instrucao)
         await database.executar(instrucao)
+        console.log('executando instrucao sql:' + instrucao2)
         await database.executar(instrucao2)
     }catch(error){
         throw error

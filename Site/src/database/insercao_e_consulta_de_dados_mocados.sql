@@ -7,13 +7,11 @@ insert into empresa values
     (null, 'Lupulo Ltda', '59.484.892/0001-96', 'lupuloltda@outlook.com.br', '69023-490', 'AM', 'Manaus', 'Tarumã-Açu', 'Ramal do Mariano', '1498', null, 5),
     (null, 'LAL Agro Malte ', '89.422.803/0001-48', 'lal@outlook.com.br', '78065-150', 'MT', 'Cuiabá', 'Jardim Tropical', 'Rua Varsóvia', '222', null, 5);
 
-/*
 insert into telefone values
-	(null, '(53) 2814-7384', 1),
-    (null, '(53) 99374-9980', 1),
-    (null, '(92) 3876-9475', 2),
-    (null, '(65) 3578-5674', 3);
-*/
+	(null, '532814-7384', 1, 2),
+    (null, '5399374-9980', 1, 1),
+    (null, '923876-9475', 2, 3),
+    (null, '653578-5674', 3, 4);
 
 insert into usuario values
 	(null, 0, null, null, 'hoppers', '123', 1),
