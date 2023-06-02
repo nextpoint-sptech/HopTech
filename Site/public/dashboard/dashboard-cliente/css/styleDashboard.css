@@ -269,6 +269,8 @@ h1{
     font-size: 0.8rem;
     border: 2px solid #fb826f;
     box-shadow: 2px 2px 6px #48724c;
+
+    cursor: pointer;
 }
 
 .alerta2{
@@ -379,44 +381,6 @@ p{
     margin: 5px;
     text-align: center;
     padding-top: 15px;
-  }
-  
-  .cards {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    height: 450px;
-    width: 100%;
-    align-items: center;
-    color: white;
-  }
-  
-  .card {
-    margin: 2%;
-    width: 40%;
-    flex-wrap: wrap;
-    display: flex;
-    text-align: center;
-    height: 180px;
-    justify-content: right;
-    background-color: #212124;
-    font-size: 20px;
-  }
-  
-  .card p {
-    margin: 0;
-    font-size: 50px;
-    font-weight: lighter;
-    text-align: left;
-  }
-  
-  .cards h1 {
-    font-size: 22px;
-    width: 100%;
-    border-bottom: solid white 1px;
-    text-align: left;
-    font-weight: lighter;
-    margin: 20px;
   }
   
   .luminosidade {
