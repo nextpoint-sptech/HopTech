@@ -67,7 +67,7 @@
             <div class="conteudo_graficos_dashboard">
                 <div class="conteiner_graficos">
                     <div class="div_indicadores">
-                        <div class="box_indicador">
+                        <!-- <div class="box_indicador">
                             <div class="txt_indicador1">
                                 <h5>Janela solar do dia</h5>
                                 <span class="valorIndicador">12 Horas</span>
@@ -76,7 +76,7 @@
                                 <img class="icon_indicadores" src="../../assets/images/icons/por-do-sol.png"
                                     alt="icon indicador 1">
                             </div>
-                        </div>
+                        </div> -->
                         <div class="box_indicador">
                             <div>
                                 <h5>Plantação em destaque</h5>
@@ -238,7 +238,7 @@
             config
         );
 
-        //setTimeout(() => atualizarGrafico(fkEmpresa, permPlantacao, dados, myChart), 2000);
+        setTimeout(() => atualizarGrafico(fkEmpresa, permPlantacao, dados, myChart), 2000);
     }
 
     function atualizarGrafico(fkEmpresa, permPlantacao, dados, myChart) {

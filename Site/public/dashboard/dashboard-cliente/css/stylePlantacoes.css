@@ -53,7 +53,7 @@
     padding: 2em;
     gap: 2em;
     width: 100%;
-    height: 400px;
+    /* height: 400px; */
     display: flex;
     justify-content: center;
 }
@@ -61,29 +61,30 @@
 .div_conteiner_conteudo .div_grafico .container_grafico span .plantacao_grafico{
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     align-items: center;
     width: 50%;
-    height: 100%;
-    background-color: rgba(255, 255, 255, 0.5);
+    /* height: 100%; */
+    background-color: rgba(255, 255, 255);
     border-radius: 25px;
 }
 
 .div_conteiner_conteudo .div_grafico .container_grafico span .plantacao_grafico h2{
-    height: 10%;
+    /* height: 10%; */
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
-    border: 2px solid rgba(255, 255, 255, 0.5);
+    border: 2px solid #609966;
     border-radius: 25px 25px 0 0;
 }
 
 .div_conteiner_conteudo .div_grafico .container_grafico span .plantacao_grafico canvas{
     width: 100%;
     height: 90%;
-    border: 2px solid rgba(255, 255, 255, 0.5);
+    border: 2px solid #609966;
     border-radius: 0 0 25px 25px;
+    padding: 1em;
 }
 
 button{

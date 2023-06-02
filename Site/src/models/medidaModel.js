@@ -165,13 +165,13 @@ function obterMediaTotal(fkEmpresa, permPlantacao){
         join sensor on capturaLuminosidade.fkSensor = sensor.idSensor 
         join plantacao on sensor.fkPlantacao = plantacao.idPlantacao
         where plantacao.fkEmpresa = ${fkEmpresa} and dtCaptura = current_date
-        group by hrCaptura`
+        group by hrCaptura limit 15`
     }else{
         instrucao = `select hrCaptura, round(avg(luminosidade), 2) as luminosidade from capturaLuminosidade
         join sensor on capturaLuminosidade.fkSensor = sensor.idSensor 
         join plantacao on sensor.fkPlantacao = plantacao.idPlantacao
         where plantacao.fkEmpresa = ${fkEmpresa} and capturaluminosidade.fkPlantacao = ${permPlantacao} and dtCaptura = current_date
-        group by hrCaptura`
+        group by hrCaptura limit 15`
     }
     return database.executar(instrucao)
 }
