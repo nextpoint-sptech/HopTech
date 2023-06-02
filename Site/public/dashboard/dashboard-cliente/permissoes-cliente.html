@@ -11,7 +11,7 @@
      <!-- Flaticon -->
 
     <link rel="stylesheet" href="css/permissao.css">
-    <link rel="stylesheet" href="css/styleDashboard.css"> <!-- Importando CSS do dashboard -->
+    <!-- <link rel="stylesheet" href="css/styleDashboard.css"> Importando CSS do dashboard -->
 </head>
 
 <body id="dashboard">
@@ -54,33 +54,36 @@
             <button class="btnSair" onclick="sair(); return false">Sair</button>
         </div>
         <div class="conteiner_cadastro_usuarios">
-            <div class="box_cadastro_usuarios">
-                <div class="tabela_gerenciamento">
-                    <h2>Gerenciar Funcionários e Permissões</h2> <br>
-                    <table class="tabela_usuarios">
-                        <tr class="tr1">
-                            <th>Nome</th>
-                            <th>Plantação</th>
-                            <th>Excluir</th>
-                            <th class="th_end">Editar</th>
-                        </tr>
-                    </table>
-                </div>
-                <div class="imagem_cadastro_usuarios">
-                </div>
+            <div class="tabela_gerenciamento">
+                <h2>Gerenciar Funcionários e Permissões</h2> <br>
+                <table class="tabela_usuarios">
+                    <tr class="tr1">
+                        <th>Nome</th>
+                        <th>Plantação</th>
+                        <th>Excluir</th>
+                        <th class="button-tabela" class="th_end">Editar</th>
+                    </tr>
+                </table>
+            </div>
+            <div class="imagem_cadastro_usuarios">
             </div>
         </div>
     </div>
-    <div class="div_edicao">
-        <p><h2 id="usuario_edicao">User</h2></p>
-        
-        <label>Mudar nome de usuário</label>
-        <input type="text" id="mudancaNomeUsuario">
-        <label for="">Permissão em:</label>
-        <select id="select_plantacoes"></select>
-        <div class="buttonBox">
-            <button onclick="confirmarEdicao()">Confirmar</button>
-            <button onclick="cancelarEdicao()">Cancelar</button>
+    <div class="modal">
+        <div class="div_edicao">
+            <div class="fechar">
+                <button onclick="fechar_modal()" class="botao_fechar">X</button>
+            </div>
+            <p><h2 id="usuario_edicao">Usuário</h2></p>
+            
+            <label>Mudar nome de usuário</label><br>
+            <input class="inputs" type="text" id="mudancaNomeUsuario"><br>
+            <label for="">Permissão em:</label><br>
+            <select class="inputs" id="select_plantacoes"></select>
+            <div class="buttonBox">
+                <button class="button-confirm" onclick="confirmarEdicao()">Confirmar</button>
+                <button class="button-cancel" onclick="cancelarEdicao()">Cancelar</button>
+            </div>
         </div>
     </div>
 </body>
@@ -96,6 +99,13 @@
 <script src="js/funcoes.js"></script>
 <script type="text/javascript" nonce="{coloque_seu_valor_nonce_aqui}" src="https://desk.zoho.com/portal/api/web/inapp/858677000000226265?orgId=810882795" defer></script>
 <script>
+    function fechar_modal() {
+        document.querySelector('.modal').style.display = 'none'
+    }
+
+    function modal() {
+        document.querySelector('.modal').style.display = 'flex'
+    }
     function puxarUsuariosEmpresa(fkEmpresa){
         fetch(`/usuarios/puxarFuncionarios/${fkEmpresa}`, {cache: 'no-store'})
         .then(function (response) {
@@ -170,7 +180,7 @@
     }
 
     function editarPermissao(usuario){
-        document.querySelector('.div_edicao').style.display = 'flex';
+        modal()
         usuario_edicao.innerHTML = usuario.nome;
         sessionStorage.ID_PERMISSAO = usuario.idPermissao;
     }
@@ -214,6 +224,7 @@
 
     function cancelarEdicao(){
         document.querySelector('.div_edicao').style.display = 'none';
+        fechar_modal()
     }
     puxarPlantacoesEdit(sessionStorage.getItem('FK_EMPRESA'))
     function puxarPlantacoesEdit(idEmpresa){
