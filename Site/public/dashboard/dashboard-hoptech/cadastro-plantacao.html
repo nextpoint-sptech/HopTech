@@ -59,15 +59,15 @@
                         <div class="input_row">
                             <label for="tipo_ilumi">Tipo de iluminação*</label>
                             <select name="" id="select_iluminacao">
-                                <option value="0" style="color:rgb(170, 170, 170);">Selecione...</option>
+                                <option value="null" style="color:rgb(170, 170, 170);">Selecione...</option>
                                 <option value="Artificial">Artificial</option>
                                 <option value="Natural">Natural</option>
                             </select>
                         </div>
                         <div class="input_row">
                             <label for="tipo_lupulo">Tipo de Lupulo*</label>
-                                <select name="" id="select_lupulo">
-                                    <option value="0" style="color:rgb(170, 170, 170);">Selecione...</option>
+                                <select id="select_lupulo">
+                                    <option value="null" style="color:rgb(170, 170, 170);" >Selecione...</option>
                                 </select>
                             </label>
                         </div>
@@ -75,11 +75,13 @@
                     <div class="double_input">
                         <div class="input_row">
                             <label for="cep">CEP*</label>
-                            <input type="number" id="ipt_cep">
+                            <input maxlength="8" type="number" id="ipt_cep">
                         </div>
                         <div class="input_row">
                             <label for="estado">Estado (sigla)*</label>
-                            <input maxlength="2" type="text" id="ipt_estado">
+                            <select id="ipt_estado">
+                                <option value="null">Selecione...</option>
+                            </select>
                         </div>
                     </div>
                     <div class="double_input">
@@ -89,7 +91,14 @@
                         </div>
                         <div class="input_row">
                             <label for="complemento">Região*</label>
-                            <input type="text" id="ipt_regiao">
+                            <select type="text" id="ipt_regiao">
+                                <option value="null">Selecione...</option>
+                                <option>Norte</option>
+                                <option>Nordeste</option>
+                                <option>Centro-Oeste</option>
+                                <option>Sudeste</option>
+                                <option>Sul</option>
+                            </select>
                         </div>
                     </div>
                     <div class="button_box">
@@ -111,6 +120,10 @@
 <script>
     buscarEmpresas()
     buscarLupulos()
+    var siglas_estados = ["AC",  "AL", "AP",  "AM",  "BA",  "CE",  "DF",  "ES",  "GO",  "MA",  "MT",   "MS",   "MG", "PA",  "PB",  "PR",  "PE",  "PI",  "RJ",  "RN",  "RS",  "RO", "RR","SC",  "SP",  "SE","TO"   ]
+    for(itens of siglas_estados){
+        ipt_estado.innerHTML += `<option>${itens}</option>`
+    }
     function buscarEmpresas(){
         fetch('/medidas/buscarEmpresas', {cache: "no-store"})
         .then(function(response){
@@ -151,7 +164,7 @@
     }
 
 
-    function cadastrarPlantacao(){
+    function cadastrarPlantacao(){ 
         var plantacaoJSON = {
             empresa: nome_empresa.value,
             tpIluminacao: select_iluminacao.value,
@@ -163,6 +176,25 @@
             regiao: ipt_regiao.value,
             mesCadastro: pegarMes()
         };
+        for(keys of Object.keys(plantacaoJSON)){
+            if(plantacaoJSON[keys] == '' || plantacaoJSON[keys] == 'null'){
+                Swal.fire({
+                    position: 'center',
+                    icon: 'error',
+                    title: `Campo ${keys} está vazio ou possui um valor inválido!`,
+                    showConfirmButton: true,
+                });
+                return false;
+            }else if(keys == 'cep' && (plantacaoJSON[keys].length != 8 || plantacaoJSON[keys] != Number(plantacaoJSON[keys]))){
+                Swal.fire({
+                    position: 'center',
+                    icon: 'error',
+                    title: `${keys} está com uma quantidade de digitos inválida!`,
+                    showConfirmButton: true,
+                });
+                return false
+            }
+        }
         fetch('/medidas/cadastroPlantacao', {
                 method: "POST",
                 headers: {
