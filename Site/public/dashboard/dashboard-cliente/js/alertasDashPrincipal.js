@@ -35,7 +35,7 @@ function ultimosAlertas() {
                     if (alerta.luminosidade <= 600 && alerta.luminosidade >= 500) {
                         div_alertas.innerHTML += `
                             <p>${alerta.dtCaptura} - ${alerta.hrCaptura}</p>
-                            <div class="alerta2" id="alerta" onclick="irPlantacao()">
+                            <div class="alerta2" id="alerta" onclick="irPlantacao(${alerta.idPlantacao})">
                                 <h4>Risco de Baixa Luminosidade! ()</h4>
                                 <p>A região ${alerta.regiao} da sua plantação ${alerta.idPlantacao} está recebendo pouca luminosidade e está quase ficando abaixo da média!</p>
                                 <h3>Luminosidade: ${alerta.luminosidade}</h3>
@@ -64,7 +64,6 @@ function ultimosAlertas() {
                                 <p>A região centro-oeste da sua plantação ${alerta.idPlantacao} está recebendo luminosidade acima da média!</p>
                                 <h3>Luminosidade: ${alerta.luminosidade}</h3>
                             </div>
-                            
                         `; 
                     }
                 }
@@ -82,4 +81,16 @@ function ultimosAlertas() {
         console.error(resposta);
         // finalizarAguardar();
     });
+<<<<<<< HEAD
+=======
+}, 3000);
+
+function btnIrParaHistorico() {
+    window.location = "historico.html";
+}
+
+function irPlantacao(plantacao) {
+    window.location = "plantacoes-graficos.html"
+    sessionStorage.FK_PLANTACAO = plantacao;
+>>>>>>> 291818fd0e4e65411e1872c7becb1d9defbc05a7
 }
