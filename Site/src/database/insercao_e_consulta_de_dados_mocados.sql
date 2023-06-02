@@ -53,36 +53,36 @@ SELECT * FROM USUARIO;
 desc capturaluminosidade;
 select * from plantacao;
 insert into capturaLuminosidade values -- fkSensor fkPlantacao fkEmpresa
-	(null, '2023-04-01', '10:00:00', 350, 1, 1, 2),
-    (null, '2023-04-01', '10:00:00', 350, 2, 1, 2),
-    (null, '2023-04-01', '10:00:00', 520, 3, 1, 2),
-    (null, '2023-04-01', '10:00:00', 550, 4, 1, 2),
-    (null, '2023-04-01', '10:00:00', 550, 5, 1, 2), -- dados as 10 horas de todos sensores da plantacao 1 da empresa 2
-    (null, '2023-04-01', '10:00:00', 575, 1, 2, 2), 
-    (null, '2023-04-01', '10:00:00', 578, 2, 2, 2),
-    (null, '2023-04-01', '10:00:00', 645, 3, 2, 2),
-    (null, '2023-04-01', '10:00:00', 576, 4, 2, 2),
-    (null, '2023-04-01', '10:00:00', 574, 5, 2, 2), -- dados as 10 horas de todos sensores da plantacao 2 da empresa 2
-    (null, '2023-04-01', '10:00:00', 700, 1, 1, 3),
-    (null, '2023-04-01', '10:00:00', 701, 2, 1, 3),
-    (null, '2023-04-01', '10:00:00', 659, 3, 1, 3),
-    (null, '2023-04-01', '10:00:00', 500, 4, 1, 3),
-    (null, '2023-04-01', '10:00:00', 505, 5, 1, 3), -- dados as 10 horas de todos sensores da plantacao 1 da empresa 3
-    (null, '2023-04-01', '10:30:00', 467, 1, 1, 2),
-    (null, '2023-04-01', '10:30:00', 128, 2, 1, 2),
-    (null, '2023-04-01', '10:30:00', 520, 3, 1, 2),
-    (null, '2023-04-01', '10:30:00', 550, 4, 1, 2),
-    (null, '2023-04-01', '10:30:00', 550, 5, 1, 2), -- dados as 10:30 de todos sensores da plantacao 1 da empresa 2
-    (null, '2023-04-01', '10:30:00', 575, 1, 1, 3),
-    (null, '2023-04-01', '10:30:00', 578, 2, 1, 3),
-    (null, '2023-04-01', '10:30:00', 645, 3, 1, 3),
-    (null, '2023-04-01', '10:30:00', 572, 4, 1, 3),
-    (null, '2023-04-01', '10:30:00', 570, 5, 1, 3), -- dados as 10:30 de todos sensores da plantacao 1 da empresa 3
-    (null, '2023-04-01', '10:30:00', 705, 1, 2, 2),
-    (null, '2023-04-01', '10:30:00', 702, 2, 2, 2),
-    (null, '2023-04-01', '10:30:00', 659, 3, 2, 2),
-    (null, '2023-04-01', '10:30:00', 479, 4, 2, 2),
-    (null, '2023-04-01', '10:30:00', 505, 5, 2, 2); -- dados as 10:30 de todos os sensores da plantacao 2 da empresa 2
+	(null, current_date, '10:00:00', 350, 1, 1, 2),
+    (null, current_date, '10:00:00', 350, 2, 1, 2),
+    (null, current_date, '10:00:00', 520, 3, 1, 2),
+    (null, current_date, '10:00:00', 550, 4, 1, 2),
+    (null, current_date, '10:00:00', 550, 5, 1, 2), -- dados as 10 horas de todos sensores da plantacao 1 da empresa 2
+    (null, current_date, '10:00:00', 575, 1, 2, 2), 
+    (null, current_date, '10:00:00', 578, 2, 2, 2),
+    (null, current_date, '10:00:00', 645, 3, 2, 2),
+    (null, current_date, '10:00:00', 576, 4, 2, 2),
+    (null, current_date, '10:00:00', 574, 5, 2, 2), -- dados as 10 horas de todos sensores da plantacao 2 da empresa 2
+    (null, current_date, '10:00:00', 700, 1, 1, 3),
+    (null, current_date, '10:00:00', 701, 2, 1, 3),
+    (null, current_date, '10:00:00', 659, 3, 1, 3),
+    (null, current_date, '10:00:00', 500, 4, 1, 3),
+    (null, current_date, '10:00:00', 505, 5, 1, 3), -- dados as 10 horas de todos sensores da plantacao 1 da empresa 3
+    (null, current_date, '10:30:00', 467, 1, 1, 2),
+    (null, current_date, '10:30:00', 128, 2, 1, 2),
+    (null, current_date, '10:30:00', 520, 3, 1, 2),
+    (null, current_date, '10:30:00', 550, 4, 1, 2),
+    (null, current_date, '10:30:00', 550, 5, 1, 2), -- dados as 10:30 de todos sensores da plantacao 1 da empresa 2
+    (null, current_date, '10:30:00', 575, 1, 1, 3),
+    (null, current_date, '10:30:00', 578, 2, 1, 3),
+    (null, current_date, '10:30:00', 645, 3, 1, 3),
+    (null, current_date, '10:30:00', 572, 4, 1, 3),
+    (null, current_date, '10:30:00', 570, 5, 1, 3), -- dados as 10:30 de todos sensores da plantacao 1 da empresa 3
+    (null, current_date, '10:30:00', 705, 1, 2, 2),
+    (null, current_date, '10:30:00', 702, 2, 2, 2),
+    (null, current_date, '10:30:00', 659, 3, 2, 2),
+    (null, current_date, '10:30:00', 479, 4, 2, 2),
+    (null, current_date, '10:30:00', 505, 5, 2, 2); -- dados as 10:30 de todos os sensores da plantacao 2 da empresa 2
 
 -- Consulta de dados
 select * from empresa;
