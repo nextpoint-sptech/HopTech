@@ -239,6 +239,36 @@ function listarAlertasDashPrincipal(idEmpresa, permPlantacao) {
     return database.executar(instrucao);
 }
 
+function buscarPlantacaoDestaque(idEmpresa){
+    var instrucao = `
+        SELECT p.idPlantacao
+        FROM plantacao AS p
+        JOIN capturaLuminosidade AS c ON c.fkPlantacao = p.idPlantacao AND c.fkEmpresa = p.fkEmpresa
+        WHERE p.fkEmpresa = ${idEmpresa}
+        AND (c.luminosidade <= 600 OR c.luminosidade >= 700)
+        GROUP BY p.idPlantacao
+        ORDER BY COUNT(c.idCaptura) ASC
+        LIMIT 1;
+    `;
+    
+    return database.executar(instrucao)
+}
+
+function buscarPlantacaoAtencao(idEmpresa){
+    var instrucao = `
+        SELECT p.idPlantacao
+        FROM plantacao AS p
+        JOIN capturaLuminosidade AS c ON c.fkPlantacao = p.idPlantacao AND c.fkEmpresa = p.fkEmpresa
+        WHERE p.fkEmpresa = ${idEmpresa}
+        AND (c.luminosidade <= 600 OR c.luminosidade >= 700)
+        GROUP BY p.idPlantacao
+        ORDER BY COUNT(c.idCaptura) DESC
+        LIMIT 1;
+    `;
+    
+    return database.executar(instrucao)
+}
+
 module.exports = {
     buscarUltimasMedidas,
     buscarMedidasEmTempoReal,
@@ -251,5 +281,7 @@ module.exports = {
     buscarPlantacoes,
     obterMediaTotal,
     obterMediaTempoReal,
-    listarAlertasDashPrincipal
+    listarAlertasDashPrincipal,
+    buscarPlantacaoDestaque,
+    buscarPlantacaoAtencao 
 }

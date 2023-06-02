@@ -53,4 +53,12 @@ router.get('/listarAlertasDashPrincipal/:idEmpresa/:permPlantacao', function(req
     medidaController.listarAlertasDashPrincipal(req, res)
 })
 
+router.get('/buscarPlantacaoDestaque/:idEmpresa', function(req, res){
+    medidaController.buscarPlantacaoDestaque(req, res)
+})
+
+router.get('/buscarPlantacaoAtencao/:idEmpresa', function(req, res){
+    medidaController.buscarPlantacaoAtencao(req, res)
+})
+
 module.exports = router;
