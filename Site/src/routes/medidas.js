@@ -61,4 +61,12 @@ router.get('/buscarPlantacaoAtencao/:idEmpresa', function(req, res){
     medidaController.buscarPlantacaoAtencao(req, res)
 })
 
+router.get('/buscarRegiaoAtencao/:idEmpresa/:idPlantacao', function(req, res){
+    medidaController.buscarRegiaoAtencao(req, res)
+})
+
+router.get('/buscarRegiaoDestaque/:idEmpresa/:idPlantacao', function(req, res){
+    medidaController.buscarRegiaoDestaque(req, res)
+})
+
 module.exports = router;

@@ -269,6 +269,40 @@ function buscarPlantacaoAtencao(idEmpresa){
     return database.executar(instrucao)
 }
 
+function buscarRegiaoDestaque(idEmpresa, idPlantacao){
+    var instrucao = `
+        SELECT s.regiao,
+            COUNT(cl.idCaptura)
+        FROM sensor AS s
+        JOIN capturaLuminosidade AS cl ON cl.fkSensor = s.idSensor 
+            and cl.fkPlantacao = s.fkPlantacao and cl.fkEmpresa = s.fkEmpresa
+        WHERE cl.fkEmpresa = ${idEmpresa} AND cl.fkPlantacao = ${idPlantacao}
+        AND (cl.luminosidade <= 600 OR cl.luminosidade >= 700)
+        GROUP BY s.regiao
+        ORDER BY COUNT(cl.idCaptura) ASC
+        LIMIT 1;
+    `;
+    
+    return database.executar(instrucao)
+}
+
+function buscarRegiaoAtencao(idEmpresa, idPlantacao){
+    var instrucao = `
+        SELECT s.regiao,
+            COUNT(cl.idCaptura)
+        FROM sensor AS s
+        JOIN capturaLuminosidade AS cl ON cl.fkSensor = s.idSensor 
+            and cl.fkPlantacao = s.fkPlantacao and cl.fkEmpresa = s.fkEmpresa
+        WHERE cl.fkEmpresa = ${idEmpresa} AND cl.fkPlantacao = ${idPlantacao}
+        AND (cl.luminosidade <= 600 OR cl.luminosidade >= 700)
+        GROUP BY s.regiao
+        ORDER BY COUNT(cl.idCaptura) DESC
+        LIMIT 1;
+    `;
+    
+    return database.executar(instrucao)
+}
+
 module.exports = {
     buscarUltimasMedidas,
     buscarMedidasEmTempoReal,
@@ -283,5 +317,7 @@ module.exports = {
     obterMediaTempoReal,
     listarAlertasDashPrincipal,
     buscarPlantacaoDestaque,
-    buscarPlantacaoAtencao 
+    buscarPlantacaoAtencao ,
+    buscarRegiaoDestaque,
+    buscarRegiaoAtencao
 }

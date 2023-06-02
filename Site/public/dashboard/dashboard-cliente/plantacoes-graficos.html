@@ -61,11 +61,45 @@
         </div>
         <div class="div_grafico">
             <div class="title_box">
-
                 <h1>Gráficos Plantação <b id="plantacaoIdentificacao"></b></h1>
-                <select id="select_plantacoes">
-                </select>
-                <button onclick="atualizar()">Atualizar</button>
+                <div class="div_select">
+                    <select id="select_plantacoes">
+                        <option value="" selected disabled>Selecione uma plantação para visualizar...</option>
+                    </select>
+                    <button onclick="atualizar()">Atualizar</button>
+                </div>    
+            </div>            
+            <div class="div_indicadores_plantacoes">
+                <!-- <div class="box_indicador">
+                    <div class="txt_indicador1">
+                        <h5>Janela solar do dia</h5>
+                        <span class="valorIndicador">12 Horas</span>
+                    </div>
+                    <div>
+                        <img class="icon_indicadores" src="../../assets/images/icons/por-do-sol.png"
+                            alt="icon indicador 1">
+                    </div>
+                </div> -->
+                <div class="box_indicador">
+                    <div>
+                        <h5>Região em destaque</h5>
+                        <span class="valorIndicador" id="regiao_destaque"></span>
+                    </div>
+                    <div>
+                        <img class="icon_indicadores" src="../../assets/images/icons/iconeIndicador.png"
+                            alt="icon indicador 2">
+                    </div>
+                </div>
+                <div class="box_indicador" id="box-cuidado">
+                    <div>
+                        <h5>Região de atenção</h5>
+                        <span class="valorIndicador" id="regiao_atencao"></span>
+                    </div>
+                    <div>
+                        <img class="icon_indicadores" src="../../assets/images/icons/iconeAtencao.png"
+                            alt="icon indicador 3">
+                    </div>
+                </div>
             </div>
             <div class="container_grafico">
                 <span>
@@ -100,8 +134,7 @@
     </div>
 </body>
 </html>
-
-
+<script src="js/plantacoes_graficos.js"></script>
 <!-- Importando a biblioteca ChartJS: -->
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
