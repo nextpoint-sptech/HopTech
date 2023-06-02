@@ -52,7 +52,6 @@ setInterval(()=>{
                                 <p>A região centro-oeste da sua plantação ${alerta.idPlantacao} está recebendo luminosidade acima da média!</p>
                                 <h3>Luminosidade: ${alerta.luminosidade}</h3>
                             </div>
-                            
                         `; 
                     }
                 }
