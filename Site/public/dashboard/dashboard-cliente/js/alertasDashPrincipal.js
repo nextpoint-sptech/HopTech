@@ -34,9 +34,8 @@ function ultimosAlertas() {
     
                     if (alerta.luminosidade <= 600 && alerta.luminosidade >= 500) {
                         div_alertas.innerHTML += `
-                            <p>${alerta.dtCaptura} - ${alerta.hrCaptura}</p>
                             <div class="alerta2" id="alerta" onclick="irPlantacao(${alerta.idPlantacao})">
-                                <h4>Risco de Baixa Luminosidade! ()</h4>
+                                <h4>Risco de Baixa Luminosidade! (${alerta.dtCaptura} - ${alerta.hrCaptura})</h4>
                                 <p>A região ${alerta.regiao} da sua plantação ${alerta.idPlantacao} está recebendo pouca luminosidade e está quase ficando abaixo da média!</p>
                                 <h3>Luminosidade: ${alerta.luminosidade}</h3>
                             </div>
