@@ -176,7 +176,7 @@
             estado: ipt_estado.value,
             cidade: ipt_cidade.value,
             regiao: ipt_regiao.value,
-            mesCadastro: pegarMes()
+            mesCadastro: pegarDataAtual()
         };
         for(keys of Object.keys(plantacaoJSON)){
             if(plantacaoJSON[keys] == '' || plantacaoJSON[keys] == 'null'){

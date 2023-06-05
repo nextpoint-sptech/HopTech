@@ -28,7 +28,7 @@ router.get('/listarHistoricoAlertas/:idEmpresa/:permPlantacao', function(req, re
     medidaController.listarHistoricoAlertas(req, res)
 })
 
-router.get('/metricasCadastros/:mes', function(req, res){
+router.get('/metricasCadastros/:mes/:ano', function(req, res){
     medidaController.buscarMetricasCadastro(req, res)
 })
 

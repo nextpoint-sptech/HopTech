@@ -25,7 +25,7 @@ async function cadastrarEmpresa(empresa) {
     
     // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
     //  e na ordem de inserção dos dados.
-    const instrucao = `INSERT INTO empresa VALUES (null, '${empresa.nome}', '${empresa.cnpj}', '${empresa.email}', '${empresa.cep}', '${empresa.estado}', '${empresa.cidade}', '${empresa.bairro}', '${empresa.rua}',${empresa.numero}, '${empresa.complemento}', ${empresa.mesCadastrado});`
+    const instrucao = `INSERT INTO empresa VALUES (null, '${empresa.nome}', '${empresa.cnpj}', '${empresa.email}', '${empresa.cep}', '${empresa.estado}', '${empresa.cidade}', '${empresa.bairro}', '${empresa.rua}',${empresa.numero}, '${empresa.complemento}', '${empresa.mesCadastrado}');`
 
     const instrucao2 = `INSERT INTO usuario VALUES (null, 1,'${empresa.nome}', '${empresa.email}','${empresa.usuario}', '${empresa.senha}', (select idEmpresa from empresa where nome = '${empresa.nome}'));`;
     

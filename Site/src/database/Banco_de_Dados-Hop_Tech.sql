@@ -13,8 +13,7 @@
         rua varchar(100) not null,
         numero int not null,
         complemento varchar(100),
-        mesCadastrado int, constraint ckMesEmpresaCadastrada
-        check (mesCadastrado in (1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12))
+        dtCadastro date
     );
 
     create table tipoTelefone(
@@ -54,8 +53,7 @@
         cidade varchar(25) not null,
         fkLupulo int not null, foreign key (fkLupulo) references lupulo(idLupulo),
         fkEmpresa int not null, foreign key (fkEmpresa) references empresa(idEmpresa),
-        mesCadastrado int, constraint ckMesPlantacaoCadastrada
-        check (mesCadastrado in (1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12)),
+        dtCadastro date,
         primary key(idPlantacao, fkEmpresa)
     );
 
@@ -101,7 +99,6 @@
     END$$;
     DELIMITER ;
     -- FIM DA FUNCAO
-
 
     -- inserções padrões para o funcionamento do sistema
     insert into tipoTelefone values

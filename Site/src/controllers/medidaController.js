@@ -118,7 +118,8 @@ function cadastrarPlantacao(req, res){
 
 function buscarMetricasCadastro(req, res){
     var mes = req.params.mes
-    medidaModel.buscarMetricasCadastro(mes)
+    var ano = req.params.ano
+    medidaModel.buscarMetricasCadastro(mes, ano)
     .then(function (resultado) {
         if (resultado.length > 0) {
             res.status(200).json(resultado);
