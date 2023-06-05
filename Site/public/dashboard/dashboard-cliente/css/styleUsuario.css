@@ -178,7 +178,7 @@ h1{
 
 .conteiner_cadastro_usuarios .box_cadastro_usuarios form input{
     height: 25px;
-    border: none;
+    border: solid 1px;
     border-radius: 15px;
     font-size:  15px;
     padding-left: 10px;
@@ -208,4 +208,5 @@ h1{
     border-radius: 15px;
     font-size:  15px;
     padding-left: 10px;
+    border: solid 1px;
 }
