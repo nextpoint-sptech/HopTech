@@ -41,6 +41,20 @@ insert into sensor values -- FKPLANTACAO E FKEMPRESA NESSA ORDEM
     (4, 'LDR5 - Luminosidade', 'Ativo', 1, 3, 'Sudeste'),
     (5, 'LDR5 - Luminosidade', 'Ativo', 1, 3, 'Sul'); -- 5 SENSORES DA PLANTACAO 1 DA EMPRESA 3
     
+insert into capturaluminosidade values -- FKSENSOR, FKPLANTACAO e FKEMPRESA NESSA ORDEM
+(null, current_date, current_time, 500, 1, 1, 2),
+(null, current_date, current_time, 700, 2, 1, 2),
+(null, current_date, current_time, 300, 3, 1, 2),
+(null, current_date, current_time, 730, 4, 1, 2),
+(null, current_date, current_time, 130, 5, 1, 2);
+-- 
+insert into capturaluminosidade values
+(null, current_date, current_time, 130, 1, 1, 2),
+(null, current_date, current_time, 730, 2, 1, 2),
+(null, current_date, current_time, 500, 3, 1, 2),
+(null, current_date, current_time, 300, 4, 1, 2),
+(null, current_date, current_time, 700, 5, 1, 2);
+
 -- Consulta de dados
 select * from empresa;
 select * from telefone;
