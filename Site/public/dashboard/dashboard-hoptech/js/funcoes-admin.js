@@ -18,10 +18,13 @@ function irParaNotificacoes() {
     window.parent.location.href = "../../erro-pages/erro404-hoptech.html";
 }
 
-function pegarMes(){
+function pegarDataAtual(){
     let dtAtual = new Date();
+    let dia = dtAtual.getDate()
     let mes = dtAtual.getMonth() + 1
-    return mes
+    let year = dtAtual.getFullYear()
+
+    return `${year}-${mes}-${dia}`
 }
 
 

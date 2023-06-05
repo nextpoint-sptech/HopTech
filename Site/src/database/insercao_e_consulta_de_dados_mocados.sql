@@ -1,34 +1,27 @@
-use hop_tech;
 
 -- Inserção de dados mocados
 insert into empresa values 
-	(null, 'HopTech', 'xx.xxx.xxx/xxxx-xx', 'atendimentohoptech@gmail.com', '00000-000', 'SP', 'São Paulo', 'Paulista - Consolação', 'Rua Haddock Lobo', '595', null, 5),
-	(null, 'LupAgro', '70.357.617/0001-44', 'lupagro@outlook.com.br', '96090-710', 'RS', 'Pelotas', 'Laranjal', 'Rua São Lourenço do Sul', '810', 'Area rural, ao lado de uma plantação de lupulo.', 5),
-    (null, 'Lupulo Ltda', '59.484.892/0001-96', 'lupuloltda@outlook.com.br', '69023-490', 'AM', 'Manaus', 'Tarumã-Açu', 'Ramal do Mariano', '1498', null, 5),
-    (null, 'LAL Agro Malte ', '89.422.803/0001-48', 'lal@outlook.com.br', '78065-150', 'MT', 'Cuiabá', 'Jardim Tropical', 'Rua Varsóvia', '222', null, 5);
+	(null, 'HopTech', 'xx.xxx.xxx/xxxx-xx', 'atendimentohoptech@gmail.com', '00000-000', 'SP', 'São Paulo', 'Paulista - Consolação', 'Rua Haddock Lobo', '595', null, current_date),
+	(null, 'LupAgro', '70.357.617/0001-44', 'lupagro@outlook.com.br', '96090-710', 'RS', 'Pelotas', 'Laranjal', 'Rua São Lourenço do Sul', '810', 'Area rural, ao lado de uma plantação de lupulo.', current_date),
+    (null, 'Lupulo Ltda', '59.484.892/0001-96', 'lupuloltda@outlook.com.br', '69023-490', 'AM', 'Manaus', 'Tarumã-Açu', 'Ramal do Mariano', '1498', null, current_date),
+    (null, 'LAL Agro Malte ', '89.422.803/0001-48', 'lal@outlook.com.br', '78065-150', 'MT', 'Cuiabá', 'Jardim Tropical', 'Rua Varsóvia', '222', null, current_date);
 
 insert into telefone values
 	(null, '532814-7384', 1, 2),
     (null, '5399374-9980', 1, 1),
-    (null, '923876-9475', 2, 3),
-    (null, '653578-5674', 3, 4);
+    (null, '923*876-9475', 2, 3),
+    (null, '653578-5674', 2, 4);
 
 insert into usuario values
 	(null, 0, null, null, 'hoppers', '123', 1),
     (null, 1, null, null, 'LupAgroAdmin', '4321', 2),
     (null, 1, null, null, 'LupuloLtdaAdmin', '5678', 3),
     (null, 1, null, null, 'LalAdmin', '0987', 4);    
-    
-insert into lupulo values
-	(null, 'Admiral', 15),
-    (null, 'Ahtanum', 15),
-    (null, 'Amarillo', 15);
-
 
 insert into plantacao values -- fkLupulo fkEmpresa mes
-	(fn_qtdPlantacao(2), 'Natural', 1000, 'Sul', 'RS', 'Pelotas', 2, 2, 5),
-    (fn_qtdPlantacao(2), 'artificial', 5500, 'Centro-Oeste', 'MT', 'Cuiabá', 3, 2, 5),
-    (fn_qtdPlantacao(3), 'Natural', 10000, 'Norte', 'AM', 'Manaus', 1, 3, 5);
+	(fn_qtdPlantacao(2), 'Natural', 1000, 'Sul', 'RS', 'Pelotas', 2, 2, current_date),
+    (fn_qtdPlantacao(2), 'artificial', 5500, 'Centro-Oeste', 'MT', 'Cuiabá', 3, 2, current_date),
+    (fn_qtdPlantacao(3), 'Natural', 10000, 'Norte', 'AM', 'Manaus', 1, 3, current_date);
 
 desc sensor;
 insert into sensor values -- FKPLANTACAO E FKEMPRESA NESSA ORDEM
@@ -48,41 +41,19 @@ insert into sensor values -- FKPLANTACAO E FKEMPRESA NESSA ORDEM
     (4, 'LDR5 - Luminosidade', 'Ativo', 1, 3, 'Sudeste'),
     (5, 'LDR5 - Luminosidade', 'Ativo', 1, 3, 'Sul'); -- 5 SENSORES DA PLANTACAO 1 DA EMPRESA 3
     
-
-SELECT * FROM USUARIO;
-desc capturaluminosidade;
-select * from plantacao;
-insert into capturaLuminosidade values -- fkSensor fkPlantacao fkEmpresa
-	(null, current_date, '10:00:00', 350, 1, 1, 2),
-    (null, current_date, '10:00:00', 350, 2, 1, 2),
-    (null, current_date, '10:00:00', 520, 3, 1, 2),
-    (null, current_date, '10:00:00', 550, 4, 1, 2),
-    (null, current_date, '10:00:00', 550, 5, 1, 2), -- dados as 10 horas de todos sensores da plantacao 1 da empresa 2
-    (null, current_date, '10:00:00', 575, 1, 2, 2), 
-    (null, current_date, '10:00:00', 578, 2, 2, 2),
-    (null, current_date, '10:00:00', 645, 3, 2, 2),
-    (null, current_date, '10:00:00', 576, 4, 2, 2),
-    (null, current_date, '10:00:00', 574, 5, 2, 2), -- dados as 10 horas de todos sensores da plantacao 2 da empresa 2
-    (null, current_date, '10:00:00', 700, 1, 1, 3),
-    (null, current_date, '10:00:00', 701, 2, 1, 3),
-    (null, current_date, '10:00:00', 659, 3, 1, 3),
-    (null, current_date, '10:00:00', 500, 4, 1, 3),
-    (null, current_date, '10:00:00', 505, 5, 1, 3), -- dados as 10 horas de todos sensores da plantacao 1 da empresa 3
-    (null, current_date, '10:30:00', 467, 1, 1, 2),
-    (null, current_date, '10:30:00', 128, 2, 1, 2),
-    (null, current_date, '10:30:00', 520, 3, 1, 2),
-    (null, current_date, '10:30:00', 550, 4, 1, 2),
-    (null, current_date, '10:30:00', 550, 5, 1, 2), -- dados as 10:30 de todos sensores da plantacao 1 da empresa 2
-    (null, current_date, '10:30:00', 575, 1, 1, 3),
-    (null, current_date, '10:30:00', 578, 2, 1, 3),
-    (null, current_date, '10:30:00', 645, 3, 1, 3),
-    (null, current_date, '10:30:00', 572, 4, 1, 3),
-    (null, current_date, '10:30:00', 570, 5, 1, 3), -- dados as 10:30 de todos sensores da plantacao 1 da empresa 3
-    (null, current_date, '10:30:00', 705, 1, 2, 2),
-    (null, current_date, '10:30:00', 702, 2, 2, 2),
-    (null, current_date, '10:30:00', 659, 3, 2, 2),
-    (null, current_date, '10:30:00', 479, 4, 2, 2),
-    (null, current_date, '10:30:00', 505, 5, 2, 2); -- dados as 10:30 de todos os sensores da plantacao 2 da empresa 2
+insert into capturaluminosidade values -- FKSENSOR, FKPLANTACAO e FKEMPRESA NESSA ORDEM
+(null, current_date, current_time, 500, 1, 1, 2),
+(null, current_date, current_time, 700, 2, 1, 2),
+(null, current_date, current_time, 300, 3, 1, 2),
+(null, current_date, current_time, 730, 4, 1, 2),
+(null, current_date, current_time, 130, 5, 1, 2);
+-- 
+insert into capturaluminosidade values
+(null, current_date, current_time, 130, 1, 1, 2),
+(null, current_date, current_time, 730, 2, 1, 2),
+(null, current_date, current_time, 500, 3, 1, 2),
+(null, current_date, current_time, 300, 4, 1, 2),
+(null, current_date, current_time, 700, 5, 1, 2);
 
 -- Consulta de dados
 select * from empresa;

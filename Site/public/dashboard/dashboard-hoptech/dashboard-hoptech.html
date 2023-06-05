@@ -113,32 +113,47 @@
 <!-- Adicionando a biblioteca ChartJS: -->
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <!-- Exportando o JS: -->
-
+<script type="text/javascript" nonce="{coloque_seu_valor_nonce_aqui}" src="https://desk.zoho.com/portal/api/web/inapp/864834000000236049?orgId=812381170" defer></script>
 <script src="js/funcoes-admin.js"></script>
 <script>
     var labelSensores = [];
     var labelPlantacoes = [];
     var labelEmpresas = []
-    
+    var ano = new Date().getFullYear()
     for(var i = 1; i <= 12; i++){
-        metricasCadastros(i)
+        metricasCadastros(i, ano)
         if(i == 12){
             setTimeout(
                 ()=>{
                     plotarGrafico() 
-                }, 250 // delay para ter tempo do fetch ser finalizado antes da aparição do gráfico!
+                }, 300 // delay para ter tempo do fetch ser finalizado antes da aparição do gráfico!
             )
         }
     }
-    function metricasCadastros(mes){
-        fetch(`/medidas/metricasCadastros/${mes}`, {cache:"no-store"})
+
+    
+    function metricasCadastros(mes, ano){
+        fetch(`/medidas/metricasCadastros/${mes}/${ano}`, {cache:"no-store"})
         .then(function(response){
             if(response.ok){
                 response.json().then(function(resposta){
-                    console.log('Dados recebidos: ', JSON.stringify(resposta));
-                        labelSensores[resposta[0].mes] = resposta[0].sensorMes;
-                        labelPlantacoes[resposta[0].mes] = resposta[0].plantacaoMes;
-                        labelEmpresas[resposta[0].mes] = resposta[0].empresaMes;
+                    console.log(`Dados recebidos do mes ${mes}: `, JSON.stringify(resposta));
+                        try{
+                            if(resposta.length == 1){
+                                labelSensores[mes-1] = (resposta[0].dadosMes * 5)
+                                labelPlantacoes[mes-1] = resposta[0].dadosMes
+                                labelEmpresas[mes-1] = resposta[0].dadosMes
+                            }else{
+                                labelSensores[mes-1] = (resposta[0].dadosMes *5)// quantidade de sensores;
+                                labelPlantacoes[mes-1] = resposta[0].dadosMes // quantidade de plantacoes
+                                labelEmpresas[mes-1] = resposta[1].dadosMes;
+                            }
+                        }catch(error){
+                            console.log(error)
+                        }
+                        // labelSensores[resposta[0].mes] = resposta[0].sensorMes;
+                        // labelPlantacoes[resposta[0].mes] = resposta[0].plantacaoMes;
+                        // labelEmpresas[resposta[0].mes] = resposta[0].empresaMes;
                 })
             }else{
                 console.log('Nenhum dado encontrado na API')

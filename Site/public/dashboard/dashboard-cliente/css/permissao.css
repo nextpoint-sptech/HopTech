@@ -190,6 +190,7 @@ td {
   align-items: center;
   justify-content: center;
   text-align: justify;
+  cursor: pointer;
 }
 
 .div_edicao {

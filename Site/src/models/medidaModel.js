@@ -71,9 +71,15 @@ function buscarLupulo(){
 
 function buscarMetricasCadastro(mes){
     console.log('Estou buscando as metricas de cadastros por mes')
-    var instrucao = `select count(idSensor) as sensorMes, ${mes-1} as 'mes', count(distinct(idEmpresa)) as empresaMes, count(distinct concat(plantacao.idPlantacao, plantacao.fkEmpresa)) as plantacaoMes from sensor join plantacao on sensor.fkPlantacao = plantacao.idPlantacao join empresa on plantacao.fkEmpresa = empresa.idEmpresa where empresa.mesCadastrado = ${mes} and plantacao.mesCadastrado = ${mes}`
+
+    var instrucao = `
+    select count(idPlantacao) as dadosMes from plantacao where Month(dtCadastro) = ${mes}
+    union
+    select count(idEmpresa) from empresa where Month(dtCadastro) = ${mes};`
+
     return database.executar(instrucao)
 }
+
 
 function buscarQtTotal(){
     console.log('estou no medidamodel, na funcao buscarqttotal');
@@ -95,7 +101,7 @@ async function cadastrarPlantacao(plantacao){
     '${plantacao.cidade}',
     (select idLupulo from lupulo where tipoLupulo = '${plantacao.tpLupulo}'),
     (select idEmpresa from empresa where nome = '${plantacao.empresa}'),
-    5);`
+    '${plantacao.mesCadastro}');`
     console.log('Executando instrucao SQL: ' + instrucao)
     
     var instrucao2 = `
