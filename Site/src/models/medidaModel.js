@@ -130,8 +130,8 @@ function listarHistoricoAlertas(idEmpresa, permPlantacao) {
             capturaLuminosidade.luminosidade,
             sensor.regiao,
             lupulo.tipoLupulo,
-            plantacao.idPlantacao,
-            empresa.idEmpresa
+            capturaluminosidade.fkPlantacao as idPlantacao,
+            capturaluminosidade.fkEmpresa as idEmpresa
             from capturaLuminosidade
             join sensor on idSensor = fkSensor
             join plantacao on plantacao.idPlantacao = sensor.fkPlantacao
@@ -148,8 +148,8 @@ function listarHistoricoAlertas(idEmpresa, permPlantacao) {
             capturaLuminosidade.luminosidade,
             sensor.regiao,
             lupulo.tipoLupulo,
-            plantacao.idPlantacao,
-            empresa.idEmpresa
+            capturaluminosidade.fkPlantacao as idPlantacao,
+            capturaluminosidade.fkEmpresa as idEmpresa
             from capturaLuminosidade
             join sensor on idSensor = fkSensor
             join plantacao on plantacao.idPlantacao = sensor.fkPlantacao
@@ -216,8 +216,8 @@ function listarAlertasDashPrincipal(idEmpresa, permPlantacao) {
                 capturaLuminosidade.luminosidade,
                 sensor.regiao,
                 lupulo.tipoLupulo,
-                plantacao.idPlantacao,
-                empresa.idEmpresa
+                capturaluminosidade.fkPlantacao as idPlantacao,
+                capturaluminosidade.fkEmpresa as idEmpresa
             from capturaLuminosidade
             join sensor on idSensor = fkSensor
             join plantacao on plantacao.idPlantacao = sensor.fkPlantacao
@@ -234,8 +234,8 @@ function listarAlertasDashPrincipal(idEmpresa, permPlantacao) {
                 capturaLuminosidade.luminosidade,
                 sensor.regiao,
                 lupulo.tipoLupulo,
-                plantacao.idPlantacao,
-                empresa.idEmpresa
+                capturaluminosidade.fkPlantacao as idPlantacao,
+                empresa.fkEmpresa as idEmpresa
             from capturaLuminosidade
             join sensor on idSensor = fkSensor
             join plantacao on plantacao.idPlantacao = sensor.fkPlantacao
