@@ -235,7 +235,7 @@ function listarAlertasDashPrincipal(idEmpresa, permPlantacao) {
                 sensor.regiao,
                 lupulo.tipoLupulo,
                 capturaluminosidade.fkPlantacao as idPlantacao,
-                empresa.fkEmpresa as idEmpresa
+                capturaluminosidade.fkEmpresa as idEmpresa
             from capturaLuminosidade
             join sensor on idSensor = fkSensor
             join plantacao on plantacao.idPlantacao = sensor.fkPlantacao
