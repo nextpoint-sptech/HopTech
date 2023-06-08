@@ -1,4 +1,4 @@
-const apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=-22.7386&lon=-45.5921&appid=4b025dd406353d7177a9bade8545aa18`; // ID apenas para uso acadêmico, finalizando a sprint trocaremos
+const apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=-22.7386&lon=-45.5921&appid=4b025dd406353d7177a9bade8545aa18`; // ID apenas para uso acadêmico, finalizando a sprint trocaremos (Aualmente o ID está DESATIVADO)
 
 async function checarClima() {
     const response = await fetch(apiUrl); // Fetch: Buscando o dado na URL

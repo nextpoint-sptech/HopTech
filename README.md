@@ -1,13 +1,13 @@
 # Conheça a HopTech!
 
-<img src="https://github.com/nextpointbr/HopTech/blob/main/Site_Institucional_&_Sistema/assets/images/logosProjeto/HopTech-dark.png" width="400px" align="left">
+<img src="https://github.com/nextpointbr/HopTech/blob/main/Site/public/assets/images/logosProjeto/HopTech-dark.png" width="400px" align="left">
 
 #### O projeto HopTech surgiu com a iniciativa da nossa organização, e é um projeto que tem como principal objetivo desenvolver soluções simples e efetivas para problemas no plantio de lúpulo.
 #### Nosso objetivo é auxiliar no controle das plantações por meio de um sistema de monitoramento utilizando sensores e dashboards para coleta e análise de dados.
 
 Entenda um pouco melhor com nosso diagrama de solução logo abaixo... ⬇️
 ##
-<img src="https://github.com/nextpointbr/HopTech/blob/main/Documenta%C3%A7%C3%A3o/diagrama%20de%20solu%C3%A7%C3%A3o.png?raw=true">
+<img src="https://github.com/nextpointbr/Document/blob/main/Documenta%C3%A7%C3%A3o/diagramaDeSolucoes.png?raw=true">
 
 <br>
 
