@@ -62,8 +62,11 @@ Entre as premissas do projeto estão a disponibilidade de recursos para o desenv
 Entre as restrições, estão a necessidade de se utilizar o controlador Arduino com sensor de luminosidade. Além da utilização da ferramenta de controle de projeto TRELLO, programação somente em HTML e Javascript e criação de Bando de Dados no SQL Server.
 
 ## Fluxograma de Suporte de TI
-##
 <img src="./Document/fluxograma_suporte.png">
+
+## Diagrama de Entidade e Relacionamento (DER)
+<img src="./Site/src/database/DER-Hop_Tech.png">
+Acesse o <a href="./Site/src/database/">banco de dados</a>.
 
 ## Acesse a documentação oficial
 <a href="./Document">Documentação</a>
