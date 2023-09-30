@@ -1,0 +1,28 @@
+
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #588157;
+}
+
+.container{
+    padding: 2em;
+}
+
+
+.graficos{
+    display: flex;
+    justify-content: space-evenly;
+    padding: 1em;
+}
+
+.graficos section{
+    padding: 2em;
+    width: 49%;
+    background-color: #fefae0;
+}

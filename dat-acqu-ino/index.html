@@ -1,0 +1,275 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Line Chart</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+    <script src="http://www.chartjs.org/dist/2.7.1/Chart.js"></script>
+    <script src="http://www.chartjs.org/samples/latest/utils.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="graficos">
+            <section id="sectionNorte">
+                <h1>Sensor LDR5 - Luminosidade - Norte da Plantação</h1>
+                <canvas id="lumiNorte"></canvas>
+            </section>
+            <section id="sectionNordeste">
+                <h1>Sensor LDR5 - Luminosidade - Nordeste da Plantação</h1>
+                <canvas id="lumiNordeste"></canvas>
+            </section>
+        </div>
+        <div class="graficos">
+            <section id="sectionCentro">
+                <h1>Sensor LDR5 - Luminosidade - Centro-Oeste da Plantação</h1>
+                <canvas id="lumiCentro"></canvas>
+            </section>
+            <section id="sectionSudeste">
+                <h1>Sensor LDR5 - Luminosidade - Sudeste da Plantação</h1>
+                <canvas id="lumiSud"></canvas>
+            </section>
+        </div>
+        <div class="graficos">
+            <section id="sectionSul">
+                <h1>Sensor LDR5 - Luminosidade - Sul da Plantação</h1>
+                <canvas id="lumiSul"></canvas>
+            </section>
+        </div>
+    </div>
+
+    <script>
+        /* -- dht11Umidade -- */
+        var contextoLumiNorte = document.getElementById('lumiNorte').getContext('2d');
+        var graficoNorte = new Chart(
+            contextoLumiNorte,
+            {
+                type: 'line',
+                data: {
+                    datasets: [{
+                        label: 'Luminosidade',
+                        type: 'line',
+                        borderColor: ['#fff'],
+                        backgroundColor: ['#FAD6A5']
+                    }]
+                },
+                options: {
+                    scales: {
+                        xAxes: [{
+                            distribution: 'series',
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }],
+                        yAxes: [{
+                            scaleLabel: {
+                                display: true,
+                                labelString: 'Luminosidade'
+                            },
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }]
+                    },
+                    animation: {
+                        duration: 0
+                    }
+                }
+            }
+        );
+        /* -- dht11Temperatura -- */
+        var contextoLumiNordeste = document.getElementById('lumiNordeste').getContext('2d');
+        var graficoNordeste = new Chart(
+            contextoLumiNordeste,
+            {
+                type: 'line',
+                data: {
+                    datasets: [{
+                        label: "Luminosidade 2",
+                        type: 'line',
+                        borderColor: ['#fff'],
+                        backgroundColor: ['#CFB997']
+                    }]
+                },
+                options: {
+                    scales: {
+                        xAxes: [{
+                            distribution: 'series',
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }],
+                        yAxes: [{
+                            scaleLabel: {
+                                display: true,
+                                labelString: 'Luminosidade'
+                            },
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }]
+                    },
+                    animation: {
+                        duration: 0
+                    }
+                }
+            }
+        );
+        /* -- luminosidade -- */
+        var contextoLumiCentro = document.getElementById('lumiCentro').getContext('2d');
+        var graficoCentro = new Chart(
+            contextoLumiCentro,
+            {
+                type: 'line',
+                data: {
+                    datasets: [{
+                        label: 'Luminosidade 3',
+                        type: 'line',
+                        borderColor: ['#fff'],
+                        backgroundColor: ['#9DC08B']
+                    }]
+                },
+                options: {
+                    scales: {
+                        xAxes: [{
+                            distribution: 'series',
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }],
+                        yAxes: [{
+                            scaleLabel: {
+                                display: true,
+                                labelString: 'Luminosidade'
+                            },
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }]
+                    },
+                    animation: {
+                        duration: 0
+                    }
+                }
+            }
+        );
+        /* -- lm35Temperatura */
+        var contextoLumiSud = document.getElementById('lumiSud').getContext('2d');
+        var graficoSudeste = new Chart(
+            contextoLumiSud,
+            {
+                type: 'line',
+                data: {
+                    datasets: [{
+                        label: 'Luminosidade 4',
+                        type: 'line',
+                        borderColor: ['#fff'],
+                        backgroundColor: ['#609966']
+                    }]
+                },
+                options: {
+                    scales: {
+                        xAxes: [{
+                            distribution: 'series',
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }],
+                        yAxes: [{
+                            scaleLabel: {
+                                display: true,
+                                labelString: 'Luminosidade'
+                            },
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }]
+                    },
+                    animation: {
+                        duration: 0
+                    }
+                }
+            }
+        );
+        /* -- chave */
+        var contextoLumiSul = document.getElementById('lumiSul').getContext('2d');
+        var graficoSul = new Chart(
+            contextoLumiSul,
+            {
+                type: 'line',
+                data: {
+                    datasets: [{
+                        label: 'Luminosidade 5',
+                        type: 'line',
+                        borderColor: ['#fff'],
+                        backgroundColor: ['#40513B']
+                    }]
+                },
+                options: {
+                    scales: {
+                        xAxes: [{
+                            distribution: 'series',
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }],
+                        yAxes: [{
+                            scaleLabel: {
+                                display: true,
+                                labelString: 'Luminosidade'
+                            },
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }]
+                    },
+                    animation: {
+                        duration: 0
+                    }
+                }
+            }
+        );
+
+        var paginacao = {};
+        var tempo = {};
+        function obterDados(grafico, endpoint) {
+            var http = new XMLHttpRequest();
+            http.open('GET', 'http://localhost:3300/sensores/' + endpoint, false);
+            http.send(null);
+            var valores = JSON.parse(http.responseText);
+            if (paginacao[endpoint] == null) {
+                paginacao[endpoint] = 0;
+            }
+            if (tempo[endpoint] == null) {
+                tempo[endpoint] = 0;
+            }
+            // Exibir à partir do último elemento exibido anteriormente
+            var ultimaPaginacao = paginacao[endpoint];
+            paginacao[endpoint] = valores.length;
+            var valores = valores.slice(ultimaPaginacao);
+            valores.forEach((valor) => {
+                //Máximo de 60 itens exibidos no gráfico
+                if (grafico.data.labels.length == 10 && grafico.data.datasets[0].data.length == 10) {
+                    grafico.data.labels.shift();
+                    grafico.data.datasets[0].data.shift();
+                }
+
+                grafico.data.labels.push(tempo[endpoint]++);
+                grafico.data.datasets[0].data.push(parseFloat(valor));
+                grafico.update();
+            })
+        }
+
+        setInterval(() => {
+            obterDados(graficoNorte, 'luminosidade');
+            obterDados(graficoNordeste, 'luminosidade2');
+            obterDados(graficoCentro, 'luminosidade3');
+            obterDados(graficoSudeste, 'luminosidade4');
+            obterDados(graficoSul, 'luminosidade5');
+        }, 1000);
+
+    </script>
+</body>
+
+</html>
